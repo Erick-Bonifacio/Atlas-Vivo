@@ -46,7 +46,7 @@ async function main() {
 
   // estáticos: site sim, código do servidor e banco não
   for (const p of ['/', '/lessons.js', '/img/coracao.svg', '/img/r-corpo.jpg']) assert.equal((await anon('GET', p)).status, 200, p);
-  for (const p of ['/server.js', '/quizzes.js', '/.env', '/supabase-ca.crt', '/node_modules/pg/package.json', '/../server.js', '/vendor/../server.js', '/package.json'])
+  for (const p of ['/server.js', '/quizzes.js', '/.env', '/supabase-ca.crt', '/node_modules/pg/package.json', '/vercel.json', '/api/index.js', '/..%2Fserver.js', '/%2e%2e/quizzes.js', '/../server.js', '/vendor/../server.js', '/package.json'])
     assert.equal((await anon('GET', p)).status, 404, p);
 
   // anônimo
@@ -123,7 +123,7 @@ async function main() {
   assert.equal(r.body.levelUp, true);
 
   // questão respondida no modelo 3D: vale o id da estrutura clicada
-  const part = pt => require('./atlas2/manifest.json').parts.find(p => p.pt === pt).id;
+  const part = pt => require('./public/atlas2/manifest.json').parts.find(p => p.pt === pt).id;
   r = (await ana('GET', '/api/quizzes')).body.quizzes.find(z => z.id === 'digestorio').questions.find(q => q.id === 'dig4');
   assert.equal(r.kind, 'model');
   assert.deepEqual(r.view, { sys: ['digestorio'] });

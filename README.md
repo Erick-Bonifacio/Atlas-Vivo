@@ -19,17 +19,27 @@ PostgreSQL no Supabase. A conexão fica no arquivo `.env`:
 
 ```
 PGHOST=aws-0-us-west-2.pooler.supabase.com
-PGPORT=5432
+PGPORT=6543
 PGDATABASE=postgres
 PGUSER=postgres.<id-do-projeto>
 PGPASSWORD='<senha>'
 ```
 
-Ao trocar a senha no Supabase, atualize `PGPASSWORD` e reinicie o servidor. Não publique o `.env`.
+A porta 6543 é o pooler do Supabase em modo transação, que aguenta muitas conexões curtas (necessário no Vercel). Ao trocar a senha no Supabase, atualize `PGPASSWORD` e reinicie o servidor. Não publique o `.env`.
 
 As tabelas (`users`, `sessions`, `answers`) são criadas sozinhas na primeira execução, no esquema `atlasvivo`. Elas ficam fora do esquema `public` de propósito: no Supabase, o que está em `public` é exposto pela API REST do projeto.
 
 A conexão usa TLS verificado com o certificado `supabase-ca.crt`.
+
+## Publicar no Vercel
+
+O repositório já está preparado: `public/` vai para a CDN e `api/index.js` atende toda a API como função (`vercel.json` faz o encaminhamento).
+
+1. Importe o repositório no Vercel com o preset **Other**. Não precisa de comando de build.
+2. Em *Settings → Environment Variables*, defina `PGHOST`, `PGPORT=6543`, `PGDATABASE`, `PGUSER` e `PGPASSWORD`.
+3. Faça o deploy. A função roda em `pdx1` (Portland), perto do banco em `us-west-2`; se o banco mudar de região, ajuste `regions` no `vercel.json`.
+
+No Vercel o cookie de sessão sai com `Secure`, e o limite de tentativas de login vale por instância da função.
 
 ## O que tem
 
@@ -57,25 +67,26 @@ Vale a primeira resposta de cada questão. A cada 150 pontos, um nível.
 
 | Arquivo | Papel |
 | --- | --- |
-| `server.js` | Servidor HTTP: arquivos estáticos e API (`/api/*`) |
+| `server.js` | API (`/api/*`) e, no uso local, servidor dos arquivos de `public/` |
+| `api/index.js`, `vercel.json` | Entrada da API como função do Vercel e regras de encaminhamento |
 | `quizzes.js` | Banco de questões. Fica só no servidor; o gabarito é enviado depois da resposta |
-| `index.html` | Interface (template e lógica do componente) |
-| `lessons.js` | Conteúdo das aulas e registro das imagens com créditos |
-| `img/` | Renders do modelo 3D e diagramas do Wikimedia Commons |
-| `atlas3d-v2.js` | Cena 3D |
-| `atlas2/`, `fonts/`, `vendor/` | Malhas, fontes e bibliotecas |
+| `public/index.html` | Interface (template e lógica do componente) |
+| `public/lessons.js` | Conteúdo das aulas, vistas do modelo 3D por seção e registro das imagens com créditos |
+| `public/img/` | Renders do modelo 3D, diagramas do Wikimedia Commons e logos |
+| `public/atlas3d-v2.js` | Cena 3D |
+| `public/atlas2/`, `public/fonts/`, `public/vendor/` | Malhas, fontes e bibliotecas |
 | `test.js` | Teste de ponta a ponta da API: `npm test`. Usa o esquema `atlasvivo_test`, criado e apagado pelo teste; não toca nos dados reais |
 
 ## Imagens
 
-Os renders (`img/r-*.jpg`) foram gerados pelo próprio Atlas a partir do BodyParts3D (© DBCLS, CC BY 4.0). Os diagramas (`img/*.svg`) vêm do Wikimedia Commons, em domínio público ou licença Creative Commons; em alguns, os rótulos foram traduzidos para o português. Autor e licença de cada um aparecem na legenda da figura e na página "Sobre o projeto".
+Os renders (`public/img/r-*.jpg`) foram gerados pelo próprio Atlas a partir do BodyParts3D (© DBCLS, CC BY 4.0). Os diagramas (`public/img/*.svg`) vêm do Wikimedia Commons, em domínio público ou licença Creative Commons; em alguns, os rótulos foram traduzidos para o português. Autor e licença de cada um aparecem na legenda da figura e na página "Sobre o projeto".
 
-Os ícones da interface são do Lucide (lucide.dev, licença ISC), embutidos no CSS de `index.html`. A logo do projeto está em `img/logo.png` e `img/logo-full.png`; as placas da UNIFEI e do IMC na cena 3D, em `img/unifei.png` e `img/imc.png`.
+Os ícones da interface são do Lucide (lucide.dev, licença ISC), embutidos no CSS de `public/index.html`. A logo do projeto está em `public/img/logo.png` e `public/img/logo-full.png`; as placas da UNIFEI e do IMC na cena 3D, em `public/img/unifei.png` e `public/img/imc.png`.
 
-Para acrescentar questões, edite `quizzes.js` e reinicie o servidor. Para editar aulas, edite `lessons.js`: além do texto, ele define o que o modelo 3D mostra em cada seção (`VIEW`) e quais termos viram link para o modelo (`TERMS`). Questões de modelo ficam no fim de `quizzes.js` (`mq`). `npm test` confere se cada questão tem gabarito válido e um comentário por alternativa.
+Para acrescentar questões, edite `quizzes.js` e reinicie o servidor. Para editar aulas, edite `public/lessons.js`: além do texto, ele define o que o modelo 3D mostra em cada seção (`VIEW`) e quais termos viram link para o modelo (`TERMS`). Questões de modelo ficam no fim de `quizzes.js` (`mq`). `npm test` confere se cada questão tem gabarito válido e um comentário por alternativa.
 
 ## Segurança
 
-Senhas guardadas como hash scrypt com sal. Sessão em cookie `HttpOnly` e `SameSite=Lax`. Limite de 8 tentativas de login erradas a cada 10 minutos. Se publicar atrás de HTTPS, acrescente `; Secure` ao cookie em `server.js`.
+Senhas guardadas como hash scrypt com sal. Sessão em cookie `HttpOnly` e `SameSite=Lax`. Limite de 8 tentativas de login erradas a cada 10 minutos. Atrás de HTTPS, o cookie sai também com `Secure`. Só o que está em `public/` é servido; `quizzes.js`, com os gabaritos, fica no servidor.
 
 A cena 3D carrega three.js de cdn.jsdelivr.net, então o atlas precisa de internet.

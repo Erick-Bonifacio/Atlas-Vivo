@@ -1,5 +1,6 @@
-// Atlas Vivo — servidor: arquivos estáticos + API de contas, quizzes e gamificação.
-// Banco: PostgreSQL (Supabase), configurado pelas variáveis PG* do arquivo .env.
+// Atlas Vivo — API de contas, quizzes e gamificação, mais os arquivos estáticos de public/.
+// Roda de dois jeitos: "npm start" (servidor local) ou como função do Vercel (api/index.js importa este módulo;
+// lá os estáticos saem direto da CDN). Banco: PostgreSQL (Supabase), configurado pelas variáveis PG*.
 'use strict';
 const http = require('node:http');
 const fs = require('node:fs');
@@ -13,7 +14,8 @@ const SESSION_DAYS = 30;
 // Esquema próprio, fora do "public": no Supabase, tabelas do public ficam expostas pela API REST do projeto.
 const SCHEMA = process.env.PGSCHEMA || 'atlasvivo';
 if (!/^[a-z_][a-z0-9_]*$/.test(SCHEMA)) throw new Error('PGSCHEMA inválido');
-if (!process.env.PGHOST || !process.env.PGPASSWORD) throw new Error('Faltam as variáveis PG* do banco. Rode com "npm start" (lê o arquivo .env).');
+if (!process.env.PGHOST || !process.env.PGPASSWORD) throw new Error('Faltam as variáveis PG* do banco: localmente, rode com "npm start" (lê o .env); no Vercel, defina-as no painel.');
+const PUB = path.join(__dirname, 'public');
 
 // ── Regras de pontuação ──
 const PTS = { 'Básica': 10, 'Intermediária': 15 };
@@ -24,7 +26,7 @@ const LEVEL_STEP = 150;
 const LESSON_IDS = QUIZZES.map(z => z.id);
 const TITLES = ['Calouro', 'Curioso', 'Explorador', 'Monitor', 'Anatomista', 'Fisiologista', 'Especialista', 'Mestre do Atlas'];
 // Estruturas do modelo 3D, para as questões respondidas clicando no modelo (kind: 'model').
-const PARTS = JSON.parse(fs.readFileSync(path.join(__dirname, 'atlas2', 'manifest.json'), 'utf8')).parts;
+const PARTS = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'atlas2', 'manifest.json'), 'utf8')).parts;
 const PART_NAME = new Map(PARTS.map(p => [p.id, p.pt || p.n]));
 const nm = s => (s || '').toLowerCase().normalize('NFD').replace(/\p{M}/gu, '');
 for (const z of QUIZZES) for (const q of z.questions) if (q.kind === 'model') {
@@ -36,11 +38,17 @@ const QBYID = new Map();
 for (const z of QUIZZES) for (const q of z.questions) QBYID.set(q.id, { q, z });
 
 // ── Banco ──
-// TLS verificado com a CA do Supabase. max 5: o pooler em modo sessão tem poucas conexões por projeto.
-const pool = new Pool({ ssl: { ca: fs.readFileSync(path.join(__dirname, 'supabase-ca.crt'), 'utf8') }, options: `-c search_path=${SCHEMA}`, max: 5 });
+// TLS verificado com a CA do Supabase. Feito para o pooler em modo transação (porta 6543), que aguenta muitas
+// funções abertas ao mesmo tempo; nesse modo o search_path não persiste, então o esquema vai escrito em cada consulta.
+const pool = new Pool({ ssl: { ca: fs.readFileSync(path.join(__dirname, 'supabase-ca.crt'), 'utf8') }, max: process.env.VERCEL ? 2 : 5 });
 pool.on('error', e => console.error('banco:', e.message));
-const all = (text, params) => pool.query(text, params).then(r => r.rows);
+const sql = text => text.replace(/\b(users|sessions|answers)\b/g, SCHEMA + '.$1'); // nome da tabela -> esquema.tabela
+const run = (text, params) => pool.query(sql(text), params);
+const all = (text, params) => run(text, params).then(r => r.rows);
 const one = (text, params) => all(text, params).then(r => r[0] || null);
+// Cria esquema e tabelas na primeira requisição de cada instância (no Vercel, a cada "cold start").
+let ready = null;
+const init = () => ready || (ready = initDb().catch(e => { ready = null; throw e; }));
 async function initDb() {
   await pool.query(`
     CREATE SCHEMA IF NOT EXISTS ${SCHEMA};
@@ -80,11 +88,11 @@ function checkPass(pass, stored) {
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 const sha = t => crypto.createHash('sha256').update(t).digest('hex');
-async function newSession(res, uid) {
+const secure = req => (req.headers['x-forwarded-proto'] === 'https' ? '; Secure' : '');
+async function newSession(req, res, uid) {
   const token = crypto.randomBytes(32).toString('hex');
   await all('INSERT INTO sessions (token, user_id, expires) VALUES ($1, $2, $3)', [sha(token), uid, Date.now() + SESSION_DAYS * 864e5]);
-  // Atrás de HTTPS, acrescente "; Secure".
-  res.setHeader('Set-Cookie', `sid=${token}; HttpOnly; SameSite=Lax; Path=/; Max-Age=${SESSION_DAYS * 86400}`);
+  res.setHeader('Set-Cookie', `sid=${token}; HttpOnly; SameSite=Lax; Path=/; Max-Age=${SESSION_DAYS * 86400}${secure(req)}`);
 }
 const sidOf = req => (/(?:^|;\s*)sid=([0-9a-f]{64})/.exec(req.headers.cookie || '') || [])[1];
 function userOf(req) {
@@ -92,10 +100,11 @@ function userOf(req) {
   if (!sid) return null;
   return one('SELECT u.* FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token = $1 AND s.expires > $2', [sha(sid), Date.now()]);
 }
-const clearCookie = res => res.setHeader('Set-Cookie', 'sid=; HttpOnly; SameSite=Lax; Path=/; Max-Age=0');
+const clearCookie = (req, res) => res.setHeader('Set-Cookie', 'sid=; HttpOnly; SameSite=Lax; Path=/; Max-Age=0' + secure(req));
 
 // Limite de tentativas de login: 8 falhas por IP+e-mail a cada 10 min.
-// ponytail: em memória, zera ao reiniciar; troque por tabela se houver mais de um processo.
+// ponytail: em memória; no Vercel vale por instância da função e zera a cada cold start. Troque por tabela se precisar de limite firme.
+const clientIp = req => (process.env.VERCEL && (req.headers['x-forwarded-for'] || '').split(',')[0].trim()) || req.socket.remoteAddress;
 const fails = new Map();
 function throttled(key) {
   const f = fails.get(key);
@@ -181,23 +190,23 @@ const routes = {
   async 'POST /api/register'(req, res, b) {
     const name = vName(b.name), email = vEmail(b.email), inst = vInst(b.inst), pass = vPass(b.password);
     const u = await one('INSERT INTO users (name, email, inst, pass) VALUES ($1, $2, $3, $4) RETURNING *', [name, email, inst, hashPass(pass)]).catch(dupEmail);
-    await newSession(res, u.id);
+    await newSession(req, res, u.id);
     return [201, await session(u)];
   },
   async 'POST /api/login'(req, res, b) {
-    const email = str(b.email).toLowerCase(), key = req.socket.remoteAddress + '|' + email;
+    const email = str(b.email).toLowerCase(), key = clientIp(req) + '|' + email;
     if (throttled(key)) throw new Bad('Muitas tentativas. Aguarde alguns minutos e tente de novo.', 429);
     const u = await one('SELECT * FROM users WHERE email = $1', [email]);
     if (!u || typeof b.password !== 'string' || !checkPass(b.password, u.pass)) { failed(key); throw new Bad('E-mail ou senha incorretos.', 401); }
     fails.delete(key);
     await all('DELETE FROM sessions WHERE expires < $1', [Date.now()]); // faxina das sessões vencidas
-    await newSession(res, u.id);
+    await newSession(req, res, u.id);
     return [200, await session(u)];
   },
   async 'POST /api/logout'(req, res) {
     const sid = sidOf(req);
     if (sid) await all('DELETE FROM sessions WHERE token = $1', [sha(sid)]);
-    clearCookie(res);
+    clearCookie(req, res);
     return [200, { ok: true }];
   },
   async 'GET /api/me'(req, res, b, u) { return [200, u ? await session(u) : { user: null }]; },
@@ -209,14 +218,14 @@ const routes = {
     const nu = await one('UPDATE users SET name = $1, email = $2, inst = $3, pass = $4 WHERE id = $5 RETURNING *', [name, email, inst, newPass ? hashPass(newPass) : u.pass, u.id]).catch(dupEmail);
     if (newPass) { // troca de senha encerra as outras sessões
       await all('DELETE FROM sessions WHERE user_id = $1', [u.id]);
-      await newSession(res, u.id);
+      await newSession(req, res, u.id);
     }
     return [200, await session(nu)];
   },
   async 'DELETE /api/me'(req, res, b, u) {
     if (typeof b.password !== 'string' || !checkPass(b.password, u.pass)) throw new Bad('Senha incorreta.', 403);
     await all('DELETE FROM users WHERE id = $1', [u.id]); // respostas e sessões saem por ON DELETE CASCADE
-    clearCookie(res);
+    clearCookie(req, res);
     return [200, { ok: true }];
   },
   async 'PUT /api/progress'(req, res, b, u) {
@@ -249,7 +258,7 @@ const routes = {
     else if (!Number.isInteger(b.sel) || b.sel < 0 || b.sel >= q.opts.length) throw new Bad('Alternativa inválida.');
     const correct = (model ? q.ids.includes(b.part) : b.sel === q.ans) ? 1 : 0, points = correct ? PTS[q.diff] : 0;
     // Só a primeira tentativa vale: a chave primária (user_id, qid) barra a segunda.
-    const ins = await pool.query('INSERT INTO answers (user_id, qid, sel, pick, correct, points) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING', [u.id, q.id, model ? -1 : b.sel, model ? b.part : null, correct, points]);
+    const ins = await run('INSERT INTO answers (user_id, qid, sel, pick, correct, points) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING', [u.id, q.id, model ? -1 : b.sel, model ? b.part : null, correct, points]);
     if (!ins.rowCount) throw new Bad('Você já respondeu a esta questão.', 409);
     const rows = await answersOf(u.id);
     const before = stats(u, rows.filter(r => r.qid !== q.id)), after = stats(u, rows);
@@ -276,6 +285,7 @@ const routes = {
 const PUBLIC = new Set(['POST /api/register', 'POST /api/login', 'POST /api/logout', 'GET /api/me', 'GET /api/quizzes']);
 
 function readBody(req) {
+  if (req.body !== undefined) return Promise.resolve(req.body && typeof req.body === 'object' && !Buffer.isBuffer(req.body) ? req.body : {});
   return new Promise((resolve, reject) => {
     let size = 0; const chunks = [];
     req.on('data', c => { size += c.length; if (size > 16384) { reject(new Bad('Requisição muito grande.', 413)); req.destroy(); } else chunks.push(c); });
@@ -298,6 +308,7 @@ async function api(req, res, pathname) {
     // Corpo só como JSON: formulários de outros sites não conseguem enviar esse tipo sem CORS.
     if (req.method !== 'GET' && !/^application\/json/.test(req.headers['content-type'] || '')) throw new Bad('Envie application/json.', 415);
     const body = req.method === 'GET' ? {} : await readBody(req);
+    await init();
     const u = await userOf(req);
     if (!u && !PUBLIC.has(key)) throw new Bad('Entre na sua conta para continuar.', 401);
     const [status, out] = await handler(req, res, body, u);
@@ -308,37 +319,39 @@ async function api(req, res, pathname) {
   }
 }
 
-// ── Arquivos estáticos: só o que o site usa (nunca server.js, quizzes.js ou .env) ──
-const STATIC_FILES = new Set(['index.html', 'atlas3d-v2.js', 'lessons.js']);
-const STATIC_DIRS = ['vendor', 'fonts', 'atlas2', 'img'];
+// ── Arquivos estáticos: só o que está em public/ (uso local; no Vercel a CDN serve esses arquivos) ──
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json', '.woff2': 'font/woff2', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.wasm': 'application/octet-stream' };
 function serveStatic(req, res, pathname) {
   let rel;
   try { rel = decodeURIComponent(pathname).replace(/^\/+/, '') || 'index.html'; } catch (e) { rel = '\0'; }
-  const parts = rel.split('/');
-  const ok = !rel.includes('\0') && !parts.includes('..') && !rel.includes('\\') &&
-    (STATIC_FILES.has(rel) || (parts.length === 2 && STATIC_DIRS.includes(parts[0])));
-  const file = path.join(__dirname, rel);
-  if (!ok || (req.method !== 'GET' && req.method !== 'HEAD') || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
+  const file = path.join(PUB, rel);
+  const ok = !rel.includes('\0') && file.startsWith(PUB + path.sep) && (req.method === 'GET' || req.method === 'HEAD') && fs.existsSync(file) && fs.statSync(file).isFile();
+  if (!ok) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     return res.end('Não encontrado');
   }
-  const ext = path.extname(file);
   res.writeHead(200, {
-    'Content-Type': MIME[ext] || 'application/octet-stream',
+    'Content-Type': MIME[path.extname(file)] || 'application/octet-stream',
     'Content-Length': fs.statSync(file).size,
-    'Cache-Control': STATIC_DIRS.includes(parts[0]) && parts[0] !== 'vendor' ? 'public, max-age=86400' : 'no-cache',
+    'Cache-Control': /^(fonts|atlas2|img)\//.test(rel) ? 'public, max-age=86400' : 'no-cache',
   });
   if (req.method === 'HEAD') return res.end();
   fs.createReadStream(file).pipe(res);
 }
 
-initDb().then(() => {
-  http.createServer((req, res) => {
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('Referrer-Policy', 'same-origin');
-    const { pathname } = new URL(req.url, 'http://x');
-    if (pathname.startsWith('/api/')) api(req, res, pathname);
-    else serveStatic(req, res, pathname);
-  }).listen(PORT, () => console.log(`Atlas Vivo em http://localhost:${PORT} (banco: ${process.env.PGHOST}, esquema ${SCHEMA})`));
-}, e => { console.error('Não foi possível conectar ao banco:', e.message); process.exit(1); });
+function handler(req, res) {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'same-origin');
+  const url = new URL(req.url, 'http://x');
+  // no Vercel, /api/<rota> é reescrito para a função com a rota em ?__p= (ver vercel.json)
+  const pathname = url.searchParams.has('__p') ? '/api/' + url.searchParams.get('__p') : url.pathname;
+  if (pathname.startsWith('/api/')) return api(req, res, pathname);
+  serveStatic(req, res, pathname);
+}
+module.exports = handler;
+
+if (require.main === module) {
+  init().then(() => {
+    http.createServer(handler).listen(PORT, () => console.log(`Atlas Vivo em http://localhost:${PORT} (banco: ${process.env.PGHOST}:${process.env.PGPORT || 5432}, esquema ${SCHEMA})`));
+  }, e => { console.error('Não foi possível conectar ao banco:', e.message); process.exit(1); });
+}
