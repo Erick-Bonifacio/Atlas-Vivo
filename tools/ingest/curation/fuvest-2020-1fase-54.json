@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Dois esquemas de células, lado a lado. A célula 1 tem um núcleo e várias mitocôndrias espalhadas pelo citoplasma. A célula 2 tem um núcleo, poucas mitocôndrias e muitas vesículas secretoras, grandes e pequenas."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "digestorio",
+  "topic": "Fígado e pâncreas"
+ }
+}

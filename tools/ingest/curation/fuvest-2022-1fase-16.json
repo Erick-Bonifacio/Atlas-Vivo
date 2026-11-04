@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Gráfico com cinco regiões do sistema sanguíneo no eixo horizontal (artérias, arteríolas, capilares, vênulas e veias) e valores progressivos no vertical, com três curvas. A pressão sanguínea é alta nas artérias, cai nas arteríolas e fica baixa nos capilares, vênulas e veias. A velocidade começa alta, cai muito e chega ao menor valor nos capilares, e volta a subir nas vênulas e veias, sem alcançar o valor inicial. A área total é baixa nas artérias, sobe nas arteríolas, chega ao máximo nos capilares e cai de novo nas vênulas e veias."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "cardiovascular",
+  "topic": "Artérias, veias e capilares"
+ }
+}

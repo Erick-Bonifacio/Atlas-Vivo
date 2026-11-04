@@ -12,7 +12,7 @@ from pathlib import Path
 
 import pymupdf
 
-from .common import ITEMS, RAW, sha256_file, write_json
+from .common import ITEMS, RAW, STAGING, sha256_file, write_json
 
 BASE = "https://www.fuvest.br/wp-content/uploads/"
 # ano -> (prova, gabarito, nome do caderno). O caderno do gabarito é o primeiro da tabela (V, ou V1 desde 2025).
@@ -28,6 +28,13 @@ EXAMS = {
 }
 LOCAL = {y: (f"{y}-prova.pdf", f"{y}-gabarito.pdf") for y in EXAMS}
 TOTAL = 90
+# (ano, questão) -> [(página 1-based, (x0, y0, x1, y1))]. Recorte conferido olhando a página; o texto dentro do retângulo
+# (rótulos do gráfico) sai do enunciado e a figura entra no lugar, com texto alternativo escrito na curadoria.
+FIGURES = {
+    (2020, 54): [(15, (326, 408, 566, 512))],
+    (2022, 16): [(6, (326, 300, 544, 436))],
+    (2024, 20): [(8, (34, 118, 290, 281))],
+}
 
 NUM = re.compile(r"^\{?\s*(\d{1,2})\s*\}?$")
 OPT = re.compile(r"^\(([A-E])\)\s*(.*)$")
@@ -111,7 +118,7 @@ def has_visual(spans, vis, page_width=595):
             col = 0 if (r.x0 + r.x1) / 2 < page_width / 2 else 1
             cands = cols.values() if r.width > page_width * 0.7 else ([cols[col]] if col in cols else [])
             for ymin, ymax in cands:
-                if r.y1 >= ymin - 2 and r.y0 <= ymax + 2:
+                if r.y0 >= ymin - 1 and r.y1 <= ymax + 1:
                     if kind == "img":
                         return True
                     draws += 1
@@ -158,7 +165,7 @@ def parse_exam(doc):
     return questions, shared_for, vis, found
 
 
-def build(q, shared, vis):
+def build(q, shared, vis, figs=None):
     """Devolve (item_parcial, motivo_de_descarte)."""
     seg = q["lines"]
     if not seg:
@@ -171,6 +178,22 @@ def build(q, shared, vis):
     stem_lines = seg[:opt_idx[0]]
     if not stem_lines:
         return None, "sem_enunciado"
+    if figs:
+        placed, kept = set(), []
+        for l in stem_lines:
+            hit = next((k for k, (pg, r) in enumerate(figs)
+                        if l["page"] == pg - 1 and r[0] <= (l["bbox"][0] + l["bbox"][2]) / 2 <= r[2] and r[1] <= (l["bbox"][1] + l["bbox"][3]) / 2 <= r[3]), None)
+            if hit is not None:
+                if hit not in placed:
+                    placed.add(hit)
+                    kept.append({"fig": hit, "blk": ("fig", hit), "page": l["page"], "bbox": l["bbox"], "text": "", "bold": False, "mixed": False})
+                continue
+            kept.append(l)
+        for k, (pg, r) in enumerate(figs):
+            if k not in placed:   # figura sem texto dentro: entra antes da primeira linha abaixo dela
+                at = next((i for i, l in enumerate(kept) if l["page"] == pg - 1 and l["bbox"][1] >= r[3]), len(kept))
+                kept.insert(at, {"fig": k, "blk": ("fig", k), "page": pg - 1, "bbox": (r[0], r[1], r[2], r[3]), "text": "", "bold": False, "mixed": False})
+        stem_lines = kept
     opts = []
     for j, k in enumerate(opt_idx):
         end = opt_idx[j + 1] if j + 1 < len(opt_idx) else len(seg)
@@ -212,6 +235,9 @@ def build(q, shared, vis):
     blocks = []
     all_lines = list(shared) + list(stem_lines)
     for par in paragraphs(all_lines):
+        if "fig" in par[0]:
+            blocks.append({"t": "fig", "src": f"f{par[0]['fig']:02d}.png", "alt": ""})
+            continue
         if SHARED.match(par[0]["text"]):
             par = par[1:]
             if not par:
@@ -231,9 +257,9 @@ def build(q, shared, vis):
         d = spans.setdefault(l["page"], {})
         lo, hi = d.get(col, (l["bbox"][1], l["bbox"][3]))
         d[col] = (min(lo, l["bbox"][1]), max(hi, l["bbox"][3]))
-    if has_visual(spans, vis):
+    if not figs and has_visual(spans, vis):
         return None, "figura_ou_tabela"
-    text_all = " ".join(b["text"] for b in blocks) + " " + " ".join(o["text"] for o in opts)
+    text_all = " ".join(b.get("text", "") for b in blocks) + " " + " ".join(o["text"] for o in opts)
     if re.search(r"[\ufffd\u0000-\u0008\u0b80-\u0bff\U0001d400-\U0001d7ff]|\(cid:", text_all):
         return None, "lixo_de_codificacao"
     for o in opts:
@@ -278,7 +304,8 @@ def ingest(years=None, verbose=True):
             if n not in questions:
                 stats["sem_inicio"] = stats.get("sem_inicio", 0) + 1
                 continue
-            built, why = build(questions[n], shared_for.get(n, []), vis)
+            figs = FIGURES.get((year, n))
+            built, why = build(questions[n], shared_for.get(n, []), vis, figs)
             if not built:
                 stats[why] = stats.get(why, 0) + 1
                 continue
@@ -296,6 +323,10 @@ def ingest(years=None, verbose=True):
                 "media_dir": f"fuvest/{year}/{n:02d}", "facsimiles": [], "flags": [], "review": [], "reasons": [],
                 "missing_words": {}, "extra_words": {}, "ocr": False, "ocr_reasons": [], "irt": None, "skill": None,
             }
+            for k, (pg, r) in enumerate(figs or []):
+                out = STAGING / "media" / item["media_dir"]
+                out.mkdir(parents=True, exist_ok=True)
+                doc[pg - 1].get_pixmap(matrix=pymupdf.Matrix(3, 3), clip=pymupdf.Rect(*r)).save(out / f"f{k:02d}.png")
             write_json(ITEMS / f"fuvest-{year}-1fase-{n:02d}.json", item)
             stats["ok"] += 1
         report[year] = stats

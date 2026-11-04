@@ -1,0 +1,87 @@
+{
+ "questions": [
+  {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": "V",
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_gabarito_primeira_fase_retificado_2023-11-24.pdf",
+     "number": 20,
+     "page": 8,
+     "pdf_url": "https://www.fuvest.br/wp-content/uploads/fuvest2024_primeira_fase_prova_V.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "1fase",
+   "id": "fuvest:2024:1fase:20",
+   "inst": "fuvest",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "digestão da substância I é feita por amilases presentes no duodeno."
+    },
+    {
+     "text": "digestão da substância II é feita por lipases presentes da boca."
+    },
+    {
+     "text": "substância III é um amido digerido por amilases presentes boca."
+    },
+    {
+     "text": "substância IV é uma proteína digerida pela bile no estômago."
+    },
+    {
+     "text": "substâncias I, II e III são digeridas, respectivamente, na boca, no estômago e no duodeno."
+    }
+   ],
+   "phase": "1fase",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da FUVEST nem protocolo. O acervo público da FUVEST (fuvest.br/acervo-vestibular) não traz aviso de direitos nas páginas consultadas. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.fuvest.br/acervo-vestibular-2026/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O gráfico a seguir ilustra o perfil de digestão de quatro substâncias no organismo humano, de acordo com a variação do pH."
+    },
+    {
+     "alt": "Gráfico da porcentagem de material não digerido, de 0 a 100, em função do pH, de 1 a 12, com quatro curvas tracejadas. Todas partem de 100% e caem para cerca de 5%: a curva I cai entre pH 1 e 3, a II entre 3,5 e 5,5, a III entre 5,5 e 7,5 e a IV entre 7,5 e 9,5.",
+     "src": "img/q/fuvest-2024-1fase-20/f00.png",
+     "t": "fig"
+    },
+    {
+     "t": "p",
+     "text": "A análise dos dados permite concluir que a(s)"
+    }
+   ],
+   "system": "digestorio",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Digestão mecânica e química",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2024
+  }
+ ]
+}

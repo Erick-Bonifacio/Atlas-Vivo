@@ -1,0 +1,87 @@
+{
+ "questions": [
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": "V",
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_gabarito_retificado.pdf",
+     "number": 16,
+     "page": 6,
+     "pdf_url": "https://www.fuvest.br/wp-content/uploads/fuvest_2022_primeira_fase_tipo_V.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "1fase",
+   "id": "fuvest:2022:1fase:16",
+   "inst": "fuvest",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "a velocidade aumenta nas vênulas, o que permite às hemoglobinas descarregarem o O2."
+    },
+    {
+     "text": "a pressão sanguínea cai nos capilares, vênulas e veias pela presença de válvulas nesses vasos."
+    },
+    {
+     "text": "a pressão diminui a partir dos capilares, o que evita acidentes vasculares em vasos menores."
+    },
+    {
+     "text": "a área aumenta na região dos capilares, o que permite maior eficiência nas trocas gasosas."
+    },
+    {
+     "text": "a velocidade é inversamente proporcional à área por conta do batimento sistólico do coração."
+    }
+   ],
+   "phase": "1fase",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da FUVEST nem protocolo. O acervo público da FUVEST (fuvest.br/acervo-vestibular) não traz aviso de direitos nas páginas consultadas. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.fuvest.br/acervo-vestibular-2026/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A figura sintetiza, de forma simplificada, a variação da pressão sanguínea (mmHg), da velocidade de circulação sanguínea (cm/s) e da área total (cm^{2}) em relação aos diversos tipos de vasos do sistema sanguíneo humano (artérias, arteríolas, capilares, vênulas e veias):"
+    },
+    {
+     "alt": "Gráfico com cinco regiões do sistema sanguíneo no eixo horizontal (artérias, arteríolas, capilares, vênulas e veias) e valores progressivos no vertical, com três curvas. A pressão sanguínea é alta nas artérias, cai nas arteríolas e fica baixa nos capilares, vênulas e veias. A velocidade começa alta, cai muito e chega ao menor valor nos capilares, e volta a subir nas vênulas e veias, sem alcançar o valor inicial. A área total é baixa nas artérias, sobe nas arteríolas, chega ao máximo nos capilares e cai de novo nas vênulas e veias.",
+     "src": "img/q/fuvest-2022-1fase-16/f00.png",
+     "t": "fig"
+    },
+    {
+     "t": "p",
+     "text": "Com base na figura, é correto afirmar que"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Artérias, veias e capilares",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2022
+  }
+ ]
+}
