@@ -53,22 +53,27 @@
    "status": "cleared"
   },
   {
-   "basis": null,
-   "covers": [],
-   "decided_by": null,
-   "decided_on": null,
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da COMVEST nem protocolo. As páginas de vestibulares anteriores da COMVEST trazem apenas o aviso \"Todos os Direitos Reservados\" no rodapé. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
    "evidence": [
     "https://www.comvest.unicamp.br/vestibulares-anteriores/"
    ],
    "findings": [
-    "Provas anteriores publicadas pela Comvest; licença de reprodução não localizada na página de vestibulares anteriores."
+    "Provas anteriores publicadas pela Comvest; licença de reprodução não localizada na página de vestibulares anteriores.",
+    "2026-11-04: liberado pela pessoa responsável com a base acima. Risco residual conhecido: o rodapé reserva todos os direitos e há material de terceiros nas provas."
    ],
    "id": "unicamp-comvest",
    "path_to_clear": "Solicitar autorização por escrito à Comvest (vestibular@unicamp.br).",
    "scope": {
     "inst": "unicamp"
    },
-   "status": "needs_authorization"
+   "status": "cleared"
   },
   {
    "basis": null,

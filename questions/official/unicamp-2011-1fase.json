@@ -1,0 +1,84 @@
+{
+ "questions": [
+  {
+   "ans": 0,
+   "appearances": [
+    {
+     "booklet": "QZ",
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://www.comvest.unicamp.br/vest2011/F1/gabarito2011.pdf",
+     "number": 8,
+     "page": 6,
+     "pdf_url": "https://www.comvest.unicamp.br/vest2011/F1/f12011QZ.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "1fase",
+   "id": "unicamp:2011:1fase:08",
+   "inst": "unicamp",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "se os níveis de glicose no sangue estão altos, a secreção de insulina aumenta para permitir que as moléculas de glicose sejam absorvidas pelas células, e os níveis de glucagon permanecem baixos, pois não há necessidade de o glicogênio ser transformado em glicose."
+    },
+    {
+     "text": "o aumento dos níveis de glicose no sangue causa um aumento da secreção de insulina e de glucagon por células do pâncreas, pois ambos os hormônios contribuem para que as moléculas de açúcar atravessem a membrana plasmática das células."
+    },
+    {
+     "text": "a secreção de glucagon é alta em indivíduos que tenham se alimentado de carboidrato duas horas antes, pois muitos desses carboidratos acabam se transformando em glicose; já com relação à insulina, ocorre um aumento porque os níveis de glicose estão elevados."
+    },
+    {
+     "text": "as células secretoras do pâncreas estão sempre produzindo grandes quantidades de insulina e de glucagon, pois esses dois hormônios são responsáveis pela captura de glicose do sangue para as células."
+    }
+   ],
+   "phase": "1fase",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da COMVEST nem protocolo. As páginas de vestibulares anteriores da COMVEST trazem apenas o aviso \"Todos os Direitos Reservados\" no rodapé. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.comvest.unicamp.br/vestibulares-anteriores/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Os gráficos A, B e C mostram as variações da secreção de insulina e glucagon em função da concentração de glicose, e as variações da concentração de glicose no sangue, após uma refeição rica em carboidratos."
+    },
+    {
+     "alt": "Três gráficos. Gráfico A: secreção de insulina, de 0 a 20, em função da concentração de glicose, de 0 a 500 mg/dL; a curva sobe com a glicose e se estabiliza perto de 17. Gráfico B: secreção de glucagon, de 0 a 4, em função da glicose, de 40 a 140 mg/dL; a curva cai de cerca de 3,5 para perto de 0,5. Gráfico C: glicose no sangue, em mg/dL, ao longo de 6 horas; sobe de cerca de 40 até um pico de cerca de 130 em torno de 3 horas e volta a cerca de 40.",
+     "src": "img/q/unicamp-2011-1fase-08/f00.png",
+     "t": "fig"
+    },
+    {
+     "t": "p",
+     "text": "Com base nos gráficos acima, pode-se afirmar que"
+    }
+   ],
+   "system": "endocrino",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Insulina e glicemia",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2011
+  }
+ ]
+}

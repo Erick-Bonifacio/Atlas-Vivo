@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Três gráficos. Gráfico A: secreção de insulina, de 0 a 20, em função da concentração de glicose, de 0 a 500 mg/dL; a curva sobe com a glicose e se estabiliza perto de 17. Gráfico B: secreção de glucagon, de 0 a 4, em função da glicose, de 40 a 140 mg/dL; a curva cai de cerca de 3,5 para perto de 0,5. Gráfico C: glicose no sangue, em mg/dL, ao longo de 6 horas; sobe de cerca de 40 até um pico de cerca de 130 em torno de 3 horas e volta a cerca de 40."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "endocrino",
+  "topic": "Insulina e glicemia"
+ }
+}

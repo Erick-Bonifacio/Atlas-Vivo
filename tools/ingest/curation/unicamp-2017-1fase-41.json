@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Gráfico da glicemia nas 2 horas seguintes à ingestão de dois alimentos. A linha pontilhada, do alimento A, sobe bastante logo depois da ingestão, chega a um pico antes de 1 hora e cai depois, terminando abaixo do ponto de partida. A linha contínua, do alimento B, sobe pouco, fica quase estável por cerca de 1 hora e depois cai devagar."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "endocrino",
+  "topic": "Insulina e glicemia"
+ }
+}

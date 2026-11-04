@@ -1,0 +1,80 @@
+{
+ "questions": [
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": "QY",
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://www.comvest.unicamp.br/wp-content/uploads/2017/02/gabarito2017.pdf",
+     "number": 41,
+     "page": 12,
+     "pdf_url": "https://www.comvest.unicamp.br/wp-content/uploads/2017/02/f12017QY.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "1fase",
+   "id": "unicamp:2017:1fase:41",
+   "inst": "unicamp",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "O alimento B não afeta a concentração de glicose na circulação sanguínea."
+    },
+    {
+     "text": "O alimento A não possui carboidratos em sua composição."
+    },
+    {
+     "text": "O alimento B ajuda a emagrecer, pois estimula a liberação de adrenalina."
+    },
+    {
+     "text": "O alimento A estimula a liberação de insulina na circulação sanguínea."
+    }
+   ],
+   "phase": "1fase",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da COMVEST nem protocolo. As páginas de vestibulares anteriores da COMVEST trazem apenas o aviso \"Todos os Direitos Reservados\" no rodapé. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.comvest.unicamp.br/vestibulares-anteriores/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O gráfico a seguir representa a variação do índice glicêmico após a ingestão de dois alimentos (mesma quantidade, pela mesma pessoa, mas em momentos diferentes). A linha pontilhada representa o alimento A, enquanto a linha contínua representa o alimento B. A análise do gráfico nos permite afirmar corretamente que:"
+    },
+    {
+     "alt": "Gráfico da glicemia nas 2 horas seguintes à ingestão de dois alimentos. A linha pontilhada, do alimento A, sobe bastante logo depois da ingestão, chega a um pico antes de 1 hora e cai depois, terminando abaixo do ponto de partida. A linha contínua, do alimento B, sobe pouco, fica quase estável por cerca de 1 hora e depois cai devagar.",
+     "src": "img/q/unicamp-2017-1fase-41/f00.png",
+     "t": "fig"
+    }
+   ],
+   "system": "endocrino",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Insulina e glicemia",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2017
+  }
+ ]
+}

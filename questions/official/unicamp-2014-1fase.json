@@ -1,0 +1,69 @@
+{
+ "questions": [
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": "QX",
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://www.comvest.unicamp.br/vest2014/F1/gabarito2014.pdf",
+     "number": 19,
+     "page": 10,
+     "pdf_url": "https://www.comvest.unicamp.br/vest2014/F1/f12014QX.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "1fase",
+   "id": "unicamp:2014:1fase:19",
+   "inst": "unicamp",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "lisas, de contração voluntária e aeróbia."
+    },
+    {
+     "text": "lisas, de contração involuntária e anaeróbia."
+    },
+    {
+     "text": "estriadas, de contração voluntária e anaeróbia."
+    },
+    {
+     "text": "estriadas, de contração involuntária e aeróbia."
+    }
+   ],
+   "phase": "1fase",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da COMVEST nem protocolo. As páginas de vestibulares anteriores da COMVEST trazem apenas o aviso \"Todos os Direitos Reservados\" no rodapé. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.comvest.unicamp.br/vestibulares-anteriores/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O tecido muscular cardíaco apresenta fibras"
+    }
+   ],
+   "system": "muscular",
+   "third_party": [],
+   "topic": "Tipos de tecido muscular",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2014
+  }
+ ]
+}
