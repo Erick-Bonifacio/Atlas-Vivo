@@ -53,6 +53,14 @@ python -I tools/ingest/review_server.py        # revisão local, só 127.0.0.1
 python -m unittest discover -s tools/ingest/tests
 ```
 
+## FUVEST (1ª fase)
+
+`vest_fuvest.py` extrai a prova V (V1 desde 2025) e o gabarito oficial de cada ano em `staging/raw/fuvest/<ano>-prova.pdf` e `<ano>-gabarito.pdf` (`python -I tools/ingest/run.py ingest-fuvest --years 2019-2026`). Gera itens no mesmo formato do ENEM, então classificação, curadoria, direitos e publicação são as mesmas.
+
+Só entra questão em texto puro: o extrator descarta (e conta) figura, gráfico e tabela na região da questão, texto sobrando depois da alternativa E, hifenização ambígua e gabarito anulado. Por isso o rendimento é baixo (cerca de 30 a 47 questões por ano, quase todas de linguagens, história e exatas; poucas de biologia humana). O gabarito vem da primeira coluna da tabela oficial e foi conferido pelo conteúdo nas questões de biologia publicadas.
+
+Limitações: **2021 não foi recuperado** (fontes sem mapa Unicode, mesmo problema do ENEM 2021); questões com figura ficam de fora até haver texto alternativo e recorte conferido; Unicamp, Unesp e UFRGS ainda não têm extrator.
+
 ## Revisão local
 
 `review_server.py` escuta só em `127.0.0.1`, recusa `Host` que não seja loopback, não envia cabeçalhos CORS, exige o cabeçalho `X-Atlas-Review` e o nome de quem revisa nas escritas, e serve apenas `staging/media`. Mostra a questão como o aluno a verá (figuras, tabelas, alternativas clicáveis, gabarito) ao lado do fac-símile. Revisões feitas ali gravam `human: true`; o que o assistente de IA escreve usa `claude-assistido` e `human: false`.

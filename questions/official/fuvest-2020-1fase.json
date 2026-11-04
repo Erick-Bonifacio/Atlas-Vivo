@@ -1,0 +1,153 @@
+{
+ "questions": [
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": "V",
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://www.fuvest.br/wp-content/uploads/fuvest_2020_primeira_fase_gabaritos.pdf",
+     "number": 57,
+     "page": 16,
+     "pdf_url": "https://www.fuvest.br/wp-content/uploads/fuvest_2020_primeira_fase_prova_V.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "1fase",
+   "id": "fuvest:2020:1fase:57",
+   "inst": "fuvest",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "permitirá que eventuais futuros filhos do paciente transplantado também possuam células resistentes à infecção pelo HIV."
+    },
+    {
+     "text": "possibilitou a produção, pelas células sanguíneas do paciente após o transplante, de receptores CCR5 aos quais o vírus HIV não se liga."
+    },
+    {
+     "text": "promoveu mutações no gene CCR5 das células do paciente, ocasionando a produção de proteína à qual o HIV não se liga."
+    },
+    {
+     "text": "gerou novos alelos mutantes que interagem com o gene do receptor CCR5 do paciente, ocasionando a resistência à entrada do HIV nas células do paciente."
+    },
+    {
+     "text": "confirma que o alelo mutante que confere resistência à infecção pelo HIV é dominante sobre o alelo selvagem do gene CCR5."
+    }
+   ],
+   "phase": "1fase",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da FUVEST nem protocolo. O acervo público da FUVEST (fuvest.br/acervo-vestibular) não traz aviso de direitos nas páginas consultadas. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.fuvest.br/acervo-vestibular-2026/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Um paciente, com câncer sanguíneo (linfoma) e infectado por HIV, fez quimioterapia e recebeu um transplante de células‐ tronco da medula óssea de um doador resistente ao HIV. Como resultado, tanto o câncer como o HIV retroagiram neste paciente. O receptor mais usado pelo HIV para entrar nas células do corpo é o CCR5. Um pequeno número de pessoas resistentes ao HIV tem duas cópias mutadas do gene do receptor CCR5. Isso significa que o vírus não pode penetrar nas células sanguíneas do corpo que costumam ser infectadas. O paciente recebeu células‐tronco da medula óssea de um doador que tem essa mutação genética específica, o que fez com que também ficasse resistente ao HIV."
+    },
+    {
+     "t": "source",
+     "text": "Disponível em https://www.bbc.com/. Março/2019. Adaptado."
+    },
+    {
+     "t": "p",
+     "text": "A terapia celular a que o texto se refere"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [
+    {
+     "citation": "Disponível em https://www.bbc.com/. Março/2019. Adaptado.",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Imunidade inata e adaptativa",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2020
+  },
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": "V",
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://www.fuvest.br/wp-content/uploads/fuvest_2020_primeira_fase_gabaritos.pdf",
+     "number": 72,
+     "page": 20,
+     "pdf_url": "https://www.fuvest.br/wp-content/uploads/fuvest_2020_primeira_fase_prova_V.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "1fase",
+   "id": "fuvest:2020:1fase:72",
+   "inst": "fuvest",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "51 m/s e 51 m/s"
+    },
+    {
+     "text": "51 m/s e 57 m/s"
+    },
+    {
+     "text": "57 m/s e 57 m/s"
+    },
+    {
+     "text": "57 m/s e 68 m/s"
+    },
+    {
+     "text": "68 m/s e 68 m/s"
+    }
+   ],
+   "phase": "1fase",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da FUVEST nem protocolo. O acervo público da FUVEST (fuvest.br/acervo-vestibular) não traz aviso de direitos nas páginas consultadas. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.fuvest.br/acervo-vestibular-2026/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Um estímulo nervoso em um dos dedos do pé de um indivíduo demora cerca de 30 ms para chegar ao cérebro. Nos membros inferiores, o pulso elétrico, que conduz a informação do estímulo, é transmitido pelo nervo ciático, chegando à base do tronco em 20 ms. Da base do tronco ao cérebro, o pulso é conduzido na medula espinhal. Considerando que a altura média do brasileiro é de 1,70 m e supondo uma razão média de 0,6 entre o comprimento dos membros inferiores e a altura de uma pessoa, pode‐se concluir que as velocidades médias de propagação do pulso nervoso desde os dedos do pé até o cérebro e da base do tronco até o cérebro são, respectivamente:"
+    }
+   ],
+   "system": "nervoso",
+   "third_party": [],
+   "topic": "Neurônio e impulso nervoso",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2020
+  }
+ ]
+}

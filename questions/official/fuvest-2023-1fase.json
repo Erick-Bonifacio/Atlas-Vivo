@@ -1,0 +1,88 @@
+{
+ "questions": [
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": "V",
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_gabarito_primeira_fase.pdf",
+     "number": 80,
+     "page": 24,
+     "pdf_url": "https://www.fuvest.br/wp-content/uploads/fuvest2023_primeira_fase_prova_V.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "1fase",
+   "id": "fuvest:2023:1fase:80",
+   "inst": "fuvest",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Nos pulmões, onde a concentração de oxigênio é mais elevada, a forma de hemoglobina favorecida é a protonada."
+    },
+    {
+     "text": "Nos tecidos humanos, onde é consumido O2 pelo metabolismo, a forma de hemoglobina favorecida é a HbO2."
+    },
+    {
+     "text": "Quando uma pessoa expira mais depressa que o normal, a concentração de dióxido de carbono no seu sangue diminui e, nessas situações, a forma de hemoglobina favorecida é a forma protonada."
+    },
+    {
+     "text": "Nos tecidos humanos, onde é liberado dióxido de carbono produzido pelo metabolismo, a forma de hemoglobina favorecida é a forma protonada."
+    },
+    {
+     "text": "Nos tecidos humanos, onde é liberado dióxido de carbono produzido pelo metabolismo, a forma de hemoglobina favorecida é a HbO2."
+    }
+   ],
+   "phase": "1fase",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da FUVEST nem protocolo. O acervo público da FUVEST (fuvest.br/acervo-vestibular) não traz aviso de direitos nas páginas consultadas. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.fuvest.br/acervo-vestibular-2026/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O processo de transporte de O2 para a respiração pode ser entendido como um processo de equilíbrio químico entre a hemoglobina (Hb) e o O2. A Hb é uma proteína do sangue responsável pelo transporte do O2 que também pode existir na forma protonada como HbH^{+}. Dependendo da concentração de CO2, podem ocorrer a alcalose ou a acidose respiratória. A ligação do oxigênio com a HbH^{+} gera a forma oxigenada (HbO2), como pode ser representado pela equação química simplificada:"
+    },
+    {
+     "t": "p",
+     "text": "HbH^{+}(aq) + O2(g) ⇌ HbO2(aq) + H^{+}(aq)"
+    },
+    {
+     "t": "p",
+     "text": "O dióxido de carbono liberado na respiração pode alterar esse equilíbrio devido à formação de ácido carbônico, representado pela equação:"
+    },
+    {
+     "t": "p",
+     "text": "CO2(g) + H2O(l) ⇌ H^{+}(aq) + HCO3^{−}(aq)"
+    },
+    {
+     "t": "p",
+     "text": "Com base nessas informações, é correto afirmar:"
+    }
+   ],
+   "system": "respiratorio",
+   "third_party": [],
+   "topic": "Hematose nos alvéolos",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  }
+ ]
+}

@@ -18,7 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.stdout.reconfigure(encoding="utf-8")
 
-from atlas_ingest import difficulty, discover_enem, enem_ingest, keys, preview, publish, report  # noqa: E402
+from atlas_ingest import difficulty, discover_enem, enem_ingest, keys, preview, publish, report, vest_fuvest  # noqa: E402
 from atlas_ingest import common  # noqa: E402
 from atlas_ingest.common import INGEST, read_json, write_json  # noqa: E402
 from atlas_ingest.http_client import Http  # noqa: E402
@@ -82,6 +82,9 @@ def main():
         cmd_calibrate(http, years)
     if a.command in ("report", "pilot", "all"):
         cmd_report()
+    if a.command == "ingest-fuvest":
+        # PDFs já baixados em staging/raw/fuvest (<ano>-prova.pdf e <ano>-gabarito.pdf); ver docs/pipeline.md
+        print("ingest-fuvest:", vest_fuvest.ingest([y for y in years if y in vest_fuvest.EXAMS]))
     if a.command == "preview-export":
         print("preview-export:", preview.export())
     if a.command in ("publish", "all"):
