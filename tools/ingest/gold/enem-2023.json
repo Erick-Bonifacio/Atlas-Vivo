@@ -1,0 +1,26 @@
+{
+ "_doc": "Conjunto-ouro do piloto ENEM 2023 (CN, regular + PPL; 90 itens). Rótulos atribuídos por Claude (assistente de IA) lendo o enunciado e as alternativas de cada item; os casos duvidosos foram relidos por inteiro. Não houve revisão humana independente. Serve para medir precisão e recall do classificador, não é verdade de campo validada por especialista. Itens em `borderline` mesclam biologia humana com química, física, genética ou ecologia e ficam fora das métricas principais. Revisão após a leitura completa dos itens: enem:2023:ppl:89877 (efeitos da adrenalina) passou de 'nervoso' para 'endocrino'.",
+ "labeled_by": "claude-assistido",
+ "human_reviewed": false,
+ "positives": {
+  "enem:2023:ppl:84984": "linfatico",
+  "enem:2023:ppl:10473": "reprodutor",
+  "enem:2023:ppl:89877": "endocrino",
+  "enem:2023:ppl:13403": "cardiovascular",
+  "enem:2023:ppl:141760": "sensorial",
+  "enem:2023:ppl:55705": "reprodutor",
+  "enem:2023:regular:141723": "linfatico",
+  "enem:2023:regular:12018": "reprodutor",
+  "enem:2023:regular:117711": "reprodutor",
+  "enem:2023:regular:83378": "cardiovascular"
+ },
+ "borderline": [
+  "enem:2023:regular:89769",
+  "enem:2023:regular:117631",
+  "enem:2023:regular:64023",
+  "enem:2023:regular:87989",
+  "enem:2023:regular:97813",
+  "enem:2023:regular:48492",
+  "enem:2023:regular:60332"
+ ]
+}

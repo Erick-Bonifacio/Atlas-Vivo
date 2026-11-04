@@ -1,0 +1,528 @@
+{
+ "_doc": "Léxico de classificação por sistema do corpo humano. Termos são radicais sem acento, casados no início de palavra. Pesos: 1 fraco, 2 médio, 3 forte. Tópicos seguem os do menu de sistemas do Atlas Vivo.",
+ "human_cues": [
+  "human",
+  "pessoa",
+  "paciente",
+  "mulher",
+  "homem",
+  "crianca",
+  "gestante",
+  "saude",
+  "medic",
+  "doenca",
+  "individuo",
+  "bebe",
+  "adulto",
+  "idos",
+  "feto",
+  "recem-nascid",
+  "populacao human"
+ ],
+ "negative": [
+  "planta",
+  "vegeta",
+  "fotossint",
+  "raiz",
+  "semente",
+  "floresta",
+  "bioma",
+  "ecossistema",
+  "cadeia alimentar",
+  "polinizad",
+  "fungo",
+  "alga",
+  "solo",
+  "agricol",
+  "adubo",
+  "fertilizante",
+  "biocarvao"
+ ],
+ "systems": {
+  "digestorio": {
+   "name": "Sistema digestório",
+   "topics": {
+    "Digestão mecânica e química": {
+     "digest": 3,
+     "amilase": 3,
+     "pepsina": 3,
+     "lipase": 3,
+     "tripsina": 3,
+     "bile": 3,
+     "suco gastric": 3,
+     "saliva": 2,
+     "mastiga": 2,
+     "peristalt": 3,
+     "quimo": 3,
+     "emulsific": 2,
+     "lactase": 3,
+     "lactose": 2,
+     "gluten": 2,
+     "celiac": 2,
+     "enzima digestiv": 3,
+     "acido cloridric": 2
+    },
+    "Absorção no intestino delgado": {
+     "intestin": 3,
+     "vilosidad": 3,
+     "duodeno": 3,
+     "jejuno": 3,
+     "ileo": 3,
+     "delgado": 2,
+     "fibra alimentar": 2,
+     "absorc": 1,
+     "flora intestinal": 3,
+     "microbiot": 2,
+     "diarrei": 2,
+     "fezes": 2,
+     "colon": 3
+    },
+    "Fígado e pâncreas": {
+     "figado": 3,
+     "hepatic": 3,
+     "hepatit": 3,
+     "cirrose": 3,
+     "vesicula": 3,
+     "esofag": 3,
+     "estomag": 3,
+     "gastric": 3,
+     "gastrit": 3,
+     "ulcera": 2,
+     "refluxo": 2,
+     "bolo alimentar": 3
+    }
+   }
+  },
+  "respiratorio": {
+   "name": "Sistema respiratório",
+   "topics": {
+    "Vias respiratórias": {
+     "traqueia": 3,
+     "bronqu": 3,
+     "laringe": 3,
+     "faringe": 2,
+     "vias aereas": 3,
+     "nariz": 1,
+     "asma": 3,
+     "tabagis": 2,
+     "tosse": 1
+    },
+    "Hematose nos alvéolos": {
+     "alveol": 3,
+     "pulm": 3,
+     "hematose": 3,
+     "trocas gasosas": 3,
+     "oxigenacao do sangue": 3,
+     "pleura": 3
+    },
+    "Controle da ventilação": {
+     "ventilac": 3,
+     "diafragma": 3,
+     "inspirac": 3,
+     "expirac": 3,
+     "movimentos respiratorios": 3,
+     "respiracao pulmonar": 3,
+     "frequencia respiratoria": 3
+    }
+   }
+  },
+  "cardiovascular": {
+   "name": "Sistema cardiovascular",
+   "topics": {
+    "Câmaras e valvas do coração": {
+     "coracao": 3,
+     "cardiac": 3,
+     "cardio": 2,
+     "ventriculo": 3,
+     "atrio": 3,
+     "valva": 2,
+     "infarto": 3,
+     "marcapasso": 3,
+     "batimento": 3
+    },
+    "Artérias, veias e capilares": {
+     "arteria": 3,
+     "veia": 3,
+     "capilar": 2,
+     "vaso sanguineo": 3,
+     "vasos sanguineos": 3,
+     "aterosclerose": 3,
+     "trombo": 3,
+     "aneurism": 3,
+     "varize": 3,
+     "colesterol": 2,
+     "hipertens": 3
+    },
+    "Circulação pulmonar e sistêmica": {
+     "circulac": 3,
+     "pressao arterial": 3,
+     "sangue": 2,
+     "sanguine": 2,
+     "hemacia": 3,
+     "hemoglobina": 3,
+     "globulos vermelhos": 3,
+     "plaqueta": 3,
+     "coagul": 3,
+     "anemia": 3,
+     "tipos sanguineos": 3,
+     "transfus": 3,
+     "hemoderivad": 3,
+     "leucocit": 1
+    }
+   }
+  },
+  "urinario": {
+   "name": "Sistema urinário",
+   "topics": {
+    "Rins e néfrons": {
+     "rim": 3,
+     "rins": 3,
+     "renal": 3,
+     "nefron": 3,
+     "glomerul": 3,
+     "calculo renal": 3,
+     "dialise": 3,
+     "hemodialise": 3
+    },
+    "Filtração e reabsorção": {
+     "filtrac": 2,
+     "reabsorc": 3,
+     "urina": 3,
+     "ureia": 2,
+     "diurese": 3,
+     "diuretic": 3
+    },
+    "Equilíbrio hídrico e iônico": {
+     "ureter": 3,
+     "bexiga": 3,
+     "uretra": 3,
+     "equilibrio hidric": 3,
+     "desidrat": 2,
+     "osmolaridade": 3,
+     "sodio": 1
+    }
+   }
+  },
+  "nervoso": {
+   "name": "Sistema nervoso",
+   "topics": {
+    "Neurônio e impulso nervoso": {
+     "neuronio": 3,
+     "sinapse": 3,
+     "sinaptic": 3,
+     "neurotransmissor": 3,
+     "impulso nervoso": 3,
+     "dopamina": 3,
+     "serotonina": 3,
+     "acetilcolina": 3,
+     "axonio": 3,
+     "dendrit": 3,
+     "receptores celulares": 2,
+     "droga": 2,
+     "anfetamin": 3,
+     "psicoativ": 3,
+     "dependencia quimica": 3,
+     "alucinogen": 3,
+     "anestesic": 3
+    },
+    "Sistema nervoso central e periférico": {
+     "encefalo": 3,
+     "cerebro": 3,
+     "cerebral": 3,
+     "cerebelo": 3,
+     "medula espinal": 3,
+     "medula espinhal": 3,
+     "nervo": 2,
+     "neurolog": 3,
+     "alzheimer": 3,
+     "parkinson": 3,
+     "avc": 3,
+     "memoria": 1,
+     "sono": 1
+    },
+    "Reflexos": {
+     "reflexo": 3,
+     "reflexa": 3,
+     "arco reflexo": 3,
+     "autonomo": 2,
+     "simpatico": 2,
+     "parassimpatico": 3
+    }
+   }
+  },
+  "endocrino": {
+   "name": "Sistema endócrino",
+   "topics": {
+    "Hipotálamo e hipófise": {
+     "hipofise": 3,
+     "hipotalamo": 3,
+     "ocitocina": 3,
+     "antidiuretico": 3,
+     "adh": 2,
+     "hormon": 3
+    },
+    "Tireoide e metabolismo": {
+     "tireoide": 3,
+     "tiroxina": 3,
+     "iodo": 1,
+     "bocio": 3,
+     "metabolismo": 1,
+     "suprarrenal": 3,
+     "adrenalina": 3,
+     "cortisol": 3,
+     "estresse": 1
+    },
+    "Insulina e glicemia": {
+     "insulina": 3,
+     "glucagon": 3,
+     "diabet": 3,
+     "glicemia": 3,
+     "glicose no sangue": 3,
+     "pancreas": 2,
+     "obesidade": 1
+    }
+   }
+  },
+  "esqueletico": {
+   "name": "Sistema esquelético",
+   "topics": {
+    "Tipos de ossos": {
+     "osso": 3,
+     "esquelet": 3,
+     "fratura": 3,
+     "osteoporose": 3,
+     "raquitismo": 3,
+     "vertebr": 3,
+     "coluna vertebral": 3,
+     "cranio": 3,
+     "femur": 3
+    },
+    "Articulações": {
+     "articulac": 3,
+     "cartilagem": 3,
+     "ligamento": 3,
+     "artrite": 3,
+     "artrose": 3,
+     "juntas": 1
+    },
+    "Medula óssea vermelha": {
+     "medula ossea": 3,
+     "calcio": 1,
+     "fosforo": 1,
+     "vitamina d": 2
+    }
+   }
+  },
+  "muscular": {
+   "name": "Sistema muscular",
+   "topics": {
+    "Tipos de tecido muscular": {
+     "musculo": 3,
+     "muscular": 3,
+     "musculatura": 3,
+     "fibra muscular": 3,
+     "cardiaco": 2,
+     "liso": 1
+    },
+    "Contração e energia": {
+     "contrac": 2,
+     "sarcomer": 3,
+     "actina": 3,
+     "miosina": 3,
+     "caimbra": 3,
+     "fadiga muscular": 3,
+     "acido latico": 3,
+     "fermentac lactica": 3,
+     "atp": 1,
+     "hipertrofia": 3
+    },
+    "Músculo e osso no movimento": {
+     "tendao": 3,
+     "tendoes": 3,
+     "biceps": 3,
+     "triceps": 3,
+     "movimento": 1,
+     "exercicio": 2,
+     "atividade fisica": 2
+    }
+   }
+  },
+  "tegumentar": {
+   "name": "Sistema tegumentar",
+   "topics": {
+    "Epiderme e derme": {
+     "pele": 3,
+     "cutane": 3,
+     "epiderme": 3,
+     "derme": 3,
+     "melanina": 3,
+     "melanocit": 3,
+     "queratina": 3,
+     "queimadura": 3,
+     "cancer de pele": 3,
+     "bronzeamento": 3,
+     "protetor solar": 2,
+     "pelos": 1,
+     "unha": 2
+    },
+    "Termorregulação": {
+     "suor": 3,
+     "sudor": 3,
+     "termorregula": 3,
+     "temperatura corporal": 3,
+     "febre": 2,
+     "vasodilatacao": 3,
+     "calafrio": 2
+    },
+    "Barreira contra microrganismos": {
+     "barreira": 1,
+     "ferida": 2,
+     "cicatriz": 3,
+     "acne": 3,
+     "micose": 2,
+     "dermat": 3
+    }
+   }
+  },
+  "linfatico": {
+   "name": "Sistema linfático e imunidade",
+   "topics": {
+    "Anatomia linfática: vasos, linfonodos, baço e timo": {
+     "linfa": 3,
+     "linfatic": 3,
+     "linfonod": 3,
+     "ganglio": 2,
+     "baco": 3,
+     "timo": 3,
+     "amigdala": 3
+    },
+    "Imunidade inata e adaptativa": {
+     "imunolog": 3,
+     "sistema imunitario": 3,
+     "sistema imune": 3,
+     "imunid": 3,
+     "imunizac": 3,
+     "anticorpo": 3,
+     "antigeno": 3,
+     "linfocit": 3,
+     "macrofago": 3,
+     "fagocit": 3,
+     "inflamac": 3,
+     "alergi": 3,
+     "hiv": 3,
+     "aids": 3,
+     "autoimune": 3,
+     "defesa do organismo": 3,
+     "patogeno": 2,
+     "infecc": 1,
+     "viru": 1
+    },
+    "Vacinas e memória imunológica": {
+     "vacina": 3,
+     "vacinac": 3,
+     "soro": 2,
+     "memoria imunologica": 3,
+     "imunizado": 3,
+     "dose de reforco": 3,
+     "imunoglobulina": 3
+    }
+   }
+  },
+  "reprodutor": {
+   "name": "Sistema reprodutor",
+   "topics": {
+    "Anatomia feminina": {
+     "utero": 3,
+     "ovario": 3,
+     "tuba uterina": 3,
+     "vagina": 3,
+     "placenta": 3,
+     "gestante": 3,
+     "gestac": 3,
+     "gravidez": 3,
+     "gravida": 3,
+     "feto": 3,
+     "fetal": 3,
+     "parto": 3,
+     "amamenta": 2,
+     "embriao": 2,
+     "congenit": 2,
+     "pre-natal": 3
+    },
+    "Anatomia masculina": {
+     "testiculo": 3,
+     "espermatozoide": 3,
+     "esperma": 3,
+     "prostata": 3,
+     "vasectomia": 3,
+     "canais deferentes": 3,
+     "ducto deferente": 3,
+     "penis": 3,
+     "liquido seminal": 3
+    },
+    "Ciclo menstrual e regulação hormonal": {
+     "menstru": 3,
+     "ovulac": 3,
+     "ciclo menstrual": 3,
+     "fecundac": 3,
+     "fertilizac": 3,
+     "contracept": 3,
+     "anticoncepc": 3,
+     "camisinha": 3,
+     "preservativo": 3,
+     "puberdade": 3,
+     "sexual": 2,
+     "ist ": 2,
+     "sifilis": 3,
+     "hpv": 3,
+     "gametas": 3,
+     "ovulo": 3,
+     "ovocito": 3,
+     "testosterona": 3,
+     "estrogen": 3,
+     "progesterona": 3
+    }
+   }
+  },
+  "sensorial": {
+   "name": "Sentidos",
+   "topics": {
+    "Visão": {
+     "visao": 3,
+     "olho": 2,
+     "retina": 3,
+     "cone": 1,
+     "cones": 2,
+     "bastonete": 3,
+     "daltonismo": 3,
+     "cristalino": 3,
+     "miopia": 3,
+     "hipermetropia": 3,
+     "astigmatismo": 3,
+     "cegueira": 3,
+     "cores": 1,
+     "lente": 1
+    },
+    "Audição e equilíbrio": {
+     "audic": 3,
+     "ouvido": 3,
+     "cochlea": 3,
+     "timpano": 3,
+     "surdez": 3,
+     "labirinto": 3,
+     "som": 1
+    },
+    "Olfato, paladar e tato": {
+     "olfato": 3,
+     "olfativ": 3,
+     "paladar": 3,
+     "gustat": 3,
+     "tato": 3,
+     "tatil": 3,
+     "papila": 2,
+     "receptor sensorial": 3
+    }
+   }
+  }
+ }
+}

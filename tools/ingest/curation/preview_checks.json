@@ -1,0 +1,152 @@
+{
+ "_doc": "Comparação visual, item a item, do fac-símile do PDF com o que a extração entrega (texto, figuras, tabelas, alternativas). Feita pelo assistente de IA (human=false): vale só para a pré-visualização restrita e não libera nada para o aluno. result \"ok\" tira o item da retenção; \"defeito\" mantém. Uma pessoa deve refazer a conferência antes de qualquer publicação.",
+ "checks": {
+  "enem:2015:ppl:18378": {
+   "result": "defeito",
+   "notes": "defeito: rótulos da figura (\"HO\", \"Ácido d/l-lático\", \"100 ≤ n ≤ 10 000\") ficam fora dela, como texto solto.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2015:ppl:26403": {
+   "result": "ok",
+   "notes": "Figuras nas alternativas A–E e rótulos LF/C/R conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2015:regular:39317": {
+   "result": "ok",
+   "notes": "Ilustração e linha de fonte conferem; o itálico do título da obra não é preservado.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2016:regular:96212": {
+   "result": "defeito",
+   "notes": "defeito: a última linha do parágrafo ficou dentro da figura (imagem) e a frase se divide.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2016:segunda:32452": {
+   "result": "ok",
+   "notes": "Gráfico com eixos e título girado conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2017:regular:81971": {
+   "result": "ok",
+   "notes": "Gráfico com eixos e título girado conferem; fonte em bloco próprio.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2018:ppl:85474": {
+   "result": "ok",
+   "notes": "Tabela entra como figura; texto, fonte e alternativas conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2018:ppl:96317": {
+   "result": "ok",
+   "notes": "Escala de pH entra como figura; texto e alternativas conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2019:ppl:10529": {
+   "result": "ok",
+   "notes": "Gráfico e rótulos conferem; a linha de fonte fica dentro do parágrafo.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2020:ppl:37791": {
+   "result": "ok",
+   "notes": "Heredograma com legenda e símbolos conferem; frações viram 1⁄4, 1⁄3, 1⁄2, 2⁄3, 3⁄4.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2020:ppl:61083": {
+   "result": "ok",
+   "notes": "Gráfico de barras com legenda e símbolos conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2022:ppl:62871": {
+   "result": "ok",
+   "notes": "Esquema com setas e rótulos conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2022:regular:78716": {
+   "result": "ok",
+   "notes": "Gráfico com eixos, números e título girado conferem; fonte em bloco próprio.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2022:regular:96189": {
+   "result": "ok",
+   "notes": "Quadro entra como figura; texto com ¹³¹I e alternativas conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2023:regular:60332": {
+   "result": "ok",
+   "notes": "Estrutura química e fórmula C₁₂H₈Cl₆ conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2024:ppl:117781": {
+   "result": "ok",
+   "notes": "Esquema da pele e fonte conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2024:regular:141775": {
+   "result": "defeito",
+   "notes": "defeito: a figura da alternativa E é cortada pelo fim da página (continua na coluna seguinte).",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2025:regular:141671": {
+   "result": "ok",
+   "notes": "Estruturas químicas e fonte conferem; o início do parágrafo fica em bloco próprio.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2025:regular:141754": {
+   "result": "ok",
+   "notes": "Esquema da vacina e alternativas conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2025:regular:141800": {
+   "result": "ok",
+   "notes": "Esquema com estruturas e fonte conferem.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  },
+  "enem:2025:regular:54287": {
+   "result": "ok",
+   "notes": "Esquema em caixas com setas confere.",
+   "by": "claude-assistido",
+   "human": false,
+   "on": "2026-11-01"
+  }
+ }
+}

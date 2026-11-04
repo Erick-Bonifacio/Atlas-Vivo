@@ -1,0 +1,30 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "reprodutor",
+  "topic": "Anatomia feminina"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "reprodutor#6"
+  ],
+  "steps": [
+   "A transmissão ocorre pelo sangue da gestante, por via transplacentária.",
+   "Diminuir a quantidade de bactérias no sangue da mãe diminui a chance de chegarem ao feto.",
+   "Logo, o tratamento precoce da gestante é a medida mais eficaz."
+  ],
+  "text": "A bactéria passa do sangue da gestante para o feto pela placenta. Reduzir esse risco exige tratar a infecção da mãe o quanto antes, para eliminar o microrganismo do sangue. O enunciado chama o microrganismo de \"parasita\", mas o Treponema pallidum é uma bactéria, tratada com antibiótico.",
+  "why": [
+   "Incorreta: não existe transplante de placenta como tratamento, e a placenta é o caminho de passagem, não o problema.",
+   "Incorreta: não se trata o embrião por via transplacentária; o tratamento é feito na mãe.",
+   "Incorreta: exames identificam a infecção, mas não reduzem a transmissão; aqui a gestante já sabe que está contaminada.",
+   "Correta. Tratar a gestante e eliminar a bactéria do sangue dela o quanto antes reduz a chance de infectar o feto.",
+   "Incorreta: medicar a criança depois do nascimento ocorre tarde: a infecção do feto já teria acontecido."
+  ]
+ },
+ "id": "enem:2023:ppl:10473"
+}

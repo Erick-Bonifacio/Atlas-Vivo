@@ -1,0 +1,30 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "reprodutor",
+  "topic": "Ciclo menstrual e regulação hormonal"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "reprodutor#4"
+  ],
+  "steps": [
+   "Identifique o que foi inibido: as enzimas do acrossomo.",
+   "Lembre a função dessas enzimas: abrir caminho pelas camadas que protegem o ovócito.",
+   "Escolha a etapa que vem imediatamente antes das outras: a passagem pela corona radiata e pela zona pelúcida."
+  ],
+  "text": "O acrossomo do espermatozoide contém enzimas que digerem as camadas que envolvem o ovócito, a corona radiata e a zona pelúcida. Sem essas enzimas, o espermatozoide não atravessa essas camadas e não chega à membrana do ovócito. Todas as etapas seguintes ocorrem depois dessa passagem.",
+  "why": [
+   "Incorreta: o pronúcleo masculino se forma depois que o espermatozoide entra no ovócito.",
+   "Incorreta: as divisões mitóticas do zigoto começam depois da fecundação.",
+   "Incorreta: o ovócito só termina a segunda divisão meiótica depois de penetrado pelo espermatozoide.",
+   "Correta. As enzimas do acrossomo digerem a corona radiata e a zona pelúcida, permitindo a passagem do espermatozoide.",
+   "Incorreta: a fusão das membranas ocorre depois de o espermatozoide ultrapassar as camadas externas."
+  ]
+ },
+ "id": "enem:2023:regular:12018"
+}

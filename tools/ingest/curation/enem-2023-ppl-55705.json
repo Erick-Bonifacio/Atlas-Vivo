@@ -1,0 +1,30 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "reprodutor",
+  "topic": "Anatomia masculina"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "reprodutor#1"
+  ],
+  "steps": [
+   "Localize o corte: os ductos deferentes, que levam espermatozoides do epidídimo à uretra.",
+   "Pergunte o que ainda funciona: testículos (espermatozoides e hormônios) e glândulas que produzem sêmen.",
+   "O que deixa de acontecer é a passagem dos espermatozoides para o sêmen."
+  ],
+  "text": "Na vasectomia os ductos deferentes são cortados e o espermatozoide não chega mais à uretra, de modo que o sêmen eliminado não contém espermatozoides. Os testículos continuam produzindo espermatozoides e testosterona, e o sêmen continua sendo produzido pelas glândulas anexas.",
+  "why": [
+   "Incorreta: o sêmen continua sendo liberado; as vesículas seminais e a próstata continuam a produzi-lo.",
+   "Incorreta: os testículos continuam produzindo espermatozoides, que são reabsorvidos.",
+   "Incorreta: a produção de testosterona não é afetada.",
+   "Correta. O corte dos ductos deferentes impede que os espermatozoides cheguem ao sêmen.",
+   "Incorreta: as glândulas produtoras de sêmen não são alteradas."
+  ]
+ },
+ "id": "enem:2023:ppl:55705"
+}

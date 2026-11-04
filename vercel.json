@@ -11,7 +11,7 @@
   ],
   "functions": {
     "api/index.js": {
-      "includeFiles": "{supabase-ca.crt,public/atlas2/manifest.json}"
+      "includeFiles": "{supabase-ca.crt,public/atlas2/manifest.json,questions/official/**,public/img/q/**}"
     }
   }
 }

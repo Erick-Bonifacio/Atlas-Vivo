@@ -1,0 +1,27 @@
+{
+ "D": 1.7,
+ "area": "CN",
+ "cut_high": 0.0291,
+ "cut_low": 0.00135,
+ "method": "tercis da distribuição de p* (probabilidade de dominar o item, sem acerto ao acaso) em theta_ref entre todos os itens CN dos anos processados",
+ "metric": "p_star",
+ "model": "3PL",
+ "n_items": 1202,
+ "p_max": 0.97742,
+ "p_median": 0.00727,
+ "p_min": 0.0,
+ "theta_ref": 0.0,
+ "years": [
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ]
+}

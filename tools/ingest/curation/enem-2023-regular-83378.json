@@ -1,0 +1,31 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "cardiovascular",
+  "topic": "Circulação pulmonar e sistêmica"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "cardiovascular#4",
+   "digestorio#8"
+  ],
+  "steps": [
+   "Associe a palidez à anemia.",
+   "Lembre o papel do ferro: componente da hemoglobina.",
+   "Escolha a doença ligada à falta de ferro: a anemia."
+  ],
+  "text": "O ferro faz parte da hemoglobina, a molécula das hemácias que transporta oxigênio. A falta de ferro leva à anemia ferropriva, que causa palidez e cansaço. Cozinhar em panela de ferro libera um pouco de ferro no alimento, e o objetivo citado (\"acabar com a palidez\") era prevenir ou tratar a anemia.",
+  "why": [
+   "Incorreta: diarreia tem causas infecciosas e de desidratação, não de falta de ferro.",
+   "Correta. O ferro é essencial para a hemoglobina, e sua falta causa anemia.",
+   "Incorreta: verminoses são causadas por parasitas e se previnem com higiene e saneamento.",
+   "Incorreta: o raquitismo vem da falta de vitamina D, cálcio ou fósforo.",
+   "Incorreta: a febre amarela é causada por vírus transmitido por mosquitos e se previne com vacina."
+  ]
+ },
+ "id": "enem:2023:regular:83378"
+}

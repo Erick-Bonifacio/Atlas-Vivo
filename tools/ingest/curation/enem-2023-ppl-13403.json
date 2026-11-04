@@ -1,0 +1,31 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "cardiovascular",
+  "topic": "Circulação pulmonar e sistêmica"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "cardiovascular#4",
+   "cardiovascular#5"
+  ],
+  "steps": [
+   "Entenda o avanço: hemácias produzidas in vitro a partir de células-tronco.",
+   "Se as células-tronco são do próprio indivíduo, o sangue produzido é geneticamente igual ao dele.",
+   "Isso evita depender de doadores e de transfusões."
+  ],
+  "text": "Células-tronco do próprio paciente podem ser cultivadas em laboratório e diferenciadas em glóbulos vermelhos (hemácias). Transfundidas de volta, elas não vêm de doador, o que dispensa a transfusão convencional e elimina o problema de incompatibilidade entre doador e receptor.",
+  "why": [
+   "Incorreta: o avanço não substitui os tratamentos de hemorragia.",
+   "Correta. As hemácias podem ser produzidas in vitro a partir de células do próprio indivíduo, evitando transfusões.",
+   "Incorreta: a ideia central não é diminuir o risco entre doador e receptor, mas dispensar o doador usando células do próprio paciente.",
+   "Incorreta: as células-tronco não substituem as hemácias no sangue; elas originam hemácias em cultura.",
+   "Incorreta: afirma um efeito amplo e sem base no texto; a notícia trata de produzir hemácias."
+  ]
+ },
+ "id": "enem:2023:ppl:13403"
+}

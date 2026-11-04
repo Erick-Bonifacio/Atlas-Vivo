@@ -1,10 +1,10 @@
 // Atlas Vivo — conteúdo das aulas (uma por quiz) e registro das imagens com seus créditos.
-// Blocos de uma seção: {p} parágrafo · {fig, cap} figura do registro IMG · {cols} colunas [título, texto]
-// · {warn} erro comum [frase, explicação] · {recall} pergunta de retomada [pergunta, resposta] · {note} [rótulo, texto]
+// Blocos de uma seção: {p} parágrafo, {fig, cap} figura do registro IMG, {cols} colunas [título, texto]
+//, {warn} erro comum [frase, explicação], {recall} pergunta de retomada [pergunta, resposta], {note} [rótulo, texto]
 (function () {
-  const R = 'Render do Atlas Vivo · BodyParts3D © DBCLS, CC BY 4.0';
+  const R = 'Render do Atlas Vivo, BodyParts3D © DBCLS, CC BY 4.0';
   const r = (alt) => ({ alt, credit: R, dark: true });
-  const c = (file, alt, credit) => ({ file, alt, credit: credit + ' · Wikimedia Commons' });
+  const c = (file, alt, credit) => ({ file, alt, credit: credit + ', Wikimedia Commons' });
   const IMG = {
     'r-corpo': r('Corpo humano translúcido com músculos e ossos visíveis'),
     'r-digestorio': r('Tubo digestório, fígado e intestinos em destaque no tronco'),
@@ -19,25 +19,25 @@
     'r-linfatico': r('Timo e baço em destaque no tronco'),
     'r-reprodutor': r('Órgãos reprodutores masculinos em destaque na pelve'),
     'r-micro': r('Rede de capilares ligando uma arteríola a uma vênula entre fibras musculares'),
-    coracao: c('Diagram of the human heart (cropped) pt.svg', 'Corte frontal do coração com câmaras, valvas e grandes vasos identificados', 'Wapcaplet, trad. Rhcastilhos · domínio público'),
-    circulacao: c('Circulatory System pt.svg', 'Corpo humano com as principais artérias, em vermelho, e veias, em azul', 'LadyofHats, trad. Vini 175 · domínio público'),
-    digestorio: c('Digestive system diagram pt.svg', 'Sistema digestório com boca, esôfago, estômago, fígado, pâncreas e intestinos identificados', 'Mariana Ruiz (LadyofHats), Jmarchn · domínio público'),
-    respiratorio: c('Respiratory system-pt.svg', 'Sistema respiratório com nariz, boca, traqueia, pulmões e diafragma identificados', 'Theresa Knott, Angelito7 · CC BY-SA 3.0'),
-    alveolo: c('Alveolus diagram.svg', 'Sacos alveolares envolvidos por capilares, com artéria e veia pulmonares', 'LadyofHats · domínio público · rótulos traduzidos'),
-    urinario: c('Urinary system.svg', 'Sistema urinário com estruturas numeradas de 1 a 14', 'Jordi March i Nogué · CC BY-SA 3.0'),
-    nefron: c('Nephron simple numbers.svg', 'Néfron com estruturas numeradas de 1 a 12', 'Jmarchn · CC BY-SA 3.0'),
-    neuronio: c('Complete neuron cell diagram pt.svg', 'Neurônio com dendritos, corpo celular, axônio, bainha de mielina e sinapse identificados', 'Mariana Ruiz (LadyofHats) · domínio público'),
-    reflexo: c('Imgnotraçat arc reflex eng.svg', 'Arco reflexo: do dedo à medula espinal pelo neurônio aferente e de volta ao músculo pelo eferente', 'MartaAguayo · CC BY-SA 3.0 · rótulos traduzidos'),
-    endocrino: c('Endocrine English.svg', 'Principais glândulas endócrinas no corpo feminino e no masculino', 'OpenStax, Tomáš Kebert, umimeto.org · CC BY-SA 4.0 · rótulos traduzidos'),
-    glicemia: c('Glicemia.svg', 'Ciclo de regulação da glicemia por insulina e glucagon entre pâncreas e fígado', 'Rhcastilhos · domínio público'),
-    esqueleto: c('Axial skeleton diagram pt.svg', 'Esqueleto axial em destaque: crânio, coluna vertebral e caixa torácica', 'Mariana Ruiz (LadyofHats), trad. Angelito7 · domínio público'),
-    articulacao: c('Joint es.svg', 'Articulação sinovial em corte, com cartilagem, cápsula, ligamento, tendão e músculos', 'Madhero88, Jmarchn · CC BY-SA 3.0 · rótulos traduzidos'),
-    sarcomero: c('Sarcomere diagram.svg', 'Sarcômero com filamentos grossos e finos, linhas Z e M e bandas A e I', 'SlothMcCarty · CC BY-SA 3.0 · rótulos traduzidos'),
-    pele: c('Diagram showing the structure of the skin CRUK 371.svg', 'Corte da pele com epiderme, derme e hipoderme, pelo, glândula sudorípara, nervo e vasos', 'Cancer Research UK · CC BY-SA 4.0 · rótulos traduzidos'),
-    linfatico: c('Diagram of the lymphatic system CRUK 041.svg', 'Vasos linfáticos e linfonodos pelo corpo, com tonsilas, timo, baço e fígado identificados', 'Cancer Research UK · CC BY-SA 4.0 · rótulos traduzidos'),
-    repfem: c('Scheme female reproductive system-pt.svg', 'Sistema reprodutor feminino em vista frontal: ovários, tubas uterinas, útero, cérvix, vagina e vulva', 'Mysid, Jmarchn · CC BY-SA 3.0'),
-    repmasc: c('Human male reproductive system en.svg', 'Sistema reprodutor masculino em corte lateral, com testículo, epidídimo, ducto deferente, próstata e uretra', 'Wumingbai · CC BY-SA 4.0 · rótulos traduzidos'),
-    niveis: c('Cos-huma-nivells-organitzacio-mut.svg', 'Níveis de organização do corpo, numerados de 1 a 7, do átomo ao organismo', 'LaiaMartínezM · CC BY-SA 4.0'),
+    coracao: c('Diagram of the human heart (cropped) pt.svg', 'Corte frontal do coração com câmaras, valvas e grandes vasos identificados', 'Wapcaplet, trad. Rhcastilhos, domínio público'),
+    circulacao: c('Circulatory System pt.svg', 'Corpo humano com as principais artérias, em vermelho, e veias, em azul', 'LadyofHats, trad. Vini 175, domínio público'),
+    digestorio: c('Digestive system diagram pt.svg', 'Sistema digestório com boca, esôfago, estômago, fígado, pâncreas e intestinos identificados', 'Mariana Ruiz (LadyofHats), Jmarchn, domínio público'),
+    respiratorio: c('Respiratory system-pt.svg', 'Sistema respiratório com nariz, boca, traqueia, pulmões e diafragma identificados', 'Theresa Knott, Angelito7, CC BY-SA 3.0'),
+    alveolo: c('Alveolus diagram.svg', 'Sacos alveolares envolvidos por capilares, com artéria e veia pulmonares', 'LadyofHats, domínio público, rótulos traduzidos'),
+    urinario: c('Urinary system.svg', 'Sistema urinário com estruturas numeradas de 1 a 14', 'Jordi March i Nogué, CC BY-SA 3.0'),
+    nefron: c('Nephron simple numbers.svg', 'Néfron com estruturas numeradas de 1 a 12', 'Jmarchn, CC BY-SA 3.0'),
+    neuronio: c('Complete neuron cell diagram pt.svg', 'Neurônio com dendritos, corpo celular, axônio, bainha de mielina e sinapse identificados', 'Mariana Ruiz (LadyofHats), domínio público'),
+    reflexo: c('Imgnotraçat arc reflex eng.svg', 'Arco reflexo: do dedo à medula espinal pelo neurônio aferente e de volta ao músculo pelo eferente', 'MartaAguayo, CC BY-SA 3.0, rótulos traduzidos'),
+    endocrino: c('Endocrine English.svg', 'Principais glândulas endócrinas no corpo feminino e no masculino', 'OpenStax, Tomáš Kebert, umimeto.org, CC BY-SA 4.0, rótulos traduzidos'),
+    glicemia: c('Glicemia.svg', 'Ciclo de regulação da glicemia por insulina e glucagon entre pâncreas e fígado', 'Rhcastilhos, domínio público'),
+    esqueleto: c('Axial skeleton diagram pt.svg', 'Esqueleto axial em destaque: crânio, coluna vertebral e caixa torácica', 'Mariana Ruiz (LadyofHats), trad. Angelito7, domínio público'),
+    articulacao: c('Joint es.svg', 'Articulação sinovial em corte, com cartilagem, cápsula, ligamento, tendão e músculos', 'Madhero88, Jmarchn, CC BY-SA 3.0, rótulos traduzidos'),
+    sarcomero: c('Sarcomere diagram.svg', 'Sarcômero com filamentos grossos e finos, linhas Z e M e bandas A e I', 'SlothMcCarty, CC BY-SA 3.0, rótulos traduzidos'),
+    pele: c('Diagram showing the structure of the skin CRUK 371.svg', 'Corte da pele com epiderme, derme e hipoderme, pelo, glândula sudorípara, nervo e vasos', 'Cancer Research UK, CC BY-SA 4.0, rótulos traduzidos'),
+    linfatico: c('Diagram of the lymphatic system CRUK 041.svg', 'Vasos linfáticos e linfonodos pelo corpo, com tonsilas, timo, baço e fígado identificados', 'Cancer Research UK, CC BY-SA 4.0, rótulos traduzidos'),
+    repfem: c('Scheme female reproductive system-pt.svg', 'Sistema reprodutor feminino em vista frontal: ovários, tubas uterinas, útero, cérvix, vagina e vulva', 'Mysid, Jmarchn, CC BY-SA 3.0'),
+    repmasc: c('Human male reproductive system en.svg', 'Sistema reprodutor masculino em corte lateral, com testículo, epidídimo, ducto deferente, próstata e uretra', 'Wumingbai, CC BY-SA 4.0, rótulos traduzidos'),
+    niveis: c('Cos-huma-nivells-organitzacio-mut.svg', 'Níveis de organização do corpo, numerados de 1 a 7, do átomo ao organismo', 'LaiaMartínezM, CC BY-SA 4.0'),
   };
   for (const k in IMG) IMG[k].src = 'img/' + k + (IMG[k].file ? '.svg' : '.jpg');
 
@@ -54,7 +54,7 @@
         ] },
         { t: 'Níveis de organização', h: 'Da célula ao organismo', b: [
           { p: 'Átomos formam moléculas, que formam células. Células semelhantes, com a mesma função, formam um tecido. Tecidos diferentes se combinam em um órgão, e órgãos que cooperam em uma função formam um sistema.' },
-          { fig: 'niveis', cap: 'Níveis de organização: 1 átomo · 2 molécula · 3 célula · 4 tecido · 5 órgão · 6 sistema · 7 organismo.' },
+          { fig: 'niveis', cap: 'Níveis de organização: 1 átomo; 2 molécula; 3 célula; 4 tecido; 5 órgão; 6 sistema; 7 organismo.' },
           { cols: [['Tecido epitelial', 'Reveste superfícies e forma glândulas.'], ['Tecido conjuntivo', 'Sustenta, une e preenche. Inclui osso, cartilagem e sangue.'], ['Tecido muscular', 'Contrai e produz movimento.'], ['Tecido nervoso', 'Recebe estímulos e conduz impulsos.']] },
           { recall: ['O estômago é um tecido ou um órgão?', 'Um órgão. Sua parede reúne tecido epitelial, conjuntivo, muscular e nervoso trabalhando juntos.'] },
         ] },
@@ -159,12 +159,12 @@
         ] },
         { t: 'Estruturas', h: 'Rins e vias urinárias', b: [
           { p: 'A urina é formada nos rins, desce pelos ureteres, fica armazenada na bexiga e sai pela uretra. Cada rim recebe sangue pela artéria renal e o devolve pela veia renal.' },
-          { fig: 'urinario', cap: '1 sistema urinário · 2 rim · 3 pelve renal · 4 ureter · 5 bexiga urinária · 6 uretra · 7 glândula suprarrenal · 8 artéria e veia renais · 9 veia cava inferior · 10 aorta abdominal · 11 artéria e veia ilíacas comuns · 12 fígado · 13 intestino grosso · 14 pelve.' },
+          { fig: 'urinario', cap: '1 sistema urinário; 2 rim; 3 pelve renal; 4 ureter; 5 bexiga urinária; 6 uretra; 7 glândula suprarrenal; 8 artéria e veia renais; 9 veia cava inferior; 10 aorta abdominal; 11 artéria e veia ilíacas comuns; 12 fígado; 13 intestino grosso; 14 pelve.' },
           { recall: ['Qual é a diferença entre ureter e uretra?', 'O ureter leva a urina do rim à bexiga. A uretra leva a urina da bexiga para fora do corpo.'] },
         ] },
         { t: 'Formação da urina', h: 'O néfron filtra, recupera e ajusta', b: [
           { p: 'Cada rim tem cerca de um milhão de néfrons. No glomérulo, a pressão do sangue força a passagem de água e pequenas moléculas para a cápsula de Bowman: é a filtração. Células do sangue e proteínas grandes não passam.' },
-          { fig: 'nefron', cap: '1 artéria interlobular · 2 arteríola aferente · 3 aparelho justaglomerular · 4 corpúsculo renal · 5 glomérulo · 6 cápsula de Bowman · 7 arteríola eferente · 8 túbulo contorcido proximal · 9 alça de Henle · 10 túbulo contorcido distal · 11 ducto coletor · 12 veia interlobular.' },
+          { fig: 'nefron', cap: '1 artéria interlobular; 2 arteríola aferente; 3 aparelho justaglomerular; 4 corpúsculo renal; 5 glomérulo; 6 cápsula de Bowman; 7 arteríola eferente; 8 túbulo contorcido proximal; 9 alça de Henle; 10 túbulo contorcido distal; 11 ducto coletor; 12 veia interlobular.' },
           { cols: [['Filtração', 'Do sangue para o néfron: água, sais, glicose, ureia.'], ['Reabsorção', 'Do néfron de volta ao sangue: quase toda a água, a glicose e parte dos sais.'], ['Secreção', 'Do sangue para o néfron: substâncias que ainda precisam ser eliminadas.']] },
           { warn: ['“Tudo o que é filtrado vira urina.”', 'Os rins filtram cerca de 180 litros por dia, mas eliminam perto de 1,5 litro. Quase tudo é reabsorvido.'] },
         ] },
@@ -464,7 +464,13 @@
     reprodutor: { m: { sys: ['reprodutor'] } },
     integracao: { m: {}, secM: { 1: { sys: ['cardiovascular', 'respiratorio'] }, 2: { sys: ['digestorio'], parts: ['digestorio', ['pâncreas', 'fígado']] }, 3: { sys: ['urinario', 'nervoso', 'endocrino'] } } },
   };
-  for (const id in VIEW) { LESSONS[id].m = VIEW[id].m; LESSONS[id].secs.forEach((s, i) => { s.m = (VIEW[id].secM || {})[i] || VIEW[id].m; }); }
+  VIEW.cardiovascular = { m: { sys: ['cardiovascular'] } };
+  // Conteúdo aprofundado (public/lessons/<id>.js, carregado antes deste arquivo): substitui seções, síntese e metadados.
+  // Seções podem trazer a própria vista do modelo (`m`); sem ela valem VIEW.secM e VIEW.m. A aula do cardiovascular
+  // (template próprio no index.html) ganha aqui só o aprofundamento, aberto pelo botão da página de encerramento.
+  const DEEP = window.AV_LESSON_DEEP || {};
+  for (const id in DEEP) LESSONS[id] = Object.assign(LESSONS[id] || {}, DEEP[id]);
+  for (const id in VIEW) if (LESSONS[id]) { LESSONS[id].m = VIEW[id].m; LESSONS[id].secs.forEach((s, i) => { s.m = s.m || (VIEW[id].secM || {})[i] || VIEW[id].m; }); }
 
   // Termos do texto que viram link "ver no modelo": [expressão no texto, sistema do modelo, trechos do nome da estrutura].
   // Sem trechos (null) = mostra o sistema inteiro. Só entram estruturas que existem no modelo.

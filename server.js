@@ -8,6 +8,8 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { Pool } = require('pg');
 const QUIZZES = require('./quizzes.js');
+const { createCore, QUIZ_BONUS } = require('./core.js');
+const { loadBank } = require('./bank.js');
 
 const PORT = +process.env.PORT || 8765;
 const SESSION_DAYS = 30;
@@ -17,14 +19,7 @@ if (!/^[a-z_][a-z0-9_]*$/.test(SCHEMA)) throw new Error('PGSCHEMA inválido');
 if (!process.env.PGHOST || !process.env.PGPASSWORD) throw new Error('Faltam as variáveis PG* do banco: localmente, rode com "npm start" (lê o .env); no Vercel, defina-as no painel.');
 const PUB = path.join(__dirname, 'public');
 
-// ── Regras de pontuação ──
-const PTS = { 'Básica': 10, 'Intermediária': 15 };
-const QUIZ_BONUS = 20;   // ao responder todas as questões de um quiz
-const LESSON_PTS = 30;   // a cada aula concluída
-const LEVEL_STEP = 150;
-// Há uma aula por quiz, com o mesmo id. A do cardiovascular tem progresso próprio (lessonDone).
-const LESSON_IDS = QUIZZES.map(z => z.id);
-const TITLES = ['Calouro', 'Curioso', 'Explorador', 'Monitor', 'Anatomista', 'Fisiologista', 'Especialista', 'Mestre do Atlas'];
+// Regras de pontuação, níveis e medalhas: core.js
 // Estruturas do modelo 3D, para as questões respondidas clicando no modelo (kind: 'model').
 const PARTS = JSON.parse(fs.readFileSync(path.join(__dirname, 'public', 'atlas2', 'manifest.json'), 'utf8')).parts;
 const PART_NAME = new Map(PARTS.map(p => [p.id, p.pt || p.n]));
@@ -34,15 +29,30 @@ for (const z of QUIZZES) for (const q of z.questions) if (q.kind === 'model') {
   q.ids = PARTS.filter(p => p.s === q.target.sys && qs.some(x => nm(p.pt).includes(x) || nm(p.n).includes(x))).map(p => p.id);
   if (!q.ids.length) throw new Error('Questão ' + q.id + ': estrutura não encontrada no modelo.');
 }
-const QBYID = new Map();
-for (const z of QUIZZES) for (const q of z.questions) QBYID.set(q.id, { q, z });
+// Banco oficial de vestibular (questions/official). Só entram itens com direitos liberados e comentário autoral:
+// bank.js recusa tudo o que não passou pelas três etapas do pipeline, e nunca lê staging/.
+const BANK_DIR = process.env.ATLAS_BANK_DIR || path.join(__dirname, 'questions', 'official');
+const LOOPBACK = /^(localhost|127\.0\.0\.1|\[?::1\]?)$/;
+// Só para teste local: ATLAS_PREVIEW_BANK=1 carrega as questões reais SEM direitos liberados (tools/preview). Nunca no
+// Vercel, em produção ou com banco que não seja local: lá só vale o que passou pelas três etapas.
+let PREVIEW = null;
+if (process.env.ATLAS_PREVIEW_BANK === '1') {
+  if (process.env.VERCEL || process.env.NODE_ENV === 'production' || !LOOPBACK.test(process.env.PGHOST)) throw new Error('ATLAS_PREVIEW_BANK=1 só vale em desenvolvimento, com banco local (localhost, 127.0.0.1, ::1).');
+  PREVIEW = require('./tools/preview/bank-preview.js').load();
+  console.log(`Banco de PRÉ-VISUALIZAÇÃO: ${PREVIEW.bank.questions.length} questões reais sem direitos liberados (só em desenvolvimento local).`);
+}
+const BANK = PREVIEW ? PREVIEW.bank : loadBank({ dir: BANK_DIR, publicDir: PUB, reserved: new Set(QUIZZES.flatMap(z => z.questions.map(q => q.id))) });
+const { QBYID, LESSON_IDS, stats, viewQ, viewBankQ, viewQuizzes, cleanProgress, grade } = createCore({ quizzes: QUIZZES, bank: BANK, partName: PART_NAME });
+const DEMO = BANK.questions.some(q => q.inst === 'fixture');
 
 // ── Banco ──
 // TLS verificado com a CA do Supabase. Feito para o pooler em modo transação (porta 6543), que aguenta muitas
 // funções abertas ao mesmo tempo; nesse modo o search_path não persiste, então o esquema vai escrito em cada consulta.
-const pool = new Pool({ ssl: { ca: fs.readFileSync(path.join(__dirname, 'supabase-ca.crt'), 'utf8') }, max: process.env.VERCEL ? 2 : 5 });
+if (process.env.PGSSL === 'disable' && !LOOPBACK.test(process.env.PGHOST)) throw new Error('PGSSL=disable só vale para banco local (localhost, 127.0.0.1, ::1).');
+const ssl = process.env.PGSSL === 'disable' ? false : { ca: fs.readFileSync(path.join(__dirname, 'supabase-ca.crt'), 'utf8') };
+const pool = new Pool({ ssl, max: process.env.VERCEL ? 2 : 5 });
 pool.on('error', e => console.error('banco:', e.message));
-const sql = text => text.replace(/\b(users|sessions|answers)\b/g, SCHEMA + '.$1'); // nome da tabela -> esquema.tabela
+const sql = text => text.replace(/\b(users|sessions|answers|turmas|turma_membros)\b/g, SCHEMA + '.$1'); // nome da tabela -> esquema.tabela
 const run = (text, params) => pool.query(sql(text), params);
 const all = (text, params) => run(text, params).then(r => r.rows);
 const one = (text, params) => all(text, params).then(r => r[0] || null);
@@ -76,6 +86,21 @@ async function initDb() {
       PRIMARY KEY (user_id, qid)
     );
     ALTER TABLE ${SCHEMA}.answers ADD COLUMN IF NOT EXISTS pick TEXT;
+    ALTER TABLE ${SCHEMA}.users ADD COLUMN IF NOT EXISTS professor BOOLEAN NOT NULL DEFAULT false;
+    CREATE TABLE IF NOT EXISTS ${SCHEMA}.turmas (
+      id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+      nome TEXT NOT NULL,
+      codigo TEXT NOT NULL UNIQUE,
+      professor_id INTEGER NOT NULL REFERENCES ${SCHEMA}.users(id) ON DELETE CASCADE,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+    CREATE TABLE IF NOT EXISTS ${SCHEMA}.turma_membros (
+      turma_id INTEGER NOT NULL REFERENCES ${SCHEMA}.turmas(id) ON DELETE CASCADE,
+      user_id INTEGER NOT NULL UNIQUE REFERENCES ${SCHEMA}.users(id) ON DELETE CASCADE,
+      status TEXT NOT NULL DEFAULT 'pendente' CHECK (status IN ('pendente', 'aprovado')),
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+      PRIMARY KEY (turma_id, user_id)
+    );
   `);
 }
 
@@ -129,67 +154,50 @@ const dupEmail = e => { throw e.code === '23505' ? new Bad(EMAIL_TAKEN, 409) : e
 
 // ── Gamificação (funções puras sobre as respostas já lidas do banco) ──
 const answersOf = uid => all('SELECT qid, sel, pick, correct, points FROM answers WHERE user_id = $1', [uid]);
-function stats(u, rows) {
-  const by = new Map(rows.map(r => [r.qid, r]));
-  let points = 0, answered = 0, correct = 0, quizzesDone = 0, perfect = 0;
-  for (const z of QUIZZES) {
-    const a = z.questions.map(q => by.get(q.id)).filter(Boolean);
-    for (const r of a) { points += r.points; answered++; correct += r.correct; }
-    if (a.length === z.questions.length) {
-      quizzesDone++; points += QUIZ_BONUS;
-      if (a.every(r => r.correct)) perfect++;
-    }
-  }
-  const p = u.progress || {}, ls = p.ls || {};
-  const lessonsDone = LESSON_IDS.filter(id => (id === 'cardiovascular' ? p.lessonDone === true : (ls[id] || {}).d === true)).length;
-  points += lessonsDone * LESSON_PTS;
-  const level = Math.min(TITLES.length, Math.floor(points / LEVEL_STEP) + 1);
-  const badges = [
-    ['Primeiro passo', 'Responder à primeira questão', answered >= 1],
-    ['Leitura em dia', 'Concluir a primeira aula', lessonsDone >= 1],
-    ['Trilha lida', 'Concluir todas as aulas', lessonsDone === LESSON_IDS.length],
-    ['Na mosca', 'Acertar todas as questões de um quiz', perfect >= 1],
-    ['Maratonista', 'Completar 5 quizzes', quizzesDone >= 5],
-    ['Atlas completo', 'Completar todos os quizzes', quizzesDone === QUIZZES.length],
-  ].map(([name, desc, earned]) => ({ name, desc, earned }));
-  return {
-    points, level, title: TITLES[level - 1],
-    floor: (level - 1) * LEVEL_STEP, next: level < TITLES.length ? level * LEVEL_STEP : null,
-    answered, correct, quizzesDone, quizzesTotal: QUIZZES.length, lessonsDone, lessonsTotal: LESSON_IDS.length, badges,
-  };
-}
-const publicUser = u => ({ id: u.id, name: u.name, email: u.email, inst: u.inst, createdAt: u.created_at });
-const session = async u => ({ user: publicUser(u), stats: stats(u, await answersOf(u.id)), progress: u.progress || {} });
+const publicUser = u => ({ id: u.id, name: u.name, email: u.email, inst: u.inst, professor: !!u.professor, createdAt: u.created_at });
+// Turma do aluno (pedido pendente ou aprovada), com o nome do professor.
+const turmaOf = uid => one(`SELECT t.id, t.nome, m.status, p.name AS professor FROM turma_membros m JOIN turmas t ON t.id = m.turma_id JOIN users p ON p.id = t.professor_id WHERE m.user_id = $1`, [uid]);
+const session = async u => ({ user: publicUser(u), stats: stats(u, await answersOf(u.id)), progress: u.progress || {}, turma: await turmaOf(u.id) });
 
-// Questão como o navegador a vê: o gabarito só aparece depois de respondida.
-function viewQ(q, a) {
-  const model = q.kind === 'model';
-  const o = { id: q.id, kind: model ? 'model' : 'mc', topic: q.topic, diff: q.diff, stem: q.stem, opts: q.opts || [], view: q.view || null, pts: PTS[q.diff], sec: q.sec ?? null, pulm: !!q.pulm };
-  if (a) Object.assign(o, { sel: a.sel, pick: a.pick || null, pickName: PART_NAME.get(a.pick) || '', correct: !!a.correct, points: a.points,
-    key: model ? { ansText: q.ansText, parts: q.ids, names: [...new Set(q.ids.map(i => PART_NAME.get(i)))], steps: [], why: [] }
-      : { ans: q.ans, ansText: q.ansText, steps: q.steps || [], why: q.why } });
-  return o;
+// ── Turmas ──
+// Código de 6 caracteres sem 0/O/1/I, para ditar em voz alta ou copiar sem erro.
+const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+const newCode = () => Array.from(crypto.randomBytes(6), b => CODE_CHARS[b % CODE_CHARS.length]).join('');
+const vCodigo = v => { const s = str(v).toUpperCase().replace(/[\s-]/g, ''); if (!/^[A-Z0-9]{6}$/.test(s)) throw new Bad('O código da turma tem 6 letras e números.'); return s; };
+const vTurma = v => { const s = str(v); if (s.length < 2 || s.length > 60) throw new Bad('Dê um nome à turma (2 a 60 caracteres).'); return s; };
+// Pede entrada em uma turma pelo código. Falha com Bad se não existir ou se a pessoa já tiver turma.
+async function pedirEntrada(u, codigo) {
+  const t = await one('SELECT id, nome FROM turmas WHERE codigo = $1', [codigo]);
+  if (!t) throw new Bad('Não existe turma com esse código.', 404);
+  if (u.professor) throw new Bad('Contas de professor criam turmas; não entram em uma.', 403);
+  if (await one('SELECT 1 FROM turma_membros WHERE user_id = $1', [u.id])) throw new Bad('Você já está em uma turma ou com pedido pendente. Saia dela antes de entrar em outra.', 409);
+  await run('INSERT INTO turma_membros (turma_id, user_id) VALUES ($1, $2)', [t.id, u.id]);
+  return t;
 }
-function viewQuizzes(rows) {
-  const by = new Map(rows.map(r => [r.qid, r]));
-  return QUIZZES.map(z => {
-    const questions = z.questions.map(q => viewQ(q, by.get(q.id)));
-    const done = questions.filter(q => q.key);
-    const complete = done.length === questions.length;
-    return {
-      id: z.id, title: z.title, total: questions.length, answered: done.length,
-      correct: done.filter(q => q.correct).length,
-      earned: done.reduce((n, q) => n + q.points, 0) + (complete ? QUIZ_BONUS : 0),
-      max: questions.reduce((n, q) => n + q.pts, 0) + QUIZ_BONUS, bonus: QUIZ_BONUS, questions,
-    };
-  });
+async function minhaTurma(u, turmaId) {
+  const t = await one('SELECT id, nome, codigo, professor_id FROM turmas WHERE id = $1', [turmaId]);
+  if (!t || t.professor_id !== u.id || !u.professor) throw new Bad('Turma não encontrada.', 404);
+  return t;
 }
+// Pontos e nível de cada usuário, pela mesma regra do ranking geral.
+async function pontosDe(ids) {
+  if (!ids.length) return new Map();
+  const [users, answers] = await Promise.all([all('SELECT id, name, progress FROM users WHERE id = ANY($1)', [ids]), all('SELECT user_id, qid, correct, points FROM answers WHERE user_id = ANY($1)', [ids])]);
+  const by = new Map();
+  for (const a of answers) (by.get(a.user_id) || by.set(a.user_id, []).get(a.user_id)).push(a);
+  return new Map(users.map(x => { const st = stats(x, by.get(x.id) || []); return [x.id, { id: x.id, name: x.name, points: st.points, level: st.level }]; }));
+}
+const posicoes = (rows, meId) => rows.sort((a, b) => b.points - a.points || a.id - b.id).map((x, i) => ({ pos: i + 1, name: x.name, points: x.points, level: x.level, me: x.id === meId }));
 
 // ── Rotas da API ──
 const routes = {
   async 'POST /api/register'(req, res, b) {
     const name = vName(b.name), email = vEmail(b.email), inst = vInst(b.inst), pass = vPass(b.password);
-    const u = await one('INSERT INTO users (name, email, inst, pass) VALUES ($1, $2, $3, $4) RETURNING *', [name, email, inst, hashPass(pass)]).catch(dupEmail);
+    const professor = b.professor === true;
+    const codigo = !professor && str(b.codigoTurma) ? vCodigo(b.codigoTurma) : null;
+    if (codigo && !(await one('SELECT 1 FROM turmas WHERE codigo = $1', [codigo]))) throw new Bad('Não existe turma com esse código. Confira com o seu professor ou deixe em branco.', 404);
+    const u = await one('INSERT INTO users (name, email, inst, pass, professor) VALUES ($1, $2, $3, $4, $5) RETURNING *', [name, email, inst, hashPass(pass), professor]).catch(dupEmail);
+    if (codigo) await pedirEntrada(u, codigo);
     await newSession(req, res, u.id);
     return [201, await session(u)];
   },
@@ -215,7 +223,10 @@ const routes = {
     const newPass = b.password ? vPass(b.password) : null;
     if ((email !== u.email || newPass) && (typeof b.currentPassword !== 'string' || !checkPass(b.currentPassword, u.pass)))
       throw new Bad('Para mudar e-mail ou senha, informe a senha atual correta.', 403);
-    const nu = await one('UPDATE users SET name = $1, email = $2, inst = $3, pass = $4 WHERE id = $5 RETURNING *', [name, email, inst, newPass ? hashPass(newPass) : u.pass, u.id]).catch(dupEmail);
+    const professor = b.professor === undefined ? !!u.professor : b.professor === true;
+    if (professor && !u.professor && (await turmaOf(u.id))) throw new Bad('Saia da sua turma antes de virar professor.', 409);
+    if (!professor && u.professor && (await one('SELECT 1 FROM turmas WHERE professor_id = $1', [u.id]))) throw new Bad('Você ainda tem turmas. Exclua-as antes de deixar de ser professor.', 409);
+    const nu = await one('UPDATE users SET name = $1, email = $2, inst = $3, pass = $4, professor = $5 WHERE id = $6 RETURNING *', [name, email, inst, newPass ? hashPass(newPass) : u.pass, professor, u.id]).catch(dupEmail);
     if (newPass) { // troca de senha encerra as outras sessões
       await all('DELETE FROM sessions WHERE user_id = $1', [u.id]);
       await newSession(req, res, u.id);
@@ -229,21 +240,7 @@ const routes = {
     return [200, { ok: true }];
   },
   async 'PUT /api/progress'(req, res, b, u) {
-    const p = b.progress || {}, int = (v, max) => (Number.isInteger(v) && v >= 0 && v <= max ? v : 0);
-    const ints = (v, max) => (Array.isArray(v) ? [...new Set(v.filter(x => Number.isInteger(x) && x >= 0 && x <= max))] : []);
-    const ls = {};
-    if (p.ls && typeof p.ls === 'object') for (const id of LESSON_IDS) {
-      const x = p.ls[id];
-      if (id !== 'cardiovascular' && x && typeof x === 'object') ls[id] = { s: int(x.s, 9), v: ints(x.v, 9), d: x.d === true };
-    }
-    const fcRes = {};
-    if (p.fcRes && typeof p.fcRes === 'object') for (const k of ['0', '1', '2', '3']) if (p.fcRes[k] === 'got' || p.fcRes[k] === 'again') fcRes[k] = p.fcRes[k];
-    const clean = {
-      sec: int(p.sec, 5), visited: ints(p.visited, 5), step: int(p.step, 10), fc: int(p.fc, 4), fcRes,
-      saved: Array.isArray(p.saved) ? [...new Set(p.saved.filter(x => QBYID.has(x)))] : [],
-      lessonDone: p.lessonDone === true, ls,
-      last: LESSON_IDS.includes(p.last) ? p.last : null,
-    };
+    const clean = cleanProgress(b.progress);
     await all('UPDATE users SET progress = $1 WHERE id = $2', [JSON.stringify(clean), u.id]);
     u.progress = clean;
     return [200, { stats: stats(u, await answersOf(u.id)) }];
@@ -253,36 +250,106 @@ const routes = {
     const hit = QBYID.get(b.qid);
     if (!hit) throw new Bad('Questão não encontrada.', 404);
     const { q, z } = hit;
-    const model = q.kind === 'model';
-    if (model) { if (typeof b.part !== 'string' || !PART_NAME.has(b.part)) throw new Bad('Clique em uma estrutura do modelo para responder.'); }
-    else if (!Number.isInteger(b.sel) || b.sel < 0 || b.sel >= q.opts.length) throw new Bad('Alternativa inválida.');
-    const correct = (model ? q.ids.includes(b.part) : b.sel === q.ans) ? 1 : 0, points = correct ? PTS[q.diff] : 0;
+    let g;
+    try { g = grade(q, b); } catch (e) { throw new Bad(e.message, e.status || 400); }
     // Só a primeira tentativa vale: a chave primária (user_id, qid) barra a segunda.
-    const ins = await run('INSERT INTO answers (user_id, qid, sel, pick, correct, points) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING', [u.id, q.id, model ? -1 : b.sel, model ? b.part : null, correct, points]);
+    const ins = await run('INSERT INTO answers (user_id, qid, sel, pick, correct, points) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING', [u.id, q.id, g.sel, g.pick, g.correct, g.points]);
     if (!ins.rowCount) throw new Bad('Você já respondeu a esta questão.', 409);
     const rows = await answersOf(u.id);
     const before = stats(u, rows.filter(r => r.qid !== q.id)), after = stats(u, rows);
+    const common = { awarded: g.points, levelUp: after.level > before.level,
+      newBadges: after.badges.filter((x, i) => x.earned && !before.badges[i].earned).map(x => x.name), stats: after };
+    if (hit.bank) return [200, { ...common, bonus: 0, question: viewBankQ(q, { sel: g.sel, correct: g.correct, points: g.points }) }];
     const quiz = viewQuizzes(rows).find(x => x.id === z.id);
-    return [200, {
-      quiz, awarded: points, bonus: quiz.answered === quiz.total ? QUIZ_BONUS : 0,
-      levelUp: after.level > before.level,
-      newBadges: after.badges.filter((x, i) => x.earned && !before.badges[i].earned).map(x => x.name),
-      stats: after,
-    }];
+    return [200, { ...common, quiz, bonus: quiz.answered === quiz.total ? QUIZ_BONUS : 0 }];
   },
+  // Banco oficial: lista paginada com filtros e contagens por faceta. Sem gabarito nem comentário antes da resposta.
+  async 'GET /api/bank'(req, res, b, u, query) {
+    const rows = u ? await answersOf(u.id) : [];
+    const mine = new Map(rows.filter(r => BANK.byId.has(r.qid)).map(r => [r.qid, r]));
+    const f = {};
+    for (const k of ['system', 'inst', 'year', 'diff', 'kind', 'topic', 'page', 'limit']) if (query.get(k)) f[k] = query.get(k);
+    if (query.get('q')) f.text = query.get('q').slice(0, 80);
+    const st = query.get('status');
+    if (u && st === 'pending') f.excludeIds = new Set(mine.keys());
+    if (u && st === 'answered') f.ids = new Set(mine.keys());
+    if (u && st === 'wrong') f.ids = new Set([...mine].filter(([id, r]) => !r.correct && BANK.byId.get(id).kind !== 'open').map(([id]) => id));
+    const r = BANK.query(f);
+    return [200, { total: r.total, page: r.page, pages: r.pages, limit: r.limit, facets: BANK.facets(f), available: BANK.questions.length,
+      questions: r.items.map(q => viewBankQ(q, mine.get(q.id))) }];
+  },
+  // Sistemas e temas da aba Provas, com a contagem real de questões publicadas.
+  async 'GET /api/bank/catalog'() { return [200, { systems: BANK.catalog(), available: BANK.questions.length }]; },
+  // Modo da instância: "demo" quando o banco carregado tem itens fictícios (fixture); a interface mostra a faixa.
+  async 'GET /api/env'() { return [200, DEMO ? { mode: 'demo', label: 'DEMONSTRAÇÃO — DADOS FICTÍCIOS' } : { mode: 'live' }]; },
+  // Ranking geral e, para quem tem turma aprovada, o da turma. Pendentes não aparecem em nenhum ranking de turma.
   async 'GET /api/ranking'(req, res, b, u) {
     // ponytail: lê todas as contas e respostas e soma em memória a cada pedido; suficiente para turmas.
     // Com milhares de contas, guarde o total em uma coluna atualizada em /api/answer.
     const [users, answers] = await Promise.all([all('SELECT id, name, progress FROM users'), all('SELECT user_id, qid, correct, points FROM answers')]);
     const by = new Map();
     for (const a of answers) (by.get(a.user_id) || by.set(a.user_id, []).get(a.user_id)).push(a);
-    const rows = users.map(x => { const s = stats(x, by.get(x.id) || []); return { id: x.id, name: x.name, points: s.points, level: s.level }; })
-      .sort((a, b2) => b2.points - a.points || a.id - b2.id)
-      .map((x, i) => ({ pos: i + 1, name: x.name, points: x.points, level: x.level, me: x.id === u.id }));
-    return [200, { top: rows.slice(0, 10), me: rows.find(x => x.me), total: rows.length }];
+    const rows = users.map(x => { const s = stats(x, by.get(x.id) || []); return { id: x.id, name: x.name, points: s.points, level: s.level }; });
+    const pack = list => { const r = posicoes(list, u.id); return { top: r.slice(0, 10), me: r.find(x => x.me) || null, total: r.length }; };
+    const geral = pack(rows);
+    const t = await turmaOf(u.id);
+    let turma = null;
+    if (t && t.status === 'aprovado') {
+      const ids = new Set((await all(`SELECT user_id FROM turma_membros WHERE turma_id = $1 AND status = 'aprovado'`, [t.id])).map(r => r.user_id));
+      turma = { nome: t.nome, ...pack(rows.filter(x => ids.has(x.id))) };
+    }
+    // o formato antigo (top/me/total) continua, apontando para o geral
+    return [200, { ...geral, geral, turma }];
+  },
+  // ── Turmas ──
+  async 'POST /api/turma/entrar'(req, res, b, u) {
+    const t = await pedirEntrada(u, vCodigo(b.codigo));
+    return [200, { ok: true, turma: { nome: t.nome, status: 'pendente' } }];
+  },
+  async 'POST /api/turma/sair'(req, res, b, u) {
+    await run('DELETE FROM turma_membros WHERE user_id = $1', [u.id]);
+    return [200, { ok: true }];
+  },
+  async 'POST /api/turmas'(req, res, b, u) {
+    if (!u.professor) throw new Bad('Só contas de professor criam turmas.', 403);
+    const nome = vTurma(b.nome);
+    for (let i = 0; i < 8; i++) {
+      const t = await one('INSERT INTO turmas (nome, codigo, professor_id) VALUES ($1, $2, $3) ON CONFLICT (codigo) DO NOTHING RETURNING id, nome, codigo', [nome, newCode(), u.id]);
+      if (t) return [201, { turma: t }];
+    }
+    throw new Bad('Não foi possível gerar um código agora. Tente de novo.', 503);
+  },
+  async 'GET /api/turmas'(req, res, b, u) {
+    if (!u.professor) throw new Bad('Só contas de professor veem turmas.', 403);
+    const ts = await all('SELECT id, nome, codigo FROM turmas WHERE professor_id = $1 ORDER BY id', [u.id]);
+    const ms = ts.length ? await all('SELECT turma_id, user_id, status FROM turma_membros WHERE turma_id = ANY($1) ORDER BY created_at', [ts.map(t => t.id)]) : [];
+    const pts = await pontosDe(ms.map(m => m.user_id));
+    return [200, { turmas: ts.map(t => {
+      const mine = ms.filter(m => m.turma_id === t.id).map(m => ({ userId: m.user_id, status: m.status, ...(pts.get(m.user_id) || { name: '?', points: 0, level: 1 }) }));
+      const aprovados = mine.filter(m => m.status === 'aprovado').sort((a, c) => c.points - a.points || a.userId - c.userId);
+      return { id: t.id, nome: t.nome, codigo: t.codigo, pendentes: mine.filter(m => m.status === 'pendente').map(m => ({ userId: m.userId, name: m.name })),
+        ranking: aprovados.map((m, i) => ({ pos: i + 1, userId: m.userId, name: m.name, points: m.points, level: m.level })) };
+    }) }];
+  },
+  async 'POST /api/turmas/membro'(req, res, b, u) {
+    if (!u.professor) throw new Bad('Só contas de professor gerenciam turmas.', 403);
+    const t = await minhaTurma(u, Number.isInteger(b.turmaId) ? b.turmaId : -1);
+    const uid = Number.isInteger(b.userId) ? b.userId : -1;
+    if (!['aprovar', 'recusar', 'remover'].includes(b.acao)) throw new Bad('Ação inválida.');
+    const m = await one('SELECT status FROM turma_membros WHERE turma_id = $1 AND user_id = $2', [t.id, uid]);
+    if (!m) throw new Bad('Aluno não encontrado nesta turma.', 404);
+    if (b.acao === 'aprovar') await run(`UPDATE turma_membros SET status = 'aprovado' WHERE turma_id = $1 AND user_id = $2`, [t.id, uid]);
+    else await run('DELETE FROM turma_membros WHERE turma_id = $1 AND user_id = $2', [t.id, uid]);
+    return [200, { ok: true }];
+  },
+  async 'POST /api/turmas/excluir'(req, res, b, u) {
+    if (!u.professor) throw new Bad('Só contas de professor gerenciam turmas.', 403);
+    const t = await minhaTurma(u, Number.isInteger(b.turmaId) ? b.turmaId : -1);
+    await run('DELETE FROM turmas WHERE id = $1', [t.id]);
+    return [200, { ok: true }];
   },
 };
-const PUBLIC = new Set(['POST /api/register', 'POST /api/login', 'POST /api/logout', 'GET /api/me', 'GET /api/quizzes']);
+const PUBLIC = new Set(['POST /api/register', 'POST /api/login', 'POST /api/logout', 'GET /api/me', 'GET /api/quizzes', 'GET /api/bank', 'GET /api/bank/catalog', 'GET /api/env']);
 
 function readBody(req) {
   if (req.body !== undefined) return Promise.resolve(req.body && typeof req.body === 'object' && !Buffer.isBuffer(req.body) ? req.body : {});
@@ -301,7 +368,7 @@ function json(res, status, body) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
   res.end(JSON.stringify(body));
 }
-async function api(req, res, pathname) {
+async function api(req, res, pathname, url) {
   const key = req.method + ' ' + pathname, handler = routes[key];
   try {
     if (!handler) throw new Bad('Rota não encontrada.', 404);
@@ -311,7 +378,7 @@ async function api(req, res, pathname) {
     await init();
     const u = await userOf(req);
     if (!u && !PUBLIC.has(key)) throw new Bad('Entre na sua conta para continuar.', 401);
-    const [status, out] = await handler(req, res, body, u);
+    const [status, out] = await handler(req, res, body, u, url.searchParams);
     json(res, status, out);
   } catch (e) {
     if (!(e instanceof Bad)) console.error(e);
@@ -324,8 +391,9 @@ const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
 function serveStatic(req, res, pathname) {
   let rel;
   try { rel = decodeURIComponent(pathname).replace(/^\/+/, '') || 'index.html'; } catch (e) { rel = '\0'; }
-  const file = path.join(PUB, rel);
-  const ok = !rel.includes('\0') && file.startsWith(PUB + path.sep) && (req.method === 'GET' || req.method === 'HEAD') && fs.existsSync(file) && fs.statSync(file).isFile();
+  const pf = PREVIEW && /^img\/q\//.test(rel) ? PREVIEW.mediaFile(rel) : null;   // figuras do banco de pré-visualização (staging/media)
+  const file = pf || path.join(PUB, rel);
+  const ok = !rel.includes('\0') && (pf || file.startsWith(PUB + path.sep)) && (req.method === 'GET' || req.method === 'HEAD') && fs.existsSync(file) && fs.statSync(file).isFile();
   if (!ok) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     return res.end('Não encontrado');
@@ -345,7 +413,7 @@ function handler(req, res) {
   const url = new URL(req.url, 'http://x');
   // no Vercel, /api/<rota> é reescrito para a função com a rota em ?__p= (ver vercel.json)
   const pathname = url.searchParams.has('__p') ? '/api/' + url.searchParams.get('__p') : url.pathname;
-  if (pathname.startsWith('/api/')) return api(req, res, pathname);
+  if (pathname.startsWith('/api/')) return api(req, res, pathname, url);
   serveStatic(req, res, pathname);
 }
 module.exports = handler;

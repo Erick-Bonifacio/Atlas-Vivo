@@ -1,0 +1,30 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "linfatico",
+  "topic": "Vacinas e memória imunológica"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "linfatico#3"
+  ],
+  "steps": [
+   "O RNAm vacinal tem a sequência de um gene viral e atua onde o RNAm normal atua: o citoplasma.",
+   "Nos ribossomos, o RNAm é traduzido em proteína viral.",
+   "Essa proteína funciona como antígeno e desencadeia a resposta imune, com memória."
+  ],
+  "text": "A vacina de RNA mensageiro leva às células as instruções para produzir uma proteína do vírus. As células a produzem por tradução, nos ribossomos, e o sistema imune reconhece essa proteína como antígeno, produz anticorpos e forma células de memória. O RNAm não entra no genoma e não contém o vírus.",
+  "why": [
+   "Incorreta: a capa de lipídios protege o RNAm da degradação e ajuda a entrar na célula; não é o que causa a imunização.",
+   "Incorreta: o RNAm não \"sequestra\" o vírus.",
+   "Correta. O RNAm é traduzido em proteína viral, que é reconhecida como antígeno e gera a resposta imune.",
+   "Incorreta: a vacina não contém o RNA do vírus inteiro nem compete com ele pelos ribossomos.",
+   "Incorreta: o RNAm não é incorporado ao genoma do hospedeiro e é degradado depois de usado."
+  ]
+ },
+ "id": "enem:2023:regular:141723"
+}

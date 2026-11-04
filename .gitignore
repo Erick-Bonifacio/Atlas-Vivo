@@ -1,2 +1,9 @@
 .env
 node_modules/
+
+# Pipeline de ingestao: material oficial bruto e itens em revisao (acesso restrito, nunca publicado)
+staging/
+__pycache__/
+*.pyc
+.env.test
+.env.dev

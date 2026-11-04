@@ -5,6 +5,11 @@ const T_URL='https://cdn.jsdelivr.net/npm/three@0.186.0/+esm';
 const BVH_URL='https://cdn.jsdelivr.net/npm/three-mesh-bvh@0.9.15/+esm';
 const DEC_URL='https://cdn.jsdelivr.net/npm/meshoptimizer@1.3.0/meshopt_decoder.mjs';
 const MAN_URL='atlas2/manifest.json';
+// Estruturas que o atlas não mostra: glande, corpo cavernoso e corpo esponjoso do pênis.
+const NO_SHOW=new Set(['FMA18247','FMA19618','FMA19617nsn']);
+// A pele e a uretra trazem o contorno e o trecho peniano: caixas recortadas nesses dois materiais (coordenadas da cena:
+// X=x/1000, Y=(z+13)/1000+0.045, Z=-(y+95)/1000, a mesma conta do centro de cada estrutura).
+const CUT={tegumentar:[-0.045,0.045,0.758,0.858,-0.033,0.110],urinario:[-0.014,0.014,0.748,0.848,0.017,0.110]};
 const COL={tegumentar:0x9cc8f2,muscular:0x5a82c0,esqueletico:0xe6e9ec,cardiovascular:0xc7404d,nervoso:0xe3b864,digestorio:0xd99a80,respiratorio:0xe5a8b4,urinario:0xcb8a72,endocrino:0xa487d8,linfatico:0x77ba96,reprodutor:0xc994ad};
 const VEIN=0x3d62b4;
 const RO={tegumentar:1,muscular:2};
@@ -35,7 +40,7 @@ class Atlas3DV2 extends HTMLElement{
     canvas.style.cssText='display:block;width:100%;height:100%;touch-action:none;outline:none;cursor:grab';
     canvas.tabIndex=0;canvas.setAttribute('role','img');canvas.setAttribute('aria-label','Cena 3D do corpo humano. A lista de sistemas oferece o mesmo acesso pelo teclado.');
     this.appendChild(canvas);this.canvas=canvas;
-    let r;try{r=new T.WebGLRenderer({canvas,antialias:this.opt.aa===true,powerPreference:'high-performance',preserveDrawingBuffer:false});}catch(e){this.emit('error',{message:'webgl'});return;}
+    let r;try{r=new T.WebGLRenderer({canvas,antialias:this.opt.aa===true,powerPreference:'high-performance',preserveDrawingBuffer:false});r.localClippingEnabled=true;}catch(e){this.emit('error',{message:'webgl'});return;}
     if(!r.getContext()){this.emit('error',{message:'webgl'});return;}
     this.renderer=r;const dp=window.devicePixelRatio||1;this.maxDpr=this.opt.aa===true?Math.min(dp,1.75):Math.min(2,Math.max(dp,dp*(this.opt.ss||1.35)));r.setPixelRatio(this.maxDpr);
     r.outputColorSpace=T.SRGBColorSpace;r.toneMapping=T.ACESFilmicToneMapping;r.toneMappingExposure=1.05;
@@ -115,6 +120,9 @@ class Atlas3DV2 extends HTMLElement{
       if(sys==='tegumentar')Object.assign(o,{transparent:true,opacity:0.16,depthWrite:false});
       else if(tr){if(this.opt.alphaHash&&sys==='muscular')Object.assign(o,{alphaHash:true});else o.transparent=true;}
       const m=phys?new T.MeshPhysicalMaterial(o):new T.MeshStandardMaterial(o);
+      if(CUT[sys]){const [x0,x1,y0,y1,z0,z1]=CUT[sys];       // normais para fora da caixa: dentro dela a distância é negativa nos 6 planos
+        m.clippingPlanes=[[1,0,0,-x1],[-1,0,0,x0],[0,1,0,-y1],[0,-1,0,y0],[0,0,1,-z1],[0,0,-1,z0]].map(([a,b,c,d])=>new T.Plane(new T.Vector3(a,b,c),d));
+        m.clipIntersection=true;}
       if(this.opt.singlePass&&(o.transparent))m.forceSinglePass=true;
       // transparente + DoubleSide = 2 passes. Pele (superfície fechada única) usa FrontSide com opacidade compensada.
       // Músculos ficam DoubleSide: a interpenetração entre músculos gera fragmentos com face única (testado).
@@ -151,6 +159,7 @@ class Atlas3DV2 extends HTMLElement{
   async load(){
     const T=this.T;
     const man=await (await fetch(new URL(MAN_URL,document.baseURI))).json();if(this._dead)return;this.man=man;
+    man.parts=man.parts.filter(p=>!NO_SHOW.has(p.id));
     const counts={};
     man.parts.forEach((p,i)=>{p.i=i;counts[p.s]=(counts[p.s]||0)+1;
       let key=p.s;if(p.s==='cardiovascular'&&/vein|vena|sinus/.test(p.n))key+='_v';if(p.n==='wall of heart')key='cardiovascular_w';

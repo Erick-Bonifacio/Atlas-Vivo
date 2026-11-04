@@ -1,0 +1,30 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "reprodutor",
+  "topic": "Ciclo menstrual e regulação hormonal"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "reprodutor#3"
+  ],
+  "steps": [
+   "A queda de estrógeno e progesterona acontece no fim da fase lútea, antes da menstruação.",
+   "Os dois hormônios são produzidos pelo corpo lúteo nessa fase.",
+   "Sem gravidez, o corpo lúteo regride e a produção cai."
+  ],
+  "text": "Depois da ovulação, o folículo se transforma em corpo lúteo, que produz progesterona e estrógeno. Se não há gravidez, o corpo lúteo regride (degenera) nos dias finais do ciclo, e os dois hormônios caem. É essa queda que antecede a menstruação e, segundo o texto, está ligada à redução de serotonina e aos sintomas.",
+  "why": [
+   "Correta. A regressão do corpo lúteo reduz a produção de estrógeno e de progesterona nos dias que antecedem a menstruação.",
+   "Incorreta: a ocitocina não regula o ciclo ovariano dessa forma.",
+   "Incorreta: a ovulação ocorre no meio do ciclo, antes dessa fase, e é causada pelo pico de LH.",
+   "Incorreta: o aumento de FSH e LH é consequência da queda hormonal (menos retroalimentação negativa), não a causa dela.",
+   "Incorreta: a adrenalina não controla a produção dos hormônios ovarianos."
+  ]
+ },
+ "id": "enem:2023:regular:117711"
+}

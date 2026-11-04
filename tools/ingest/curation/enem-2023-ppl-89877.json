@@ -1,0 +1,30 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "endocrino",
+  "topic": "Tireoide e metabolismo"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "endocrino#4"
+  ],
+  "steps": [
+   "Lembre os efeitos da adrenalina em cada órgão citado nas alternativas.",
+   "Compare: pressão e frequência cardíaca sobem, brônquios dilatam, secreções digestivas diminuem, glicemia sobe.",
+   "Só a alternativa do aumento da glicemia concorda com esses efeitos."
+  ],
+  "text": "A adrenalina prepara o corpo para luta ou fuga: acelera o coração, eleva a pressão arterial, dilata os brônquios, reduz as atividades digestivas e estimula o fígado a liberar glicose. Em excesso, o efeito mais claro entre as opções é o aumento da glicose no sangue.",
+  "why": [
+   "Incorreta: a adrenalina aumenta a pressão arterial.",
+   "Incorreta: a adrenalina aumenta a frequência cardíaca.",
+   "Incorreta: os brônquios se dilatam (broncodilatação), o que facilita a entrada de ar.",
+   "Incorreta: a atividade digestiva e as secreções diminuem durante a resposta de luta ou fuga.",
+   "Correta. A adrenalina estimula o fígado a transformar glicogênio em glicose e liberá-la no sangue, elevando a glicemia."
+  ]
+ },
+ "id": "enem:2023:ppl:89877"
+}

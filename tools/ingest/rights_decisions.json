@@ -1,0 +1,62 @@
+{
+ "_doc": "Decisões de direitos de reprodução por fonte. SOMENTE uma pessoa responsável (dona do projeto) pode alterar `status` para `cleared`, preenchendo `decided_by`, `decided_on`, `basis` e `covers`. O pipeline nunca libera sozinho: sem decisão `cleared` que cubra todos os tipos de material presentes em um item (texto, figuras, trechos de terceiros), o item fica em staging restrito. Evidências coletadas em 2026-10-30; ver docs/licencas.md.",
+ "decisions": [
+  {
+   "id": "enem-inep",
+   "scope": {"inst": "enem"},
+   "status": "needs_authorization",
+   "covers": [],
+   "decided_by": null,
+   "decided_on": null,
+   "basis": null,
+   "findings": [
+    "O texto de licença localizado está no rodapé/descrição do site gov.br/inep: \"Todo o conteúdo deste site está publicado sob a licença Creative Commons Atribuição-SemDerivações 3.0 Não Adaptada\" (CC BY-ND 3.0). Não encontrado aviso equivalente nos PDFs de prova hospedados em download.inep.gov.br.",
+    "Edital e Leia-me do ENEM 2023 (microdados) não trazem cláusula de licença ou reprodução dos itens.",
+    "Itens contêm textos, charges, fotos e gráficos de terceiros (linhas 'Disponível em' / 'Adaptado de'), que o INEP não licencia; reprodução de pequenos trechos tem amparo no art. 46, VIII da Lei 9.610/1998, imagens e obras integrais exigem autorização do titular.",
+    "CC BY-ND impede obras derivadas; a reapresentação em outro layout, com comentários e figuras recortadas, precisa de confirmação de que não configura adaptação."
+   ],
+   "evidence": [
+    "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+    "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+    "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+   ],
+   "path_to_clear": "Pedir confirmação por escrito ao INEP pelo Fala.BR (e-SIC): que as provas e gabaritos publicados podem ser reproduzidos integralmente, com atribuição, em plataforma educacional gratuita, e como tratar o material de terceiros dos itens. Registrar o protocolo e a resposta em `evidence` e `basis`."
+  },
+  {
+   "id": "fuvest",
+   "scope": {"inst": "fuvest"},
+   "status": "needs_authorization",
+   "covers": [],
+   "decided_by": null,
+   "decided_on": null,
+   "basis": null,
+   "findings": ["Não verificado: o site do acervo respondeu HTTP 403 a requisições automáticas; as condições de uso precisam ser lidas no navegador."],
+   "evidence": ["https://www.fuvest.br/acervo-vestibular-2026/"],
+   "path_to_clear": "Ler os termos do acervo FUVEST no navegador e solicitar autorização por escrito à FUVEST."
+  },
+  {
+   "id": "unicamp-comvest",
+   "scope": {"inst": "unicamp"},
+   "status": "needs_authorization",
+   "covers": [],
+   "decided_by": null,
+   "decided_on": null,
+   "basis": null,
+   "findings": ["Provas anteriores publicadas pela Comvest; licença de reprodução não localizada na página de vestibulares anteriores."],
+   "evidence": ["https://www.comvest.unicamp.br/vestibulares-anteriores/"],
+   "path_to_clear": "Solicitar autorização por escrito à Comvest (vestibular@unicamp.br)."
+  },
+  {
+   "id": "unesp-vunesp",
+   "scope": {"inst": "unesp"},
+   "status": "needs_authorization",
+   "covers": [],
+   "decided_by": null,
+   "decided_on": null,
+   "basis": null,
+   "findings": ["Não verificado: o site da VUNESP respondeu HTTP 403 a requisições automáticas."],
+   "evidence": ["https://www.vunesp.com.br/Institucional/EstatisticaVestibular"],
+   "path_to_clear": "Ler os termos no navegador e solicitar autorização por escrito à VUNESP."
+  }
+ ]
+}

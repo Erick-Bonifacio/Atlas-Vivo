@@ -1,0 +1,30 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "linfatico",
+  "topic": "Vacinas e memória imunológica"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "linfatico#3"
+  ],
+  "steps": [
+   "Identifique o dado central: há quatro sorotipos e a segunda infecção por outro sorotipo é a mais grave.",
+   "Conclua que uma vacina só é segura se protege contra todos os sorotipos de modo equilibrado.",
+   "Procure a alternativa que traz essa dificuldade: obter antígenos que representem os quatro."
+  ],
+  "text": "O texto diz que os casos graves ocorrem em uma segunda infecção por um sorotipo diferente do primeiro. Isso significa que uma proteção parcial, contra apenas alguns sorotipos, pode ser pior do que nenhuma. Por isso a vacina precisa induzir resposta contra os quatro sorotipos ao mesmo tempo, e conseguir antígenos que representem todos eles é o obstáculo.",
+  "why": [
+   "Incorreta: o texto mostra que as pessoas produzem anticorpos ao se infectar, então o ser humano responde aos antígenos do vírus.",
+   "Incorreta: a resposta imune existe (há produção de anticorpos); o problema descrito é outro.",
+   "Correta. Como a gravidade está ligada a infecções por sorotipos diferentes, a vacina precisa cobrir os quatro, e reunir antígenos de todos é a dificuldade.",
+   "Incorreta: o enunciado trata de sorotipos do mesmo vírus, não de reação a outros vírus.",
+   "Incorreta: o texto afirma que a pessoa produz anticorpos contra o sorotipo da primeira infecção."
+  ]
+ },
+ "id": "enem:2023:ppl:84984"
+}

@@ -1,0 +1,101 @@
+{
+ "_doc": "FIXTURE DE TESTE. Itens sintéticos só para testar o carregador, a API e a interface. Não são questões oficiais, não vão para o app e não são carregados por padrão (só com ATLAS_BANK_DIR apontando para esta pasta: testes e modo de demonstração). A interface os rotula como questão fictícia e mostra a faixa DEMONSTRAÇÃO — DADOS FICTÍCIOS.",
+ "questions": [
+  {
+   "id": "fixture:2099:regular:mc5", "type": "VERIFIED_OFFICIAL", "status": "published", "kind": "mc",
+   "inst": "fixture", "year": 2099, "phase": "regular", "edition": "regular", "area": "CN",
+   "stem": [
+    {"t": "p", "text": "As vilosidades do intestino delgado aumentam muito a superfície de contato com o alimento digerido. Em qual órgão ocorre a maior parte da absorção de nutrientes?"},
+    {"t": "source", "text": "Texto de demonstração, sem autoria real."}
+   ],
+   "opts": [{"text": "Estômago."}, {"text": "Esôfago."}, {"text": "Intestino delgado."}, {"text": "Intestino grosso."}, {"text": "Fígado."}],
+   "ans": 2,
+   "appearances": [{"booklet": 1, "color": "Azul", "co_prova": "0", "number": 1, "page": 1, "day": 2, "pdf_url": "https://example.org/fixture.pdf", "key_url": "https://example.org/fixture-gab.pdf"}],
+   "system": "digestorio", "topic": "Absorção no intestino delgado", "skills": ["1"],
+   "diff": "Básica", "diff_method": "irt_p_ref", "diff_stats": {"p_ref": 0.4, "a": 1, "b": 0, "c": 0.2},
+   "third_party": [{"citation": "Texto de demonstração, sem autoria real.", "kind": "texto"}],
+   "rights": {"status": "cleared", "basis": "fixture de teste", "decided_by": "teste", "decided_on": "2099-01-01", "evidence": []},
+   "science": {"classification_by": "teste", "classification_human": false, "explanation_by": "teste", "explanation_human": true},
+   "expl": {"autoral": true, "text": "Comentário de demonstração: as vilosidades do intestino delgado ampliam a superfície de absorção.", "steps": ["passo 1", "passo 2"],
+            "why": ["Incorreta: no estômago começa a digestão de proteínas.", "Incorreta: o esôfago só conduz o alimento.", "Correta. É onde ocorre a maior parte da absorção.", "Incorreta: o intestino grosso absorve água e sais.", "Incorreta: o fígado produz bile."]},
+   "lessons": ["digestorio#4"]
+  },
+  {
+   "id": "fixture:2099:regular:mc4", "type": "VERIFIED_OFFICIAL", "status": "published", "kind": "mc",
+   "inst": "fixture", "year": 2098, "phase": "regular", "edition": "regular", "area": "CN",
+   "stem": [{"t": "p", "text": "A tabela resume o destino do sangue em duas câmaras do coração."}, {"t": "table", "rows": [["Câmara", "Recebe"], ["Átrio direito", "Sangue venoso"], ["Átrio esquerdo", "Sangue arterial"]]}, {"t": "p", "text": "Qual alternativa descreve corretamente o átrio esquerdo?"}],
+   "opts": [{"text": "Recebe sangue arterial vindo dos pulmões."}, {"text": "Recebe sangue venoso vindo do corpo."}, {"text": "Bombeia sangue para os pulmões."}, {"text": "Bombeia sangue para a aorta."}],
+   "ans": 0,
+   "appearances": [{"booklet": 2, "color": null, "co_prova": null, "number": 7, "page": 3, "day": 1, "pdf_url": "https://example.org/fixture2.pdf", "key_url": null}],
+   "system": "cardiovascular", "topic": "Câmaras e valvas do coração", "skills": [],
+   "diff": "Avançada", "diff_method": "estimado", "diff_stats": null,
+   "third_party": [],
+   "rights": {"status": "cleared", "basis": "fixture de teste", "decided_by": "teste", "decided_on": "2099-01-01", "evidence": []},
+   "science": {"classification_by": "teste", "classification_human": false, "explanation_by": "teste", "explanation_human": false},
+   "expl": {"autoral": true, "text": "Resolução de demonstração, sem revisão humana: não aparece para o aluno.", "steps": [], "why": ["Correta. O átrio esquerdo recebe o sangue das veias pulmonares.", "Incorreta: B.", "Incorreta: C.", "Incorreta: D."]},
+   "lessons": []
+  },
+  {
+   "id": "fixture:2099:regular:open1", "type": "VERIFIED_OFFICIAL", "status": "published", "kind": "open",
+   "inst": "fixture", "year": 2097, "phase": "2a-fase", "edition": "regular", "area": "BIO",
+   "stem": [{"t": "p", "text": "Explique a função da bile na digestão das gorduras."}],
+   "opts": [],
+   "expected": {"text": "A bile emulsifica as gorduras e facilita a ação das lipases.", "source_url": "https://example.org/fixture-resp.pdf"},
+   "appearances": [{"booklet": 1, "color": null, "co_prova": null, "number": 3, "page": 2, "day": 1, "pdf_url": "https://example.org/fixture3.pdf", "key_url": null}],
+   "system": "digestorio", "topic": "Fígado e pâncreas", "skills": [],
+   "diff": "Intermediária", "diff_method": "estimado", "diff_stats": null,
+   "third_party": [],
+   "rights": {"status": "cleared", "basis": "fixture de teste", "decided_by": "teste", "decided_on": "2099-01-01", "evidence": []},
+   "science": {"classification_by": "teste", "classification_human": false, "explanation_by": "teste", "explanation_human": false},
+   "expl": {"autoral": true, "text": "Comentário de demonstração sobre a bile.", "steps": [], "why": []},
+   "lessons": ["digestorio#3"]
+  },
+  {
+   "id": "fixture:2099:regular:tab1", "type": "VERIFIED_OFFICIAL", "status": "published", "kind": "mc",
+   "inst": "fixture", "year": 2096, "phase": "regular", "edition": "regular", "area": "CN",
+   "stem": [
+    {"t": "p", "text": "Durante a digestão, o alimento passa por transformações físicas e químicas. A tabela mostra a ação de três enzimas, com o pH ótimo de cada uma e o gás CO_{2} liberado em um experimento de fermentação, a 37 °C."},
+    {"t": "table", "rows": [["Enzima", "Local de ação", "pH ótimo"], ["Amilase salivar", "Boca", "6,8"], ["Pepsina", "Estômago", "2,0"], ["Tripsina", "Intestino delgado", "8,0"]]},
+    {"t": "source", "text": "Dados de demonstração, sem autoria real."},
+    {"t": "p", "text": "Com base na tabela, qual enzima atua em meio mais ácido?"}
+   ],
+   "opts": [{"text": "Amilase salivar."}, {"text": "Pepsina."}, {"text": "Tripsina."}, {"text": "Amilase e tripsina, igualmente."}, {"text": "Nenhuma delas."}],
+   "ans": 1,
+   "appearances": [{"booklet": 1, "color": "Amarelo", "co_prova": "0", "number": 12, "page": 4, "day": 2, "pdf_url": "https://example.org/fixture4.pdf", "key_url": null}],
+   "system": "digestorio", "topic": "Digestão mecânica e química", "skills": [],
+   "diff": "Intermediária", "diff_method": "irt_p_ref", "diff_stats": null,
+   "third_party": [],
+   "rights": {"status": "cleared", "basis": "fixture de teste", "decided_by": "teste", "decided_on": "2099-01-01", "evidence": []},
+   "science": {"classification_by": "teste", "classification_human": false},
+   "lessons": []
+  },
+  {
+   "id": "fixture:2099:regular:circ1", "type": "VERIFIED_OFFICIAL", "status": "published", "kind": "mc",
+   "inst": "fixture", "year": 2095, "phase": "regular", "edition": "regular", "area": "CN",
+   "stem": [{"t": "p", "text": "O sangue rico em oxigênio que sai dos pulmões chega ao coração por qual estrutura?"}],
+   "opts": [{"text": "Artéria pulmonar."}, {"text": "Veias pulmonares."}, {"text": "Veia cava superior."}, {"text": "Aorta."}, {"text": "Veia cava inferior."}],
+   "ans": 1,
+   "appearances": [{"booklet": 1, "color": null, "co_prova": null, "number": 21, "page": 6, "day": 2, "pdf_url": "https://example.org/fixture5.pdf", "key_url": null}],
+   "system": "cardiovascular", "topic": "Circulação pulmonar e sistêmica", "skills": [],
+   "diff": "Básica", "diff_method": "estimado", "diff_stats": null,
+   "third_party": [],
+   "rights": {"status": "cleared", "basis": "fixture de teste", "decided_by": "teste", "decided_on": "2099-01-01", "evidence": []},
+   "science": {"classification_by": "teste", "classification_human": false},
+   "lessons": []
+  },
+  {
+   "id": "fixture:2099:regular:resp1", "type": "VERIFIED_OFFICIAL", "status": "published", "kind": "mc",
+   "inst": "fixture", "year": 2094, "phase": "regular", "edition": "regular", "area": "CN",
+   "stem": [{"t": "p", "text": "Nos alvéolos pulmonares ocorre a hematose. Que gases são trocados nessa etapa?"}],
+   "opts": [{"text": "O_{2} entra no sangue e CO_{2} sai dele."}, {"text": "CO_{2} entra no sangue e O_{2} sai dele."}, {"text": "N_{2} entra no sangue e O_{2} sai dele."}, {"text": "Só O_{2} atravessa a parede alveolar."}],
+   "ans": 0,
+   "appearances": [{"booklet": 2, "color": null, "co_prova": null, "number": 9, "page": 3, "day": 1, "pdf_url": "https://example.org/fixture6.pdf", "key_url": null}],
+   "system": "respiratorio", "topic": "Hematose nos alvéolos", "skills": [],
+   "diff": "Básica", "diff_method": "estimado", "diff_stats": null,
+   "third_party": [],
+   "rights": {"status": "cleared", "basis": "fixture de teste", "decided_by": "teste", "decided_on": "2099-01-01", "evidence": []},
+   "science": {"classification_by": "teste", "classification_human": false},
+   "lessons": []
+  }
+ ]
+}

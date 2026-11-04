@@ -1,0 +1,30 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "sensorial",
+  "topic": "Visão"
+ },
+ "explanation": {
+  "by": "claude-assistido",
+  "human": false,
+  "lessons": [
+   "nervoso#5"
+  ],
+  "steps": [
+   "\"Cromossomo 7\" e \"homens e mulheres igualmente afetados\" indicam herança autossômica, não ligada ao sexo.",
+   "\"Casais sem a característica podem ter filhos com a herança\" indica que os pais são portadores heterozigotos: herança recessiva.",
+   "Combine as duas conclusões: autossômica recessiva."
+  ],
+  "text": "Três pistas indicam o padrão de herança: o gene está no cromossomo 7, que é autossomo; homens e mulheres são igualmente afetados; e casais sem a característica podem ter filhos afetados. Pais sem a característica que têm filhos afetados só são possíveis se a herança for recessiva. Portanto, é autossômica recessiva.",
+  "why": [
+   "Incorreta: a herança ligada ao X não está no cromossomo 7 e afetaria os sexos de forma diferente.",
+   "Incorreta: o cromossomo Y só existe em homens, e o texto diz que mulheres também são afetadas.",
+   "Incorreta: além de não estar no cromossomo 7, a dominância não permitiria filhos afetados de pais sem a característica.",
+   "Correta. O gene está em um autossomo e a característica pode aparecer em filhos de pais não afetados: herança autossômica recessiva.",
+   "Incorreta: sendo dominante, ao menos um dos pais teria a característica."
+  ]
+ },
+ "id": "enem:2023:ppl:141760"
+}
