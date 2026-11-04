@@ -1,0 +1,583 @@
+{
+ "questions": [
+  {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1086",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD5.pdf",
+     "number": 101,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1087",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD6.pdf",
+     "number": 100,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1085",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD7.pdf",
+     "number": 130,
+     "page": 14,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1088",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD8.pdf",
+     "number": 130,
+     "page": 14,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.41581,
+    "b": 0.78824,
+    "c": 0.19317,
+    "p_ref": 0.2237,
+    "p_star": 0.0378
+   },
+   "edition": "regular",
+   "id": "enem:2022:regular:126560",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "apresentar daltonismo."
+    },
+    {
+     "text": "perceber cores fora do espectro do visível."
+    },
+    {
+     "text": "enxergar bem em ambientes mal iluminados."
+    },
+    {
+     "text": "necessitar de mais luminosidade para enxergar."
+    },
+    {
+     "text": "fazer uma pequena distinção de cores em ambientes iluminados."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "22"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "No processo de captação da luz pelo olho para a formação de imagens estão envolvidas duas estruturas celulares: os cones e os bastonetes. Os cones são sensíveis à energia dos fótons, e os bastonetes, à quantidade de fótons incidentes. A energia dos fótons que compõem os raios luminosos está associada à sua frequência, e a intensidade, ao número de fótons incidentes. Um animal que tem bastonetes mais sensíveis irá"
+    }
+   ],
+   "system": "sensorial",
+   "third_party": [],
+   "topic": "Visão",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2022
+  },
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1086",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD5.pdf",
+     "number": 121,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1087",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD6.pdf",
+     "number": 130,
+     "page": 14,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1085",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD7.pdf",
+     "number": 98,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1088",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD8.pdf",
+     "number": 107,
+     "page": 6,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.82114,
+    "b": 1.93167,
+    "c": 0.06674,
+    "p_ref": 0.0691,
+    "p_star": 0.0025
+   },
+   "edition": "regular",
+   "id": "enem:2022:regular:141725",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "correção do código genético para a tradução da proteína."
+    },
+    {
+     "text": "alteração do RNA ribossômico ligado à síntese da proteína."
+    },
+    {
+     "text": "produção de mutações benéficas para a correção do problema."
+    },
+    {
+     "text": "liberação imediata da proteína normal na região ocular humana."
+    },
+    {
+     "text": "expressão do gene responsável pela produção da enzima normal."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "29"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A Agência Nacional de Vigilância Sanitária (Anvisa) aprovou um produto de terapia gênica no país, indicado para o tratamento da distrofia hereditária da retina. O procedimento é recomendado para crianças acima de 12 meses e adultos com perda de visão causada pela mutação do gene humano RPE65. O produto, elaborado por engenharia genética, é composto por um vírus, no qual foi inserida uma cópia do gene normal humano RPE65 para corrigir o funcionamento das células da retina."
+    },
+    {
+     "t": "source",
+     "text": "ANVISA. Disponível em: www.gov.br/anvisa. Acesso em: 4 dez. 2021 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "O sucesso dessa terapia advém do fato de que o produto favorecerá a"
+    }
+   ],
+   "system": "sensorial",
+   "third_party": [
+    {
+     "citation": "ANVISA. Disponível em: www.gov.br/anvisa. Acesso em: 4 dez. 2021 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Visão",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2022
+  },
+  {
+   "ans": 0,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1086",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD5.pdf",
+     "number": 114,
+     "page": 10,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1087",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD6.pdf",
+     "number": 101,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1085",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD7.pdf",
+     "number": 122,
+     "page": 13,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1088",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD8.pdf",
+     "number": 117,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.68577,
+    "b": 1.10708,
+    "c": 0.12014,
+    "p_ref": 0.1555,
+    "p_star": 0.0402
+   },
+   "edition": "regular",
+   "id": "enem:2022:regular:141726",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "impedir a formação de trombos, típicos em alguns casos de acidente vascular cerebral."
+    },
+    {
+     "text": "tratar consequências da anemia profunda, em razão da perda de grande volume de sangue."
+    },
+    {
+     "text": "evitar a manifestação de urticárias, comumente relacionadas a processos alérgicos."
+    },
+    {
+     "text": "reduzir o inchaço dos linfonodos, parte da resposta imunitária de diferentes infecções."
+    },
+    {
+     "text": "regular a oscilação da pressão arterial, característica dos quadros de hipertensão."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "11"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O veneno da cascavel pode causar hemorragia com risco de morte a quem é picado pela serpente. No entanto, pesquisadores do Brasil e da Bélgica desenvolveram uma molécula de interesse farmacêutico, a PEG-collineína-1, a partir de uma proteína encontrada no veneno dessa cobra, capaz de modular a coagulação sanguínea. Embora a técnica não seja nova, foi a primeira vez que o método foi usado a partir de uma toxina animal na sua forma recombinante, ou seja, produzida em laboratório por um fungo geneticamente modificado."
+    },
+    {
+     "t": "source",
+     "text": "JULIÃO, A. Técnica modifica proteína do veneno de cascavel e permite criar fármaco que modula a coagulação sanguínea. Disponível em: https://agencia.fapesp.br. Acesso em: 22 nov. 2021 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "Esse novo medicamento apresenta potencial aplicação para"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [
+    {
+     "citation": "JULIÃO, A. Técnica modifica proteína do veneno de cascavel e permite criar fármaco que modula a coagulação sanguínea. Disponível em: https://agencia.fapesp.br. Acesso em: 22 nov. 2021 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Circulação pulmonar e sistêmica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2022
+  },
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1086",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD5.pdf",
+     "number": 94,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1087",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD6.pdf",
+     "number": 91,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1085",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD7.pdf",
+     "number": 133,
+     "page": 16,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1088",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD8.pdf",
+     "number": 123,
+     "page": 13,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.71131,
+    "b": 1.42364,
+    "c": 0.1615,
+    "p_ref": 0.1746,
+    "p_star": 0.0156
+   },
+   "edition": "regular",
+   "id": "enem:2022:regular:31313",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Autoimunidade."
+    },
+    {
+     "text": "Hipersensibilidade."
+    },
+    {
+     "text": "Ativação da resposta inata."
+    },
+    {
+     "text": "Apresentação de antígeno específico."
+    },
+    {
+     "text": "Desencadeamento de processo anti-inflamatório."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "2"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O protozoário Trypanosoma cruzi, causador da doença de Chagas, pode ser a nova arma da medicina contra o câncer. Pesquisadores brasileiros conseguiram criar uma vacina contra a doença usando uma variação do protozoário incapaz de desencadear a patologia (não patogênico). Para isso, realizaram uma modificação genética criando um T. cruzi capaz de produzir também moléculas fabricadas pelas células tumorais. Quando o organismo inicia o combate ao protozoário, entra em contato também com a molécula tumoral, que passa a ser vista também pelo sistema imune como um indicador de células do protozoário. Depois de induzidas as defesas, estas passam a destruir todas as células com a molécula tumoral, como se lutassem apenas contra o protozoário."
+    },
+    {
+     "t": "source",
+     "text": "Disponível em: www.estadao.com.br. Acesso em: 1 mar. 2012 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "Qual o mecanismo utilizado no experimento para enganar as células de defesa, fazendo com que ataquem o tumor?"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [
+    {
+     "citation": "Disponível em: www.estadao.com.br. Acesso em: 1 mar. 2012 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Imunidade inata e adaptativa",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2022
+  },
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1086",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD5.pdf",
+     "number": 91,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1087",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD6.pdf",
+     "number": 120,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1085",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD7.pdf",
+     "number": 104,
+     "page": 7,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1088",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD8.pdf",
+     "number": 131,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.35097,
+    "b": 1.00991,
+    "c": 0.30639,
+    "p_ref": 0.3184,
+    "p_star": 0.0174
+   },
+   "edition": "regular",
+   "id": "enem:2022:regular:97727",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "frequência cardíaca."
+    },
+    {
+     "text": "capacidade pulmonar."
+    },
+    {
+     "text": "massa muscular do indivíduo."
+    },
+    {
+     "text": "atividade anaeróbica da musculatura."
+    },
+    {
+     "text": "taxa de transporte de oxigênio pelo sangue."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "18"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Diversas substâncias são empregadas com a intenção de incrementar o desempenho esportivo de atletas de alto nível. O chamado doping sanguíneo, por exemplo, pela utilização da eritropoietina, é proibido pelas principais federações de esportes no mundo. A eritropoietina é um hormônio produzido pelos rins e fígado e sua principal ação é regular o processo de eritropoiese. Seu uso administrado intravenosamente em quantidades superiores àquelas presentes naturalmente no organismo permite que o indivíduo aumente a sua capacidade de realização de exercícios físicos. Esse tipo de doping está diretamente relacionado ao aumento da"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [],
+   "topic": "Circulação pulmonar e sistêmica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2022
+  }
+ ]
+}

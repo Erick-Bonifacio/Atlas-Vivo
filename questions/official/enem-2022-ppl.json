@@ -1,0 +1,112 @@
+{
+ "questions": [
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1126",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 112,
+     "page": 8,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1127",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 128,
+     "page": 14,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1125",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 99,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1128",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 120,
+     "page": 10,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.09013,
+    "b": 0.92247,
+    "c": 0.21878,
+    "p_ref": 0.3385,
+    "p_star": 0.1532
+   },
+   "edition": "ppl",
+   "id": "enem:2022:ppl:85778",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Miopia."
+    },
+    {
+     "text": "Cegueira."
+    },
+    {
+     "text": "Daltonismo."
+    },
+    {
+     "text": "Astigmatismo."
+    },
+    {
+     "text": "Hipermetropia."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "1"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Escrito em 1897, pelo britânico H. G. Wells (1866- 1946), O homem invisível é um livro que narra a história de um cientista que teria desenvolvido uma forma de tornar todos os tecidos do seu corpo transparentes à luz, ao fazer o índice de refração absoluto do corpo humano corresponder ao do ar. Contudo, Wells não explorou no livro o fato de que esse efeito comprometeria a visão de seu protagonista. Nesse caso, qual seria a deficiência visual provocada?"
+    }
+   ],
+   "system": "sensorial",
+   "third_party": [],
+   "topic": "Visão",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2022
+  }
+ ]
+}

@@ -1,0 +1,799 @@
+{
+ "questions": [
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1302",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 104,
+     "page": 6,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1263",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 114,
+     "page": 10,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1261",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 134,
+     "page": 17,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1264",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 94,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.71706,
+    "b": 2.31394,
+    "c": 0.30327,
+    "p_ref": 0.3041,
+    "p_star": 0.0012
+   },
+   "edition": "ppl",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "A transmissão ocorre pelo sangue da gestante, por via transplacentária.",
+     "Diminuir a quantidade de bactérias no sangue da mãe diminui a chance de chegarem ao feto.",
+     "Logo, o tratamento precoce da gestante é a medida mais eficaz."
+    ],
+    "text": "A bactéria passa do sangue da gestante para o feto pela placenta. Reduzir esse risco exige tratar a infecção da mãe o quanto antes, para eliminar o microrganismo do sangue. O enunciado chama o microrganismo de \"parasita\", mas o Treponema pallidum é uma bactéria, tratada com antibiótico.",
+    "why": [
+     "Incorreta: não existe transplante de placenta como tratamento, e a placenta é o caminho de passagem, não o problema.",
+     "Incorreta: não se trata o embrião por via transplacentária; o tratamento é feito na mãe.",
+     "Incorreta: exames identificam a infecção, mas não reduzem a transmissão; aqui a gestante já sabe que está contaminada.",
+     "Correta. Tratar a gestante e eliminar a bactéria do sangue dela o quanto antes reduz a chance de infectar o feto.",
+     "Incorreta: medicar a criança depois do nascimento ocorre tarde: a infecção do feto já teria acontecido."
+    ]
+   },
+   "id": "enem:2023:ppl:10473",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "reprodutor#6"
+   ],
+   "opts": [
+    {
+     "text": "realizar um transplante de placenta."
+    },
+    {
+     "text": "tratar por via transplacentária o embrião."
+    },
+    {
+     "text": "fazer exames sorológicos durante a gestação."
+    },
+    {
+     "text": "eliminar o quanto antes o parasita de seu sangue."
+    },
+    {
+     "text": "medicar adequadamente a criança logo após o nascimento."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "2"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "No manual de bolso sobre a sífilis, disponibilizado gratuitamente pelo Ministério da Saúde, é informado que a sífilis congênita é resultado da disseminação hematogênica do Treponema pallidum, presente no sangue da gestante infectada. A falta de tratamento ou tratamento inadequado durante o período embrionário causa a transmissão vertical por via transplacentária."
+    },
+    {
+     "t": "source",
+     "text": "Manual de bolso — sífilis. Disponível em: http://bvsms.saude.gov.br. Acesso em: 10 fev. 2012 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "Considere uma gestante que descobre, no primeiro mês de gravidez, estar contaminada por essa bactéria. Para diminuir a chance de contaminação do feto, a gestante deverá"
+    }
+   ],
+   "system": "reprodutor",
+   "third_party": [
+    {
+     "citation": "Manual de bolso — sífilis. Disponível em: http://bvsms.saude.gov.br. Acesso em: 10 fev. 2012 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Anatomia feminina",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  },
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1302",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 113,
+     "page": 9,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1263",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 99,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1261",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 92,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1264",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 134,
+     "page": 17,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.19366,
+    "b": 1.44063,
+    "c": 0.11523,
+    "p_ref": 0.1604,
+    "p_star": 0.051
+   },
+   "edition": "ppl",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "Entenda o avanço: hemácias produzidas in vitro a partir de células-tronco.",
+     "Se as células-tronco são do próprio indivíduo, o sangue produzido é geneticamente igual ao dele.",
+     "Isso evita depender de doadores e de transfusões."
+    ],
+    "text": "Células-tronco do próprio paciente podem ser cultivadas em laboratório e diferenciadas em glóbulos vermelhos (hemácias). Transfundidas de volta, elas não vêm de doador, o que dispensa a transfusão convencional e elimina o problema de incompatibilidade entre doador e receptor.",
+    "why": [
+     "Incorreta: o avanço não substitui os tratamentos de hemorragia.",
+     "Correta. As hemácias podem ser produzidas in vitro a partir de células do próprio indivíduo, evitando transfusões.",
+     "Incorreta: a ideia central não é diminuir o risco entre doador e receptor, mas dispensar o doador usando células do próprio paciente.",
+     "Incorreta: as células-tronco não substituem as hemácias no sangue; elas originam hemácias em cultura.",
+     "Incorreta: afirma um efeito amplo e sem base no texto; a notícia trata de produzir hemácias."
+    ]
+   },
+   "id": "enem:2023:ppl:13403",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "cardiovascular#4",
+    "cardiovascular#5"
+   ],
+   "opts": [
+    {
+     "text": "a substituição de tratamentos convencionais para estancar hemorragias internas."
+    },
+    {
+     "text": "a produção de glóbulos vermelhos in vitro do próprio indivíduo, evitando transfusões sanguíneas."
+    },
+    {
+     "text": "a realização da transfusão de sangue entre doador e receptor com menor risco de incompatibilidade."
+    },
+    {
+     "text": "a substituição dos glóbulos vermelhos pelas células-tronco na corrente sanguínea, aumentando o número dessas células."
+    },
+    {
+     "text": "a realização de tratamentos de doenças do sangue ou até mesmo a não manifestação de algumas doenças, reduzindo o número de mortes."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "29"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Uma notícia traz esperança a pessoas com certos tipos sanguíneos. Pesquisadores europeus conseguiram injetar, com sucesso, glóbulos vermelhos originados a partir de células-tronco em uma pessoa."
+    },
+    {
+     "t": "source",
+     "text": "Folha de S. Paulo, 3 set. 2011 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "Esse avanço na medicina foi importante porque permitirá"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [
+    {
+     "citation": "Folha de S. Paulo, 3 set. 2011 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Circulação pulmonar e sistêmica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  },
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1302",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 116,
+     "page": 10,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1263",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 131,
+     "page": 16,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1261",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 113,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1264",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 111,
+     "page": 8,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.4239,
+    "b": 1.19043,
+    "c": 0.26425,
+    "p_ref": 0.2697,
+    "p_star": 0.0074
+   },
+   "edition": "ppl",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "\"Cromossomo 7\" e \"homens e mulheres igualmente afetados\" indicam herança autossômica, não ligada ao sexo.",
+     "\"Casais sem a característica podem ter filhos com a herança\" indica que os pais são portadores heterozigotos: herança recessiva.",
+     "Combine as duas conclusões: autossômica recessiva."
+    ],
+    "text": "Três pistas indicam o padrão de herança: o gene está no cromossomo 7, que é autossomo; homens e mulheres são igualmente afetados; e casais sem a característica podem ter filhos afetados. Pais sem a característica que têm filhos afetados só são possíveis se a herança for recessiva. Portanto, é autossômica recessiva.",
+    "why": [
+     "Incorreta: a herança ligada ao X não está no cromossomo 7 e afetaria os sexos de forma diferente.",
+     "Incorreta: o cromossomo Y só existe em homens, e o texto diz que mulheres também são afetadas.",
+     "Incorreta: além de não estar no cromossomo 7, a dominância não permitiria filhos afetados de pais sem a característica.",
+     "Correta. O gene está em um autossomo e a característica pode aparecer em filhos de pais não afetados: herança autossômica recessiva.",
+     "Incorreta: sendo dominante, ao menos um dos pais teria a característica."
+    ]
+   },
+   "id": "enem:2023:ppl:141760",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "nervoso#5"
+   ],
+   "opts": [
+    {
+     "text": "ligado ao X e recessivo."
+    },
+    {
+     "text": "ligado ao Y e recessivo."
+    },
+    {
+     "text": "ligado ao X e dominante."
+    },
+    {
+     "text": "autossômico e recessivo."
+    },
+    {
+     "text": "autossômico e dominante."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "13"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A incapacidade de perceber certas cores é denominada daltonismo. Um tipo raro é classificado de tritanomalia e corresponde a um defeito nos cones sensíveis à cor azul. O gene responsável pela herança situa-se no cromossomo 7, permitindo que homens e mulheres sejam igualmente afetados. Além disso, casais sem tritanomalia podem ter crianças com a herança. O padrão dessa herança rara é"
+    }
+   ],
+   "system": "sensorial",
+   "third_party": [],
+   "topic": "Visão",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  },
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1302",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 117,
+     "page": 10,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1263",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 132,
+     "page": 16,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1261",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 114,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1264",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 112,
+     "page": 8,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.67571,
+    "b": 0.34061,
+    "c": 0.19471,
+    "p_ref": 0.416,
+    "p_star": 0.2748
+   },
+   "edition": "ppl",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "Localize o corte: os ductos deferentes, que levam espermatozoides do epidídimo à uretra.",
+     "Pergunte o que ainda funciona: testículos (espermatozoides e hormônios) e glândulas que produzem sêmen.",
+     "O que deixa de acontecer é a passagem dos espermatozoides para o sêmen."
+    ],
+    "text": "Na vasectomia os ductos deferentes são cortados e o espermatozoide não chega mais à uretra, de modo que o sêmen eliminado não contém espermatozoides. Os testículos continuam produzindo espermatozoides e testosterona, e o sêmen continua sendo produzido pelas glândulas anexas.",
+    "why": [
+     "Incorreta: o sêmen continua sendo liberado; as vesículas seminais e a próstata continuam a produzi-lo.",
+     "Incorreta: os testículos continuam produzindo espermatozoides, que são reabsorvidos.",
+     "Incorreta: a produção de testosterona não é afetada.",
+     "Correta. O corte dos ductos deferentes impede que os espermatozoides cheguem ao sêmen.",
+     "Incorreta: as glândulas produtoras de sêmen não são alteradas."
+    ]
+   },
+   "id": "enem:2023:ppl:55705",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "reprodutor#1"
+   ],
+   "opts": [
+    {
+     "text": "interrompe a liberação de sêmen."
+    },
+    {
+     "text": "cessa a produção de espermatozoides."
+    },
+    {
+     "text": "inibe a atividade hormonal dos testículos."
+    },
+    {
+     "text": "impede a passagem de espermatozoides para o sêmen."
+    },
+    {
+     "text": "modifica a atividade das glândulas produtoras de sêmen."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "14"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Um homem submetido à vasectomia tem a conexão dos testículos com a uretra interrompida em função do corte dos canais deferentes. Esse método contraceptivo é considerado definitivo quando a cirurgia é realizada corretamente. Esse método contraceptivo é eficiente porque"
+    }
+   ],
+   "system": "reprodutor",
+   "third_party": [],
+   "topic": "Anatomia masculina",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  },
+  {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1302",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 95,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1263",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 128,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1261",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 118,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1264",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 108,
+     "page": 7,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.42963,
+    "b": 0.8045,
+    "c": 0.16236,
+    "p_ref": 0.2662,
+    "p_star": 0.124
+   },
+   "edition": "ppl",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "Identifique o dado central: há quatro sorotipos e a segunda infecção por outro sorotipo é a mais grave.",
+     "Conclua que uma vacina só é segura se protege contra todos os sorotipos de modo equilibrado.",
+     "Procure a alternativa que traz essa dificuldade: obter antígenos que representem os quatro."
+    ],
+    "text": "O texto diz que os casos graves ocorrem em uma segunda infecção por um sorotipo diferente do primeiro. Isso significa que uma proteção parcial, contra apenas alguns sorotipos, pode ser pior do que nenhuma. Por isso a vacina precisa induzir resposta contra os quatro sorotipos ao mesmo tempo, e conseguir antígenos que representem todos eles é o obstáculo.",
+    "why": [
+     "Incorreta: o texto mostra que as pessoas produzem anticorpos ao se infectar, então o ser humano responde aos antígenos do vírus.",
+     "Incorreta: a resposta imune existe (há produção de anticorpos); o problema descrito é outro.",
+     "Correta. Como a gravidade está ligada a infecções por sorotipos diferentes, a vacina precisa cobrir os quatro, e reunir antígenos de todos é a dificuldade.",
+     "Incorreta: o enunciado trata de sorotipos do mesmo vírus, não de reação a outros vírus.",
+     "Incorreta: o texto afirma que a pessoa produz anticorpos contra o sorotipo da primeira infecção."
+    ]
+   },
+   "id": "enem:2023:ppl:84984",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "linfatico#3"
+   ],
+   "opts": [
+    {
+     "text": "resistência do homem contra antígenos específicos do vírus."
+    },
+    {
+     "text": "baixa resposta imunogênica da espécie humana contra o vírus."
+    },
+    {
+     "text": "obtenção de antígenos que representem os quatro sorotipos do vírus."
+    },
+    {
+     "text": "reação cruzada de anticorpos produzidos pelo indivíduo contra outros vírus."
+    },
+    {
+     "text": "ausência de resposta imune dos indivíduos após a primeira infecção pelo vírus."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "11"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Anualmente, o número de casos de dengue aumenta substancialmente no Brasil, mas ainda não há uma vacina amplamente disponível. Quatro sorotipos do vírus circulam no país e são todos transmitidos pelas fêmeas do mosquito Aedes aegypti. Os casos mais graves evoluem para a fase hemorrágica, que pode levar à morte por choque hipovolêmico. Muitos desses casos acontecem quando o indivíduo contrai a doença pela segunda vez com um sorotipo diferente daquele contra o qual já produziu anticorpos. O que tem dificultado o desenvolvimento de uma vacina para essa doença é a"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [],
+   "topic": "Vacinas e memória imunológica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  },
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1302",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 109,
+     "page": 8,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1263",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 119,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1261",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 128,
+     "page": 16,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1264",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 96,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.64928,
+    "b": 1.83585,
+    "c": 0.205,
+    "p_ref": 0.2052,
+    "p_star": 0.0003
+   },
+   "edition": "ppl",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "Lembre os efeitos da adrenalina em cada órgão citado nas alternativas.",
+     "Compare: pressão e frequência cardíaca sobem, brônquios dilatam, secreções digestivas diminuem, glicemia sobe.",
+     "Só a alternativa do aumento da glicemia concorda com esses efeitos."
+    ],
+    "text": "A adrenalina prepara o corpo para luta ou fuga: acelera o coração, eleva a pressão arterial, dilata os brônquios, reduz as atividades digestivas e estimula o fígado a liberar glicose. Em excesso, o efeito mais claro entre as opções é o aumento da glicose no sangue.",
+    "why": [
+     "Incorreta: a adrenalina aumenta a pressão arterial.",
+     "Incorreta: a adrenalina aumenta a frequência cardíaca.",
+     "Incorreta: os brônquios se dilatam (broncodilatação), o que facilita a entrada de ar.",
+     "Incorreta: a atividade digestiva e as secreções diminuem durante a resposta de luta ou fuga.",
+     "Correta. A adrenalina estimula o fígado a transformar glicogênio em glicose e liberá-la no sangue, elevando a glicemia."
+    ]
+   },
+   "id": "enem:2023:ppl:89877",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "endocrino#4"
+   ],
+   "opts": [
+    {
+     "text": "diminuição da pressão arterial."
+    },
+    {
+     "text": "diminuição da frequência cardíaca."
+    },
+    {
+     "text": "aumento da contração dos brônquios."
+    },
+    {
+     "text": "aumento das secreções gastrointestinais."
+    },
+    {
+     "text": "aumento da concentração de glicose sanguínea."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "30"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "As anfetaminas são drogas sintéticas utilizadas como moderadores de apetite no tratamento de obesidade. Essas drogas atuam sobre receptores celulares estimulando a produção de adrenalina, um hormônio catabólico responsável por várias funções fisiológicas no organismo. Entretanto, a produção exagerada desse hormônio pode gerar mudanças fisiológicas indesejáveis e até perigosas para a saúde. A alteração fisiológica observada pelo uso indevido dessas drogas é o(a)"
+    }
+   ],
+   "system": "endocrino",
+   "third_party": [],
+   "topic": "Insulina e glicemia",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  }
+ ]
+}

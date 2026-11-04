@@ -1,0 +1,543 @@
+{
+ "questions": [
+  {
+   "ans": 0,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1222",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD5.pdf",
+     "number": 107,
+     "page": 7,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1224",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD6.pdf",
+     "number": 131,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1221",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD7.pdf",
+     "number": 101,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1225",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD8.pdf",
+     "number": 121,
+     "page": 13,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.18942,
+    "b": 2.20856,
+    "c": 0.13524,
+    "p_ref": 0.1355,
+    "p_star": 0.0003
+   },
+   "edition": "regular",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "A queda de estrógeno e progesterona acontece no fim da fase lútea, antes da menstruação.",
+     "Os dois hormônios são produzidos pelo corpo lúteo nessa fase.",
+     "Sem gravidez, o corpo lúteo regride e a produção cai."
+    ],
+    "text": "Depois da ovulação, o folículo se transforma em corpo lúteo, que produz progesterona e estrógeno. Se não há gravidez, o corpo lúteo regride (degenera) nos dias finais do ciclo, e os dois hormônios caem. É essa queda que antecede a menstruação e, segundo o texto, está ligada à redução de serotonina e aos sintomas.",
+    "why": [
+     "Correta. A regressão do corpo lúteo reduz a produção de estrógeno e de progesterona nos dias que antecedem a menstruação.",
+     "Incorreta: a ocitocina não regula o ciclo ovariano dessa forma.",
+     "Incorreta: a ovulação ocorre no meio do ciclo, antes dessa fase, e é causada pelo pico de LH.",
+     "Incorreta: o aumento de FSH e LH é consequência da queda hormonal (menos retroalimentação negativa), não a causa dela.",
+     "Incorreta: a adrenalina não controla a produção dos hormônios ovarianos."
+    ]
+   },
+   "id": "enem:2023:regular:117711",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "reprodutor#3"
+   ],
+   "opts": [
+    {
+     "text": "regressão do corpo lúteo ovariano."
+    },
+    {
+     "text": "diminuição na produção de ocitocina."
+    },
+    {
+     "text": "liberação do gameta feminino na ovulação."
+    },
+    {
+     "text": "aumento nos níveis dos hormônios LH e FSH."
+    },
+    {
+     "text": "elevação nos níveis sorológicos de adrenalina."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "14"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Muitas mulheres sofrem com desconfortos nos dias que antecedem a menstruação, a chamada tensão pré-menstrual. Entre outros sintomas, podem ocorrer alterações de humor. Atualmente, acredita-se que os sintomas são resultado da queda na concentração do neurotransmissor serotonina, que, por sua vez, está relacionado com a diminuição na produção dos hormônios ovarianos estrógeno e progesterona, observada nessa fase do ciclo feminino."
+    },
+    {
+     "t": "source",
+     "text": "DIMMOCK, P. W. et al. Efficacy of Selective Serotonin-Reuptake Inhibitors in Premenstrual Syndrome: a Systematic Review. The Lancet, n. 9 236, 2000 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "A redução da produção desses hormônios nessa fase está relacionada com o(a)"
+    }
+   ],
+   "system": "reprodutor",
+   "third_party": [
+    {
+     "citation": "DIMMOCK, P. W. et al. Efficacy of Selective Serotonin-Reuptake Inhibitors in Premenstrual Syndrome: a Systematic Review. The Lancet, n. 9 236, 2000 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Ciclo menstrual e regulação hormonal",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  },
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1222",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD5.pdf",
+     "number": 100,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1224",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD6.pdf",
+     "number": 92,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1221",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD7.pdf",
+     "number": 107,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1225",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD8.pdf",
+     "number": 118,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.82986,
+    "b": 1.82071,
+    "c": 0.19864,
+    "p_ref": 0.2014,
+    "p_star": 0.0035
+   },
+   "edition": "regular",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "Identifique o que foi inibido: as enzimas do acrossomo.",
+     "Lembre a função dessas enzimas: abrir caminho pelas camadas que protegem o ovócito.",
+     "Escolha a etapa que vem imediatamente antes das outras: a passagem pela corona radiata e pela zona pelúcida."
+    ],
+    "text": "O acrossomo do espermatozoide contém enzimas que digerem as camadas que envolvem o ovócito, a corona radiata e a zona pelúcida. Sem essas enzimas, o espermatozoide não atravessa essas camadas e não chega à membrana do ovócito. Todas as etapas seguintes ocorrem depois dessa passagem.",
+    "why": [
+     "Incorreta: o pronúcleo masculino se forma depois que o espermatozoide entra no ovócito.",
+     "Incorreta: as divisões mitóticas do zigoto começam depois da fecundação.",
+     "Incorreta: o ovócito só termina a segunda divisão meiótica depois de penetrado pelo espermatozoide.",
+     "Correta. As enzimas do acrossomo digerem a corona radiata e a zona pelúcida, permitindo a passagem do espermatozoide.",
+     "Incorreta: a fusão das membranas ocorre depois de o espermatozoide ultrapassar as camadas externas."
+    ]
+   },
+   "id": "enem:2023:regular:12018",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "reprodutor#4"
+   ],
+   "opts": [
+    {
+     "text": "formação do pronúcleo masculino."
+    },
+    {
+     "text": "início da divisão mitótica do zigoto."
+    },
+    {
+     "text": "término da segunda divisão meiótica do ovócito."
+    },
+    {
+     "text": "passagem do espermatozoide pela corona radiata e zona pelúcida."
+    },
+    {
+     "text": "fusão das membranas plasmáticas do ovócito e do espermatozoide."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "29"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Na fertilização in vitro, espermatozoides são adicionados aos gametas femininos retirados de uma mulher. Após o período de incubação, a fecundação é favorecida pela ação de enzimas. Em um procedimento realizado, observou-se que nenhum dos gametas femininos foi fertilizado e, posteriormente, verificou-se que havia sido adicionado, equivocadamente, um coquetel de inibidores das enzimas do acrossomo, no lugar de um dos nutrientes constituintes do meio de cultura. O coquetel de inibidores impediu o(a)"
+    }
+   ],
+   "system": "reprodutor",
+   "third_party": [],
+   "topic": "Ciclo menstrual e regulação hormonal",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  },
+  {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1222",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD5.pdf",
+     "number": 99,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1224",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD6.pdf",
+     "number": 91,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1221",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD7.pdf",
+     "number": 106,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1225",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD8.pdf",
+     "number": 117,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.6872,
+    "b": 0.69491,
+    "c": 0.15317,
+    "p_ref": 0.1872,
+    "p_star": 0.0401
+   },
+   "edition": "regular",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "O RNAm vacinal tem a sequência de um gene viral e atua onde o RNAm normal atua: o citoplasma.",
+     "Nos ribossomos, o RNAm é traduzido em proteína viral.",
+     "Essa proteína funciona como antígeno e desencadeia a resposta imune, com memória."
+    ],
+    "text": "A vacina de RNA mensageiro leva às células as instruções para produzir uma proteína do vírus. As células a produzem por tradução, nos ribossomos, e o sistema imune reconhece essa proteína como antígeno, produz anticorpos e forma células de memória. O RNAm não entra no genoma e não contém o vírus.",
+    "why": [
+     "Incorreta: a capa de lipídios protege o RNAm da degradação e ajuda a entrar na célula; não é o que causa a imunização.",
+     "Incorreta: o RNAm não \"sequestra\" o vírus.",
+     "Correta. O RNAm é traduzido em proteína viral, que é reconhecida como antígeno e gera a resposta imune.",
+     "Incorreta: a vacina não contém o RNA do vírus inteiro nem compete com ele pelos ribossomos.",
+     "Incorreta: o RNAm não é incorporado ao genoma do hospedeiro e é degradado depois de usado."
+    ]
+   },
+   "id": "enem:2023:regular:141723",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "linfatico#3"
+   ],
+   "opts": [
+    {
+     "text": "estimulação de leucócitos induzida pela capa lipídica contendo RNAm."
+    },
+    {
+     "text": "atuação do RNAm como sequestrador do vírus para o meio extracelular."
+    },
+    {
+     "text": "tradução do RNAm em proteína viral, desencadeando a resposta antigênica."
+    },
+    {
+     "text": "competição entre o RNAm vacinal e o RNA viral pelos sítios dos ribossomos."
+    },
+    {
+     "text": "incorporação do RNAm viral ao genoma do hospedeiro, gerando novo fenótipo."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "11"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A tecnologia de vacinas de RNA mensageiro (RNAm) é investigada há anos. Avanços científicos em genética molecular permitiram desenvolver uma vacina para controle da pandemia da covid-19 causada pelo vírus de RNA SARS-CoV-2. A vacina de RNAm tem sequências de genes do vírus. Entretanto, por ser muito instável, o RNAm deve ser recoberto por uma capa de lipídios que evita sua degradação e favorece sua ação. Dessa forma, o RNAm desempenhará sua função específica atuando no mesmo compartimento celular de sempre."
+    },
+    {
+     "t": "source",
+     "text": "Disponível em: https://sbim.org.br. Acesso em: 29 nov. 2021 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "A imunização produzida por esse tipo de vacina é alcançada por meio da"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [
+    {
+     "citation": "Disponível em: https://sbim.org.br. Acesso em: 29 nov. 2021 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Vacinas e memória imunológica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  },
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1222",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD5.pdf",
+     "number": 124,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1224",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD6.pdf",
+     "number": 101,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1221",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD7.pdf",
+     "number": 92,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1225",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_GB_impresso_D2_CD8.pdf",
+     "number": 131,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2023_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.92829,
+    "b": -1.14947,
+    "c": 0.20133,
+    "p_ref": 0.982,
+    "p_star": 0.9774
+   },
+   "edition": "regular",
+   "expl": {
+    "autoral": true,
+    "steps": [
+     "Associe a palidez à anemia.",
+     "Lembre o papel do ferro: componente da hemoglobina.",
+     "Escolha a doença ligada à falta de ferro: a anemia."
+    ],
+    "text": "O ferro faz parte da hemoglobina, a molécula das hemácias que transporta oxigênio. A falta de ferro leva à anemia ferropriva, que causa palidez e cansaço. Cozinhar em panela de ferro libera um pouco de ferro no alimento, e o objetivo citado (\"acabar com a palidez\") era prevenir ou tratar a anemia.",
+    "why": [
+     "Incorreta: diarreia tem causas infecciosas e de desidratação, não de falta de ferro.",
+     "Correta. O ferro é essencial para a hemoglobina, e sua falta causa anemia.",
+     "Incorreta: verminoses são causadas por parasitas e se previnem com higiene e saneamento.",
+     "Incorreta: o raquitismo vem da falta de vitamina D, cálcio ou fósforo.",
+     "Incorreta: a febre amarela é causada por vírus transmitido por mosquitos e se previne com vacina."
+    ]
+   },
+   "id": "enem:2023:regular:83378",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [
+    "cardiovascular#4",
+    "digestorio#8"
+   ],
+   "opts": [
+    {
+     "text": "tratar a diarreia."
+    },
+    {
+     "text": "prevenir a anemia."
+    },
+    {
+     "text": "evitar as verminoses."
+    },
+    {
+     "text": "remediar o raquitismo."
+    },
+    {
+     "text": "combater a febre amarela."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false,
+    "explanation_by": "claude-assistido",
+    "explanation_human": false
+   },
+   "skills": [
+    "3"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Os mais antigos cozinhavam o feijão na panela de ferro a fim de acabar com a palidez de seus filhos. Alguns chegavam até a colocar um prego enferrujado nesse cozimento para liberar o ferro contido nele. Sabe-se que esse elemento pode ser encontrado na sua forma metálica ou iônica, sendo essencial para a manutenção da vida humana. As estratégias citadas eram utilizadas com o objetivo de"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [],
+   "topic": "Circulação pulmonar e sistêmica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2023
+  }
+ ]
+}

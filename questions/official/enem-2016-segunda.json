@@ -1,0 +1,311 @@
+{
+ "questions": [
+  {
+   "ans": 0,
+   "appearances": [
+    {
+     "booklet": 2,
+     "co_prova": "332",
+     "color": "Amarelo",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_02_AMARELO_2.pdf",
+     "number": 56,
+     "page": 22,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_02_AMARELO_CH_CN_2016_REG.pdf"
+    },
+    {
+     "booklet": 3,
+     "co_prova": "333",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_03_BRANCO_2.pdf",
+     "number": 77,
+     "page": 28,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_03_BRANCO_CH_CN_2016_REG.pdf"
+    },
+    {
+     "booklet": 4,
+     "co_prova": "334",
+     "color": "Rosa",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_04_ROSA_2.pdf",
+     "number": 57,
+     "page": 21,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_04_ROSA_CH_CN_2016_REG.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.31607,
+    "b": 1.60016,
+    "c": 0.08147,
+    "p_ref": 0.0832,
+    "p_star": 0.0018
+   },
+   "edition": "segunda_aplicacao",
+   "id": "enem:2016:segunda:17836",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "lise das hemácias, liberando merozoítos e substâncias denominadas hemozoínas."
+    },
+    {
+     "text": "invasão das hemácias por merozoítos com maturação até a forma esquizonte."
+    },
+    {
+     "text": "reprodução assexuada dos esporozoítos no fígado do indivíduo infectado."
+    },
+    {
+     "text": "liberação de merozoítos dos hepatócitos para a corrente sanguínea."
+    },
+    {
+     "text": "formação de gametócitos dentro das hemácias."
+    }
+   ],
+   "phase": "segunda",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "14"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A sombra do cedro vem se encostar no cocho. Primo Ribeiro levantou os ombros; começa a tremer. Com muito atraso. Mas ele tem no baço duas colmeias de bichinhos maldosos, que não se misturam, soltando enxames no sangue em dias alternados. E assim nunca precisa de passar um dia sem tremer."
+    },
+    {
+     "t": "source",
+     "text": "ROSA, J. G. Sagarana. Rio de Janeiro: Nova Fronteira, 1984."
+    },
+    {
+     "t": "p",
+     "text": "O texto de João Guimarães Rosa descreve as manifestações das crises paroxísticas da malária em seu personagem. Essas se caracterizam por febre alta, calafrios, sudorese intensa e tremores, com intervalos de 48 h ou 72 h, dependendo da espécie de Plasmodium. Essas crises periódicas ocorrem em razão da"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [
+    {
+     "citation": "ROSA, J. G. Sagarana. Rio de Janeiro: Nova Fronteira, 1984.",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Circulação pulmonar e sistêmica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2016
+  },
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 2,
+     "co_prova": "332",
+     "color": "Amarelo",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_02_AMARELO_2.pdf",
+     "number": 65,
+     "page": 24,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_02_AMARELO_CH_CN_2016_REG.pdf"
+    },
+    {
+     "booklet": 3,
+     "co_prova": "333",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_03_BRANCO_2.pdf",
+     "number": 82,
+     "page": 29,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_03_BRANCO_CH_CN_2016_REG.pdf"
+    },
+    {
+     "booklet": 4,
+     "co_prova": "334",
+     "color": "Rosa",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_04_ROSA_2.pdf",
+     "number": 86,
+     "page": 29,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_04_ROSA_CH_CN_2016_REG.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 5.1872,
+    "b": 1.82841,
+    "c": 0.21397,
+    "p_ref": 0.214,
+    "p_star": 0.0
+   },
+   "edition": "segunda_aplicacao",
+   "id": "enem:2016:segunda:26767",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "0,08 g"
+    },
+    {
+     "text": "0,44 g"
+    },
+    {
+     "text": "1,30 g"
+    },
+    {
+     "text": "1,80 g"
+    },
+    {
+     "text": "80,0 g"
+    }
+   ],
+   "phase": "segunda",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "23"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Num dia em que a temperatura ambiente é de 37 °C, uma pessoa, com essa mesma temperatura corporal, repousa à sombra. Para regular sua temperatura corporal e mantê-la constante, a pessoa libera calor através da evaporação do suor. Considere que a potência necessária para manter seu metabolismo é 120 W e que, nessas condições, 20% dessa energia é dissipada pelo suor, cujo calor de vaporização é igual ao da água (540 cal/g). Utilize 1 cal igual a 4 J. Após duas horas nessa situação, que quantidade de água essa pessoa deve ingerir para repor a perda pela transpiração?"
+    }
+   ],
+   "system": "tegumentar",
+   "third_party": [],
+   "topic": "Termorregulação",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2016
+  },
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 2,
+     "co_prova": "332",
+     "color": "Amarelo",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_02_AMARELO_2.pdf",
+     "number": 59,
+     "page": 22,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_02_AMARELO_CH_CN_2016_REG.pdf"
+    },
+    {
+     "booklet": 3,
+     "co_prova": "333",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_03_BRANCO_2.pdf",
+     "number": 80,
+     "page": 28,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_03_BRANCO_CH_CN_2016_REG.pdf"
+    },
+    {
+     "booklet": 4,
+     "co_prova": "334",
+     "color": "Rosa",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_04_ROSA_2.pdf",
+     "number": 60,
+     "page": 21,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_04_ROSA_CH_CN_2016_REG.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.77244,
+    "b": 0.94708,
+    "c": 0.1851,
+    "p_ref": 0.1944,
+    "p_star": 0.0114
+   },
+   "edition": "segunda_aplicacao",
+   "id": "enem:2016:segunda:44252",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "vacinas."
+    },
+    {
+     "text": "antivirais."
+    },
+    {
+     "text": "fungicidas."
+    },
+    {
+     "text": "vermífugos."
+    },
+    {
+     "text": "antibióticos."
+    }
+   ],
+   "phase": "segunda",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "2"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Suponha que uma doença desconhecida esteja dizimando um rebanho bovino de uma cidade e alguns veterinários tenham conseguido isolar o agente causador da doença, verificando que se trata de um ser unicelular e procarionte. Para combater a doença, os veterinários devem administrar, nos bovinos contaminados,"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [],
+   "topic": "Vacinas e memória imunológica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2016
+  }
+ ]
+}

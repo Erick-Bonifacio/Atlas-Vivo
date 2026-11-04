@@ -102,7 +102,11 @@ test('o servidor de produção e o deploy não conhecem a pré-visualização ne
   assert.ok(!/tools|staging|preview/.test(inc), 'o deploy não inclui tools/ nem staging/');
   assert.equal(fs.readFileSync(path.join(ROOT, '.gitignore'), 'utf8').split(/\r?\n/).includes('staging/'), true, 'staging/ fora do git');
   const pub = path.join(ROOT, 'public', 'img', 'q');
-  assert.deepEqual(fs.existsSync(pub) ? fs.readdirSync(pub).filter(n => n !== '.gitkeep') : [], [], 'public/img/q só tem itens liberados (hoje nenhum)');
+  const off = path.join(ROOT, 'questions', 'official');
+  const liberados = new Set(fs.readdirSync(off).filter(f => f.endsWith('.json'))
+    .flatMap(f => JSON.parse(fs.readFileSync(path.join(off, f), 'utf8')).questions.map(q => q.id.replace(/:/g, '-'))));
+  const extras = (fs.existsSync(pub) ? fs.readdirSync(pub).filter(n => n !== '.gitkeep') : []).filter(n => !liberados.has(n));
+  assert.deepEqual(extras, [], 'public/img/q só tem pasta de item publicado e liberado');
 });
 
 test('ATLAS_PREVIEW_BANK=1 é recusado no Vercel, em produção e com banco que não é local', async () => {

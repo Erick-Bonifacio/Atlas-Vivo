@@ -1,0 +1,354 @@
+{
+ "questions": [
+  {
+   "ans": 0,
+   "appearances": [
+    {
+     "booklet": 6,
+     "co_prova": "393",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_6_gabarito_cinza_12112017.pdf",
+     "number": 94,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 5,
+     "co_prova": "392",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_5_gabarito_amarelo_12112017.pdf",
+     "number": 135,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "391",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_7_gabarito_azul_12112017.pdf",
+     "number": 128,
+     "page": 13,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "394",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_8_gabarito_rosa_12112017.pdf",
+     "number": 101,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.77928,
+    "b": 1.67212,
+    "c": 0.20189,
+    "p_ref": 0.2022,
+    "p_star": 0.0004
+   },
+   "edition": "regular",
+   "id": "enem:2017:regular:18231",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "comprometer a capacidade de visão em cores."
+    },
+    {
+     "text": "impedir a projeção dos raios luminosos na retina."
+    },
+    {
+     "text": "provocar a formação de imagens invertidas na retina."
+    },
+    {
+     "text": "causar dificuldade de visualização de objetos próximos."
+    },
+    {
+     "text": "acarretar a perda da capacidade de alterar o diâmetro da pupila."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "14"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A retina é um tecido sensível à luz, localizado na parte posterior do olho, onde ocorre o processo de formação de imagem. Nesse tecido, encontram-se vários tipos celulares específicos. Um desses tipos celulares são os cones, os quais convertem os diferentes comprimentos de onda da luz visível em sinais elétricos, que são transmitidos pelo nervo óptico até o cérebro."
+    },
+    {
+     "t": "source",
+     "text": "Disponível em: www.portaldaretina.com.br. Acesso em: 13 jun. 2012 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "Em relação à visão, a degeneração desse tipo celular irá"
+    }
+   ],
+   "system": "sensorial",
+   "third_party": [
+    {
+     "citation": "Disponível em: www.portaldaretina.com.br. Acesso em: 13 jun. 2012 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Visão",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2017
+  },
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "392",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_5_gabarito_amarelo_12112017.pdf",
+     "number": 94,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "393",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_6_gabarito_cinza_12112017.pdf",
+     "number": 131,
+     "page": 14,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "391",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_7_gabarito_azul_12112017.pdf",
+     "number": 100,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "394",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_8_gabarito_rosa_12112017.pdf",
+     "number": 135,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.12666,
+    "b": 0.69737,
+    "c": 0.13978,
+    "p_ref": 0.2038,
+    "p_star": 0.0744
+   },
+   "edition": "regular",
+   "id": "enem:2017:regular:42006",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Filariose."
+    },
+    {
+     "text": "Hemofilia."
+    },
+    {
+     "text": "Aterosclerose."
+    },
+    {
+     "text": "Doença de Chagas."
+    },
+    {
+     "text": "Síndrome da imunodeficiência adquirida."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "30"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Pesquisadores criaram um tipo de plaqueta artificial, feita com um polímero gelatinoso coberto de anticorpos, que promete agilizar o processo de coagulação quando injetada no corpo. Se houver sangramento, esses anticorpos fazem com que a plaqueta mude sua forma e se transforme em uma espécie de rede que gruda nas lesões dos vasos sanguíneos e da pele."
+    },
+    {
+     "t": "source",
+     "text": "MOUTINHO, S. Coagulação acelerada. Disponível em: http://cienciahoje.uol.com.br. Acesso em: 19 fev. 2013 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "Qual a doença cujos pacientes teriam melhora de seu estado de saúde com o uso desse material?"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [
+    {
+     "citation": "MOUTINHO, S. Coagulação acelerada. Disponível em: http://cienciahoje.uol.com.br. Acesso em: 19 fev. 2013 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Circulação pulmonar e sistêmica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2017
+  },
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "392",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_5_gabarito_amarelo_12112017.pdf",
+     "number": 129,
+     "page": 13,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "393",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_6_gabarito_cinza_12112017.pdf",
+     "number": 101,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "391",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_7_gabarito_azul_12112017.pdf",
+     "number": 135,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "394",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2017/cad_8_gabarito_rosa_12112017.pdf",
+     "number": 95,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 3.57627,
+    "b": 1.63399,
+    "c": 0.08793,
+    "p_ref": 0.088,
+    "p_star": 0.0
+   },
+   "edition": "regular",
+   "id": "enem:2017:regular:48663",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Vacina."
+    },
+    {
+     "text": "Biópsia."
+    },
+    {
+     "text": "Hemodiálise."
+    },
+    {
+     "text": "Quimioterapia."
+    },
+    {
+     "text": "Transfusão de sangue."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "29"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A terapia celular tem sido amplamente divulgada como revolucionária, por permitir a regeneração de tecidos a partir de células novas. Entretanto, a técnica de se introduzirem novas células em um tecido, para o tratamento de enfermidades em indivíduos, já era aplicada rotineiramente em hospitais. A que técnica refere-se o texto?"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [],
+   "topic": "Circulação pulmonar e sistêmica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2017
+  }
+ ]
+}

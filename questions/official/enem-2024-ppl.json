@@ -1,0 +1,328 @@
+{
+ "questions": [
+  {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1334",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 91,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1335",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 113,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1333",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 130,
+     "page": 17,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1338",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 99,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.57651,
+    "b": 0.53632,
+    "c": 0.17771,
+    "p_ref": 0.3356,
+    "p_star": 0.192
+   },
+   "edition": "ppl",
+   "id": "enem:2024:ppl:12135",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Diminuição da carga viral nas cobaias."
+    },
+    {
+     "text": "Supressão do sistema imune das cobaias."
+    },
+    {
+     "text": "Elevada taxa de mutação dos vírus ativos."
+    },
+    {
+     "text": "Perda da memória imunológica das cobaias."
+    },
+    {
+     "text": "Mudança da janela imunológica dos animais testados."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "29"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Em um laboratório, pesquisadores tentavam desenvolver uma vacina contra um vírus que infecta tanto roedores como o homem. Uma das vacinas foi capaz de imunizar 100% dos ratos testados, o que foi considerado um grande sucesso. Entretanto, quatro semanas após, novos experimentos com outras cobaias mostraram que 40% dos animais não sobreviveram a testes para a mesma vacina. Em um terceiro experimento, três meses depois, apenas 15% das novas cobaias sobreviveram aos testes. Qual o principal mecanismo envolvido na perda de imunização das cobaias?"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [],
+   "topic": "Imunidade inata e adaptativa",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2024
+  },
+  {
+   "ans": 0,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1334",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 118,
+     "page": 10,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1335",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 100,
+     "page": 7,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1333",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 106,
+     "page": 8,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1338",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 122,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 3.68007,
+    "b": 1.99027,
+    "c": 0.07257,
+    "p_ref": 0.0726,
+    "p_star": 0.0
+   },
+   "edition": "ppl",
+   "id": "enem:2024:ppl:81798",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "0,4 g."
+    },
+    {
+     "text": "1,0 g."
+    },
+    {
+     "text": "1,4 g."
+    },
+    {
+     "text": "2,8 g."
+    },
+    {
+     "text": "3,5 g."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "7"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A hipertensão arterial é um problema de saúde que se agrava pelo crescente consumo de sal rico em sódio. O consumo máximo diário recomendado pelo Ministério da Saúde é de, aproximadamente, 5 g de NaCl. No entanto, os brasileiros consomem em média 12 g desse sal por dia. Por isso, a indústria lançou no mercado o chamado sal light, que apresenta um teor reduzido de cloreto de sódio. Sua composição é cerca de 50% de NaCl e 50% de KCl, em massa. Massas molares: Na = 23 g mol; Cl = 35,5 g mol; K = 39 g mol Pesquisa de orçamentos familiares: análise do consumo alimentar pessoal no Brasil. Disponível em: www.biblioteca.ibge.gov.br. Acesso em: 27 nov. 2019 (adaptado). Ainda que os brasileiros consumam apenas sal light, a massa de sódio ingerida em excesso será mais próxima de"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [],
+   "topic": "Artérias, veias e capilares",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2024
+  },
+  {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1334",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 120,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1335",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 105,
+     "page": 9,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1333",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 96,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1338",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 128,
+     "page": 14,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.04682,
+    "b": 0.19023,
+    "c": 0.21346,
+    "p_ref": 0.5408,
+    "p_star": 0.4162
+   },
+   "edition": "ppl",
+   "id": "enem:2024:ppl:85312",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "IgM positivo e IgG positivo, com baixa avidez."
+    },
+    {
+     "text": "IgM negativo e IgG negativo, com baixa avidez."
+    },
+    {
+     "text": "IgM negativo e IgG positivo, independentemente da avidez."
+    },
+    {
+     "text": "IgM positivo e IgG positivo, independentemente da avidez."
+    },
+    {
+     "text": "IgM positivo e IgG negativo, independentemente da avidez."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "14"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A proprietária de um haras comprou um cavalo e, após alguns dias, descobriu que o animal apresentava uma doença viral séria. Sentindo-se prejudicada, iniciou uma disputa judicial para determinar se o cavalo já foi comprado infectado ou se ele adquiriu a doença na nova propriedade. Nesses casos, os anticorpos podem auxiliar na decisão do juiz, pois sabe-se que a presença da imunoglobulina M (IgM), primeira classe de anticorpo a ser secretada, refere-se a infecções recentes (primárias ou recorrentes), e que a imunoglobulina G (IgG) refere-se a infecções um pouco mais antigas. Além das classes, a força de ligação do anticorpo (avidez) também poderá trazer informações importantes, porque quanto maior a avidez, mais antiga é a infecção inicial. Qual resultado laboratorial favorecerá a nova proprietária no julgamento?"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [],
+   "topic": "Imunidade inata e adaptativa",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2024
+  }
+ ]
+}

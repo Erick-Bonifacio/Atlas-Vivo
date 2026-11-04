@@ -1,0 +1,233 @@
+{
+ "questions": [
+  {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 17,
+     "co_prova": "487",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Amarelo.pdf",
+     "number": 93,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD17.pdf"
+    },
+    {
+     "booklet": 18,
+     "co_prova": "488",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Cinza.pdf",
+     "number": 101,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD18.pdf"
+    },
+    {
+     "booklet": 19,
+     "co_prova": "489",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Azul.pdf",
+     "number": 127,
+     "page": 13,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD19.pdf"
+    },
+    {
+     "booklet": 20,
+     "co_prova": "490",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Rosa.pdf",
+     "number": 134,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD20.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.44775,
+    "b": 0.19193,
+    "c": 0.21385,
+    "p_ref": 0.5158,
+    "p_star": 0.3841
+   },
+   "edition": "ppl",
+   "id": "enem:2018:ppl:12210",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "hormônios, estimulantes da regeneração celular da retina."
+    },
+    {
+     "text": "enzimas, utilizadas na geração de ATP pela respiração celular."
+    },
+    {
+     "text": "vitamina A, necessária para a formação de estruturas fotorreceptoras."
+    },
+    {
+     "text": "tocoferol, uma vitamina com função na propagação dos impulsos nervosos."
+    },
+    {
+     "text": "vitamina C, substância antioxidante que diminui a degeneração de cones e bastonetes."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "18"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "De acordo com o Ministério da Saúde, a cegueira noturna ou nictalopia é uma doença caracterizada pela dificuldade de se enxergar em ambientes com baixa luminosidade. Sua ocorrência pode estar relacionada a uma alteração ocular congênita ou a problemas nutricionais. Com esses sintomas, uma senhora dirigiu-se ao serviço de saúde e seu médico sugeriu a ingestão de vegetais ricos em carotenoides, como a cenoura."
+    },
+    {
+     "t": "source",
+     "text": "Disponível em: http://bvsms.saude.gov.br. Acesso em: 1 mar. 2012 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "Essa indicação médica deve-se ao fato de que os carotenoides são os precursores de"
+    }
+   ],
+   "system": "sensorial",
+   "third_party": [
+    {
+     "citation": "Disponível em: http://bvsms.saude.gov.br. Acesso em: 1 mar. 2012 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Visão",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2018
+  },
+  {
+   "ans": 0,
+   "appearances": [
+    {
+     "booklet": 17,
+     "co_prova": "487",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Amarelo.pdf",
+     "number": 132,
+     "page": 14,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD17.pdf"
+    },
+    {
+     "booklet": 18,
+     "co_prova": "488",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Cinza.pdf",
+     "number": 105,
+     "page": 6,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD18.pdf"
+    },
+    {
+     "booklet": 19,
+     "co_prova": "489",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Azul.pdf",
+     "number": 93,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD19.pdf"
+    },
+    {
+     "booklet": 20,
+     "co_prova": "490",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Rosa.pdf",
+     "number": 95,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD20.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 3.40786,
+    "b": 1.18914,
+    "c": 0.12648,
+    "p_ref": 0.1274,
+    "p_star": 0.001
+   },
+   "edition": "ppl",
+   "id": "enem:2018:ppl:50091",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Usar repelentes e telas em janelas, já que a doença é transmitida por mosquito."
+    },
+    {
+     "text": "Evitar nadar em rios, lagos e lagoas da região, já que a doença é transmitida pela água contaminada."
+    },
+    {
+     "text": "Evitar contato com animais de zoológicos, uma vez que se trata de uma zoonose veiculada por grandes mamíferos."
+    },
+    {
+     "text": "Realizar exames médicos periódicos para detectar precocemente a doença, já que se trata de uma enfermidade hereditária."
+    },
+    {
+     "text": "Manter uma dieta balanceada e prática regular de atividades físicas, uma vez que a doença está associada ao sedentarismo."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "30"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Uma idosa residente em uma cidade do interior do país foi levada a um hospital por sua neta. Ao examiná-la, o médico verificou que a senhora apresentava um quadro crônico de edema linfático nos membros inferiores e nos seios, concluindo ser um caso de elefantíase ou filariose linfática. Preocupada com a possibilidade de adquirir a mesma doença, a neta perguntou ao médico como era possível se prevenir. Qual foi a orientação dada à jovem pelo médico?"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [],
+   "topic": "Anatomia linfática: vasos, linfonodos, baço e timo",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2018
+  }
+ ]
+}

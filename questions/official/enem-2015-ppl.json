@@ -1,0 +1,454 @@
+{
+ "questions": [
+  {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 9,
+     "co_prova": "247",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_9.pdf",
+     "number": 62,
+     "page": 21,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD9.pdf"
+    },
+    {
+     "booklet": 10,
+     "co_prova": "259",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_10.pdf",
+     "number": 79,
+     "page": 27,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD10.pdf"
+    },
+    {
+     "booklet": 11,
+     "co_prova": "277",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_11.pdf",
+     "number": 66,
+     "page": 22,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD11.pdf"
+    },
+    {
+     "booklet": 12,
+     "co_prova": "263",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_12.pdf",
+     "number": 58,
+     "page": 19,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD12.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.03817,
+    "b": 1.37491,
+    "c": 0.33234,
+    "p_ref": 0.3865,
+    "p_star": 0.0812
+   },
+   "edition": "ppl",
+   "id": "enem:2015:ppl:11930",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Fígado."
+    },
+    {
+     "text": "Pâncreas."
+    },
+    {
+     "text": "Estômago."
+    },
+    {
+     "text": "Vesícula biliar."
+    },
+    {
+     "text": "Intestino delgado."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Uma enzima foi retirada de um dos órgãos do sistema digestório de um cachorro e, após ser purificada, foi diluída em solução fisiológica e distribuída em três tubos de ensaio com os seguintes conteúdos: •\t Tubo 1: carne •\t Tubo 2: macarrão •\t Tubo 3: banha Em todos os tubos foi adicionado ácido clorídrico (HCl), e o pH da solução baixou para um valor próximo a 2. Além disso, os tubos foram mantidos por duas horas a uma temperatura de 37 °C. A digestão do alimento ocorreu somente no tubo 1. De qual órgão do cachorro a enzima foi retirada?"
+    }
+   ],
+   "system": "digestorio",
+   "third_party": [],
+   "topic": "Fígado e pâncreas",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2015
+  },
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": 9,
+     "co_prova": "247",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_9.pdf",
+     "number": 47,
+     "page": 16,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD9.pdf"
+    },
+    {
+     "booklet": 10,
+     "co_prova": "259",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_10.pdf",
+     "number": 50,
+     "page": 17,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD10.pdf"
+    },
+    {
+     "booklet": 11,
+     "co_prova": "277",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_11.pdf",
+     "number": 89,
+     "page": 31,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD11.pdf"
+    },
+    {
+     "booklet": 12,
+     "co_prova": "263",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_12.pdf",
+     "number": 86,
+     "page": 30,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD12.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.64876,
+    "b": 0.11367,
+    "c": 0.17311,
+    "p_ref": 0.483,
+    "p_star": 0.3748
+   },
+   "edition": "ppl",
+   "id": "enem:2015:ppl:18682",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "obesidade."
+    },
+    {
+     "text": "osteoporose."
+    },
+    {
+     "text": "diabetes tipo II."
+    },
+    {
+     "text": "hipertensão arterial."
+    },
+    {
+     "text": "hipercolesterolemia."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Durante a aula, um professor apresentou uma pesquisa nacional que mostrava que o consumo de sódio pelos adolescentes brasileiros é superior ao determinado pela Organização Mundial da Saúde. O professor, então, destacou que esse hábito deve ser evitado. A doença associada a esse hábito é a"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [],
+   "topic": "Artérias, veias e capilares",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2015
+  },
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": 9,
+     "co_prova": "247",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_9.pdf",
+     "number": 81,
+     "page": 29,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD9.pdf"
+    },
+    {
+     "booklet": 10,
+     "co_prova": "259",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_10.pdf",
+     "number": 73,
+     "page": 26,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD10.pdf"
+    },
+    {
+     "booklet": 11,
+     "co_prova": "277",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_11.pdf",
+     "number": 52,
+     "page": 18,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD11.pdf"
+    },
+    {
+     "booklet": 12,
+     "co_prova": "263",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_12.pdf",
+     "number": 73,
+     "page": 26,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD12.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.66621,
+    "b": 0.3369,
+    "c": 0.19964,
+    "p_ref": 0.4222,
+    "p_star": 0.278
+   },
+   "edition": "ppl",
+   "id": "enem:2015:ppl:27153",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "glandular, uma vez que ela impede a produção de secreção de substâncias na pele."
+    },
+    {
+     "text": "muscular, uma vez que ela provoca a paralisia das fibras que formam esse tecido."
+    },
+    {
+     "text": "epitelial, uma vez que ela leva ao aumento da camada de queratina que protege a pele."
+    },
+    {
+     "text": "conjuntivo, uma vez que ela aumenta a quantidade de substância intercelular no tecido."
+    },
+    {
+     "text": "adiposo, uma vez que ela reduz a espessura da camada de células de gordura do tecido."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A toxina botulínica (produzida pelo bacilo Clostridium botulinum) pode ser encontrada em alimentos malconservados, causando até a morte de consumidores. No entanto, essa toxina modificada em laboratório está sendo usada cada vez mais para melhorar a qualidade de vida das pessoas com problemas físicos e/ou estéticos, atenuando problemas como o blefaroespasmo, que provoca contrações involuntárias das pálpebras."
+    },
+    {
+     "t": "source",
+     "text": "BACHUR, T. P. R. et al. Toxina botulínica: de veneno a tratamento. Revista Eletrônica Pesquisa Médica, n. 1, jan.-mar. 2009 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "O alívio dos sintomas do blefaroespasmo é consequência da ação da toxina modificada sobre o tecido"
+    }
+   ],
+   "system": "muscular",
+   "third_party": [
+    {
+     "citation": "BACHUR, T. P. R. et al. Toxina botulínica: de veneno a tratamento. Revista Eletrônica Pesquisa Médica, n. 1, jan.-mar. 2009 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Tipos de tecido muscular",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2015
+  },
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": 9,
+     "co_prova": "247",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_9.pdf",
+     "number": 78,
+     "page": 27,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD9.pdf"
+    },
+    {
+     "booklet": 10,
+     "co_prova": "259",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_10.pdf",
+     "number": 82,
+     "page": 28,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD10.pdf"
+    },
+    {
+     "booklet": 11,
+     "co_prova": "277",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_11.pdf",
+     "number": 75,
+     "page": 26,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD11.pdf"
+    },
+    {
+     "booklet": 12,
+     "co_prova": "263",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_12.pdf",
+     "number": 84,
+     "page": 29,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD12.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.66788,
+    "b": 0.70934,
+    "c": 0.17223,
+    "p_ref": 0.2041,
+    "p_star": 0.0385
+   },
+   "edition": "ppl",
+   "id": "enem:2015:ppl:9102",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "as manifestações febris ocorrem em função da diminuição dos glóbulos brancos, uma vez que estes controlam a temperatura do corpo."
+    },
+    {
+     "text": "a queda na pressão arterial é ocasionada pelo aumento do número de linfócitos, que têm como função principal a produção de anticorpos."
+    },
+    {
+     "text": "o sangramento pelo nariz, pela boca e gengiva é ocasionado pela quantidade reduzida de plaquetas, que são responsáveis pelo transporte de oxigênio."
+    },
+    {
+     "text": "as manifestações hemorrágicas estão associadas à trombocitopenia, uma vez que as plaquetas estão envolvidas na cascata de coagulação sanguínea."
+    },
+    {
+     "text": "os sangramentos observados ocorrem em função da linfocitose, uma vez que os linfócitos são responsáveis pela manutenção da integridade dos vasos sanguíneos."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "De acordo com estatísticas do Ministério da Saúde, cerca de 5% das pessoas com dengue hemorrágica morrem. A dengue hemorrágica tem como base fisiopatológica uma resposta imune anômala, causando aumento da permeabilidade de vasos sanguíneos, queda da pressão arterial e manifestações hemorrágicas, podendo ocorrer manchas vermelhas na pele e sangramento pelo nariz, boca e gengivas. O hemograma do paciente pode apresentar como resultado leucopenia (diminuição do número de glóbulos brancos), linfocitose (aumento do número de linfócitos), aumento do hematócrito e trombocitopenia (contagem de plaquetas abaixo de 100 000/mm^{3})."
+    },
+    {
+     "t": "source",
+     "text": "Disponível em: www.ciencianews.com.br. Acesso em: 28 fev. 2012 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "Relacionando os sintomas apresentados pelo paciente com dengue hemorrágica e os possíveis achados do hemograma, constata-se que"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [
+    {
+     "citation": "Disponível em: www.ciencianews.com.br. Acesso em: 28 fev. 2012 (adaptado).",
+     "kind": "texto"
+    }
+   ],
+   "topic": "Circulação pulmonar e sistêmica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2015
+  }
+ ]
+}

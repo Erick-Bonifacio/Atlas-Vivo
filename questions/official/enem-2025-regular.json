@@ -1,0 +1,436 @@
+{
+ "questions": [
+  {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1512",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD5.pdf",
+     "number": 108,
+     "page": 6,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1513",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD6.pdf",
+     "number": 117,
+     "page": 9,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1511",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD7.pdf",
+     "number": 113,
+     "page": 8,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1514",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD8.pdf",
+     "number": 112,
+     "page": 7,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.57327,
+    "b": 2.14122,
+    "c": 0.04207,
+    "p_ref": 0.0422,
+    "p_star": 0.0001
+   },
+   "edition": "regular",
+   "id": "enem:2025:regular:111420",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Progesterona, que reduz os níveis dos hormônios ovarianos."
+    },
+    {
+     "text": "Estrógeno, que estimula a produção dos hormônios hipofisários."
+    },
+    {
+     "text": "Luteinizante, que diminui os níveis das gonadotrofinas hipofisárias."
+    },
+    {
+     "text": "Gonadotrofina coriônica, que diminui os níveis dos hormônios hipofisários."
+    },
+    {
+     "text": "Folículo estimulante, que aumenta a concentração dos hormônios ovarianos."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "14"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "As mulheres tendem a sofrer alterações periódicas nos níveis de hormônios sexuais. Uma exceção é o período da gravidez, época em que ocorrem menores variações hormonais. Isso se deve à manutenção de níveis elevados do hormônio placentário:"
+    }
+   ],
+   "system": "reprodutor",
+   "third_party": [],
+   "topic": "Anatomia feminina",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2025
+  },
+  {
+   "ans": 0,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1484",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD5.pdf",
+     "number": 99,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1486",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD6.pdf",
+     "number": 95,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1483",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD7.pdf",
+     "number": 103,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1485",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD8.pdf",
+     "number": 111,
+     "page": 7,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 0.76781,
+    "b": 1.53685,
+    "c": 0.05698,
+    "p_ref": 0.1688,
+    "p_star": 0.1186
+   },
+   "edition": "regular",
+   "id": "enem:2025:regular:111667",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Lisossomos."
+    },
+    {
+     "text": "Ribossomos."
+    },
+    {
+     "text": "Mitocôndrias."
+    },
+    {
+     "text": "Peroxissomos."
+    },
+    {
+     "text": "Retículo endoplasmático liso."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "14"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A deficiência da enzima lipase ácida causa uma doença em que o portador apresenta células que não degradam colesterol esterificado nem triglicerídeos, resultando no depósito desses compostos em diversos órgãos, principalmente no fígado. ANDERSON, R. A. et al. In Situ Localization of the Genetic Locus Encoding [...]. Genomics, n. 1, jan. 1993 (adaptado). Essa doença resulta da insuficiência funcional de qual estrutura celular?"
+    }
+   ],
+   "system": "digestorio",
+   "third_party": [],
+   "topic": "Digestão mecânica e química",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2025
+  },
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1512",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD5.pdf",
+     "number": 99,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1513",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD6.pdf",
+     "number": 99,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1511",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD7.pdf",
+     "number": 94,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1514",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD8.pdf",
+     "number": 104,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.41313,
+    "b": 1.24164,
+    "c": 0.189,
+    "p_ref": 0.2281,
+    "p_star": 0.0482
+   },
+   "edition": "regular",
+   "id": "enem:2025:regular:141750",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "necessita do agente causador da doença vivo e incapaz de fazer o ciclo infeccioso."
+    },
+    {
+     "text": "elimina a necessidade de os agentes infecciosos serem cultivados e modificados."
+    },
+    {
+     "text": "utiliza microrganismos modificados que são incapazes de causar a doença."
+    },
+    {
+     "text": "extingue o uso de partes de proteínas e açúcares dos agentes infecciosos."
+    },
+    {
+     "text": "aproveita uma toxina inativada do agente infeccioso em sua fabricação."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "11"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Nova vacina contra HIV utiliza DNA e proteínas recombinantes Uma equipe de pesquisadores desenvolveu uma nova vacina que consiste em DNA e proteínas recombinantes. Associando a biologia molecular e a bioinformática, rastrearam o genoma viral e obtiveram uma proteína que, quando ligada a anticorpos, resulta na destruição do vírus e das células infectadas por ele. Nos testes, a vacina se mostrou capaz de induzir anticorpos contra o HIV. Essa técnica de produção de vacinas é chamada de “vacinologia reversa”. Disponível em: https://sciam.com.br. Acesso em: 22 nov. 2021 (adaptado). Essa tecnologia pode ser vantajosa em relação aos métodos tradicionais de preparo de vacinas porque"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [],
+   "topic": "Imunidade inata e adaptativa",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2025
+  },
+  {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1484",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD5.pdf",
+     "number": 95,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1486",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD6.pdf",
+     "number": 91,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1483",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD7.pdf",
+     "number": 99,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1485",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD8.pdf",
+     "number": 107,
+     "page": 7,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.28277,
+    "b": -0.02368,
+    "c": 0.08927,
+    "p_ref": 0.5564,
+    "p_star": 0.5129
+   },
+   "edition": "regular",
+   "id": "enem:2025:regular:44307",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Cerrado."
+    },
+    {
+     "text": "Pampas."
+    },
+    {
+     "text": "Caatinga."
+    },
+    {
+     "text": "Restinga."
+    },
+    {
+     "text": "Pantanal."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "28"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O monstro de gila, um lagarto encontrado em um deserto dos Estados Unidos, apresenta adaptações à falta de alimento nesse ambiente. Esse lagarto possui um hormônio que controla os níveis de açúcar em seu próprio sangue. Foi observado que esse hormônio também controla os níveis de açúcar no sangue de pessoas diabéticas. RUSSELL, C. Ozempic e outros remédios inspirados em veneno de animais. Disponível em: www.bbc.com. Acesso em: 6 dez. 2024 (adaptado). Considerando que animais de um mesmo grupo taxonômico podem apresentar características adaptativas semelhantes em ambientes similares, onde seria mais provável encontrar lagartos com essas características no território brasileiro?"
+    }
+   ],
+   "system": "endocrino",
+   "third_party": [],
+   "topic": "Hipotálamo e hipófise",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2025
+  }
+ ]
+}

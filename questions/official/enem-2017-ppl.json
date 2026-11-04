@@ -1,0 +1,112 @@
+{
+ "questions": [
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": 7,
+     "co_prova": "433",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2017/gabaritos/GAB_ENEM_2017_2_APL_DIA_2_Azul_cad-7.pdf",
+     "number": 127,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 5,
+     "co_prova": "431",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2017/gabaritos/GAB_ENEM_2017_2_APL_DIA_2_Amarelo_cad_5.pdf",
+     "number": 118,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2017/provas/P2_05_AMARELO.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "432",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2017/gabaritos/GAB_ENEM_2017_2_APL_DIA_2_Cinza_cad_6.pdf",
+     "number": 116,
+     "page": 9,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2017/provas/P2_06_CINZA.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "434",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2017/gabaritos/GAB_ENEM_2017_2_APL_DIA_2_Rosa_cad_8.pdf",
+     "number": 134,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2017/2017_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.74706,
+    "b": 0.58752,
+    "c": 0.17362,
+    "p_ref": 0.2236,
+    "p_star": 0.0604
+   },
+   "edition": "ppl",
+   "id": "enem:2017:ppl:59984",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Hipófise."
+    },
+    {
+     "text": "Tireoide."
+    },
+    {
+     "text": "Pâncreas."
+    },
+    {
+     "text": "Suprarrenal."
+    },
+    {
+     "text": "Paratireoide."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "2"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Os distúrbios por deficiência de iodo (DDI) são fenômenos naturais e permanentes amplamente distribuídos em várias regiões do mundo. Populações que vivem em áreas deficientes em iodo têm o risco de apresentar os distúrbios causados por essa deficiência, cujos impactos sobre os níveis de desenvolvimento humano, social e econômico são muito graves. No Brasil, vigora uma lei que obriga os produtores de sal de cozinha a incluírem em seu produto certa quantidade de iodeto de potássio. Essa inclusão visa prevenir problemas em qual glândula humana?"
+    }
+   ],
+   "system": "endocrino",
+   "third_party": [],
+   "topic": "Tireoide e metabolismo",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2017
+  }
+ ]
+}

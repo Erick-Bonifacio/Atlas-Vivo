@@ -1,0 +1,112 @@
+{
+ "questions": [
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "543",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2019/gabaritos/gabarito_2_dia_caderno_5_amarelo_2_aplicacao.pdf",
+     "number": 127,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2019/2019_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "544",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2019/gabaritos/gabarito_2_dia_caderno_6_cinza_2_aplicacao.pdf",
+     "number": 96,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2019/2019_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "545",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2019/gabaritos/gabarito_2_dia_caderno_7_azul_2_aplicacao.pdf",
+     "number": 115,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2019/2019_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "546",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2019/gabaritos/gabarito_2_dia_caderno_8_rosa_2_aplicacao.pdf",
+     "number": 111,
+     "page": 8,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2019/2019_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 0.81979,
+    "b": 0.87065,
+    "c": 0.29757,
+    "p_ref": 0.4585,
+    "p_star": 0.2291
+   },
+   "edition": "ppl",
+   "id": "enem:2019:ppl:8639",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Ação da bile sobre as gorduras no duodeno."
+    },
+    {
+     "text": "Ação do suco pancreático sobre as gorduras."
+    },
+    {
+     "text": "Ação da saliva sobre os carboidratos na boca."
+    },
+    {
+     "text": "Ação do suco entérico sobre as proteínas no íleo."
+    },
+    {
+     "text": "Ação do suco gástrico sobre as proteínas no estômago."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "15"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Em uma atividade prática, um professor propôs o seguinte experimento: Materiais: copo plástico pequeno, leite e suco de limão. Procedimento: coloque leite até a metade do copo plástico e, em seguida, adicione lentamente 20 gotas de limão. Levando-se em consideração a faixa de pH do suco de limão, a composição biomolecular do leite e os resultados que os alunos observariam na realização do experimento, qual processo digestório estaria sendo simulado?"
+    }
+   ],
+   "system": "digestorio",
+   "third_party": [],
+   "topic": "Digestão mecânica e química",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2019
+  }
+ ]
+}

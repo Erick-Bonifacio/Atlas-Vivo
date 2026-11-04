@@ -1,0 +1,9 @@
+{
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "sensorial",
+  "topic": "Visão"
+ }
+}

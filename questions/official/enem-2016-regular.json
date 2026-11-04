@@ -1,0 +1,112 @@
+{
+ "questions": [
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 1,
+     "co_prova": "291",
+     "color": "Azul",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_01_AZUL.pdf",
+     "number": 87,
+     "page": 31,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/2016_PV_impresso_D1_CD1.pdf"
+    },
+    {
+     "booklet": 2,
+     "co_prova": "292",
+     "color": "Amarelo",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_02_AMARELO.pdf",
+     "number": 63,
+     "page": 22,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/2016_PV_impresso_D1_CD2.pdf"
+    },
+    {
+     "booklet": 3,
+     "co_prova": "293",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_03_BRANCO.pdf",
+     "number": 46,
+     "page": 16,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/2016_PV_impresso_D1_CD3.pdf"
+    },
+    {
+     "booklet": 4,
+     "co_prova": "294",
+     "color": "Rosa",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_04_ROSA.pdf",
+     "number": 66,
+     "page": 24,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/2016_PV_impresso_D1_CD4.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.36916,
+    "b": 0.56073,
+    "c": 0.20608,
+    "p_ref": 0.3754,
+    "p_star": 0.2133
+   },
+   "edition": "regular",
+   "id": "enem:2016:regular:11898",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Alta taxa de glicose no sangue."
+    },
+    {
+     "text": "Aumento da pressão arterial."
+    },
+    {
+     "text": "Ganho de massa corporal."
+    },
+    {
+     "text": "Anemia crônica."
+    },
+    {
+     "text": "Desidratação."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "14"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Portadores de diabetes insipidus reclamam da confusão feita pelos profissionais da saúde quanto aos dois tipos de diabetes: mellitus e insipidus. Enquanto o primeiro tipo está associado aos níveis ou à ação da insulina, o segundo não está ligado à deficiência desse hormônio. O diabetes insipidus é caracterizado por um distúrbio na produção ou no funcionamento do hormônio antidiurético (na sigla em inglês, ADH), secretado pela neuro-hipófise para controlar a reabsorção de água pelos túbulos renais. Tendo em vista o papel funcional do ADH, qual é um sintoma clássico de um paciente acometido por diabetes insipidus?"
+    }
+   ],
+   "system": "endocrino",
+   "third_party": [],
+   "topic": "Hipotálamo e hipófise",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2016
+  }
+ ]
+}
