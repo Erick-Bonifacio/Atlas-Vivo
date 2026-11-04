@@ -196,12 +196,12 @@ test('vista pré-resposta: sem chaves reveladoras (varredura recursiva) e sem te
 test('vista do aluno é enxuta: só prova e ano, enunciado, alternativas e o link da prova', () => {
   const real = { ...JSON.parse(JSON.stringify(first())), inst: 'enem', year: 2023 };
   const v = viewBankQ(real);
-  assert.deepEqual(Object.keys(v).sort(), ['bank', 'id', 'kind', 'label', 'opts', 'srcUrl', 'stem', 'system', 'topic']);
+  assert.deepEqual(Object.keys(v).sort(), ['bank', 'id', 'kind', 'label', 'opts', 'stem', 'system', 'topic']);
   assert.equal(v.label, 'ENEM - 2023');
-  assert.equal(v.srcUrl, 'https://example.org/fixture.pdf');
+  assert.ok(!('srcUrl' in v), 'sem link na questão');
   const lista = viewBankQ({ ...real, inst_name: 'PUC-RJ', year: 2007, source: { name: 'Projeto Medicina' } });
   assert.equal(lista.label, 'PUC-RJ - 2007');
-  assert.equal(lista.srcUrl, null, 'questão de lista de terceiros não leva link: a fonte fica nos créditos');
+  assert.ok(!('srcUrl' in lista), 'nenhuma questão leva link: a fonte fica nos créditos');
   for (const nome of ['booklet', 'page', 'pdfUrl', 'src', 'diff', 'pts', 'thirdParty', 'type', 'phase', 'edition', 'lessons'])
     assert.ok(!(nome in v), 'metadado técnico no card: ' + nome);
   assert.equal(v.opts.length, 5);
@@ -210,7 +210,7 @@ test('vista do aluno é enxuta: só prova e ano, enunciado, alternativas e o lin
 test('item fictício (fixture) nunca se passa por prova real: rótulo próprio e sem link', () => {
   const v = viewBankQ(load().byId.get('fixture:2099:regular:mc5'));
   assert.equal(v.label, 'Questão fictícia');
-  assert.equal(v.srcUrl, null);
+  assert.ok(!('srcUrl' in v));
   assert.doesNotMatch(JSON.stringify({ ...v, id: undefined }), /FIXTURE|TESTE/i, 'só o id interno carrega o prefixo');
 });
 

@@ -78,7 +78,7 @@ function createCore({ quizzes, bank = null, partName = new Map() }) {
       id: q.id, kind: q.kind, label: fict ? 'Questão fictícia' : (q.inst_name || INST_NAMES[q.inst] || q.inst.toUpperCase()) + ' - ' + q.year,
       system: q.system, topic: q.topic,
       stem: q.stem, opts: (q.opts || []).map(x => (x.fig ? { fig: x.fig, alt: x.alt } : { text: x.text })),
-      srcUrl: fict || q.source ? null : q.appearances[0].pdf_url, bank: true,   // questão que veio de lista de terceiros não leva link: a fonte fica nos créditos
+      bank: true,   // a questão mostra só o vestibular e o ano; links e fontes ficam na seção de créditos
     };
     if (a) {
       const ex = q.science && q.science.explanation_human === true ? q.expl : null;

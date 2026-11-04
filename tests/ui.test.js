@@ -19,8 +19,8 @@ test('a folha de questão não tem metadados técnicos nem administrativos', () 
 });
 
 test('a folha tem exatamente o que foi pedido: prova e ano, enunciado, alternativas, confirmar, gabarito e link da prova', () => {
-  for (const parte of ['Q.label', 'Q.blocks', 'alts', 'Q.confirm', 'fb.', 'Q.srcUrl', 'Q.hasText']) assert.ok(sheet.includes('{{ ' + parte) || sheet.includes(parte), parte);
-  assert.match(sheet, /Ver prova original/);
+  for (const parte of ['Q.label', 'Q.blocks', 'alts', 'Q.confirm', 'fb.', 'Q.hasText']) assert.ok(sheet.includes('{{ ' + parte) || sheet.includes(parte), parte);
+  assert.ok(!/Ver prova original|srcUrl|<a /.test(sheet), 'a folha não tem link: as fontes ficam nos créditos');
   assert.match(sheet, /type="radio"/, 'alternativas são rádios nativos: setas e foco de teclado');
 });
 

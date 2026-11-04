@@ -289,7 +289,7 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
 .qs-spine{position:absolute;left:0;top:28px;bottom:28px;width:4px;border-radius:0 4px 4px 0}
 .qs-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 22px}
 .qs-exam{font-size:15px;font-weight:700;letter-spacing:-.005em;color:#16263D}
-.qs-src{font-size:13px;color:#53657C}.qs-src:hover{color:#245FE5}
+
 .qs-stem{max-width:68ch}
 .qs-p{font-size:17.5px;line-height:1.7;margin:0 0 16px;text-wrap:pretty;overflow-wrap:break-word}
 .qs-p sub,.qs-p sup,.qs-txt sub,.qs-txt sup{line-height:0}
@@ -1291,7 +1291,6 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
           <span class="qs-spine" aria-hidden="true" style="background:{{ Q.spine }}"></span>
           <sc-if value="{{ Q.hasHead }}" hint-placeholder-val="{{ true }}"><div class="qs-head">
             <sc-if value="{{ Q.hasLabel }}" hint-placeholder-val="{{ true }}"><span class="qs-exam">{{ Q.label }}</span></sc-if>
-            <sc-if value="{{ Q.hasSrc }}" hint-placeholder-val="{{ false }}"><a class="qs-src" href="{{ Q.srcUrl }}" target="_blank" rel="noopener noreferrer">Ver prova original</a></sc-if>
           </div></sc-if>
           <div class="qs-stem">
             <sc-for list="{{ Q.blocks }}" as="b" hint-placeholder-count="2">
@@ -1724,7 +1723,7 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
   <section style="padding:28px 0;border-top:1px solid #DCE5EF">
     <h2 style="font-size:20px;margin:0 0 8px">Fontes das questões de vestibular</h2>
     <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch">Cada questão mostra só o vestibular e o ano. De onde vieram os textos fica aqui.</p>
-    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch"><strong>Provas oficiais.</strong> ENEM (INEP, Ministério da Educação): <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos" target="_blank" rel="noopener noreferrer">provas e gabaritos</a>. FUVEST (USP): <a href="https://www.fuvest.br/acervo-vestibular/" target="_blank" rel="noopener noreferrer">acervo de vestibulares</a>. UNICAMP (Comvest): <a href="https://www.comvest.unicamp.br/vestibulares-anteriores/" target="_blank" rel="noopener noreferrer">vestibulares anteriores</a>. Nas questões dessas provas, o link “Ver prova original” abre o PDF oficial.</p>
+    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch"><strong>Provas oficiais.</strong> ENEM (INEP, Ministério da Educação): <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos" target="_blank" rel="noopener noreferrer">provas e gabaritos</a>. FUVEST (USP): <a href="https://www.fuvest.br/acervo-vestibular/" target="_blank" rel="noopener noreferrer">acervo de vestibulares</a>. UNICAMP (Comvest): <a href="https://www.comvest.unicamp.br/vestibulares-anteriores/" target="_blank" rel="noopener noreferrer">vestibulares anteriores</a>.</p>
     <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch"><strong>Listas de exercícios do Projeto Medicina</strong> (<a href="https://projetomedicina.com.br/" target="_blank" rel="noopener noreferrer">projetomedicina.com.br</a>), que reúnem questões de vestibulares e informam a prova de origem de cada uma:</p>
     <ul style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch;padding-left:20px;display:flex;flex-direction:column;gap:4px">
       <li><a href="https://projetomedicina.com.br/site/attachments/article/642/biologia_exercicios_fisiologia_animal_esqueleto_sustentacao_movimento_gabarito_resolucao.pdf" target="_blank" rel="noopener noreferrer">Esqueleto, sustentação e movimento</a></li>
@@ -2298,7 +2297,7 @@ class Component extends DCLogic {
     const Q={screen:onQuiz||l3,show:items.length>0&&!(onQuiz&&s.finished),hasNav:items.length>0,count:items.length,
       empty:onQuiz?fq.length===0:l3&&!!bkd&&bkd.total===0,
       aria:'Questão '+(qi+1)+' de '+items.length,spine:q?(bank?SPINE[q.system]:SPINE[s.quizId])||'#245FE5':'#245FE5',
-      label:bank&&q?q.label:'',hasLabel:!!(bank&&q&&q.label),hasHead:!!(bank&&q&&(q.label||q.srcUrl)),hasSrc:bank&&!!q.srcUrl,srcUrl:bank&&q.srcUrl?q.srcUrl:'',blocks,
+      label:bank&&q?q.label:'',hasLabel:!!(bank&&q&&q.label),hasHead:!!(bank&&q&&q.label),blocks,
       isMc:mc,isModel:model,isOpen:open,
       ta:q?(s.bkText||{})[q.id]||'':'',onTa:e=>{const v=e.target.value;this.setState(x=>({bkText:Object.assign({},x.bkText,{[q.id]:v})}))},
       selfShow:open&&(done||!!(s.bkText||{})[q.id]),
