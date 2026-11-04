@@ -221,6 +221,143 @@
      "color": "Branco",
      "day": 1,
      "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_9.pdf",
+     "number": 58,
+     "page": 19,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD9.pdf"
+    },
+    {
+     "booklet": 10,
+     "co_prova": "259",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_10.pdf",
+     "number": 55,
+     "page": 18,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD10.pdf"
+    },
+    {
+     "booklet": 11,
+     "co_prova": "277",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_11.pdf",
+     "number": 81,
+     "page": 28,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD11.pdf"
+    },
+    {
+     "booklet": 12,
+     "co_prova": "263",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_12.pdf",
+     "number": 69,
+     "page": 23,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD12.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.83734,
+    "b": 1.82358,
+    "c": 0.12715,
+    "p_ref": 0.1301,
+    "p_star": 0.0033
+   },
+   "edition": "ppl",
+   "id": "enem:2015:ppl:26403",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "alt": "Esquema com dois raios de luz paralelos que atravessam a lente fácica (LF) e chegam à córnea (C) sem se desviar; depois da córnea, os raios se aproximam e se encontram em um ponto da retina (R).",
+     "fig": "img/q/enem-2015-ppl-26403/oA.png"
+    },
+    {
+     "alt": "Esquema com dois raios de luz paralelos que se afastam um do outro depois da lente fácica (LF), chegam mais separados à córnea (C) e, depois dela, se aproximam e se encontram em um único ponto da retina (R).",
+     "fig": "img/q/enem-2015-ppl-26403/oB.png"
+    },
+    {
+     "alt": "Esquema com dois raios de luz paralelos que se aproximam depois da lente fácica (LF) e ficam mais próximos na córnea (C); depois da córnea, se afastam e chegam à retina (R) em pontos separados, sem se encontrar.",
+     "fig": "img/q/enem-2015-ppl-26403/oC.png"
+    },
+    {
+     "alt": "Esquema com dois raios de luz paralelos que se aproximam aos poucos, já a partir da lente fácica (LF), passam pela córnea (C) e se encontram em um único ponto da retina (R).",
+     "fig": "img/q/enem-2015-ppl-26403/oD.png"
+    },
+    {
+     "alt": "Esquema com dois raios de luz paralelos que se afastam um do outro depois da lente fácica (LF) e continuam se afastando depois da córnea (C), chegando separados à retina (R).",
+     "fig": "img/q/enem-2015-ppl-26403/oE.png"
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O avanço tecnológico da medicina propicia o desenvolvimento de tratamento para diversas doenças, como as relacionadas à visão. As correções que utilizam laser para o tratamento da miopia são consideradas seguras até 12 dioptrias, dependendo da espessura e curvatura da córnea. Para valores de dioptria superiores a esse, o implante de lentes intraoculares é mais indicado. Essas lentes, conhecidas como lentes fácicas (LF), são implantadas junto à córnea, antecedendo o cristalino (C), sem que esse precise ser removido, formando a imagem correta sobre a retina (R). O comportamento de um feixe de luz incidindo no olho que possui um implante de lentes fácicas para correção do problema de visão apresentado é esquematizado por"
+    }
+   ],
+   "system": "sensorial",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "oA.png",
+     "kind": "figura-alternativa"
+    },
+    {
+     "citation": null,
+     "file": "oB.png",
+     "kind": "figura-alternativa"
+    },
+    {
+     "citation": null,
+     "file": "oC.png",
+     "kind": "figura-alternativa"
+    },
+    {
+     "citation": null,
+     "file": "oD.png",
+     "kind": "figura-alternativa"
+    },
+    {
+     "citation": null,
+     "file": "oE.png",
+     "kind": "figura-alternativa"
+    }
+   ],
+   "topic": "Visão",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2015
+  },
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": 9,
+     "co_prova": "247",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/ppl/2015/GAB_ENEM2015_2aAPLICACAO_DIA1_CADERNO_9.pdf",
      "number": 81,
      "page": 29,
      "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2015/2015_PV_reaplicacao_PPL_D1_CD9.pdf"

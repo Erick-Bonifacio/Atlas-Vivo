@@ -325,6 +325,129 @@
    "year": 2025
   },
   {
+   "ans": 3,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1484",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD5.pdf",
+     "number": 93,
+     "page": 2,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1486",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD6.pdf",
+     "number": 99,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1483",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD7.pdf",
+     "number": 97,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1485",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD8.pdf",
+     "number": 103,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.64721,
+    "b": 0.62429,
+    "c": 0.21123,
+    "p_ref": 0.256,
+    "p_star": 0.0568
+   },
+   "edition": "regular",
+   "id": "enem:2025:regular:141754",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "mata o vírus pela ligação."
+    },
+    {
+     "text": "aglutina o vírus por associação."
+    },
+    {
+     "text": "contém imunoglobulinas de defesa."
+    },
+    {
+     "text": "induz a produção de proteínas neutralizadoras."
+    },
+    {
+     "text": "mantém a quantidade de anticorpos preexistentes."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "11"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A produção de vacinas exige uma sequência de procedimentos, além do cumprimento estrito de verificações de segurança. No esquema, estão demonstradas as etapas básicas realizadas para a fabricação de uma vacina utilizando a tecnologia tradicional e o efeito dela no organismo."
+    },
+    {
+     "alt": "Esquema em quatro etapas: 1, cultura de células infectadas com vírus; 2, isolamento dos vírus e inativação pelo calor ou por ação química; 3, aplicação da vacina em uma pessoa; 4, no organismo, aparecem anticorpos em forma de Y ao redor de partículas virais.",
+     "src": "img/q/enem-2025-regular-141754/f00.png",
+     "t": "fig"
+    },
+    {
+     "t": "p",
+     "text": "O antígeno utilizado na vacina causa um efeito protetor contra o vírus porque"
+    }
+   ],
+   "system": "linfatico",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Vacinas e memória imunológica",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2025
+  },
+  {
    "ans": 2,
    "appearances": [
     {
@@ -428,6 +551,129 @@
    ],
    "system": "endocrino",
    "third_party": [],
+   "topic": "Hipotálamo e hipófise",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2025
+  },
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1512",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD5.pdf",
+     "number": 123,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1513",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD6.pdf",
+     "number": 124,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1511",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD7.pdf",
+     "number": 127,
+     "page": 13,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1514",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D4_CD8.pdf",
+     "number": 120,
+     "page": 10,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D4_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.08931,
+    "b": 1.37846,
+    "c": 0.17188,
+    "p_ref": 0.178,
+    "p_star": 0.0074
+   },
+   "edition": "regular",
+   "id": "enem:2025:regular:54287",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "retina e nervo óptico."
+    },
+    {
+     "text": "córtex visual e retina."
+    },
+    {
+     "text": "nervo óptico e tálamo."
+    },
+    {
+     "text": "tálamo e córtex visual."
+    },
+    {
+     "text": "hipotálamo e glândula pineal."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "17"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "A luz que atinge a retina desencadeia a formação de impulsos nervosos que são transmitidos para diferentes áreas do encéfalo, como representado no esquema. Para que uma pessoa possa enxergar, a informação tem que atingir o córtex visual. Quando alguma parte da via que conduz a informação até lá é lesada, ocorre perda da visão. Por outro lado, a informação que chega ao hipotálamo não participa da formação da imagem, mas influencia a secreção do hormônio melatonina pela glândula pineal. Quando há entrada de luz na retina, a secreção de melatonina é inibida."
+    },
+    {
+     "alt": "Diagrama de caixas e setas: Retina leva ao Nervo óptico. Do nervo óptico saem dois caminhos: um para o Tálamo e depois para o Córtex visual, e outro para o Hipotálamo e depois para a Glândula pineal.",
+     "src": "img/q/enem-2025-regular-54287/f00.png",
+     "t": "fig"
+    },
+    {
+     "t": "p",
+     "text": "Um médico avaliou a secreção de melatonina após iluminar a retina em dois pacientes com perda visual. No primeiro paciente (1), houve inibição da secreção de melatonina; enquanto no segundo (2), a inibição não aconteceu. Os pacientes 1 e 2 tiveram perda visual, pois apresentavam problemas, respectivamente, no(a)"
+    }
+   ],
+   "system": "endocrino",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
    "topic": "Hipotálamo e hipófise",
    "type": "VERIFIED_OFFICIAL",
    "year": 2025

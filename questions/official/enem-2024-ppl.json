@@ -1,6 +1,129 @@
 {
  "questions": [
   {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1334",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 124,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1335",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 92,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1333",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 94,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1338",
+     "color": "Verde",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 132,
+     "page": 15,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2024_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 1.16425,
+    "b": 0.88519,
+    "c": 0.20873,
+    "p_ref": 0.3257,
+    "p_star": 0.1478
+   },
+   "edition": "ppl",
+   "id": "enem:2024:ppl:117781",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "diminuição do tempo de vida do fármaco, pela migração do medicamento da epiderme para a hipoderme."
+    },
+    {
+     "text": "facilidade de sua absorção na epiderme, pela interação do núcleo oleoso com a camada de gordura da pele."
+    },
+    {
+     "text": "acréscimo da concentração dos princípios ativos do anestésico na epiderme, ampliando sua região de atuação."
+    },
+    {
+     "text": "utilização de uma maior quantidade do creme, para manter a eficiência da droga mesmo com a miniaturização da cápsula."
+    },
+    {
+     "text": "aumento do transporte e da absorção dos princípios ativos, à medida que elas se degradam ao migrarem da epiderme para a derme."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "2"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Um laboratório farmacêutico desenvolveu um anestésico tópico, em forma de creme, destinado à aplicação na pele de pacientes a serem submetidos a pequenas intervenções dermatológicas. As nanocápsulas são feitas de um polímero 100% biodegradável, dotadas de paredes semipermeáveis, e têm um núcleo oleoso que contém os princípios ativos prilocaína e lidocaína. O nanoanestésico é responsável pelo transporte e entrega dos princípios ativos à região desejada do organismo."
+    },
+    {
+     "alt": "Corte da pele com epiderme, derme e hipoderme. À esquerda, o produto normal: gotas cinzas que penetram pela epiderme e ficam na região dos pelos. À direita, o produto nanoencapsulado: gotas com núcleo oleoso e parede polimérica que atravessam a epiderme, se abrem e liberam o princípio ativo (pontos vermelhos) na derme, perto dos vasos e das glândulas.",
+     "src": "img/q/enem-2024-ppl-117781/f00.jpg",
+     "t": "fig"
+    },
+    {
+     "t": "p",
+     "text": "VASCONCELOS, Y. Moléculas inovadoras. Pesquisa Fapesp, n. 238, 2015 (adaptado). A utilização dessas nanocápsulas implica o(a)"
+    }
+   ],
+   "system": "tegumentar",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.jpg",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Epiderme e derme",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2024
+  },
+  {
    "ans": 2,
    "appearances": [
     {

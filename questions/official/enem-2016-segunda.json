@@ -210,6 +210,119 @@
    "year": 2016
   },
   {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 2,
+     "co_prova": "332",
+     "color": "Amarelo",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_02_AMARELO_2.pdf",
+     "number": 84,
+     "page": 30,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_02_AMARELO_CH_CN_2016_REG.pdf"
+    },
+    {
+     "booklet": 3,
+     "co_prova": "333",
+     "color": "Branco",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_03_BRANCO_2.pdf",
+     "number": 70,
+     "page": 26,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_03_BRANCO_CH_CN_2016_REG.pdf"
+    },
+    {
+     "booklet": 4,
+     "co_prova": "334",
+     "color": "Rosa",
+     "day": 1,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2016/GAB_ENEM_2016_DIA_1_04_ROSA_2.pdf",
+     "number": 46,
+     "page": 18,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2016/P2_04_ROSA_CH_CN_2016_REG.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Intermediária",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.50336,
+    "b": 1.14184,
+    "c": 0.18479,
+    "p_ref": 0.1911,
+    "p_star": 0.0077
+   },
+   "edition": "segunda_aplicacao",
+   "id": "enem:2016:segunda:32452",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "normal."
+    },
+    {
+     "text": "acima do valor ideal."
+    },
+    {
+     "text": "abaixo do valor ideal."
+    },
+    {
+     "text": "próxima do limite inferior."
+    },
+    {
+     "text": "próxima do limite superior."
+    }
+   ],
+   "phase": "segunda",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "2"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O eletrocardiograma, exame utilizado para avaliar o estado do coração de um paciente, trata-se do registro da atividade elétrica do coração ao longo de um certo intervalo de tempo. A figura representa o eletrocardiograma de um paciente adulto, descansado, não fumante, em um ambiente com temperatura agradável. Nessas condições, é considerado normal um ritmo cardíaco entre 60 e 100 batimentos por minuto."
+    },
+    {
+     "alt": "Gráfico de um eletrocardiograma, com tensão em mV no eixo vertical e tempo em segundos no horizontal, de 0 a 6 s. O mesmo padrão se repete três vezes: uma pequena onda, um pico alto e estreito com uma pequena depressão em seguida e uma onda arredondada. Os picos altos ocorrem perto de 1,2 s, 3,0 s e 4,8 s.",
+     "src": "img/q/enem-2016-segunda-32452/f00.png",
+     "t": "fig"
+    },
+    {
+     "t": "p",
+     "text": "Com base no eletrocardiograma apresentado, identifica-se que a frequência cardíaca do paciente é"
+    }
+   ],
+   "system": "cardiovascular",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Câmaras e valvas do coração",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2016
+  },
+  {
    "ans": 4,
    "appearances": [
     {

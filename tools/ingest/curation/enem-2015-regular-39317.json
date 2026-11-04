@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Desenho a traço de uma sala escura: um feixe de luz entra por uma pequena abertura na parede e um homem aponta o feixe para um tecido pendurado, usado como anteparo, onde aparece invertida a imagem de construções. Ao fundo, duas pessoas sentadas, outro homem em pé e minaretes do lado de fora."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "sensorial",
+  "topic": "Visão"
+ }
+}

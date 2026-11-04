@@ -472,6 +472,137 @@
    "year": 2022
   },
   {
+   "ans": 2,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "1086",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD5.pdf",
+     "number": 113,
+     "page": 9,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "1087",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD6.pdf",
+     "number": 110,
+     "page": 7,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "1085",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD7.pdf",
+     "number": 118,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "1088",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_GB_impresso_D2_CD8.pdf",
+     "number": 97,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2022_PV_impresso_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.02681,
+    "b": 0.56741,
+    "c": 0.2452,
+    "p_ref": 0.3388,
+    "p_star": 0.124
+   },
+   "edition": "regular",
+   "id": "enem:2022:regular:78716",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Estrogênio."
+    },
+    {
+     "text": "Feromônio."
+    },
+    {
+     "text": "Testosterona."
+    },
+    {
+     "text": "Somatotrofina."
+    },
+    {
+     "text": "Hormônio folículo estimulante."
+    }
+   ],
+   "phase": "regular",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "14"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Em 2002, foi publicado um artigo científico que relacionava alterações na produção de hormônios sexuais de sapos machos expostos à atrazina, um herbicida, com o desenvolvimento anômalo de seus caracteres sexuais primários e secundários. Entre os animais sujeitos à contaminação, observaram-se casos de hermafroditismo e desmasculinização da laringe. O estudo em questão comparou a concentração de um hormônio específico no sangue de machos expostos ao agrotóxico com a de outros machos e fêmeas que não o foram (controles). Os resultados podem ser vistos na figura."
+    },
+    {
+     "alt": "Gráfico de barras da concentração de um hormônio, em ng por mL, de 0 a 6. Machos controle: cerca de 4. Machos expostos à atrazina: cerca de 0,4. Fêmeas controle: cerca de 0,5. A barra dos machos controle tem uma variação grande, e as outras duas têm variação pequena.",
+     "src": "img/q/enem-2022-regular-78716/f00.png",
+     "t": "fig"
+    },
+    {
+     "t": "source",
+     "text": "HAYES, T. B. et al. Hermaphroditic, Demasculinized Frogs After Exposure to the Herbicide Atrazine at Low Ecologically Relevant Doses. Proceedings of the National Academy of Sciences, n. 8, 2002 (adaptado)."
+    },
+    {
+     "t": "p",
+     "text": "Com base nas informações do texto, qual é o hormônio cujas concentrações estão representadas na figura?"
+    }
+   ],
+   "system": "reprodutor",
+   "third_party": [
+    {
+     "citation": "HAYES, T. B. et al. Hermaphroditic, Demasculinized Frogs After Exposure to the Herbicide Atrazine at Low Ecologically Relevant Doses. Proceedings of the National Academy of Sciences, n. 8, 2002 (adaptado).",
+     "kind": "texto"
+    },
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Anatomia masculina",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2022
+  },
+  {
    "ans": 4,
    "appearances": [
     {

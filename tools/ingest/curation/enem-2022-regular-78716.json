@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Gráfico de barras da concentração de um hormônio, em ng por mL, de 0 a 6. Machos controle: cerca de 4. Machos expostos à atrazina: cerca de 0,4. Fêmeas controle: cerca de 0,5. A barra dos machos controle tem uma variação grande, e as outras duas têm variação pequena."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "reprodutor",
+  "topic": "Anatomia masculina"
+ }
+}

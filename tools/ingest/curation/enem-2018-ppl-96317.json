@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Escala de cores do indicador de repolho-roxo em uma faixa horizontal com valores de pH de 1 a 14: vermelho de 1 a 3, rosa de 4 a 6, roxo de 7 a 8, azul de 9 a 10, verde de 11 a 12 e amarelo de 13 a 14."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "digestorio",
+  "topic": "Digestão mecânica e química"
+ }
+}

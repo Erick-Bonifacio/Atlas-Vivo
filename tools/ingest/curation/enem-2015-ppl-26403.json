@@ -1,0 +1,16 @@
+{
+ "alt": {
+  "oA.png": "Esquema com dois raios de luz paralelos que atravessam a lente fácica (LF) e chegam à córnea (C) sem se desviar; depois da córnea, os raios se aproximam e se encontram em um ponto da retina (R).",
+  "oB.png": "Esquema com dois raios de luz paralelos que se afastam um do outro depois da lente fácica (LF), chegam mais separados à córnea (C) e, depois dela, se aproximam e se encontram em um único ponto da retina (R).",
+  "oC.png": "Esquema com dois raios de luz paralelos que se aproximam depois da lente fácica (LF) e ficam mais próximos na córnea (C); depois da córnea, se afastam e chegam à retina (R) em pontos separados, sem se encontrar.",
+  "oD.png": "Esquema com dois raios de luz paralelos que se aproximam aos poucos, já a partir da lente fácica (LF), passam pela córnea (C) e se encontram em um único ponto da retina (R).",
+  "oE.png": "Esquema com dois raios de luz paralelos que se afastam um do outro depois da lente fácica (LF) e continuam se afastando depois da córnea (C), chegando separados à retina (R)."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "sensorial",
+  "topic": "Visão"
+ }
+}

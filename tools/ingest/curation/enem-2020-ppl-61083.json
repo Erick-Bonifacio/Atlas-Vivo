@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Gráfico de barras com cinco resultados possíveis, numerados de 1 a 5. Cada resultado tem quatro barras: gordura nas fezes antes e depois, e triglicerídeos no sangue antes e depois. No resultado 1, a gordura nas fezes aumenta depois e os triglicerídeos diminuem. No 2, a gordura nas fezes diminui e os triglicerídeos aumentam. No 3, a gordura nas fezes aumenta e os triglicerídeos também aumentam. No 4, a gordura nas fezes diminui e os triglicerídeos ficam iguais. No 5, a gordura nas fezes aumenta e os triglicerídeos ficam iguais."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "digestorio",
+  "topic": "Digestão mecânica e química"
+ }
+}

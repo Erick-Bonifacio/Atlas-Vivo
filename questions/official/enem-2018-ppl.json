@@ -228,6 +228,129 @@
    "topic": "Anatomia linfática: vasos, linfonodos, baço e timo",
    "type": "VERIFIED_OFFICIAL",
    "year": 2018
+  },
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": 17,
+     "co_prova": "487",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Amarelo.pdf",
+     "number": 125,
+     "page": 12,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD17.pdf"
+    },
+    {
+     "booklet": 18,
+     "co_prova": "488",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Cinza.pdf",
+     "number": 122,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD18.pdf"
+    },
+    {
+     "booklet": 19,
+     "co_prova": "489",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Azul.pdf",
+     "number": 104,
+     "page": 6,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD19.pdf"
+    },
+    {
+     "booklet": 20,
+     "co_prova": "490",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/educacao_basica/enem/gabaritos/2018/GAB_ENEM_2018_DIA_2_P2_Rosa.pdf",
+     "number": 100,
+     "page": 5,
+     "pdf_url": "https://download.inep.gov.br/educacao_basica/enem/provas/2018/2018_PV_reaplicacao_PPL_D2_CD20.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Avançada",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 4.74364,
+    "b": 0.85268,
+    "c": 0.22519,
+    "p_ref": 0.226,
+    "p_star": 0.001
+   },
+   "edition": "ppl",
+   "id": "enem:2018:ppl:96317",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "vermelha e vermelha."
+    },
+    {
+     "text": "vermelha e azul."
+    },
+    {
+     "text": "rosa e roxa."
+    },
+    {
+     "text": "roxa e amarela."
+    },
+    {
+     "text": "roxa e vermelha."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "15"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O suco de repolho-roxo pode ser utilizado como indicador ácido-base em diferentes soluções. Para isso, basta misturar um pouco desse suco à solução desejada e comparar a coloração final com a escala indicadora de pH, com valores de 1 a 14, mostrada a seguir."
+    },
+    {
+     "alt": "Escala de cores do indicador de repolho-roxo em uma faixa horizontal com valores de pH de 1 a 14: vermelho de 1 a 3, rosa de 4 a 6, roxo de 7 a 8, azul de 9 a 10, verde de 11 a 12 e amarelo de 13 a 14.",
+     "src": "img/q/enem-2018-ppl-96317/f00.png",
+     "t": "fig"
+    },
+    {
+     "t": "p",
+     "text": "Utilizando-se o indicador ácido-base e a escala para determinar o pH da saliva humana e do suco gástrico, têm-se, respectivamente, as cores"
+    }
+   ],
+   "system": "digestorio",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Digestão mecânica e química",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2018
   }
  ]
 }

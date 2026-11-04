@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Diagrama de caixas e setas: Retina leva ao Nervo óptico. Do nervo óptico saem dois caminhos: um para o Tálamo e depois para o Córtex visual, e outro para o Hipotálamo e depois para a Glândula pineal."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "endocrino",
+  "topic": "Hipotálamo e hipófise"
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Gráfico da saturação (de 0 a 1,0) em função da pressão parcial de O2 (de 0 a 50). A curva da mioglobina sobe depressa e chega perto de 1,0 com pressão parcial baixa, perto de 10. A curva da hemoglobina tem forma de S, sobe mais devagar e chega a cerca de 0,85 em 50."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "cardiovascular",
+  "topic": "Circulação pulmonar e sistêmica"
+ }
+}

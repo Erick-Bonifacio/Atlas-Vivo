@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Esquema em quatro etapas: 1, cultura de células infectadas com vírus; 2, isolamento dos vírus e inativação pelo calor ou por ação química; 3, aplicação da vacina em uma pessoa; 4, no organismo, aparecem anticorpos em forma de Y ao redor de partículas virais."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "linfatico",
+  "topic": "Vacinas e memória imunológica"
+ }
+}

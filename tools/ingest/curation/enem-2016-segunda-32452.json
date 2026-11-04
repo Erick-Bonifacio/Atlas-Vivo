@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.png": "Gráfico de um eletrocardiograma, com tensão em mV no eixo vertical e tempo em segundos no horizontal, de 0 a 6 s. O mesmo padrão se repete três vezes: uma pequena onda, um pico alto e estreito com uma pequena depressão em seguida e uma onda arredondada. Os picos altos ocorrem perto de 1,2 s, 3,0 s e 4,8 s."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "cardiovascular",
+  "topic": "Câmaras e valvas do coração"
+ }
+}

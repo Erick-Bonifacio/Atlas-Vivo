@@ -1,0 +1,127 @@
+{
+ "questions": [
+  {
+   "ans": 0,
+   "appearances": [
+    {
+     "booklet": 5,
+     "co_prova": "638",
+     "color": "Amarelo",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2020_GB_reaplicacao_PPL_D2_CD5.pdf",
+     "number": 94,
+     "page": 3,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2020_PV_reaplicacao_PPL_D2_CD5.pdf"
+    },
+    {
+     "booklet": 6,
+     "co_prova": "639",
+     "color": "Cinza",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2020_GB_reaplicacao_PPL_D2_CD6.pdf",
+     "number": 100,
+     "page": 4,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2020_PV_reaplicacao_PPL_D2_CD6.pdf"
+    },
+    {
+     "booklet": 7,
+     "co_prova": "637",
+     "color": "Azul",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2020_GB_reaplicacao_PPL_D2_CD7.pdf",
+     "number": 126,
+     "page": 11,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2020_PV_reaplicacao_PPL_D2_CD7.pdf"
+    },
+    {
+     "booklet": 8,
+     "co_prova": "680",
+     "color": "Rosa",
+     "day": 2,
+     "key_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2020_GB_reaplicacao_PPL_D2_CD8.pdf",
+     "number": 118,
+     "page": 9,
+     "pdf_url": "https://download.inep.gov.br/enem/provas_e_gabaritos/2020_PV_reaplicacao_PPL_D2_CD8.pdf"
+    }
+   ],
+   "area": "CN",
+   "diff": "Básica",
+   "diff_method": "irt_p_ref",
+   "diff_stats": {
+    "a": 2.25624,
+    "b": 0.81771,
+    "c": 0.15136,
+    "p_ref": 0.1867,
+    "p_star": 0.0416
+   },
+   "edition": "ppl",
+   "id": "enem:2020:ppl:61083",
+   "inst": "enem",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "1."
+    },
+    {
+     "text": "2."
+    },
+    {
+     "text": "3."
+    },
+    {
+     "text": "4."
+    },
+    {
+     "text": "5."
+    }
+   ],
+   "phase": "ppl",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo e aceita pelo diretório acadêmico; não há autorização escrita do INEP nem protocolo. Decisão da pessoa responsável pelo projeto, registrada aqui em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem",
+     "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos",
+     "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [
+    "15"
+   ],
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Há algumas décadas, surgiu no mercado um medicamento que provocava perda de peso por inibir a ação da lipase, enzima que atua no intestino na digestão de gorduras. Um pesquisador, com o objetivo de avaliar a eficácia do medicamento, decidiu medir nos pacientes a quantidade de gordura nas fezes e de triglicerídeos (um dos produtos da digestão das gorduras) no sangue. Mantendo sempre a mesma dieta nos pacientes, fez as medidas antes e depois da administração do medicamento. A figura apresenta cinco resultados possíveis."
+    },
+    {
+     "alt": "Gráfico de barras com cinco resultados possíveis, numerados de 1 a 5. Cada resultado tem quatro barras: gordura nas fezes antes e depois, e triglicerídeos no sangue antes e depois. No resultado 1, a gordura nas fezes aumenta depois e os triglicerídeos diminuem. No 2, a gordura nas fezes diminui e os triglicerídeos aumentam. No 3, a gordura nas fezes aumenta e os triglicerídeos também aumentam. No 4, a gordura nas fezes diminui e os triglicerídeos ficam iguais. No 5, a gordura nas fezes aumenta e os triglicerídeos ficam iguais.",
+     "src": "img/q/enem-2020-ppl-61083/f00.png",
+     "t": "fig"
+    },
+    {
+     "t": "p",
+     "text": "O efeito esperado do medicamento está representado no resultado"
+    }
+   ],
+   "system": "digestorio",
+   "third_party": [
+    {
+     "citation": null,
+     "file": "f00.png",
+     "kind": "figura"
+    }
+   ],
+   "topic": "Digestão mecânica e química",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2020
+  }
+ ]
+}

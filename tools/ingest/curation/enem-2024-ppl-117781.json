@@ -1,0 +1,12 @@
+{
+ "alt": {
+  "f00.jpg": "Corte da pele com epiderme, derme e hipoderme. À esquerda, o produto normal: gotas cinzas que penetram pela epiderme e ficam na região dos pelos. À direita, o produto nanoencapsulado: gotas com núcleo oleoso e parede polimérica que atravessam a epiderme, se abrem e liberam o princípio ativo (pontos vermelhos) na derme, perto dos vasos e das glândulas."
+ },
+ "classification": {
+  "by": "claude-assistido",
+  "human": false,
+  "human_biology": true,
+  "system": "tegumentar",
+  "topic": "Epiderme e derme"
+ }
+}
