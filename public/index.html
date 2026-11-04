@@ -1289,10 +1289,10 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
       <sc-if value="{{ Q.show }}" hint-placeholder-val="{{ true }}">
         <article class="qs" aria-label="{{ Q.aria }}">
           <span class="qs-spine" aria-hidden="true" style="background:{{ Q.spine }}"></span>
-          <div class="qs-head">
-            <span class="qs-exam">{{ Q.label }}</span>
-            <sc-if value="{{ Q.hasSrc }}" hint-placeholder-val="{{ false }}"><a class="qs-src" href="{{ Q.srcUrl }}" target="_blank" rel="noopener noreferrer">{{ Q.srcLabel }}</a></sc-if>
-          </div>
+          <sc-if value="{{ Q.hasHead }}" hint-placeholder-val="{{ true }}"><div class="qs-head">
+            <sc-if value="{{ Q.hasLabel }}" hint-placeholder-val="{{ true }}"><span class="qs-exam">{{ Q.label }}</span></sc-if>
+            <sc-if value="{{ Q.hasSrc }}" hint-placeholder-val="{{ false }}"><a class="qs-src" href="{{ Q.srcUrl }}" target="_blank" rel="noopener noreferrer">Ver prova original</a></sc-if>
+          </div></sc-if>
           <div class="qs-stem">
             <sc-for list="{{ Q.blocks }}" as="b" hint-placeholder-count="2">
               <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}"><p class="qs-p"><sc-for list="{{ b.segs }}" as="g" hint-placeholder-count="1"><sc-if value="{{ g.n }}" hint-placeholder-val="{{ true }}">{{ g.t }}</sc-if><sc-if value="{{ g.sub }}" hint-placeholder-val="{{ false }}"><sub>{{ g.t }}</sub></sc-if><sc-if value="{{ g.sup }}" hint-placeholder-val="{{ false }}"><sup>{{ g.t }}</sup></sc-if></sc-for></p></sc-if>
@@ -1723,9 +1723,20 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
   </section>
   <section style="padding:28px 0;border-top:1px solid #DCE5EF">
     <h2 style="font-size:20px;margin:0 0 8px">Fontes das questões de vestibular</h2>
-    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch">As questões de vestibular são do ENEM (Exame Nacional do Ensino Médio), elaborado e aplicado pelo INEP, do Ministério da Educação, da FUVEST (Fundação Universitária para o Vestibular, USP) e da UNICAMP (Comvest). Provas e gabaritos oficiais: <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos" target="_blank" rel="noopener noreferrer">ENEM, gov.br/inep</a> e <a href="https://www.fuvest.br/acervo-vestibular/" target="_blank" rel="noopener noreferrer">FUVEST, acervo de vestibulares</a> e <a href="https://www.comvest.unicamp.br/vestibulares-anteriores/" target="_blank" rel="noopener noreferrer">UNICAMP, vestibulares anteriores</a>. Várias questões de outros vestibulares vêm das listas de exercícios do <a href="https://projetomedicina.com.br/" target="_blank" rel="noopener noreferrer">Projeto Medicina</a>, que informa a prova de origem; nelas, o texto e o gabarito vêm da lista e não foram conferidos com a prova original.</p>
-    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch">Uso acadêmico e sem fins comerciais, em um trabalho da Universidade Federal de Itajubá (UNIFEI). Cada questão indica a prova e o ano e tem o link da prova original ou, quando o texto veio de uma lista de exercícios, o link da lista. Textos e imagens de terceiros dentro das questões mantêm a referência da prova (“Disponível em”).</p>
-    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0;max-width:68ch">A extração do texto das provas é automática e conferida por programa contra o PDF; nenhuma questão foi revisada por professor. Se você encontrar um erro, avise o grupo para corrigirmos.</p>
+    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch">Cada questão mostra só o vestibular e o ano. De onde vieram os textos fica aqui.</p>
+    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch"><strong>Provas oficiais.</strong> ENEM (INEP, Ministério da Educação): <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos" target="_blank" rel="noopener noreferrer">provas e gabaritos</a>. FUVEST (USP): <a href="https://www.fuvest.br/acervo-vestibular/" target="_blank" rel="noopener noreferrer">acervo de vestibulares</a>. UNICAMP (Comvest): <a href="https://www.comvest.unicamp.br/vestibulares-anteriores/" target="_blank" rel="noopener noreferrer">vestibulares anteriores</a>. Nas questões dessas provas, o link “Ver prova original” abre o PDF oficial.</p>
+    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch"><strong>Listas de exercícios do Projeto Medicina</strong> (<a href="https://projetomedicina.com.br/" target="_blank" rel="noopener noreferrer">projetomedicina.com.br</a>), que reúnem questões de vestibulares e informam a prova de origem de cada uma:</p>
+    <ul style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch;padding-left:20px;display:flex;flex-direction:column;gap:4px">
+      <li><a href="https://projetomedicina.com.br/site/attachments/article/642/biologia_exercicios_fisiologia_animal_esqueleto_sustentacao_movimento_gabarito_resolucao.pdf" target="_blank" rel="noopener noreferrer">Esqueleto, sustentação e movimento</a></li>
+      <li><a href="https://projetomedicina.com.br/site/attachments/article/666/biologia_exercicios_fisiologia_animal_excrecao_gabarito_resolucao.pdf" target="_blank" rel="noopener noreferrer">Excreção</a></li>
+      <li><a href="https://projetomedicina.com.br/site/attachments/article/668/biologia_exercicios_fisiologia_animal_respiracao_gabarito_resolucao.pdf" target="_blank" rel="noopener noreferrer">Respiração</a></li>
+      <li><a href="https://projetomedicina.com.br/site/attachments/article/667/biologia_exercicios_fisiologia_animal_reproducao_gabarito_resolucao.pdf" target="_blank" rel="noopener noreferrer">Reprodução</a></li>
+      <li><a href="https://projetomedicina.com.br/site/attachments/article/477/biologia_exercicios_histologia_animal.pdf" target="_blank" rel="noopener noreferrer">Histologia animal</a></li>
+      <li><a href="https://projetomedicina.com.br/site/attachments/article/670/biologia_exercicios_fisiologia_animal_sistema_nervoso_gabarito_resolucao.pdf" target="_blank" rel="noopener noreferrer">Sistema nervoso</a></li>
+    </ul>
+    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch">Provas de origem que essas listas citam: FUVEST, UNICAMP, UNIFESP, Mackenzie, PUC-RJ, PUC-SP, PUC-RS, PUC-PR, PUC-Campinas, UFSCar, UEL, UFC, UFG, UFPB, UFPE, UFAC, UEPB, FGV, VUNESP, Fatec, FaZU e UniFor. O texto e o gabarito dessas questões vêm da lista e não foram conferidos com a prova original; a resolução comentada do site não foi copiada.</p>
+    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0 0 10px;max-width:68ch">Uso acadêmico e sem fins comerciais, em um trabalho da Universidade Federal de Itajubá (UNIFEI). Textos e imagens de terceiros dentro das questões mantêm a referência da prova (“Disponível em”).</p>
+    <p style="font-size:15px;line-height:1.6;color:#34475F;margin:0;max-width:68ch">A extração do texto das provas oficiais é automática e conferida por programa contra o PDF. A classificação por sistema e tema e o texto alternativo das figuras foram feitos por um assistente de IA, e nenhuma questão foi revisada por professor. Se você encontrar um erro, avise o grupo para corrigirmos.</p>
   </section>
   <section style="padding:28px 0;border-top:1px solid #DCE5EF">
     <h2 style="font-size:20px;margin:0 0 8px">Créditos das imagens</h2>
@@ -2287,7 +2298,7 @@ class Component extends DCLogic {
     const Q={screen:onQuiz||l3,show:items.length>0&&!(onQuiz&&s.finished),hasNav:items.length>0,count:items.length,
       empty:onQuiz?fq.length===0:l3&&!!bkd&&bkd.total===0,
       aria:'Questão '+(qi+1)+' de '+items.length,spine:q?(bank?SPINE[q.system]:SPINE[s.quizId])||'#245FE5':'#245FE5',
-      label:!q?'':bank?q.label:'Questão autoral',hasSrc:bank&&!!q.srcUrl,srcUrl:bank&&q.srcUrl?q.srcUrl:'',srcLabel:bank&&q.srcName?'Ver a lista de origem ('+q.srcName+')':'Ver prova original',blocks,
+      label:bank&&q?q.label:'',hasLabel:!!(bank&&q&&q.label),hasHead:!!(bank&&q&&(q.label||q.srcUrl)),hasSrc:bank&&!!q.srcUrl,srcUrl:bank&&q.srcUrl?q.srcUrl:'',blocks,
       isMc:mc,isModel:model,isOpen:open,
       ta:q?(s.bkText||{})[q.id]||'':'',onTa:e=>{const v=e.target.value;this.setState(x=>({bkText:Object.assign({},x.bkText,{[q.id]:v})}))},
       selfShow:open&&(done||!!(s.bkText||{})[q.id]),

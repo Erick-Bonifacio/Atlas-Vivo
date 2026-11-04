@@ -63,9 +63,14 @@ def parse_list(doc):
     return items, key
 
 
+DISPLAY = {"fuvest": "FUVEST", "unicamp": "UNICAMP", "unifesp": "UNIFESP", "fgv": "FGV", "vunesp": "VUNESP", "unifor": "UniFor",
+           "fazu": "FaZU", "fatec": "Fatec", "ufscar": "UFSCar", "mack": "Mackenzie", "puccamp": "PUC-Campinas"}
+
+
 def norm_inst(raw):
-    s = strip_accents(raw).lower()
-    return re.sub(r"[^a-z0-9]+", "", s), raw.strip()
+    """(chave, nome para exibir): a chave junta variações de grafia ("PUC - RJ", "PUC-RJ"); o nome sai como "PUC-RJ"."""
+    key = re.sub(r"[^a-z0-9]+", "", strip_accents(raw).lower())
+    return key, DISPLAY.get(key) or re.sub(r"\s*-\s*", "-", raw.strip()).upper()
 
 
 def build(seg):

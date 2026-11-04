@@ -58,7 +58,7 @@ test('modo "preview" sem faixa; a lista não vaza gabarito nem comentário', asy
   const r = json(await call('GET', '/api/bank'));
   assert.equal(r.total, 6);
   assert.ok(!/"(ans|expl|key|rights|science|appearances)"/.test(JSON.stringify(r)));
-  assert.ok(r.questions.every(q => /^ENEM 20/.test(q.label)), 'rótulo de prova real: ENEM + ano');
+  assert.ok(r.questions.every(q => /^ENEM - 20/.test(q.label)), 'rótulo de prova real: ENEM - ano');
 });
 
 test('visitante local responde só em memória; a segunda tentativa vale zero', async () => {
