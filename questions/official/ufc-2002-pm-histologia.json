@@ -1,0 +1,78 @@
+{
+ "questions": [
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": null,
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://projetomedicina.com.br/site/attachments/article/477/biologia_exercicios_histologia_animal.pdf",
+     "number": 25,
+     "page": 7,
+     "pdf_url": "https://projetomedicina.com.br/site/attachments/article/477/biologia_exercicios_histologia_animal.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "lista",
+   "id": "ufc:2002:pm-histologia:25",
+   "inst": "ufc",
+   "inst_name": "UFC",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Tecido muscular esquelético"
+    },
+    {
+     "text": "Tecido muscular liso"
+    },
+    {
+     "text": "Tecido conjuntivo"
+    },
+    {
+     "text": "Tecido adiposo"
+    },
+    {
+     "text": "Tecido epitelial"
+    }
+   ],
+   "phase": "pm-histologia",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://projetomedicina.com.br/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "source": {
+    "list": "histologia",
+    "name": "Projeto Medicina",
+    "note": "texto e gabarito da lista, não conferidos com a prova original"
+   },
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "O alimento passa do esôfago para o estômago como resultado de uma onda peristáltica. Assinale a alternativa que mostra o tecido responsável pela peristalse do sistema digestório."
+    }
+   ],
+   "system": "muscular",
+   "third_party": [],
+   "topic": "Tipos de tecido muscular",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 2002
+  }
+ ]
+}

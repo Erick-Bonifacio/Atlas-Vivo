@@ -1,0 +1,78 @@
+{
+ "questions": [
+  {
+   "ans": 4,
+   "appearances": [
+    {
+     "booklet": null,
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://projetomedicina.com.br/site/attachments/article/670/biologia_exercicios_fisiologia_animal_sistema_nervoso_gabarito_resolucao.pdf",
+     "number": 6,
+     "page": 3,
+     "pdf_url": "https://projetomedicina.com.br/site/attachments/article/670/biologia_exercicios_fisiologia_animal_sistema_nervoso_gabarito_resolucao.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "lista",
+   "id": "fuvest:1995:pm-nervoso:06",
+   "inst": "fuvest",
+   "inst_name": "Fuvest",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "Salivar ao sentir o aroma de comida gostosa."
+    },
+    {
+     "text": "Levantar a perna quando o médico toca com martelo no joelho do paciente."
+    },
+    {
+     "text": "Piscar com a aproximação brusca de um objeto."
+    },
+    {
+     "text": "Retirar bruscamente a mão ao tocar um objeto muito quente."
+    },
+    {
+     "text": "Preencher uma ficha de identificação."
+    }
+   ],
+   "phase": "pm-nervoso",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da FUVEST nem protocolo. O acervo público da FUVEST (fuvest.br/acervo-vestibular) não traz aviso de direitos nas páginas consultadas. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.fuvest.br/acervo-vestibular-2026/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "source": {
+    "list": "nervoso",
+    "name": "Projeto Medicina",
+    "note": "texto e gabarito da lista, não conferidos com a prova original"
+   },
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Qual dos seguintes comportamentos envolve maior número de órgãos do sistema nervoso?"
+    }
+   ],
+   "system": "nervoso",
+   "third_party": [],
+   "topic": "Sistema nervoso central e periférico",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 1995
+  }
+ ]
+}

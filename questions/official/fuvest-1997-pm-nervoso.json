@@ -1,0 +1,78 @@
+{
+ "questions": [
+  {
+   "ans": 1,
+   "appearances": [
+    {
+     "booklet": null,
+     "co_prova": null,
+     "color": null,
+     "day": null,
+     "key_url": "https://projetomedicina.com.br/site/attachments/article/670/biologia_exercicios_fisiologia_animal_sistema_nervoso_gabarito_resolucao.pdf",
+     "number": 7,
+     "page": 3,
+     "pdf_url": "https://projetomedicina.com.br/site/attachments/article/670/biologia_exercicios_fisiologia_animal_sistema_nervoso_gabarito_resolucao.pdf"
+    }
+   ],
+   "area": null,
+   "diff": null,
+   "diff_method": null,
+   "diff_stats": null,
+   "edition": "lista",
+   "id": "fuvest:1997:pm-nervoso:07",
+   "inst": "fuvest",
+   "inst_name": "Fuvest",
+   "kind": "mc",
+   "lessons": [],
+   "opts": [
+    {
+     "text": "V - III - I - IV - II."
+    },
+    {
+     "text": "I - IV - V - III - II."
+    },
+    {
+     "text": "I - IV - III - II - V."
+    },
+    {
+     "text": "II - I - IV - III - V."
+    },
+    {
+     "text": "II - III - I - IV - V."
+    }
+   ],
+   "phase": "pm-nervoso",
+   "rights": {
+    "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI), com indicação da fonte em cada questão e na seção de créditos do site. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da FUVEST nem protocolo. O acervo público da FUVEST (fuvest.br/acervo-vestibular) não traz aviso de direitos nas páginas consultadas. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+    "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+    "decided_on": "2026-11-04",
+    "evidence": [
+     "https://www.fuvest.br/acervo-vestibular-2026/"
+    ],
+    "status": "cleared"
+   },
+   "science": {
+    "classification_by": "claude-assistido",
+    "classification_human": false
+   },
+   "skills": [],
+   "source": {
+    "list": "nervoso",
+    "name": "Projeto Medicina",
+    "note": "texto e gabarito da lista, não conferidos com a prova original"
+   },
+   "status": "published",
+   "stem": [
+    {
+     "t": "p",
+     "text": "Examine a seguinte lista de eventos que ocorrem durante a propagação de um impulso nervoso: I. Neurotransmissores atingem os dendritos. II. Neurotransmissores são liberados pelas extremidades do axônio. III. O impulso se propaga pelo axônio. IV. O impulso se propaga pelos dendritos. V. O impulso chega ao corpo celular. Que alternativa apresenta a seqüência temporal correta desses eventos?"
+    }
+   ],
+   "system": "nervoso",
+   "third_party": [],
+   "topic": "Neurônio e impulso nervoso",
+   "type": "VERIFIED_OFFICIAL",
+   "year": 1997
+  }
+ ]
+}

@@ -34,6 +34,10 @@ def public_item(item, cls, diff, rt):
         "science": {"classification_by": cls.get("confirmed_by"), "classification_human": cls.get("human_reviewed", False)},
         "lessons": [],
     }
+    if item.get("source"):   # questão que chegou por uma lista de terceiros: a fonte aparece na questão
+        out["source"] = item["source"]
+    if item.get("inst_name"):
+        out["inst_name"] = item["inst_name"]
     if ex:   # comentário opcional: só vai junto com a autoria e se houve revisão humana
         out["science"].update({"explanation_by": ex["by"], "explanation_human": bool(ex.get("human"))})
         out["expl"] = {"autoral": True, "text": ex["text"], "steps": ex.get("steps", []), "why": ex["why"]}

@@ -69,6 +69,12 @@ Fora: 2016 (gabarito não localizado), 2018 (gabarito só em imagem, exigiria le
 
 **UNESP e UNIFESP**: os PDFs ficam no site da Vunesp, que responde 403 a acesso automatizado; não foi contornado. UFRGS publica Biologia por ano, mas o gabarito não está nas páginas do acervo; sem ele nada é publicado.
 
+## Listas do Projeto Medicina (`vest_pm.py`)
+
+Listas de exercícios em PDF aberto (`staging/raw/projetomedicina/*.pdf`: esqueleto e movimento, excreção, respiração, reprodução, histologia e sistema nervoso) com questões de vestibulares reais, a prova de origem de cada uma ("(Fuvest-1998)") e gabarito. O extrator guarda a prova informada pela lista, o endereço da lista em `source` (a questão mostra "Ver a lista de origem") e **nunca copia a resolução comentada** do site. Só entra múltipla escolha a-e em texto puro; figura, tabela e soma de proposições são descartadas.
+
+O texto e o gabarito da lista não foram conferidos com a prova original, e o gabarito da lista **erra** em pelo menos um caso (Mack-2008, serotonina): por isso cada resposta publicada foi conferida pelo conteúdo, e o que não deu para conferir ficou fora. Sites cuja `robots.txt` declara `ai-input=no` (Toda Matéria) não são usados. As decisões de direitos `pm-<instituição>` usam a mesma base das demais (uso acadêmico, orientação verbal, sem autorização escrita).
+
 ## Revisão local
 
 `review_server.py` escuta só em `127.0.0.1`, recusa `Host` que não seja loopback, não envia cabeçalhos CORS, exige o cabeçalho `X-Atlas-Review` e o nome de quem revisa nas escritas, e serve apenas `staging/media`. Mostra a questão como o aluno a verá (figuras, tabelas, alternativas clicáveis, gabarito) ao lado do fac-símile. Revisões feitas ali gravam `human: true`; o que o assistente de IA escreve usa `claude-assistido` e `human: false`.

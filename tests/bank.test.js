@@ -196,9 +196,13 @@ test('vista pré-resposta: sem chaves reveladoras (varredura recursiva) e sem te
 test('vista do aluno é enxuta: só prova e ano, enunciado, alternativas e o link da prova', () => {
   const real = { ...JSON.parse(JSON.stringify(first())), inst: 'enem', year: 2023 };
   const v = viewBankQ(real);
-  assert.deepEqual(Object.keys(v).sort(), ['bank', 'id', 'kind', 'label', 'opts', 'srcUrl', 'stem', 'system', 'topic']);
+  assert.deepEqual(Object.keys(v).sort(), ['bank', 'id', 'kind', 'label', 'opts', 'srcName', 'srcUrl', 'stem', 'system', 'topic']);
   assert.equal(v.label, 'ENEM 2023');
   assert.equal(v.srcUrl, 'https://example.org/fixture.pdf');
+  assert.equal(v.srcName, null, 'prova oficial não tem lista de origem');
+  const lista = viewBankQ({ ...real, inst_name: 'PUC-RJ', year: 2007, source: { name: 'Projeto Medicina' } });
+  assert.equal(lista.label, 'PUC-RJ 2007');
+  assert.equal(lista.srcName, 'Projeto Medicina');
   for (const nome of ['booklet', 'page', 'pdfUrl', 'src', 'diff', 'pts', 'thirdParty', 'type', 'phase', 'edition', 'lessons'])
     assert.ok(!(nome in v), 'metadado técnico no card: ' + nome);
   assert.equal(v.opts.length, 5);

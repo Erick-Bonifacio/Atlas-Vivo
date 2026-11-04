@@ -92,6 +92,447 @@
     "inst": "unesp"
    },
    "status": "needs_authorization"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "Fatec: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-fatec",
+   "scope": {
+    "inst": "fatec"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "FaZU: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-fazu",
+   "scope": {
+    "inst": "fazu"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "FGV: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-fgv",
+   "scope": {
+    "inst": "fgv"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "Mack: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-mack",
+   "scope": {
+    "inst": "mack"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "PUCCamp: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-puccamp",
+   "scope": {
+    "inst": "puccamp"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "PUC - PR: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-pucpr",
+   "scope": {
+    "inst": "pucpr"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "PUC - RJ: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-pucrj",
+   "scope": {
+    "inst": "pucrj"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "PUC-RJ: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-pucrj",
+   "scope": {
+    "inst": "pucrj"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "PUC - RS: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-pucrs",
+   "scope": {
+    "inst": "pucrs"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "PUC - SP: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-pucsp",
+   "scope": {
+    "inst": "pucsp"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UEL: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-uel",
+   "scope": {
+    "inst": "uel"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UEPB: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-uepb",
+   "scope": {
+    "inst": "uepb"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UFAC: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-ufac",
+   "scope": {
+    "inst": "ufac"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UFC: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-ufc",
+   "scope": {
+    "inst": "ufc"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UFG: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-ufg",
+   "scope": {
+    "inst": "ufg"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UFPB: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-ufpb",
+   "scope": {
+    "inst": "ufpb"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UFPE: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-ufpe",
+   "scope": {
+    "inst": "ufpe"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UFSCar: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-ufscar",
+   "scope": {
+    "inst": "ufscar"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UNIFESP: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-unifesp",
+   "scope": {
+    "inst": "unifesp"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "UniFor: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-unifor",
+   "scope": {
+    "inst": "unifor"
+   },
+   "status": "cleared"
+  },
+  {
+   "basis": "Uso acadêmico, sem fins comerciais, em trabalho de universidade federal (UNIFEI). A questão é de vestibular real; a fonte de cada uma é a lista do Projeto Medicina (projetomedicina.com.br), que informa a prova de origem, e o link da lista aparece na questão. Orientação recebida verbalmente pelo grupo, para vestibulares em geral, e aceita pelo diretório acadêmico; não há autorização escrita da instituição nem protocolo. O texto e o gabarito da lista não foram conferidos com a prova original. Decisão da pessoa responsável pelo projeto, registrada em 2026-11-04.",
+   "covers": [
+    "text",
+    "figures",
+    "third_party_text"
+   ],
+   "decided_by": "Augusto Juiz (UNIFEI), a pedido do grupo do projeto",
+   "decided_on": "2026-11-04",
+   "evidence": [
+    "https://projetomedicina.com.br/"
+   ],
+   "findings": [
+    "VUNESP: instituição citada pela lista do Projeto Medicina; sem aviso de direitos verificado na fonte."
+   ],
+   "id": "pm-vunesp",
+   "scope": {
+    "inst": "vunesp"
+   },
+   "status": "cleared"
   }
  ]
 }

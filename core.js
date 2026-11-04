@@ -75,7 +75,8 @@ function createCore({ quizzes, bank = null, partName = new Map() }) {
   function viewBankQ(q, a) {
     const fict = q.inst === 'fixture';
     const o = {
-      id: q.id, kind: q.kind, label: fict ? 'Questão fictícia' : (INST_NAMES[q.inst] || q.inst.toUpperCase()) + ' ' + q.year,
+      id: q.id, kind: q.kind, label: fict ? 'Questão fictícia' : (q.inst_name || INST_NAMES[q.inst] || q.inst.toUpperCase()) + ' ' + q.year,
+      srcName: q.source ? q.source.name : null,
       system: q.system, topic: q.topic,
       stem: q.stem, opts: (q.opts || []).map(x => (x.fig ? { fig: x.fig, alt: x.alt } : { text: x.text })),
       srcUrl: fict ? null : q.appearances[0].pdf_url, bank: true,
