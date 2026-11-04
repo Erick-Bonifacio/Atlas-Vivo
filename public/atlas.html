@@ -270,6 +270,16 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
 .av-b2{min-height:46px;padding:0 18px;border-radius:10px;border:1px solid #C9D6E5;background:#FFFFFF;color:#16263D;font-size:15px;font-weight:600;cursor:pointer}
 .av-b2:hover{background:#F3F7FC}
 .av-link{background:none;border:none;color:#245FE5;font-weight:600;font-size:inherit;cursor:pointer;padding:0}
+.av-stat{display:flex;flex-direction:column}.av-stat .av-k{margin:0 0 6px}
+.av-sv{font-size:34px;font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:0}
+.av-ss{font-size:13px;line-height:1.45;color:#53657C;margin:8px 0 0}
+.av-sh{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;margin:0 0 12px}
+.av-row{display:flex;flex-wrap:wrap;gap:2px 16px;padding:12px 0;border-top:1px solid #DCE5EF}.av-row dt{flex:0 0 150px;font-size:14px;font-weight:600;color:#53657C}.av-row dd{flex:1 1 200px;margin:0;font-size:15px;overflow-wrap:anywhere}
+.av-bd{min-height:46px;padding:0 18px;border-radius:10px;border:1px solid #B3372F;background:#FFFFFF;color:#B3372F;font-size:15px;font-weight:600;cursor:pointer}.av-bd:hover{background:#FBECEA}.av-bdf{background:#B3372F;color:#FFFFFF}.av-bdf:hover{background:#962C25}.av-bd:disabled{opacity:.6;cursor:default}
+.av-ov{position:fixed;inset:0;z-index:60;background:rgba(12,34,56,.55);display:grid;place-items:center;padding:16px;overflow:auto;animation:av-fade .15s ease-out}
+.av-modal{background:#FFFFFF;border-radius:16px;width:100%;max-width:480px;padding:24px;box-sizing:border-box;box-shadow:0 24px 60px rgba(12,34,56,.28);display:flex;flex-direction:column;gap:16px;animation:av-pop .18s ease-out}
+.av-mf{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;margin-top:4px}
+@keyframes av-fade{from{opacity:0}}@keyframes av-pop{from{opacity:0;transform:translateY(8px) scale(.98)}}
 .av-err{font-size:14px;line-height:1.45;color:#B3372F;background:#FBECEA;border-radius:10px;padding:10px 12px;margin:0}
 .av-ok{font-size:14px;line-height:1.45;color:#1F7A4D;background:#E8F4EC;border-radius:10px;padding:10px 12px;margin:0}
 
@@ -349,10 +359,10 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
 
 <header style="position:sticky;top:0;z-index:30;background:rgba(245,248,252,.94);backdrop-filter:blur(8px);border-bottom:1px solid #DCE5EF">
   <div style="max-width:1320px;margin:0 auto;padding:10px {{ padX }};display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-    <button sc-camel-on-click="{{ nav.home }}" aria-label="Atlas Vivo, ir ao atlas" style="display:flex;align-items:center;gap:10px;background:none;border:none;padding:6px 0;cursor:pointer;color:#16263D">
+    <a href="./" aria-label="Atlas Vivo, página inicial" style="display:flex;align-items:center;gap:10px;padding:6px 0;color:#16263D;text-decoration:none">
       <img src="img/logo.png" alt="" width="32" height="32" style="display:block;flex:none">
       <span class="av-d" style="font-weight:700;font-size:17px;letter-spacing:-0.01em;white-space:nowrap" data-om-label="Atlas Vivo">Atlas Vivo</span>
-    </button>
+    </a>
     <nav aria-label="Principal" style="display:flex;gap:2px;flex:0 1 auto;min-width:0;overflow-x:auto">
       <button sc-camel-on-click="{{ nav.home }}" aria-current="{{ cur.home }}" style="min-height:40px;padding:0 {{ navPad }};border:none;background:none;cursor:pointer;font-size:{{ navFs }};font-weight:600;white-space:nowrap;color:{{ navc.home }};border-bottom:2px solid {{ navb.home }}">Explorar</button>
       <button sc-camel-on-click="{{ nav.trilha }}" aria-current="{{ cur.trilha }}" style="min-height:40px;padding:0 {{ navPad }};border:none;background:none;cursor:pointer;font-size:{{ navFs }};font-weight:600;white-space:nowrap;color:{{ navc.trilha }};border-bottom:2px solid {{ navb.trilha }}">Trilha de estudo</button>
@@ -1233,12 +1243,27 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
     <section style="padding:30px 0 20px">
       <nav aria-label="Você está em" style="display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:14px;color:#53657C;margin:0 0 14px">
         <button class="av-link" sc-camel-on-click="{{ nav.banco }}" style="font-size:14px">Questões</button><span aria-hidden="true">/</span>
-        <button class="av-link" sc-camel-on-click="{{ PV.toSys }}" style="font-size:14px">{{ PV.sysName }}</button><span aria-hidden="true">/</span>
+        <sc-if value="{{ PV.notFind }}" hint-placeholder-val="{{ true }}"><button class="av-link" sc-camel-on-click="{{ PV.toSys }}" style="font-size:14px">{{ PV.sysName }}</button><span aria-hidden="true">/</span></sc-if>
         <span aria-current="page" style="color:#16263D;font-weight:600">{{ PV.topic }}</span>
       </nav>
       <h1 style="font-size:{{ h1s }};line-height:1.08;letter-spacing:-0.025em;margin:0 0 8px;text-wrap:balance">{{ PV.topic }}</h1>
       <p aria-live="polite" style="font-size:16px;color:#53657C;margin:0">{{ PV.summary }}</p>
+      <sc-if value="{{ PV.isFind }}" hint-placeholder-val="{{ false }}"><button class="av-link" sc-camel-on-click="{{ PV.editFind }}" style="min-height:44px">Mudar a busca</button></sc-if>
     </section>
+  </sc-if>
+  <sc-if value="{{ SM.on }}" hint-placeholder-val="{{ false }}">
+    <section style="padding:30px 0 20px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:flex-end">
+      <div>
+        <p class="av-k">Mini simulado {{ SM.n }} de {{ SM.max }}</p>
+        <h1 style="font-size:{{ h1s }};line-height:1.08;letter-spacing:-0.025em;margin:0 0 8px">Simulado de vestibulares</h1>
+        <p style="font-size:16px;color:#53657C;margin:0">{{ SM.marked }}. A correção sai quando você entregar ou quando o tempo acabar.</p>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+        <p style="margin:0;font-size:13px;color:#53657C">Tempo restante<span role="timer" style="display:block;font:600 30px/1.1 'IBM Plex Mono',monospace;color:{{ SM.timerCol }}">{{ SM.timer }}</span></p>
+        <button class="av-b1" sc-camel-on-click="{{ SM.submit }}" disabled="{{ SM.busy }}">{{ SM.submitLabel }}</button>
+      </div>
+    </section>
+    <sc-if value="{{ SM.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ SM.err }}</p></sc-if>
   </sc-if>
 
   <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
@@ -1282,7 +1307,7 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
       <sc-if value="{{ Q.empty }}" hint-placeholder-val="{{ false }}">
         <div role="status" style="padding:28px;border:1px dashed #C9D6E5;border-radius:12px;font-size:16px;line-height:1.6;color:#34475F">
           <sc-if value="{{ is.exercicios }}" hint-placeholder-val="{{ false }}">Nenhuma questão com esses filtros. <button sc-camel-on-click="{{ resetFilt }}" class="av-link">Limpar filtros</button></sc-if>
-          <sc-if value="{{ PV.l3 }}" hint-placeholder-val="{{ false }}">Ainda não há questões liberadas neste tema. <button sc-camel-on-click="{{ PV.toSys }}" class="av-link">Ver outros temas</button></sc-if>
+          <sc-if value="{{ PV.l3 }}" hint-placeholder-val="{{ false }}"><sc-if value="{{ PV.notFind }}" hint-placeholder-val="{{ true }}">Ainda não há questões liberadas neste tema. <button sc-camel-on-click="{{ PV.toSys }}" class="av-link">Ver outros temas</button></sc-if><sc-if value="{{ PV.isFind }}" hint-placeholder-val="{{ false }}">Nenhuma questão com essa busca. <button sc-camel-on-click="{{ PV.editFind }}" class="av-link">Mudar a busca</button></sc-if></sc-if>
         </div>
       </sc-if>
 
@@ -1358,6 +1383,7 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
           <button class="av-b2" sc-camel-on-click="{{ qPrev }}" disabled="{{ qFirst }}" style="opacity:{{ qPrevOp }}"><span aria-hidden="true" class="ic ic-arrow-left" style="margin-right:8px"></span>Anterior</button>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
             <sc-if value="{{ is.exercicios }}" hint-placeholder-val="{{ false }}"><button class="av-b2" sc-camel-on-click="{{ finish }}">Ver resultado do quiz</button></sc-if>
+            <sc-if value="{{ SM.on }}" hint-placeholder-val="{{ false }}"><button class="av-b2" sc-camel-on-click="{{ SM.submit }}" disabled="{{ SM.busy }}">{{ SM.submitLabel }}</button></sc-if>
             <sc-if value="{{ qHasNext }}" hint-placeholder-val="{{ true }}"><button class="av-b1" sc-camel-on-click="{{ qNext }}">Próxima questão<span aria-hidden="true" class="ic ic-arrow-right" style="margin-left:8px"></span></button></sc-if>
           </div>
         </div>
@@ -1466,8 +1492,50 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
 <sc-if value="{{ PV.l1 }}" hint-placeholder-val="{{ false }}">
   <section style="padding:40px 0 24px;max-width:780px">
     <h1 style="font-size:{{ h1s }};line-height:1.08;letter-spacing:-0.025em;margin:0 0 14px">Questões de vestibulares</h1>
-    <p style="font-size:18px;line-height:1.6;color:#34475F;margin:0;text-wrap:pretty">Escolha um sistema do corpo e depois um tema. As questões são as originais das provas, na forma como foram aplicadas.</p>
+    <p style="font-size:18px;line-height:1.6;color:#34475F;margin:0;text-wrap:pretty">Escolha um sistema do corpo e depois um tema, busque por palavra e filtros ou faça um mini simulado. As questões são as originais das provas, na forma como foram aplicadas.</p>
   </section>
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:stretch;margin-bottom:36px">
+    <form role="search" aria-label="Buscar questões" sc-camel-on-submit="{{ PF.submit }}" class="av-card" style="flex:2 1 520px;display:flex;flex-direction:column;gap:14px">
+      <h2 style="font-size:20px;margin:0">Buscar questões</h2>
+      <label class="av-lb">Palavra no enunciado ou nas alternativas<input class="av-in" type="search" value="{{ PF.q }}" sc-camel-on-change="{{ PF.onQ }}" maxlength="80" placeholder="Ex.: hemoglobina, néfron, insulina"></label>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+        <label class="av-lb">Sistema<select class="av-in" value="{{ PF.system }}" sc-camel-on-change="{{ PF.onSystem }}"><option value="">Todos</option><sc-for list="{{ PF.systems }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.t }}</option></sc-for></select></label>
+        <label class="av-lb">Vestibular<select class="av-in" value="{{ PF.inst }}" sc-camel-on-change="{{ PF.onInst }}"><option value="">Todos</option><sc-for list="{{ PF.insts }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.t }}</option></sc-for></select></label>
+        <label class="av-lb">Ano<select class="av-in" value="{{ PF.year }}" sc-camel-on-change="{{ PF.onYear }}"><option value="">Todos</option><sc-for list="{{ PF.years }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.t }}</option></sc-for></select></label>
+        <sc-if value="{{ PF.user }}" hint-placeholder-val="{{ false }}"><label class="av-lb">Situação<select class="av-in" value="{{ PF.status }}" sc-camel-on-change="{{ PF.onStatus }}"><option value="">Todas</option><sc-for list="{{ PF.statuses }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.t }}</option></sc-for></select></label></sc-if>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <button type="submit" class="av-b1">Buscar</button>
+        <sc-if value="{{ PF.hasAny }}" hint-placeholder-val="{{ false }}"><button type="button" class="av-link" sc-camel-on-click="{{ PF.clear }}" style="min-height:44px">Limpar filtros</button></sc-if>
+      </div>
+    </form>
+    <div class="av-card" aria-labelledby="sm-t" style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+      <h2 id="sm-t" style="font-size:20px;margin:0">Mini simulado</h2>
+      <sc-if value="{{ SM.anon }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15px;line-height:1.55;color:#34475F;margin:0">Questões sorteadas de vários sistemas, com tempo e relatório do que revisar. Cada conta pode fazer dois.</p>
+        <p style="margin:0"><button class="av-b1" sc-camel-on-click="{{ SM.login }}">Entrar para fazer o simulado</button></p>
+      </sc-if>
+      <sc-if value="{{ SM.info }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15px;line-height:1.55;color:#34475F;margin:0">{{ SM.desc }}</p>
+        <p style="font-size:14px;font-weight:600;color:#16263D;margin:0">{{ SM.usedTxt }}</p>
+        <sc-if value="{{ SM.canStart }}" hint-placeholder-val="{{ true }}"><p style="margin:0"><button class="av-b1" sc-camel-on-click="{{ SM.start }}" disabled="{{ SM.busy }}">{{ SM.startLabel }}</button></p></sc-if>
+        <sc-if value="{{ SM.none }}" hint-placeholder-val="{{ false }}"><p style="font-size:14px;color:#53657C;margin:0">Você já usou os dois simulados. As questões continuam aqui, por sistema e pela busca.</p></sc-if>
+        <sc-if value="{{ SM.noBank }}" hint-placeholder-val="{{ false }}"><p style="font-size:14px;color:#53657C;margin:0">O simulado abre quando houver questões de vestibular liberadas.</p></sc-if>
+        <sc-if value="{{ SM.hasHistory }}" hint-placeholder-val="{{ false }}">
+          <ul style="list-style:none;margin:4px 0 0;padding:0;border-top:1px solid #DCE5EF">
+            <sc-for list="{{ SM.history }}" as="h" hint-placeholder-count="1">
+              <li style="display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #DCE5EF">
+                <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:600">{{ h.t }}</span><span style="font-size:13px;color:#53657C">{{ h.meta }}</span></span>
+                <button class="av-link" sc-camel-on-click="{{ h.go }}" style="min-height:44px">Ver relatório</button>
+              </li>
+            </sc-for>
+          </ul>
+        </sc-if>
+      </sc-if>
+      <sc-if value="{{ SM.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ SM.err }}</p></sc-if>
+    </div>
+  </div>
+  <h2 style="font-size:24px;margin:0 0 18px">Por sistema do corpo</h2>
   <sc-if value="{{ PV.loading }}" hint-placeholder-val="{{ false }}"><p role="status" style="font-size:16px;color:#53657C">Carregando…</p></sc-if>
   <sc-if value="{{ PV.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ PV.err }}</p></sc-if>
   <sc-if value="{{ PV.noneYet }}" hint-placeholder-val="{{ false }}">
@@ -1516,6 +1584,57 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
   </div>
 </sc-if>
 
+<!-- Relatório do mini simulado -->
+<sc-if value="{{ SM.rep }}" hint-placeholder-val="{{ false }}">
+  <section style="padding:30px 0 22px;max-width:780px">
+    <nav aria-label="Você está em" style="display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:14px;color:#53657C;margin:0 0 14px">
+      <button class="av-link" sc-camel-on-click="{{ SM.back }}" style="font-size:14px">Questões</button><span aria-hidden="true">/</span>
+      <span aria-current="page" style="color:#16263D;font-weight:600">Relatório do simulado</span>
+    </nav>
+    <p class="av-k">Mini simulado {{ SM.r.n }} de {{ SM.max }}</p>
+    <h1 style="font-size:{{ h1s }};line-height:1.08;letter-spacing:-0.025em;margin:0 0 14px;text-wrap:balance">{{ SM.r.title }}</h1>
+    <p style="font-size:17px;line-height:1.6;color:#34475F;margin:0">{{ SM.r.sub }}</p>
+  </section>
+  <div style="max-width:780px;display:flex;flex-direction:column;gap:28px;padding-bottom:24px">
+    <sc-if value="{{ SM.r.perfect }}" hint-placeholder-val="{{ false }}">
+      <div class="av-card" style="border-color:#1F7A4D">
+        <h2 style="font-size:20px;margin:0 0 8px">Continue se desafiando</h2>
+        <sc-if value="{{ SM.r.hasNext }}" hint-placeholder-val="{{ true }}">
+          <p style="font-size:15px;line-height:1.55;color:#34475F;margin:0 0 12px">Estes sistemas ficaram fora do seu simulado. Teste-se neles também:</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px"><sc-for list="{{ SM.r.next }}" as="x" hint-placeholder-count="2"><button class="av-b2" sc-camel-on-click="{{ x.go }}">{{ x.t }}</button></sc-for></div>
+        </sc-if>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <sc-if value="{{ SM.r.nextSim }}" hint-placeholder-val="{{ false }}"><button class="av-b1" sc-camel-on-click="{{ SM.start }}" disabled="{{ SM.busy }}">{{ SM.startLabel }}</button></sc-if>
+          <button class="av-b2" sc-camel-on-click="{{ SM.pendingGo }}">Questões que você ainda não respondeu</button>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ SM.r.hasRecs }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <h2 style="font-size:22px;margin:0 0 6px">O que estudar agora</h2>
+        <p style="font-size:15px;line-height:1.55;color:#34475F;margin:0 0 12px">Os temas das questões que você errou ou deixou em branco, do que mais pesou para o que menos pesou.</p>
+        <ul style="list-style:none;margin:0;padding:0;border-top:1px solid #DCE5EF">
+          <sc-for list="{{ SM.r.recs }}" as="r" hint-placeholder-count="2">
+            <li style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #DCE5EF">
+              <span style="display:flex;flex-direction:column;gap:2px;flex:1 1 280px"><span style="font-size:16px;font-weight:600">{{ r.t }}</span><span style="font-size:14px;color:#53657C">{{ r.n }}</span></span>
+              <span style="display:flex;gap:8px;flex-wrap:wrap">
+                <sc-if value="{{ r.hasLesson }}" hint-placeholder-val="{{ true }}"><button class="av-b2" sc-camel-on-click="{{ r.lesson }}">Ver a aula</button></sc-if>
+                <sc-if value="{{ r.hasTopic }}" hint-placeholder-val="{{ true }}"><button class="av-b2" sc-camel-on-click="{{ r.practice }}">Praticar o tema</button></sc-if>
+              </span>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </sc-if>
+    <div>
+      <h2 style="font-size:22px;margin:0 0 6px">Questão por questão</h2>
+      <p style="font-size:15px;line-height:1.55;color:#34475F;margin:0 0 12px">O gabarito não aparece aqui: cada questão continua valendo pontos quando você a responder no sistema dela.</p>
+      <ul style="list-style:none;margin:0;padding:0;border-top:1px solid #DCE5EF"><sc-for list="{{ SM.r.items }}" as="x" hint-placeholder-count="3"><li style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #DCE5EF;font-size:15px;align-items:baseline"><span style="width:112px;flex:none;font-weight:700;color:{{ x.col }};white-space:nowrap"><span aria-hidden="true" class="ic ic-{{ x.ic }}" style="margin-right:6px"></span>{{ x.res }}</span><span style="color:#34475F">{{ x.t }}</span></li></sc-for></ul>
+    </div>
+    <p style="margin:0"><button class="av-b2" sc-camel-on-click="{{ SM.back }}">Voltar para Questões</button></p>
+  </div>
+</sc-if>
+
 <!-- Figura ampliada (Esc fecha) -->
 <sc-if value="{{ zoom.on }}" hint-placeholder-val="{{ false }}">
   <div class="qs-zoom" role="dialog" aria-modal="true" aria-label="Figura ampliada" sc-camel-on-click="{{ zoom.close }}">
@@ -1560,102 +1679,222 @@ a{color:#245FE5}a:hover{color:#1B4FC4}
   </section>
 </sc-if>
 
-<!-- CONTA -->
+<!-- CONTA: cabeçalho, abas (visão geral, turma, configurações) e ações em modais -->
 <sc-if value="{{ is.conta }}" hint-placeholder-val="{{ false }}">
-  <section style="padding:40px 0 24px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:flex-end">
-    <div>
-      <h1 style="font-size:{{ h1s }};line-height:1.08;letter-spacing:-0.025em;margin:0 0 10px">Minha conta</h1>
-      <p style="font-size:15px;color:#53657C;margin:0">{{ acct.since }}</p>
+  <section style="padding:36px 0 20px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center">
+    <span aria-hidden="true" class="av-d" style="width:72px;height:72px;flex:none;border-radius:50%;display:grid;place-items:center;background:#E3ECFD;color:#1B4FC4;font-size:28px;font-weight:800">{{ acct.initials }}</span>
+    <div style="flex:1 1 260px;min-width:0">
+      <div style="display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin:0 0 6px">
+        <h1 style="font-size:{{ h1s }};line-height:1.08;letter-spacing:-0.025em;margin:0;overflow-wrap:anywhere">{{ acct.name }}</h1>
+        <span style="padding:4px 10px;border-radius:999px;background:#FFFFFF;border:1px solid #C9D6E5;font-size:13px;font-weight:600;color:#34475F;white-space:nowrap">{{ acct.role }}</span>
+      </div>
+      <p style="font-size:15px;color:#53657C;margin:0;overflow-wrap:anywhere">{{ acct.meta }}. {{ acct.since }}</p>
     </div>
     <button class="av-b2" sc-camel-on-click="{{ auth.logout }}">Sair da conta</button>
   </section>
-  <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
-    <form sc-camel-on-submit="{{ auth.save }}" class="av-card" style="flex:2 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px">
-      <h2 style="font-size:20px;margin:0">Dados da conta</h2>
-      <label class="av-lb">Nome<input class="av-in" type="text" name="name" sc-camel-auto-complete="name" required="{{ yes }}" sc-camel-min-length="2" sc-camel-max-length="80" value="{{ f.name.v }}" sc-camel-on-change="{{ f.name.on }}"></label>
-      <label class="av-lb">E-mail<input class="av-in" type="email" name="email" sc-camel-auto-complete="username" required="{{ yes }}" value="{{ f.email.v }}" sc-camel-on-change="{{ f.email.on }}"></label>
-      <label class="av-lb">Instituição (opcional)<input class="av-in" type="text" name="inst" sc-camel-auto-complete="organization" sc-camel-max-length="80" value="{{ f.inst.v }}" sc-camel-on-change="{{ f.inst.on }}"></label>
-      <label style="display:flex;gap:10px;align-items:center;font-size:15px;font-weight:500;color:#16263D;cursor:pointer"><input type="checkbox" checked="{{ cta.prof }}" sc-camel-on-change="{{ cta.toggleProf }}" style="width:20px;height:20px;accent-color:#245FE5">Sou professor(a) e vou criar turmas</label>
-      <h2 style="font-size:20px;margin:8px 0 0">Trocar senha</h2>
-      <label class="av-lb">Nova senha (deixe em branco para manter a atual)<input class="av-in" type="password" name="new-password" sc-camel-auto-complete="new-password" sc-camel-min-length="8" value="{{ f.npass.v }}" sc-camel-on-change="{{ f.npass.on }}"></label>
-      <label class="av-lb">Senha atual (necessária para mudar e-mail ou senha)<input class="av-in" type="password" name="current-password" sc-camel-auto-complete="current-password" value="{{ f.cur.v }}" sc-camel-on-change="{{ f.cur.on }}"></label>
-      <sc-if value="{{ auth.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ auth.err }}</p></sc-if>
-      <sc-if value="{{ auth.hasMsg }}" hint-placeholder-val="{{ false }}"><p role="status" class="av-ok">{{ auth.msg }}</p></sc-if>
-      <div><button type="submit" class="av-b1" disabled="{{ auth.busy }}">{{ auth.saveLabel }}</button></div>
-    </form>
-    <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:20px">
-      <div class="av-card">
-        <p class="av-k" style="margin-bottom:10px">Seu progresso</p>
-        <p class="av-d" style="font-size:22px;font-weight:700;margin:0 0 4px">Nível {{ acct.level }} <span style="color:#34475F">{{ acct.title }}</span></p>
-        <p style="font-size:15px;color:#34475F;margin:0 0 6px"><strong>{{ acct.points }}</strong> pontos. {{ acct.nextTxt }}</p>
-        <p style="font-size:14px;line-height:1.5;color:#53657C;margin:0 0 16px">{{ acct.sum }}</p>
-        <button class="av-b2" sc-camel-on-click="{{ nav.quizzes }}">Quizzes, medalhas e ranking</button>
+
+  <div role="tablist" aria-label="Seções da conta" sc-camel-on-key-down="{{ ct.key }}" style="display:flex;gap:4px;border-bottom:1px solid #DCE5EF;margin:0 0 28px;overflow-x:auto">
+    <sc-for list="{{ ct.tabs }}" as="t" hint-placeholder-count="3">
+      <button role="tab" id="ctab-{{ t.k }}" aria-selected="{{ t.sel }}" aria-controls="cpanel" sc-camel-tab-index="{{ t.ti }}" sc-camel-on-click="{{ t.go }}" style="min-height:46px;padding:0 16px;border:none;background:none;cursor:pointer;font-size:15px;font-weight:600;white-space:nowrap;color:{{ t.col }};border-bottom:2px solid {{ t.bd }};margin-bottom:-1px">{{ t.t }}</button>
+    </sc-for>
+  </div>
+
+  <div role="tabpanel" id="cpanel" aria-labelledby="ctab-{{ ct.cur }}">
+  <!-- Visão geral -->
+  <sc-if value="{{ ct.geral }}" hint-placeholder-val="{{ true }}">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:0 0 32px">
+      <div class="av-card av-stat">
+        <p class="av-k">Nível</p>
+        <p class="av-d av-sv">{{ acct.level }} <span style="font-size:17px;color:#34475F">{{ acct.title }}</span></p>
+        <div role="progressbar" aria-label="Progresso até o próximo nível" aria-valuenow="{{ acct.barN }}" aria-valuemin="0" aria-valuemax="100" style="height:8px;border-radius:4px;background:#DCE5EF;margin:12px 0 0"><div style="height:8px;border-radius:4px;background:#245FE5;width:{{ acct.barW }};transition:width .4s"></div></div>
+        <p class="av-ss">{{ acct.nextTxt }}</p>
       </div>
-      <div class="av-card">
-        <p class="av-k" style="margin-bottom:10px">Sons</p>
+      <div class="av-card av-stat">
+        <p class="av-k">Pontos</p>
+        <p class="av-d av-sv">{{ acct.points }}</p>
+        <p class="av-ss">Acertos somam pontos e quizzes completos dão bônus</p>
+      </div>
+      <div class="av-card av-stat">
+        <p class="av-k">Acertos</p>
+        <p class="av-d av-sv">{{ acct.hits }}</p>
+        <p class="av-ss">{{ acct.hitsSub }}</p>
+      </div>
+      <div class="av-card av-stat">
+        <p class="av-k">Aulas concluídas</p>
+        <p class="av-d av-sv">{{ acct.lessons }}</p>
+        <p class="av-ss">{{ acct.quizSub }}</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between;margin:0 0 14px">
+      <h2 style="font-size:22px;margin:0">Medalhas <span style="font-size:15px;font-weight:600;color:#53657C">{{ acct.badgeTxt }}</span></h2>
+      <button class="av-link" sc-camel-on-click="{{ nav.quizzes }}" style="font-size:15px">Ver quizzes e ranking</button>
+    </div>
+    <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px">
+      <sc-for list="{{ badges }}" as="b" hint-placeholder-count="5">
+        <li style="display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:12px;background:{{ b.bg }};border:1px solid #DCE5EF">
+          <span aria-hidden="true" class="ic ic-{{ b.icon }}" style="font-size:26px;color:{{ b.col }}"></span>
+          <span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:15px;font-weight:700;color:{{ b.col }}">{{ b.name }}</span><span style="font-size:13px;line-height:1.45;color:#53657C">{{ b.desc }}</span><span style="font-size:12px;font-weight:600;color:{{ b.col }}">{{ b.state }}</span></span>
+        </li>
+      </sc-for>
+    </ul>
+  </sc-if>
+
+  <!-- Turma -->
+  <sc-if value="{{ ct.turma }}" hint-placeholder-val="{{ false }}">
+    <sc-if value="{{ tm.isStudent }}" hint-placeholder-val="{{ false }}">
+      <div class="av-card" style="max-width:640px">
+        <h2 style="font-size:20px;margin:0 0 12px">Minha turma</h2>
+        <sc-if value="{{ tm.none }}" hint-placeholder-val="{{ true }}">
+          <p style="font-size:15px;line-height:1.55;color:#34475F;margin:0 0 14px">Entre na turma do seu professor com o código que ele passou. Ele precisa aprovar a sua entrada.</p>
+          <form sc-camel-on-submit="{{ tm.join }}" style="display:flex;gap:8px;flex-wrap:wrap">
+            <input class="av-in" type="text" maxlength="12" autocomplete="off" aria-label="Código da turma" placeholder="Código da turma" style="flex:1 1 160px;width:auto;text-transform:uppercase" value="{{ f.tcod.v }}" sc-camel-on-change="{{ f.tcod.on }}">
+            <button type="submit" class="av-b1" disabled="{{ auth.busy }}">Pedir para entrar</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ tm.pending }}" hint-placeholder-val="{{ false }}">
+          <p style="font-size:15px;line-height:1.55;margin:0 0 14px">Pedido enviado para a turma <strong>{{ tm.nome }}</strong> (prof. {{ tm.prof }}). Aguardando aprovação.</p>
+          <button class="av-b2" sc-camel-on-click="{{ tm.leave }}">Cancelar pedido</button>
+        </sc-if>
+        <sc-if value="{{ tm.member }}" hint-placeholder-val="{{ false }}">
+          <p style="font-size:15px;line-height:1.55;margin:0 0 14px">Você está na turma <strong>{{ tm.nome }}</strong> (prof. {{ tm.prof }}). O ranking da turma aparece em Quizzes, ao lado do geral.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="av-b1" sc-camel-on-click="{{ nav.quizzes }}">Ver ranking da turma</button><button class="av-b2" sc-camel-on-click="{{ tm.leave }}">Sair da turma</button></div>
+        </sc-if>
+        <sc-if value="{{ tm.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err" style="margin-top:12px">{{ tm.err }}</p></sc-if>
+      </div>
+    </sc-if>
+    <sc-if value="{{ tm.isProf }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between;margin:0 0 16px">
+        <h2 style="font-size:22px;margin:0">Minhas turmas</h2>
+        <button class="av-b1" sc-camel-on-click="{{ m.open.nova }}"><span aria-hidden="true" class="ic ic-plus" style="margin-right:6px"></span>Nova turma</button>
+      </div>
+      <sc-if value="{{ tm.noList }}" hint-placeholder-val="{{ false }}"><div class="av-card" style="text-align:center;padding:40px 24px"><p style="font-size:16px;font-weight:600;margin:0 0 6px">Nenhuma turma ainda</p><p style="font-size:15px;color:#53657C;margin:0">Crie uma turma e passe o código aos alunos. Os pedidos de entrada aparecem aqui.</p></div></sc-if>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px">
+        <sc-for list="{{ tm.list }}" as="t" hint-placeholder-count="2">
+          <div class="av-card" style="display:flex;flex-direction:column;gap:10px">
+            <p class="av-d" style="font-size:19px;font-weight:700;margin:0;overflow-wrap:anywhere">{{ t.nome }}</p>
+            <p style="font-size:14px;color:#34475F;margin:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap">Código <strong style="font:600 17px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#16263D">{{ t.codigo }}</strong><button class="av-link" sc-camel-on-click="{{ t.copy }}" style="font-size:14px">Copiar</button></p>
+            <p style="font-size:14px;color:#53657C;margin:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap">{{ t.alunos }}<sc-if value="{{ t.hasPend }}" hint-placeholder-val="{{ false }}"><span style="padding:2px 9px;border-radius:999px;background:#FFF4D6;color:#7A5A00;font-size:13px;font-weight:700">{{ t.pedidos }}</span></sc-if></p>
+            <div style="margin-top:auto;padding-top:6px"><button class="av-b2" sc-camel-on-click="{{ t.open }}" style="width:100%">Gerenciar turma</button></div>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ tm.errOut }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err" style="margin-top:12px">{{ tm.err }}</p></sc-if>
+    </sc-if>
+  </sc-if>
+
+  <!-- Configurações -->
+  <sc-if value="{{ ct.config }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;gap:20px;max-width:780px">
+      <section class="av-card">
+        <div class="av-sh"><h2 style="font-size:20px;margin:0">Perfil</h2><button class="av-b2" sc-camel-on-click="{{ m.open.perfil }}">Editar perfil</button></div>
+        <dl style="margin:0">
+          <div class="av-row"><dt>Nome</dt><dd>{{ acct.name }}</dd></div>
+          <div class="av-row"><dt>E-mail</dt><dd>{{ acct.email }}</dd></div>
+          <div class="av-row"><dt>Instituição</dt><dd>{{ acct.inst }}</dd></div>
+          <div class="av-row"><dt>Tipo de conta</dt><dd>{{ acct.role }}</dd></div>
+        </dl>
+      </section>
+      <section class="av-card">
+        <div class="av-sh"><h2 style="font-size:20px;margin:0">Senha</h2><button class="av-b2" sc-camel-on-click="{{ m.open.senha }}">Trocar senha</button></div>
+        <p style="font-size:14px;line-height:1.5;color:#53657C;margin:0">Trocar a senha encerra as sessões abertas em outros navegadores.</p>
+      </section>
+      <section class="av-card">
+        <h2 style="font-size:20px;margin:0 0 14px">Sons</h2>
         <label class="av-lb">Volume dos sons de acerto e erro: {{ snd.label }}<input type="range" min="0" max="100" step="5" value="{{ snd.v }}" sc-camel-on-change="{{ snd.on }}" aria-label="Volume dos sons de acerto e erro" style="width:100%;accent-color:#245FE5"></label>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button class="av-b2" sc-camel-on-click="{{ snd.okTest }}">Ouvir acerto</button><button class="av-b2" sc-camel-on-click="{{ snd.erroTest }}">Ouvir erro</button></div>
         <p style="font-size:13px;color:#53657C;margin:10px 0 0">Fica salvo neste navegador. Em 0, os sons ficam desligados.</p>
-      </div>
-      <sc-if value="{{ tm.isStudent }}" hint-placeholder-val="{{ false }}">
-        <div class="av-card">
-          <p class="av-k" style="margin-bottom:10px">Minha turma</p>
-          <sc-if value="{{ tm.none }}" hint-placeholder-val="{{ true }}">
-            <p style="font-size:14px;line-height:1.5;color:#34475F;margin:0 0 12px">Entre na turma do seu professor com o código que ele passou. Ele precisa aprovar a sua entrada.</p>
-            <form sc-camel-on-submit="{{ tm.join }}" style="display:flex;gap:8px;flex-wrap:wrap">
-              <input class="av-in" type="text" maxlength="12" autocomplete="off" aria-label="Código da turma" placeholder="Código da turma" style="flex:1 1 130px;width:auto;text-transform:uppercase" value="{{ f.tcod.v }}" sc-camel-on-change="{{ f.tcod.on }}">
-              <button type="submit" class="av-b1" disabled="{{ auth.busy }}">Pedir para entrar</button>
-            </form>
-          </sc-if>
-          <sc-if value="{{ tm.pending }}" hint-placeholder-val="{{ false }}">
-            <p style="font-size:15px;line-height:1.5;margin:0 0 12px">Pedido enviado para a turma <strong>{{ tm.nome }}</strong> (prof. {{ tm.prof }}). Aguardando aprovação.</p>
-            <button class="av-b2" sc-camel-on-click="{{ tm.leave }}">Cancelar pedido</button>
-          </sc-if>
-          <sc-if value="{{ tm.member }}" hint-placeholder-val="{{ false }}">
-            <p style="font-size:15px;line-height:1.5;margin:0 0 12px">Você está na turma <strong>{{ tm.nome }}</strong> (prof. {{ tm.prof }}). O ranking da turma aparece em Quizzes, ao lado do geral.</p>
-            <button class="av-b2" sc-camel-on-click="{{ tm.leave }}">Sair da turma</button>
-          </sc-if>
-          <sc-if value="{{ tm.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err" style="margin-top:12px">{{ tm.err }}</p></sc-if>
-        </div>
-      </sc-if>
-      <sc-if value="{{ tm.isProf }}" hint-placeholder-val="{{ false }}">
-        <div class="av-card">
-          <p class="av-k" style="margin-bottom:10px">Minhas turmas</p>
-          <form sc-camel-on-submit="{{ tm.create }}" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px">
-            <input class="av-in" type="text" maxlength="60" aria-label="Nome da turma" placeholder="Nome da turma (ex.: Biologia 3A)" style="flex:1 1 150px;width:auto" value="{{ f.tnome.v }}" sc-camel-on-change="{{ f.tnome.on }}">
-            <button type="submit" class="av-b1" disabled="{{ auth.busy }}">Criar turma</button>
-          </form>
-          <sc-if value="{{ tm.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err" style="margin-top:10px">{{ tm.err }}</p></sc-if>
-          <sc-if value="{{ tm.noList }}" hint-placeholder-val="{{ true }}"><p style="font-size:14px;color:#53657C;margin:10px 0 0">Você ainda não criou turmas. Crie uma e passe o código aos alunos.</p></sc-if>
-          <sc-for list="{{ tm.list }}" as="t" hint-placeholder-count="1">
-            <div style="border-top:1px solid #DCE5EF;margin-top:16px;padding-top:14px">
-              <p style="font-size:17px;font-weight:700;margin:0 0 6px">{{ t.nome }}</p>
-              <p style="font-size:14px;color:#34475F;margin:0 0 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">Código <strong style="font:600 17px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#16263D">{{ t.codigo }}</strong><button class="av-link" sc-camel-on-click="{{ t.copy }}" style="font-size:14px">Copiar</button></p>
-              <sc-if value="{{ t.hasPend }}" hint-placeholder-val="{{ false }}">
-                <p style="font-size:13px;font-weight:600;color:#53657C;margin:0 0 6px">Pedidos de entrada</p>
-                <ul style="list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:6px">
-                  <sc-for list="{{ t.pend }}" as="a" hint-placeholder-count="1"><li style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:15px"><span style="flex:1;min-width:0">{{ a.name }}</span><button class="av-b1" sc-camel-on-click="{{ a.ok }}" style="min-height:36px;padding:0 14px;font-size:14px">Aprovar</button><button class="av-b2" sc-camel-on-click="{{ a.no }}" style="min-height:36px;padding:0 14px;font-size:14px">Recusar</button></li></sc-for>
-                </ul>
-              </sc-if>
-              <p style="font-size:13px;font-weight:600;color:#53657C;margin:0 0 6px">Ranking da turma</p>
-              <sc-if value="{{ t.noRank }}" hint-placeholder-val="{{ false }}"><p style="font-size:14px;color:#53657C;margin:0 0 10px">Nenhum aluno aprovado ainda.</p></sc-if>
-              <ol style="list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:2px">
-                <sc-for list="{{ t.rank }}" as="r" hint-placeholder-count="2"><li style="display:flex;gap:10px;align-items:baseline;padding:6px 4px;font-size:14px"><span style="width:28px;flex:none;font:500 13px/1.4 'IBM Plex Mono',monospace;color:#53657C">{{ r.pos }}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.name }}</span><span style="color:#53657C;white-space:nowrap">{{ r.lv }}</span><span style="white-space:nowrap">{{ r.pts }}</span><button class="av-link" sc-camel-on-click="{{ r.rm }}" style="font-size:13px;color:#B3372F">Remover</button></li></sc-for>
-              </ol>
-              <button class="av-link" sc-camel-on-click="{{ t.del }}" style="font-size:14px;color:#B3372F">Excluir turma</button>
-            </div>
-          </sc-for>
-        </div>
-      </sc-if>
-      <form sc-camel-on-submit="{{ auth.del }}" class="av-card" style="border-color:#E7B9B4;display:flex;flex-direction:column;gap:12px">
-        <h2 style="font-size:18px;margin:0;color:#B3372F">Excluir conta</h2>
+      </section>
+      <section class="av-card" style="border-color:#E7B9B4">
+        <div class="av-sh"><h2 style="font-size:20px;margin:0;color:#B3372F">Excluir conta</h2><button class="av-bd" sc-camel-on-click="{{ m.open.excluir }}">Excluir minha conta</button></div>
         <p style="font-size:14px;line-height:1.5;color:#34475F;margin:0">Apaga seus dados, respostas, pontos e medalhas. Não dá para desfazer.</p>
-        <label class="av-lb">Confirme com sua senha<input class="av-in" type="password" name="delete-password" sc-camel-auto-complete="current-password" required="{{ yes }}" value="{{ f.del.v }}" sc-camel-on-change="{{ f.del.on }}"></label>
-        <sc-if value="{{ auth.hasDelErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ auth.delErr }}</p></sc-if>
-        <div><button type="submit" disabled="{{ auth.busy }}" style="min-height:44px;padding:0 18px;border-radius:10px;border:1px solid #B3372F;background:#FFFFFF;color:#B3372F;font-size:15px;font-weight:600;cursor:pointer">Excluir minha conta</button></div>
+      </section>
+    </div>
+  </sc-if>
+  </div>
+
+  <!-- Modais da conta (Esc ou clique fora fecham) -->
+  <sc-if value="{{ m.perfil }}" hint-placeholder-val="{{ false }}">
+    <div class="av-ov" sc-camel-on-click="{{ m.bg }}">
+      <form class="av-modal" role="dialog" aria-modal="true" aria-labelledby="mt-perfil" sc-camel-on-submit="{{ auth.save }}">
+        <h2 id="mt-perfil" style="font-size:22px;margin:0">Editar perfil</h2>
+        <label class="av-lb">Nome<input class="av-in" type="text" name="name" sc-camel-auto-complete="name" sc-camel-auto-focus="{{ yes }}" required="{{ yes }}" sc-camel-min-length="2" sc-camel-max-length="80" value="{{ f.name.v }}" sc-camel-on-change="{{ f.name.on }}"></label>
+        <label class="av-lb">E-mail<input class="av-in" type="email" name="email" sc-camel-auto-complete="username" required="{{ yes }}" value="{{ f.email.v }}" sc-camel-on-change="{{ f.email.on }}"></label>
+        <sc-if value="{{ m.emailChanged }}" hint-placeholder-val="{{ false }}"><label class="av-lb">Senha atual (necessária para mudar o e-mail)<input class="av-in" type="password" name="current-password" sc-camel-auto-complete="current-password" required="{{ yes }}" value="{{ f.cur.v }}" sc-camel-on-change="{{ f.cur.on }}"></label></sc-if>
+        <label class="av-lb">Instituição (opcional)<input class="av-in" type="text" name="inst" sc-camel-auto-complete="organization" sc-camel-max-length="80" value="{{ f.inst.v }}" sc-camel-on-change="{{ f.inst.on }}"></label>
+        <label style="display:flex;gap:10px;align-items:center;font-size:15px;font-weight:500;color:#16263D;cursor:pointer"><input type="checkbox" checked="{{ cta.prof }}" sc-camel-on-change="{{ cta.toggleProf }}" style="width:20px;height:20px;accent-color:#245FE5">Sou professor(a) e vou criar turmas</label>
+        <sc-if value="{{ auth.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ auth.err }}</p></sc-if>
+        <div class="av-mf"><button type="button" class="av-b2" sc-camel-on-click="{{ m.close }}">Cancelar</button><button type="submit" class="av-b1" disabled="{{ auth.busy }}">{{ auth.saveLabel }}</button></div>
       </form>
     </div>
-  </div>
+  </sc-if>
+  <sc-if value="{{ m.senha }}" hint-placeholder-val="{{ false }}">
+    <div class="av-ov" sc-camel-on-click="{{ m.bg }}">
+      <form class="av-modal" role="dialog" aria-modal="true" aria-labelledby="mt-senha" sc-camel-on-submit="{{ m.savePass }}">
+        <h2 id="mt-senha" style="font-size:22px;margin:0">Trocar senha</h2>
+        <label class="av-lb">Senha atual<input class="av-in" type="password" name="current-password" sc-camel-auto-complete="current-password" sc-camel-auto-focus="{{ yes }}" required="{{ yes }}" value="{{ f.cur.v }}" sc-camel-on-change="{{ f.cur.on }}"></label>
+        <label class="av-lb">Nova senha (mínimo de 8 caracteres)<input class="av-in" type="password" name="new-password" sc-camel-auto-complete="new-password" required="{{ yes }}" sc-camel-min-length="8" value="{{ f.npass.v }}" sc-camel-on-change="{{ f.npass.on }}"></label>
+        <label class="av-lb">Repita a nova senha<input class="av-in" type="password" name="new-password-2" sc-camel-auto-complete="new-password" required="{{ yes }}" sc-camel-min-length="8" value="{{ f.pass2.v }}" sc-camel-on-change="{{ f.pass2.on }}"></label>
+        <sc-if value="{{ auth.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ auth.err }}</p></sc-if>
+        <div class="av-mf"><button type="button" class="av-b2" sc-camel-on-click="{{ m.close }}">Cancelar</button><button type="submit" class="av-b1" disabled="{{ auth.busy }}">{{ m.passLabel }}</button></div>
+      </form>
+    </div>
+  </sc-if>
+  <sc-if value="{{ m.excluir }}" hint-placeholder-val="{{ false }}">
+    <div class="av-ov" sc-camel-on-click="{{ m.bg }}">
+      <form class="av-modal" role="alertdialog" aria-modal="true" aria-labelledby="mt-excluir" sc-camel-on-submit="{{ auth.del }}">
+        <h2 id="mt-excluir" style="font-size:22px;margin:0;color:#B3372F">Excluir sua conta?</h2>
+        <p style="font-size:15px;line-height:1.55;color:#34475F;margin:0">Seus dados, respostas, pontos e medalhas serão apagados. Não dá para desfazer.</p>
+        <label class="av-lb">Confirme com sua senha<input class="av-in" type="password" name="delete-password" sc-camel-auto-complete="current-password" sc-camel-auto-focus="{{ yes }}" required="{{ yes }}" value="{{ f.del.v }}" sc-camel-on-change="{{ f.del.on }}"></label>
+        <sc-if value="{{ auth.hasDelErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ auth.delErr }}</p></sc-if>
+        <div class="av-mf"><button type="button" class="av-b2" sc-camel-on-click="{{ m.close }}">Cancelar</button><button type="submit" class="av-bd av-bdf" disabled="{{ auth.busy }}">Excluir minha conta</button></div>
+      </form>
+    </div>
+  </sc-if>
+  <sc-if value="{{ m.nova }}" hint-placeholder-val="{{ false }}">
+    <div class="av-ov" sc-camel-on-click="{{ m.bg }}">
+      <form class="av-modal" role="dialog" aria-modal="true" aria-labelledby="mt-nova" sc-camel-on-submit="{{ tm.create }}">
+        <h2 id="mt-nova" style="font-size:22px;margin:0">Nova turma</h2>
+        <label class="av-lb">Nome da turma<input class="av-in" type="text" maxlength="60" required="{{ yes }}" autocomplete="off" sc-camel-auto-focus="{{ yes }}" placeholder="Ex.: Biologia 3A" value="{{ f.tnome.v }}" sc-camel-on-change="{{ f.tnome.on }}"></label>
+        <p style="font-size:14px;line-height:1.5;color:#53657C;margin:0">Depois de criar, passe o código da turma aos alunos. Você aprova cada pedido de entrada.</p>
+        <sc-if value="{{ tm.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ tm.err }}</p></sc-if>
+        <div class="av-mf"><button type="button" class="av-b2" sc-camel-on-click="{{ m.close }}">Cancelar</button><button type="submit" class="av-b1" disabled="{{ auth.busy }}">Criar turma</button></div>
+      </form>
+    </div>
+  </sc-if>
+  <sc-if value="{{ m.turma }}" hint-placeholder-val="{{ false }}">
+    <div class="av-ov" sc-camel-on-click="{{ m.bg }}">
+      <div class="av-modal" role="dialog" aria-modal="true" aria-labelledby="mt-turma" style="max-width:620px">
+        <div class="av-sh" style="margin:0"><h2 id="mt-turma" style="font-size:22px;margin:0;overflow-wrap:anywhere">{{ m.t.nome }}</h2><button class="av-b2" sc-camel-on-click="{{ m.close }}" sc-camel-auto-focus="{{ yes }}">Fechar</button></div>
+        <p style="font-size:14px;color:#34475F;margin:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap">Código <strong style="font-size:17px;letter-spacing:.12em;color:#16263D">{{ m.t.codigo }}</strong><button class="av-link" sc-camel-on-click="{{ m.t.copy }}" style="font-size:14px">Copiar</button></p>
+        <sc-if value="{{ tm.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ tm.err }}</p></sc-if>
+        <div>
+          <h3 style="font-size:16px;margin:0 0 8px">Pedidos de entrada</h3>
+          <sc-if value="{{ m.t.noPend }}" hint-placeholder-val="{{ true }}"><p style="font-size:14px;color:#53657C;margin:0">Nenhum pedido pendente.</p></sc-if>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px">
+            <sc-for list="{{ m.t.pend }}" as="a" hint-placeholder-count="1"><li style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:15px;padding:8px 10px;border-radius:10px;background:#F5F8FC"><span style="flex:1;min-width:0;overflow-wrap:anywhere">{{ a.name }}</span><button class="av-b1" sc-camel-on-click="{{ a.ok }}" disabled="{{ auth.busy }}" style="min-height:38px;padding:0 14px;font-size:14px">Aprovar</button><button class="av-b2" sc-camel-on-click="{{ a.no }}" disabled="{{ auth.busy }}" style="min-height:38px;padding:0 14px;font-size:14px">Recusar</button></li></sc-for>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size:16px;margin:0 0 8px">Ranking da turma</h3>
+          <sc-if value="{{ m.t.noRank }}" hint-placeholder-val="{{ false }}"><p style="font-size:14px;color:#53657C;margin:0">Nenhum aluno aprovado ainda.</p></sc-if>
+          <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;max-height:320px;overflow:auto">
+            <sc-for list="{{ m.t.rank }}" as="r" hint-placeholder-count="2"><li style="display:flex;gap:10px;align-items:baseline;padding:7px 4px;font-size:14px;border-bottom:1px solid #EEF2F7"><span style="width:28px;flex:none;font:500 13px/1.4 'IBM Plex Mono',monospace;color:#53657C">{{ r.pos }}</span><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ r.name }}</span><span style="color:#53657C;white-space:nowrap">{{ r.lv }}</span><span style="white-space:nowrap">{{ r.pts }}</span><button class="av-link" sc-camel-on-click="{{ r.rm }}" style="font-size:13px;color:#B3372F">Remover</button></li></sc-for>
+          </ol>
+        </div>
+        <div style="border-top:1px solid #DCE5EF;padding-top:14px"><button class="av-link" sc-camel-on-click="{{ m.t.del }}" style="font-size:14px;color:#B3372F">Excluir turma</button></div>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ m.delT }}" hint-placeholder-val="{{ false }}">
+    <div class="av-ov" sc-camel-on-click="{{ m.bg }}">
+      <div class="av-modal" role="alertdialog" aria-modal="true" aria-labelledby="mt-delt">
+        <h2 id="mt-delt" style="font-size:22px;margin:0;color:#B3372F">Excluir a turma {{ m.t.nome }}?</h2>
+        <p style="font-size:15px;line-height:1.55;color:#34475F;margin:0">Os alunos saem da turma e perdem o ranking dela. Não dá para desfazer.</p>
+        <sc-if value="{{ tm.hasErr }}" hint-placeholder-val="{{ false }}"><p role="alert" class="av-err">{{ tm.err }}</p></sc-if>
+        <div class="av-mf"><button class="av-b2" sc-camel-on-click="{{ m.t.open }}" sc-camel-auto-focus="{{ yes }}">Voltar</button><button class="av-bd av-bdf" sc-camel-on-click="{{ m.t.delOk }}" disabled="{{ auth.busy }}">Excluir turma</button></div>
+      </div>
+    </div>
+  </sc-if>
 </sc-if>
 
 <!-- FIM -->
@@ -1886,14 +2125,27 @@ const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,
 const PROG=['sec','visited','step','fc','fcRes','saved','lessonDone','ls','last'];
 const PROG_DEF={sec:0,visited:[0],step:0,fc:0,fcRes:{},saved:[],lessonDone:false,ls:{},last:null};
 const PERSIST=['screen','sysId','sel','rep','quizId','lessonId','vol3'].concat(PROG);
-// Sons gerados no navegador (sem arquivo): acerto sobe, erro desce, novo nível faz um arpejo. Falha de áudio nunca atrapalha.
+// Sons: acerto e erro vêm de arquivos (public/sfx); novo nível é um arpejo gerado no navegador. Falha de áudio nunca atrapalha.
 let AC=null,OUT=null,VOL=15;   // VOL: volume dos sons em % (0 a 100), guardado neste navegador
 // Onda quadrada/dente de serra (muita energia nos harmônicos, audível até em alto-falante de notebook), compressor e
 // saturação suave no fim: o som usa toda a faixa disponível do áudio. Falha de áudio nunca atrapalha o site.
+// Acerto e erro: arquivos em public/sfx (baixados uma vez, decodificados no primeiro uso). Novo nível segue sintetizado.
+const SFX_URL={ok:'sfx/acerto.mp3',erro:'sfx/erro.mp3'},SFX_RAW={},SFX_BUF={};
+for(const k in SFX_URL)SFX_RAW[k]=fetch(SFX_URL[k]).then(r=>r.ok?r.arrayBuffer():Promise.reject()).catch(()=>null);
 const sfx=kind=>{try{
   if(VOL<=0)return;
   const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
   AC=AC||new C();if(AC.state==='suspended')AC.resume();
+  if(SFX_URL[kind]){
+    // os arquivos vêm com volumes muito diferentes (erro.mp3 tem pico 0,09): normaliza o pico de cada um para 0,9
+    SFX_BUF[kind]=SFX_BUF[kind]||SFX_RAW[kind].then(a=>a&&AC.decodeAudioData(a)).then(buf=>{if(!buf)return null;let pk=0;
+      for(let c=0;c<buf.numberOfChannels;c++){const d=buf.getChannelData(c);for(let i=0;i<d.length;i++){const v=Math.abs(d[i]);if(v>pk)pk=v}}
+      buf.norm=pk>0?0.9/pk:1;return buf}).catch(()=>null);
+    SFX_BUF[kind].then(buf=>{if(!buf)return;const s=AC.createBufferSource(),g=AC.createGain();
+      g.gain.value=buf.norm*Math.sqrt(VOL/100);   // curva perceptiva: 15% ainda se ouve, 100% é o arquivo original
+      s.buffer=buf;s.connect(g);g.connect(AC.destination);s.start();});
+    return;
+  }
   if(!OUT){
     const g=AC.createGain(),cp=AC.createDynamicsCompressor(),ws=AC.createWaveShaper(),n=1024,cv=new Float32Array(n);
     for(let i=0;i<n;i++){const x=i*2/n-1;cv[i]=Math.tanh(1.6*x)/Math.tanh(1.6)}
@@ -1917,12 +2169,14 @@ const api=async(method,url,body)=>{
 };
 
 class Component extends DCLogic {
-  state={screen:'home',sysId:'cardiovascular',hover:null,sel:null,q:'',rep:'feminina',sec:0,visited:[0],step:0,playing:false,term:null,hot:1,recall:{},pre:null,fc:0,flip:false,fcRes:{},filt:{topic:'Todos',diff:'Todas'},qi:0,saved:[],finished:false,lessonDone:false,ls:{},last:null,lessonId:'organizacao',rc:{},lk:null,panOff:false,mclick:null,gfc:{i:0,flip:false,res:{}},user:null,stats:null,authReady:false,quizzes:[],quizId:'cardiovascular',pick:{},resOpen:{},rank:null,f:{},after:null,busy:false,authErr:null,authMsg:null,delErr:null,quizErr:null,toast:null,apiDown:false,winW:1440,loading:true,idxOpen:false,vis:{},muscle:40,dim:15,isolate:false,skin:true,scale:0,region:'tórax',center:null,microAvail:false,micro:false,prog:{pct:0,label:'Preparando a cena 3D'},err:null,counts:{},part:null,env:null,vol3:15,gain:null,regProf:false,turma:null,turmas:[],rtab:null,turmaErr:null,cat:null,catErr:null,pvSys:null,pvTopic:null,bi:0,bk:null,zoomSrc:null,zoomAlt:''};
+  state={screen:'home',sysId:'cardiovascular',hover:null,sel:null,q:'',rep:'feminina',sec:0,visited:[0],step:0,playing:false,term:null,hot:1,recall:{},pre:null,fc:0,flip:false,fcRes:{},filt:{topic:'Todos',diff:'Todas'},qi:0,saved:[],finished:false,lessonDone:false,ls:{},last:null,lessonId:'organizacao',rc:{},lk:null,panOff:false,mclick:null,gfc:{i:0,flip:false,res:{}},user:null,stats:null,authReady:false,quizzes:[],quizId:'cardiovascular',pick:{},resOpen:{},rank:null,f:{},after:null,busy:false,authErr:null,authMsg:null,delErr:null,quizErr:null,toast:null,apiDown:false,winW:1440,loading:true,idxOpen:false,vis:{},muscle:40,dim:15,isolate:false,skin:true,scale:0,region:'tórax',center:null,microAvail:false,micro:false,prog:{pct:0,label:'Preparando a cena 3D'},err:null,counts:{},part:null,env:null,vol3:15,gain:null,regProf:false,turma:null,turmas:[],rtab:null,turmaErr:null,cat:null,catErr:null,pvSys:null,pvTopic:null,bi:0,bk:null,pvFind:null,pf:{},bkFacets:null,simInfo:null,sim:null,simI:0,simRep:null,simErr:null,zoomSrc:null,zoomAlt:'',ctab:'geral',modal:null};
   componentDidMount(){
     try{const s=JSON.parse(localStorage.getItem(LS)||'{}');const o={};PERSIST.forEach(k=>{if(k in s)o[k]=s[k]});this.setState(o);}catch(e){}
     this.onResize=()=>this.setState({winW:window.innerWidth});this.onResize();
     window.addEventListener('resize',this.onResize);
     this.lt=setTimeout(()=>this.setState({loading:false}),900);
+    // vindo da página inicial: atlas.html#trilha, #quizzes, #banco, #cadastro ou #sobre abre direto nessa tela
+    {const h=(location.hash||'').slice(1);if(['trilha','quizzes','banco','cadastro','sobre'].includes(h))this.go(h);}
     this.L={
       'av3d:hover':e=>{const d=e.detail;this.setState({hover:d?d.sys:null,hoverPart:d||null})},
       'av3d:select':e=>{const d=e.detail;if(!d)return;const s=this.state;const o={sel:d.sys,part:d,hover:null};
@@ -1934,7 +2188,7 @@ class Component extends DCLogic {
       'av3d:ready':e=>{this.setState({counts:e.detail.counts});this._sent=null;this._vk=null;this.push3d()},
       'av3d:boot':()=>{this._sent=null;this._vk=null;this.push3d()},
       'av3d:error':e=>this.setState({err:e.detail.message||'erro'}),
-      'keydown':e=>{if(e.key==='Escape'&&this.state.zoomSrc)this.setState({zoomSrc:null})}
+      'keydown':e=>{if(e.key!=='Escape')return;if(this.state.zoomSrc)this.setState({zoomSrc:null});else if(this.state.modal)this.closeModal()}
     };
     Object.entries(this.L).forEach(([k,f])=>window.addEventListener(k,f));
     this.boot();
@@ -1958,7 +2212,7 @@ class Component extends DCLogic {
   }
   signedOut(msg){
     this.me=null;this._pj=null;clearTimeout(this.pt);
-    this.setState(Object.assign({user:null,stats:null,rank:null,turma:null,turmas:[],rtab:null,pick:{},resOpen:{},busy:false},PROG_DEF));
+    clearInterval(this.simIv);this.setState(Object.assign({user:null,stats:null,rank:null,simInfo:null,sim:null,simRep:null,turma:null,turmas:[],rtab:null,modal:null,ctab:'geral',pick:{},resOpen:{},busy:false},PROG_DEF));
     this.go('home');this.refresh();this.toast(msg);
   }
   async refresh(){
@@ -1985,7 +2239,8 @@ class Component extends DCLogic {
     try{
       const d=await api('PUT','/api/me',{name:f.name,email:f.email,inst:f.inst,password:f.npass||undefined,currentPassword:f.cur||undefined,professor:f.prof===true});
       this.me=d.user;
-      this.setState({busy:false,user:d.user,stats:d.stats,turma:d.turma||null,authMsg:'Dados atualizados.',f:{name:d.user.name,email:d.user.email,inst:d.user.inst,prof:!!d.user.professor}});
+      this.setState({busy:false,user:d.user,stats:d.stats,turma:d.turma||null,f:{name:d.user.name,email:d.user.email,inst:d.user.inst,prof:!!d.user.professor}});
+      this.closeModal();this.toast(f.npass?'Senha alterada.':'Perfil atualizado.');
       this.loadTurmas();
       this.refresh();
     }catch(err){this.setState({busy:false,authErr:err.message})}
@@ -2004,10 +2259,24 @@ class Component extends DCLogic {
     try{await api(method,url,body);this.setState({busy:false});if(done)done();await this.reloadMe()}
     catch(err){this.setState({busy:false,turmaErr:err.message})}
   }
+  // modais da conta: guardam o botão que abriu para devolver o foco ao fechar
+  openModal(k){
+    if(!this.state.modal)this._ret=document.activeElement;
+    const u=this.me;
+    this.setState(x=>({modal:k,authErr:null,delErr:null,turmaErr:null,f:u?{name:u.name,email:u.email,inst:u.inst,prof:!!u.professor,tnome:x.f.tnome,tcod:x.f.tcod}:x.f}));
+  }
+  closeModal(){
+    const el=this._ret;this._ret=null;this.setState({modal:null,authErr:null,delErr:null,turmaErr:null});
+    if(el&&el.focus)setTimeout(()=>{if(document.contains(el))el.focus()},0);
+  }
+  tabKey(e,ks){
+    const i=ks.indexOf(this.state.ctab);const j=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:e.key==='Home'?0:e.key==='End'?ks.length-1:null;
+    if(j===null)return;e.preventDefault();const k=ks[(j+ks.length)%ks.length];
+    this.setState({ctab:k});setTimeout(()=>{const b=document.getElementById('ctab-'+k);if(b)b.focus()},0);
+  }
   async logout(){try{await api('POST','/api/logout',{})}catch(e){}this.signedOut('Você saiu da conta.')}
   async deleteAccount(e){
     e.preventDefault();
-    if(!window.confirm('Excluir a conta apaga seus dados, respostas, pontos e medalhas. Não dá para desfazer. Continuar?'))return;
     this.setState({busy:true,delErr:null});
     try{await api('DELETE','/api/me',{password:this.state.f.del||''});this.signedOut('Conta excluída.')}
     catch(err){this.setState({busy:false,delErr:err.message})}
@@ -2045,16 +2314,55 @@ class Component extends DCLogic {
   bkQuery(f){const p=new URLSearchParams();Object.entries(f).forEach(([k,v])=>{if(v!==undefined&&v!==null&&v!=='')p.set(k,v)});return p.toString()}
   openProvas(){
     api('GET','/api/bank/catalog').then(c=>this.setState({cat:c,catErr:null})).catch(e=>this.setState({catErr:e.message}));
-    if(this.state.pvSys&&this.state.pvTopic)this.loadBank((this.state.bk&&this.state.bk.page)||1);
+    // opções dos filtros (vestibulares, anos, sistemas): as facetas do banco inteiro
+    api('GET','/api/bank?limit=1').then(d=>this.setState({bkFacets:d.facets})).catch(()=>{});
+    this.loadSims();
+    if(this.state.pvFind||(this.state.pvSys&&this.state.pvTopic))this.loadBank((this.state.bk&&this.state.bk.page)||1);
   }
-  openTopic(sys,topic){this.setState({pvSys:sys,pvTopic:topic,bi:0,bk:null,quizErr:null});this.loadBank(1);try{window.scrollTo(0,0)}catch(e){}}
+  openTopic(sys,topic){this.setState({screen:'banco',pvSys:sys,pvTopic:topic,pvFind:null,simRep:null,bi:0,bk:null,quizErr:null});this.loadBank(1);try{window.scrollTo(0,0)}catch(e){}}
+  // busca e filtros: só os campos preenchidos entram na consulta
+  search(e,pf){if(e)e.preventDefault();if(pf)this.setState({pf});const f={};Object.entries(pf||this.state.pf).forEach(([k,v])=>{if(v)f[k]=k==='q'?String(v).trim().slice(0,80):v});
+    this.setState({pvFind:f,pvSys:null,pvTopic:null,bi:0,bk:null,quizErr:null});this.loadBank(1)}
   async loadBank(page){
-    const sys=this.state.pvSys,topic=this.state.pvTopic;if(!sys||!topic)return;
+    const st=this.state,find=st.pvFind,sys=st.pvSys,topic=st.pvTopic;if(!find&&(!sys||!topic))return;
+    const key=JSON.stringify([find,sys,topic]);
     this.setState(x=>({bk:Object.assign({},x.bk||{},{loading:true,err:null})}));
-    try{const d=await api('GET','/api/bank?'+this.bkQuery({system:sys,topic,limit:20,page:page||1}));
-      if(this.state.pvSys!==sys||this.state.pvTopic!==topic)return;   // a pessoa já foi para outro tema
+    try{const d=await api('GET','/api/bank?'+this.bkQuery(Object.assign(find?{system:find.system,inst:find.inst,year:find.year,status:find.status,q:find.q}:{system:sys,topic},{limit:20,page:page||1})));
+      if(JSON.stringify([this.state.pvFind,this.state.pvSys,this.state.pvTopic])!==key)return;   // a pessoa já foi para outro tema ou outra busca
       this.setState(x=>({bk:{loading:false,err:null,page:d.page,data:d},bi:Math.min(x.bi,Math.max(0,d.questions.length-1))}))}
     catch(e){this.setState(x=>({bk:Object.assign({},x.bk||{},{loading:false,err:e.message})}))}
+  }
+  // ── mini simulado: o tempo corre no servidor; aqui só a contagem regressiva e as marcações ──
+  async loadSims(){
+    if(!this.me){this.setState({simInfo:null});return}
+    try{const d=await api('GET','/api/simulados');
+      this.setState(x=>({simInfo:d,simErr:null,sim:d.active?this.simLocal(d.active,x.sim):null}));if(d.active)this.simTick();else clearInterval(this.simIv)}
+    catch(e){this.setState({simErr:e.message})}
+  }
+  // end: instante local em que o tempo acaba. Marcações ainda não salvas (mesmo simulado) têm prioridade.
+  simLocal(a,cur){return Object.assign({},a,{end:Date.now()+a.left*1000,sels:cur&&cur.n===a.n?cur.sels:a.sels})}
+  simTick(){clearInterval(this.simIv);this.simIv=setInterval(()=>{const m=this.state.sim;if(!m){clearInterval(this.simIv);return}
+    if(Date.now()>=m.end){clearInterval(this.simIv);this.simSubmit(true);return}this.setState({now:Date.now()})},1000)}
+  async simStart(){
+    if(!this.me){this.go('login',{after:{screen:'banco',extra:{}}});return}
+    this.setState({busy:true,simErr:null});
+    try{const d=await api('POST','/api/simulados',{});this.setState({busy:false,sim:this.simLocal(d.active),simI:0,simRep:null,pick:{}});this.simTick();this.loadSims();try{window.scrollTo(0,0)}catch(e){}}
+    catch(e){this.setState({busy:false,simErr:e.message})}
+  }
+  simPick(i,j){
+    this.setState(x=>{const sels=x.sim.sels.slice();sels[i]=j;return{sim:Object.assign({},x.sim,{sels})}});
+    clearTimeout(this.st);this.st=setTimeout(()=>{const m=this.state.sim;if(m)api('PUT','/api/simulados/atual',{sels:m.sels}).catch(()=>{})},400);
+  }
+  async simSubmit(auto){
+    const m=this.state.sim;if(!m||this._simSend)return;
+    const blank=m.sels.filter(v=>v===null).length;
+    if(!auto&&blank&&!window.confirm(blank+(blank===1?' questão está':' questões estão')+' em branco. Entregar o simulado assim mesmo?'))return;
+    this._simSend=true;clearInterval(this.simIv);clearTimeout(this.st);this.setState({busy:true,simErr:null});
+    try{const d=await api('POST','/api/simulados/atual/entregar',{sels:m.sels});
+      this.setState({busy:false,sim:null,simRep:d.result});if(auto)this.toast('O tempo acabou. O simulado foi entregue com o que estava marcado.');
+      this.loadSims();try{window.scrollTo(0,0)}catch(e){}}
+    catch(e){this.setState({busy:false,simErr:e.message});if(auto)this.loadSims()}
+    finally{this._simSend=false}
   }
   // ── quiz ──
   openQuiz(id){this.go('exercicios',{quizId:id,qi:0,finished:false,quizErr:null,filt:{topic:'Todos',diff:'Todas'}})}
@@ -2114,7 +2422,7 @@ class Component extends DCLogic {
     // nova vista: câmera de frente, enquadrando os sistemas ou as estruturas pedidas
     cmd3({type:'clear'});cmd3({type:'reset'});cmd3({type:'view',v:'front'});const sp=v.spec;
     if(sp.ids)cmd3({type:'part',ids:sp.ids});else if(sp.parts)cmd3({type:'part',sys:sp.parts[0],q:sp.parts[1]});else if(sp.sys&&sp.sys.length)cmd3({type:'frame',sys:sp.sys})}
-  componentWillUnmount(){window.removeEventListener('resize',this.onResize);clearTimeout(this.lt);clearTimeout(this.tt);clearTimeout(this.pt);clearInterval(this.iv);if(this.L)Object.entries(this.L).forEach(([k,f])=>window.removeEventListener(k,f));}
+  componentWillUnmount(){window.removeEventListener('resize',this.onResize);clearTimeout(this.lt);clearTimeout(this.tt);clearTimeout(this.pt);clearInterval(this.iv);clearInterval(this.simIv);clearTimeout(this.st);if(this.L)Object.entries(this.L).forEach(([k,f])=>window.removeEventListener(k,f));}
   componentDidUpdate(){
     this.push3d();const s=this.state;VOL=Number.isFinite(s.vol3)?Math.max(0,Math.min(100,s.vol3)):15;
     try{const o={};PERSIST.forEach(k=>o[k]=s[k]);localStorage.setItem(LS,JSON.stringify(o));}catch(e){}
@@ -2128,7 +2436,7 @@ class Component extends DCLogic {
     // quiz e conta exigem login; depois de entrar, a pessoa volta para onde queria ir
     if((screen==='exercicios'||screen==='conta')&&!this.me){extra={after:{screen,extra}};screen='login'}
     const u=this.me,auth=screen==='login'||screen==='cadastro';
-    const base={screen,playing:false,hover:null,term:null,idxOpen:false,busy:false,authErr:null,authMsg:null,delErr:null,f:screen==='conta'&&u?{name:u.name,email:u.email,inst:u.inst,prof:!!u.professor}:{}};
+    const base={screen,playing:false,hover:null,term:null,idxOpen:false,busy:false,authErr:null,authMsg:null,delErr:null,modal:null,f:screen==='conta'&&u?{name:u.name,email:u.email,inst:u.inst,prof:!!u.professor}:{}};
     if(!auth)base.after=null;
     this.setState(Object.assign(base,extra||{}));
     if(screen==='quizzes')this.refresh();
@@ -2166,7 +2474,7 @@ class Component extends DCLogic {
     const nav={};['home','trilha','sistema','aula','sintese','exercicios','fim','sobre','quizzes','login','cadastro','conta','licao','banco'].forEach(k=>nav[k]=()=>this.go(k));
     nav.aula=()=>this.go('aula',{sysId:'cardiovascular',last:'cardiovascular'});
     nav.exercicios=()=>this.openQuiz('cardiovascular');
-    nav.banco=()=>this.go('banco',{pvSys:null,pvTopic:null,bi:0,bk:null});
+    nav.banco=()=>this.go('banco',{pvSys:null,pvTopic:null,pvFind:null,simRep:null,bi:0,bk:null});
     const is={};Object.keys(nav).forEach(k=>is[k]=s.screen===k);
     const lDone=id=>id==='cardiovascular'?s.lessonDone:!!(s.ls[id]&&s.ls[id].d);
     const lOpen=id=>id==='cardiovascular'?lessonStarted:!!s.ls[id];
@@ -2231,9 +2539,11 @@ class Component extends DCLogic {
     const f=s.filt;const {authored:fq,items:qItems}=this.quizItems();
     const onQuiz=s.screen==='exercicios';
     const bkd=s.bk&&s.bk.data;
-    const l3=s.screen==='banco'&&!!s.pvSys&&!!s.pvTopic,l2=s.screen==='banco'&&!!s.pvSys&&!s.pvTopic,l1=s.screen==='banco'&&!s.pvSys;
-    const items=onQuiz?qItems:(l3&&bkd?bkd.questions:[]);
-    const qi=Math.min(onQuiz?s.qi:s.bi,Math.max(0,items.length-1));const q=items[qi];
+    // em Questões: simulado em andamento > relatório do simulado > busca > sistema → tema
+    const smOn=s.screen==='banco'&&!!s.sim,smRep=s.screen==='banco'&&!s.sim&&!!s.simRep,pvOn=s.screen==='banco'&&!smOn&&!smRep;
+    const l3=pvOn&&(!!s.pvFind||(!!s.pvSys&&!!s.pvTopic)),l2=pvOn&&!s.pvFind&&!!s.pvSys&&!s.pvTopic,l1=pvOn&&!s.pvFind&&!s.pvSys;
+    const items=onQuiz?qItems:smOn?s.sim.questions:(l3&&bkd?bkd.questions:[]);
+    const qi=Math.min(onQuiz?s.qi:smOn?s.simI:s.bi,Math.max(0,items.length-1));const q=items[qi];
     const chip=(key,val,cur)=>({t:val,on:cur===val?'true':'false',bg:cur===val?'#16263D':'#FFFFFF',col:cur===val?'#FFFFFF':'#16263D',bd:cur===val?'#16263D':'#C9D6E5',go:()=>this.setState({filt:Object.assign({},f,{[key]:val}),qi:0})});
     const chipsTopic=['Todos'].concat([...new Set(QS.map(x=>x.topic))]).map(v=>chip('topic',v,f.topic));
     const chipsDiff=['Todas','Básica','Intermediária'].map(v=>chip('diff',v,f.diff));
@@ -2256,20 +2566,22 @@ class Component extends DCLogic {
       sysName:SYSN[s.pvSys]||'',sysFn:SYSFN[s.pvSys]||'',
       topics:cs?cs.topics.map(t=>({name:t.name,count:plural(t.count),has:t.count>0,none:t.count===0,go:()=>this.openTopic(cs.id,t.name)})):[],
       hasLesson:SYS.some(x=>x.id===s.pvSys),toLesson:()=>this.openLesson(s.pvSys),
-      toSys:()=>{this.setState({pvTopic:null,bk:null,bi:0});try{window.scrollTo(0,0)}catch(e){}},topic:s.pvTopic||'',
-      summary:!bkd?'':bkd.total===0?'Ainda não há questões liberadas neste tema.':plural(bkd.total)+(bkd.pages>1?', página '+bkd.page+' de '+bkd.pages:''),
+      toSys:()=>{this.setState({pvTopic:null,bk:null,bi:0});try{window.scrollTo(0,0)}catch(e){}},topic:s.pvFind?'Resultados da busca':s.pvTopic||'',
+      isFind:!!s.pvFind,notFind:!s.pvFind,editFind:()=>{this.setState({pvFind:null,bk:null,bi:0});try{window.scrollTo(0,0)}catch(e){}},
+      summary:!bkd?'':bkd.total===0?(s.pvFind?'Nenhuma questão encontrada.':'Ainda não há questões liberadas neste tema.'):plural(bkd.total)+(s.pvFind?' encontrad'+(bkd.total===1?'a':'as'):'')+(bkd.pages>1?', página '+bkd.page+' de '+bkd.pages:''),
       paged:l3&&!!bkd&&bkd.pages>1,page:bkd?bkd.page:1,pages:bkd?bkd.pages:1,noPrev:!bkd||bkd.page<=1,noNext:!bkd||bkd.page>=bkd.pages,
       prev:()=>{this.setState({bi:0});this.loadBank(bkd.page-1)},next:()=>{this.setState({bi:0});this.loadBank(bkd.page+1)}};
     // ── a folha de questão ──
     const done=!!(q&&q.key);const model=!!q&&q.kind==='model';const open=!!q&&q.kind==='open';const mc=!!q&&!model&&!open;const bank=!!q&&!!q.bank;
     const mk=s.quizId+':'+s.qi+':'+f.topic+':'+f.diff;
-    const pickd=!q?undefined:done?(model?q.pick:q.sel):model?(s.mclick&&s.mclick.k===mk?s.mclick.d:undefined):s.pick[q.id];
+    const simSel=smOn&&q?s.sim.sels[qi]:null;
+    const pickd=!q?undefined:smOn?(simSel===null?undefined:simSel):done?(model?q.pick:q.sel):model?(s.mclick&&s.mclick.k===mk?s.mclick.d:undefined):s.pick[q.id];
     const selfN=!q?undefined:done?q.sel:(s.bkSelf||{})[q.id];
     const alts=mc?q.opts.map((o,j)=>{const ot=typeof o==='string'?{text:o}:o;const chosen=pickd===j,corr=done&&j===q.key.ans;
       return{letter:L5[j],isText:!ot.fig,segs:ot.fig?[]:rich(ot.text),isFig:!!ot.fig,src:ot.fig||'',alt:ot.alt||'',
         cls:corr?'ok lock':done&&chosen?'bad lock':done?'lock':chosen?'on':'',chk:chosen,locked:done||s.busy,
         tag:corr?(chosen?'Gabarito, sua resposta':'Gabarito'):done&&chosen?'Sua resposta':'',tagCol:corr?'#1F7A4D':'#B3372F',
-        pick:()=>{if(!done)this.setState(x=>({pick:Object.assign({},x.pick,{[q.id]:j}),quizErr:null}))}}}):[];
+        pick:()=>{if(smOn){this.simPick(qi,j);return}if(!done)this.setState(x=>({pick:Object.assign({},x.pick,{[q.id]:j}),quizErr:null}))}}}):[];
     const right=done&&!!q.correct;const gl=done&&mc?L5[q.key.ans]:'';const gab='Gabarito'+(bank?' oficial':'');
     const fb=!done?{show:false}
       :open?{show:true,col:'#245FE5',icon:'check',title:'Resposta registrada.',msg:'Compare com a resposta esperada. Questões discursivas não pontuam.'}
@@ -2294,7 +2606,7 @@ class Component extends DCLogic {
     const blocks=stemBlocks.map(b=>{const rows=b.rows||[];const cols=Math.max(1,...rows.map(r=>r.length));
       return{isP:b.t==='p',isSrc:b.t==='source',isFig:b.t==='fig',isTable:b.t==='table',segs:(b.t==='p'||b.t==='source')?rich(b.text):[],src:b.src||'',alt:b.alt||'',
         zoom:()=>this.setState({zoomSrc:b.src,zoomAlt:b.alt||''}),cols,tMin:(cols*120)+'px',rows:rows.map(r=>({role:'cell',cls:'',cells:r.map(c=>({t:c}))}))}});
-    const Q={screen:onQuiz||l3,show:items.length>0&&!(onQuiz&&s.finished),hasNav:items.length>0,count:items.length,
+    const Q={screen:onQuiz||l3||smOn,show:items.length>0&&!(onQuiz&&s.finished),hasNav:items.length>0,count:items.length,
       empty:onQuiz?fq.length===0:l3&&!!bkd&&bkd.total===0,
       aria:'Questão '+(qi+1)+' de '+items.length,spine:q?(bank?SPINE[q.system]:SPINE[s.quizId])||'#245FE5':'#245FE5',
       label:bank&&q?q.label:'',hasLabel:!!(bank&&q&&q.label),hasHead:!!(bank&&q&&q.label),blocks,
@@ -2302,7 +2614,7 @@ class Component extends DCLogic {
       ta:q?(s.bkText||{})[q.id]||'':'',onTa:e=>{const v=e.target.value;this.setState(x=>({bkText:Object.assign({},x.bkText,{[q.id]:v})}))},
       selfShow:open&&(done||!!(s.bkText||{})[q.id]),
       selfs:['Errei','Acertei em parte','Acertei'].map((t,j)=>{const on=selfN===j;return{t,on:on?'true':'false',bg:on?'#16263D':'#FFFFFF',col:on?'#FFFFFF':'#16263D',bd:on?'#16263D':'#C9D6E5',go:()=>{if(!done)this.setState(x=>({bkSelf:Object.assign({},x.bkSelf,{[q.id]:j})}))}}}),
-      hasErr:!!s.quizErr,err:s.quizErr||'',canConfirm:!!q&&!done,
+      hasErr:!!s.quizErr,err:s.quizErr||'',canConfirm:!!q&&!done&&!smOn,
       noSel:!!q&&hasUser&&(!readyToSend||s.busy),
       confLabel:s.busy?'Enviando…':!hasUser?'Entrar para responder':open?'Registrar autoavaliação':'Confirmar resposta',
       confHint:!hasUser?'Para registrar sua resposta e ganhar pontos.':model?'Clique na estrutura no modelo e confirme.':open?(readyToSend?'':'Escolha uma autoavaliação.'):pickd===undefined?'Escolha uma alternativa.':'',
@@ -2314,11 +2626,54 @@ class Component extends DCLogic {
       toggleRes:()=>this.setState(x=>({resOpen:Object.assign({},x.resOpen,{[q.id]:!resOpenQ})})),
       hasText:!!explText,text:explText,hasExpected:!!explExpected,expected:explExpected,
       hasOfficial:onQuiz?(qItems.length>fq.length):false};
-    const qNav=items.map((x,i)=>{const cur=i===qi;const ok=!!x.key&&!!x.correct,bad=!!x.key&&!x.correct&&x.kind!=='open';const sv=s.saved.includes(x.id);
-      const n=onQuiz?(x.bank?QS.length+(i-fq.length)+1:QS.indexOf(x)+1):(bkd?(bkd.page-1)*bkd.limit:0)+i+1;
+    // ── busca e filtros de Questões ──
+    const fct=s.bkFacets||{},pf=s.pf||{};
+    const onPf=k=>e=>{const v=e.target.value;this.setState(x=>({pf:Object.assign({},x.pf,{[k]:v})}))};
+    const byName=(a,b)=>a.t.localeCompare(b.t,'pt');
+    const PF={q:pf.q||'',system:pf.system||'',inst:pf.inst||'',year:pf.year||'',status:pf.status||'',user:hasUser,
+      onQ:onPf('q'),onSystem:onPf('system'),onInst:onPf('inst'),onYear:onPf('year'),onStatus:onPf('status'),
+      systems:(fct.system||[]).map(x=>({v:x.value,t:SYSN[x.value]||x.value})).sort(byName),
+      insts:(fct.inst||[]).map(x=>({v:x.value,t:x.name||x.value})).sort(byName),
+      years:(fct.year||[]).map(x=>({v:String(x.value),t:String(x.value)})),
+      statuses:[['pending','Ainda não respondidas'],['answered','Já respondidas'],['wrong','Que errei']].map(([v,t])=>({v,t})),
+      submit:e=>this.search(e),hasAny:Object.values(pf).some(Boolean),clear:()=>this.setState({pf:{}})};
+    // ── mini simulado ──
+    const si=s.simInfo,sm=s.sim,sr=s.simRep,R=sr&&sr.report;
+    const mmss=t=>{t=Math.max(0,Math.ceil(t));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+    const durTxt=t=>{const mi=Math.floor(t/60),x=t%60;return mi&&x?mi+' min '+x+' s':mi?mi+' min':x+' s'};
+    const left=sm?Math.max(0,(sm.end-Date.now())/1000):0;
+    const sMax=si?si.max:2,sUsed=si?si.used:0,canSim=!!si&&si.available&&!si.active&&sUsed<sMax;
+    const perfect=!!R&&R.score===R.total;
+    const SM={max:sMax,anon:!hasUser&&s.authReady,info:!!si,
+      desc:si?si.questions+' questões sorteadas, misturando os sistemas do corpo, com '+Math.round(si.seconds/60)+' minutos para responder. No fim, um relatório diz o que revisar. O simulado não vale pontos e não marca as questões como respondidas: cada uma continua valendo pontos aqui em Questões.':'',
+      usedTxt:si?'Você fez '+sUsed+' de '+sMax+' simulados.':'',canStart:canSim,none:!!si&&sUsed>=sMax,noBank:!!si&&!si.available,
+      start:()=>this.simStart(),startLabel:s.busy?'Preparando…':sUsed?'Começar o simulado '+(sUsed+1):'Começar o simulado',
+      login:()=>this.go('login',{after:{screen:'banco',extra:{}}}),
+      hasErr:!!s.simErr,err:s.simErr||'',
+      hasHistory:!!si&&si.history.length>0,
+      history:si?si.history.map(h=>({t:'Simulado '+h.n+': '+h.score+' de '+h.total+' acertos',meta:durTxt(h.duration)+', em '+new Date(h.finishedAt).toLocaleDateString('pt-BR'),
+        go:()=>{this.setState({simRep:h});try{window.scrollTo(0,0)}catch(e){}}})):[],
+      on:smOn,n:sm?sm.n:0,timer:mmss(left),timerCol:left<=120?'#B3372F':'#16263D',busy:s.busy,
+      marked:sm?sm.sels.filter(v=>v!==null).length+' de '+sm.sels.length+' questões marcadas':'',
+      submit:()=>this.simSubmit(false),submitLabel:s.busy&&smOn?'Entregando…':'Entregar simulado',
+      rep:smRep,
+      r:!R?{recs:[],next:[],items:[]}:{n:sr.n,perfect,hasRecs:R.recs.length>0,
+        title:perfect?'Parabéns! Você acertou as '+R.total+' questões.':'Você acertou '+R.score+' de '+R.total+' questões.',
+        sub:'Simulado '+sr.n+' de '+sMax+', entregue em '+durTxt(sr.duration)+'. O resultado fica guardado na sua conta e não muda seus pontos.',
+        recs:R.recs.map(r=>({t:(SYSN[r.system]||r.system)+(r.topic?': '+r.topic:''),n:r.n+(r.n===1?' questão errada ou em branco':' questões erradas ou em branco'),
+          hasLesson:SYS.some(x=>x.id===r.system),lesson:()=>this.openLesson(r.system),hasTopic:!!r.topic,practice:()=>this.openTopic(r.system,r.topic)})),
+        hasNext:R.next.length>0,next:R.next.map(id=>({t:SYSN[id]||id,go:()=>{this.setState({simRep:null,pvSys:id,pvTopic:null,pvFind:null,bk:null,bi:0});try{window.scrollTo(0,0)}catch(e){}}})),
+        nextSim:canSim,
+        items:R.items.map((x,i)=>({t:(i+1)+'. '+x.label+', '+(SYSN[x.system]||x.system)+(x.topic?': '+x.topic:''),res:x.correct?'Acerto':x.answered?'Erro':'Em branco',
+          ic:x.correct?'check':x.answered?'x':'minus',col:x.correct?'#1F7A4D':x.answered?'#B3372F':'#53657C'}))},
+      pendingGo:()=>{this.setState({simRep:null});this.search(null,{status:'pending'})},
+      back:()=>{this.setState({simRep:null});try{window.scrollTo(0,0)}catch(e){}}};
+    const qNav=items.map((x,i)=>{const cur=i===qi;const ok=!smOn&&!!x.key&&!!x.correct,bad=!smOn&&!!x.key&&!x.correct&&x.kind!=='open';const sv=s.saved.includes(x.id);
+      const marked=smOn&&s.sim.sels[i]!==null;   // no simulado não há acerto nem erro até entregar: só "marcada"
+      const n=onQuiz?(x.bank?QS.length+(i-fq.length)+1:QS.indexOf(x)+1):smOn?i+1:(bkd?(bkd.page-1)*bkd.limit:0)+i+1;
       return{ic:ok?'check':bad?'x':'',num:ok||bad?'':String(n),sv:sv?'bookmark-check':'',gap:onQuiz&&x.bank&&i===fq.length?'14px':'0',
-        aria:'Questão '+n+(onQuiz&&x.bank?', de vestibular':'')+(ok?', acerto':bad?', erro':'')+(sv?', salva':''),cur:cur?'true':'false',bd:cur?'2px solid #245FE5':'1px solid #DCE5EF',bg:ok?'#E8F4EC':bad?'#FBECEA':'#FFFFFF',col:ok?'#1F7A4D':bad?'#B3372F':'#16263D',
-        go:()=>this.setState(onQuiz?{qi:i,finished:false,quizErr:null}:{bi:i,quizErr:null})}});
+        aria:'Questão '+n+(onQuiz&&x.bank?', de vestibular':'')+(ok?', acerto':bad?', erro':'')+(marked?', marcada':'')+(sv?', salva':''),cur:cur?'true':'false',bd:cur?'2px solid #245FE5':'1px solid #DCE5EF',bg:ok?'#E8F4EC':bad?'#FBECEA':marked?'#EEF3FE':'#FFFFFF',col:ok?'#1F7A4D':bad?'#B3372F':marked?'#245FE5':'#16263D',
+        go:()=>this.setState(onQuiz?{qi:i,finished:false,quizErr:null}:smOn?{simI:i}:{bi:i,quizErr:null})}});
     const answered=QS.filter(x=>x.key);const nCorrect=answered.filter(x=>x.correct).length;
     const offs=(qz&&qz.official)||[];const offDone=offs.filter(x=>x.key);
     const summaryQs=QS.map((x,i)=>({t:(i+1)+'. '+x.stem,res:x.key?(x.correct?'Acerto':'Erro'):'Em branco',ic:x.key?(x.correct?'check':'x'):'minus',col:x.key?(x.correct?'#1F7A4D':'#B3372F'):'#53657C'}));
@@ -2370,7 +2725,11 @@ class Component extends DCLogic {
     const acct=u&&gs?{in:true,out:false,first:u.name.split(' ')[0],points:gs.points,level:gs.level,title:gs.title,aria:'Você tem '+gs.points+' pontos, nível '+gs.level+'. Abrir quizzes',
       barN,barW:barN+'%',nextTxt:gs.next?'Faltam '+(gs.next-gs.points)+' pts para o nível '+(gs.level+1):'Nível máximo alcançado',
       sum:gs.correct+(gs.correct===1?' acerto':' acertos')+' em '+gs.answered+(gs.answered===1?' resposta, ':' respostas, ')+gs.quizzesDone+' de '+gs.quizzesTotal+' quizzes completos, '+gs.lessonsDone+' de '+gs.lessonsTotal+' aulas concluídas',
-      since:u.email+(u.inst?', '+u.inst:'')+', conta criada em '+u.createdAt.slice(0,10).split('-').reverse().join('/')}:{in:false,out:s.authReady};
+      since:'Conta criada em '+u.createdAt.slice(0,10).split('-').reverse().join('/'),
+      name:u.name,email:u.email,inst:u.inst||'Não informada',meta:u.email+(u.inst?', '+u.inst:''),role:u.professor?'Professor(a)':'Aluno(a)',
+      initials:(w=>(w[0][0]+(w.length>1?w[w.length-1][0]:'')).toUpperCase())(u.name.trim().split(/\s+/)),
+      hits:gs.correct,hitsSub:'em '+gs.answered+(gs.answered===1?' resposta':' respostas'),lessons:gs.lessonsDone+' de '+gs.lessonsTotal,
+      quizSub:gs.quizzesDone+' de '+gs.quizzesTotal+' quizzes completos',badgeTxt:gs.badges.filter(b=>b.earned).length+' de '+gs.badges.length+' conquistadas'}:{in:false,out:s.authReady};
     const badges=gs?gs.badges.map(b=>({name:b.name,desc:b.desc,icon:b.earned?'award':'lock',bg:b.earned?'#FFF4D6':'#F5F8FC',col:b.earned?'#7A5A00':'#6B7F96',state:b.earned?'Conquistada':'A conquistar'})):[];
     // ranking: geral para todos; quem tem turma aprovada também vê o da turma, cada um com a própria posição
     const rk=s.rank;const hasTurmaRank=!!(rk&&rk.turma);const rtab=hasTurmaRank&&s.rtab!=='geral'?'turma':'geral';
@@ -2382,13 +2741,27 @@ class Component extends DCLogic {
       hasErr:!!s.turmaErr,err:s.turmaErr||'',
       join:e=>{e.preventDefault();this.turmaCall('POST','/api/turma/entrar',{codigo:s.f.tcod||''},()=>this.setState(x=>({f:Object.assign({},x.f,{tcod:''})})))},
       leave:()=>this.turmaCall('POST','/api/turma/sair',{}),
-      create:e=>{e.preventDefault();this.turmaCall('POST','/api/turmas',{nome:s.f.tnome||''},()=>this.setState(x=>({f:Object.assign({},x.f,{tnome:''})})))},
+      create:e=>{e.preventDefault();this.turmaCall('POST','/api/turmas',{nome:s.f.tnome||''},()=>{this.setState(x=>({f:Object.assign({},x.f,{tnome:''})}));this.closeModal();this.toast('Turma criada. Passe o código aos alunos.')})},
+      errOut:!!s.turmaErr&&!s.modal,
       noList:s.turmas.length===0,
-      list:s.turmas.map(t=>({nome:t.nome,codigo:t.codigo,
+      list:s.turmas.map(t=>({id:t.id,nome:t.nome,codigo:t.codigo,open:()=>this.openModal('turma:'+t.id),
+        alunos:t.ranking.length+(t.ranking.length===1?' aluno':' alunos'),pedidos:t.pendentes.length+(t.pendentes.length===1?' pedido':' pedidos'),noPend:t.pendentes.length===0,
         copy:()=>{try{navigator.clipboard.writeText(t.codigo).then(()=>this.toast('Código '+t.codigo+' copiado'))}catch(e){this.toast('Código: '+t.codigo)}},
         hasPend:t.pendentes.length>0,pend:t.pendentes.map(a=>({name:a.name,ok:()=>this.turmaCall('POST','/api/turmas/membro',{turmaId:t.id,userId:a.userId,acao:'aprovar'}),no:()=>this.turmaCall('POST','/api/turmas/membro',{turmaId:t.id,userId:a.userId,acao:'recusar'})})),
         noRank:t.ranking.length===0,rank:t.ranking.map(r=>({pos:r.pos+'º',name:r.name,lv:'Nv '+r.level,pts:r.points+' pts',rm:()=>this.turmaCall('POST','/api/turmas/membro',{turmaId:t.id,userId:r.userId,acao:'remover'})})),
-        del:()=>{if(window.confirm('Excluir a turma "'+t.nome+'"? Os alunos saem da turma e perdem o ranking dela. Não dá para desfazer.'))this.turmaCall('POST','/api/turmas/excluir',{turmaId:t.id})}}))};
+        del:()=>this.openModal('delT:'+t.id),
+        delOk:()=>this.turmaCall('POST','/api/turmas/excluir',{turmaId:t.id},()=>{this.closeModal();this.toast('Turma excluída.')})}))};
+    // abas e modais da conta
+    const ctKeys=['geral','turma','config'],ctab=ctKeys.includes(s.ctab)?s.ctab:'geral';
+    const ct={cur:ctab,geral:ctab==='geral',turma:ctab==='turma',config:ctab==='config',key:e=>this.tabKey(e,ctKeys),
+      tabs:[['geral','Visão geral'],['turma',isProf?'Turmas':'Turma'],['config','Configurações']].map(([k,t])=>({k,t,sel:ctab===k?'true':'false',ti:ctab===k?0:-1,col:ctab===k?'#16263D':'#53657C',bd:ctab===k?'#245FE5':'transparent',go:()=>this.setState({ctab:k})}))};
+    const md=s.modal||'',mid=md.includes(':')?+md.split(':')[1]:null;
+    const mt=tm.list.find(t=>t.id===mid)||{nome:'',codigo:'',pend:[],rank:[],noPend:true,noRank:true,copy:()=>{},del:()=>{},delOk:()=>{},open:()=>{}};
+    const m={perfil:md==='perfil',senha:md==='senha',excluir:md==='excluir',nova:md==='nova',turma:md.startsWith('turma:')&&mt.id!=null,delT:md.startsWith('delT:')&&mt.id!=null,t:mt,
+      open:{perfil:()=>this.openModal('perfil'),senha:()=>this.openModal('senha'),excluir:()=>this.openModal('excluir'),nova:()=>this.openModal('nova')},
+      close:()=>this.closeModal(),bg:e=>{if(e.target===e.currentTarget)this.closeModal()},
+      emailChanged:!!u&&(s.f.email||'')!==u.email,passLabel:s.busy?'Salvando…':'Trocar senha',
+      savePass:e=>{if((s.f.npass||'')!==(s.f.pass2||'')){e.preventDefault();this.setState({authErr:'As senhas novas não conferem.'});return}this.saveAccount(e)}};
     const snd={v:s.vol3,label:s.vol3<=0?'mudo':s.vol3+'%',on:e=>this.setState({vol3:+e.target.value}),
       okTest:()=>sfx('ok'),erroTest:()=>sfx('erro')};
     const reg={prof:s.regProf,notProf:!s.regProf,toggleProf:()=>this.setState(x=>({regProf:!x.regProf}))};
@@ -2442,7 +2815,7 @@ class Component extends DCLogic {
       showCard:!!fsys&&!s.micro,hasPart:!!pInfo,partName:pInfo?(pInfo.pt||pInfo.n):'',partNote:pInfo&&!pInfo.pt?' (nome FMA em inglês)':'',
 
       outerBg:'#F5F8FC',outerPad:'0',frameMax:'none',frameShadow:'none',frameRadius:'0',
-      yes:true,acct,badges,gain:{on:!!s.gain,n:s.gain?s.gain.n:0,cls:s.gain?(s.gain.lv?'l':'p')+(s.gain.k%2):'',sr:s.gain?'+'+s.gain.n+' pontos'+(s.gain.lv?'. Novo nível!':''):''},rank,noRank:!!u&&!rk,rkTabs,tm,reg,cta,snd,rankMe:rcur&&rcur.me?'Você: '+rcur.me.pos+'º de '+rcur.total+(rtab==='turma'?' na turma':' no geral'):'',hasRankMe:!!(rcur&&rcur.me),
+      yes:true,acct,badges,gain:{on:!!s.gain,n:s.gain?s.gain.n:0,cls:s.gain?(s.gain.lv?'l':'p')+(s.gain.k%2):'',sr:s.gain?'+'+s.gain.n+' pontos'+(s.gain.lv?'. Novo nível!':''):''},rank,noRank:!!u&&!rk,rkTabs,tm,ct,m,reg,cta,snd,rankMe:rcur&&rcur.me?'Você: '+rcur.me.pos+'º de '+rcur.total+(rtab==='turma'?' na turma':' no geral'):'',hasRankMe:!!(rcur&&rcur.me),
       quizList,quizzesEmpty:QZ.length===0,quizzesNote:s.apiDown?'Não foi possível carregar os quizzes. Verifique se o servidor está no ar (npm start) e recarregue a página.':'Carregando os quizzes…',
       pan,ctx,mq,mainMax:dock?'none':'1320px',padR:dock?(panW+48)+'px':(narrow?'16px':'32px'),
       // no painel, os controles da cena ficam compactos (estas chaves sobrescrevem as do atlas, definidas acima)
@@ -2451,7 +2824,7 @@ class Component extends DCLogic {
       auth:{err:s.authErr||'',hasErr:!!s.authErr,msg:s.authMsg||'',hasMsg:!!s.authMsg,delErr:s.delErr||'',hasDelErr:!!s.delErr,busy:s.busy,
         loginLabel:s.busy?'Entrando…':'Entrar',regLabel:s.busy?'Criando conta…':'Criar conta',saveLabel:s.busy?'Salvando…':'Salvar alterações',
         login:e=>this.submitAuth(e,'login'),register:e=>this.submitAuth(e,'register'),save:e=>this.saveAccount(e),logout:()=>this.logout(),del:e=>this.deleteAccount(e)},
-      quiz:{title:qz?qz.title:'',earned:qz?qz.earned:0,max:qz?qz.max:0,err:s.quizErr||'',hasErr:!!s.quizErr},Q,PV,zoom,env:s.env&&s.env.label?{show:true,label:s.env.label}:{show:false,label:''},
+      quiz:{title:qz?qz.title:'',earned:qz?qz.earned:0,max:qz?qz.max:0,err:s.quizErr||'',hasErr:!!s.quizErr},Q,PV,PF,SM,zoom,env:s.env&&s.env.label?{show:true,label:s.env.label}:{show:false,label:''},
       resumeNote:u?'Ponto de retomada salvo na sua conta.':'Ponto de retomada salvo neste navegador. Entre para guardar na sua conta.',
       padX:narrow?'16px':'32px',navPad:narrow?'8px':'12px',navFs:narrow?'14px':'15px',h1:narrow?'38px':'64px',h1s:narrow?'32px':'48px',h2:narrow?'28px':'40px',stageH:narrow?'440px':'660px',svgH:narrow?'330px':'560px',figH:narrow?'240px':'380px',heroH:narrow?'280px':'460px',cardPad:narrow?'20px':'32px',filtMax:narrow?'none':'260px',
       narrow,wide:!narrow,nav,is,navc,navb,cur:{home:is.home?'page':'false',trilha:is.trilha?'page':'false',quizzes:is.quizzes?'page':'false',banco:is.banco?'page':'false'},
@@ -2485,8 +2858,8 @@ class Component extends DCLogic {
       isSaved:isSaved?'true':'false',saveLabel:isSaved?'Salva para revisar':'Salvar para revisar',saveIc:isSaved?'bookmark-check':'bookmark',saveCol:isSaved?'#7A5A00':'#245FE5',
       goLessonSec:()=>{this.go('aula');this.goSec(q.sec)},
       qFirst:qi===0,qPrevOp:qi===0?0.4:1,qHasNext:qi<items.length-1,
-      qPrev:()=>this.setState(onQuiz?{qi:Math.max(0,qi-1),quizErr:null}:{bi:Math.max(0,qi-1),quizErr:null}),
-      qNext:()=>this.setState(onQuiz?{qi:qi+1,quizErr:null}:{bi:qi+1,quizErr:null}),
+      qPrev:()=>this.setState(onQuiz?{qi:Math.max(0,qi-1),quizErr:null}:smOn?{simI:Math.max(0,qi-1)}:{bi:Math.max(0,qi-1),quizErr:null}),
+      qNext:()=>this.setState(onQuiz?{qi:qi+1,quizErr:null}:smOn?{simI:qi+1}:{bi:qi+1,quizErr:null}),
       finish:()=>this.setState({finished:true}),reopen:()=>this.setState({finished:false}),
       offTotal:offs.length,offAnswered:offDone.length,offCorrect:offDone.filter(x=>x.correct).length,
       nCorrect,nAnswered:answered.length,nSaved:QS.filter(x=>s.saved.includes(x.id)).length,summaryQs,

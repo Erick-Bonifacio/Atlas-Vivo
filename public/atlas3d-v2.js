@@ -40,7 +40,7 @@ class Atlas3DV2 extends HTMLElement{
     canvas.style.cssText='display:block;width:100%;height:100%;touch-action:none;outline:none;cursor:grab';
     canvas.tabIndex=0;canvas.setAttribute('role','img');canvas.setAttribute('aria-label','Cena 3D do corpo humano. A lista de sistemas oferece o mesmo acesso pelo teclado.');
     this.appendChild(canvas);this.canvas=canvas;
-    let r;try{r=new T.WebGLRenderer({canvas,antialias:this.opt.aa===true,powerPreference:'high-performance',preserveDrawingBuffer:false});r.localClippingEnabled=true;}catch(e){this.emit('error',{message:'webgl'});return;}
+    let r;try{r=new T.WebGLRenderer({canvas,alpha:!!this.opt.bare,antialias:this.opt.aa===true,powerPreference:'high-performance',preserveDrawingBuffer:false});r.localClippingEnabled=true;}catch(e){this.emit('error',{message:'webgl'});return;}
     if(!r.getContext()){this.emit('error',{message:'webgl'});return;}
     this.renderer=r;const dp=window.devicePixelRatio||1;this.maxDpr=this.opt.aa===true?Math.min(dp,1.75):Math.min(2,Math.max(dp,dp*(this.opt.ss||1.35)));r.setPixelRatio(this.maxDpr);
     r.outputColorSpace=T.SRGBColorSpace;r.toneMapping=T.ACESFilmicToneMapping;r.toneMappingExposure=1.05;
@@ -58,7 +58,8 @@ class Atlas3DV2 extends HTMLElement{
 
   buildScene(){
     const T=this.T;const s=new T.Scene();this.scene=s;
-    s.background=new T.Color(0x0c2238);s.fog=new T.Fog(0x0c2238,5.5,13);
+    // bare: só o corpo, fundo transparente (página inicial); sem sala, placas nem sombra no piso
+    if(!this.opt.bare){s.background=new T.Color(0x0c2238);s.fog=new T.Fog(0x0c2238,5.5,13);}
     const env=new T.Scene();env.background=new T.Color(0x1a3654);
     const panel=(w,h,x,y,z,ry,rx,c,i)=>{const m=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:new T.Color(c).multiplyScalar(i),side:T.DoubleSide}));m.position.set(x,y,z);m.rotation.set(rx||0,ry||0,0);env.add(m);};
     panel(6,2,0,5,0,0,Math.PI/2,0xeaf4ff,3.2);panel(2.5,4,-4,2,1,Math.PI/2,0,0xbfe0ff,1.6);panel(2.5,4,4,2,-1,-Math.PI/2,0,0x9fd0ff,1.1);panel(4,1.2,0,1,-5,0,0,0x7fc6ff,0.8);
@@ -80,11 +81,11 @@ class Atlas3DV2 extends HTMLElement{
     const ring=new T.Mesh(new T.TorusGeometry(0.64,0.004,8,160),new T.MeshBasicMaterial({color:0x31b8d6}));ring.rotation.x=Math.PI/2;ring.position.y=0.046;room.add(ring);
     // placas na parede do fundo: UNIFEI à direita do corpo, IMC à esquerda (a cena só redesenha sob demanda: dirty ao carregar a textura)
     // [arquivo, largura, altura/largura, x, y]
-    for(const [file,w,ar,x,y] of [['img/unifei.png',1.5,900/1024,1.7,1.45],['img/imc.png',2.1,544/1024,-4.75,1.45]]){
+    if(!this.opt.bare)for(const [file,w,ar,x,y] of [['img/unifei.png',1.5,900/1024,1.7,1.45],['img/imc.png',2.1,544/1024,-4.75,1.45]]){
       const plaque=new T.Mesh(new T.PlaneGeometry(w,w*ar),new T.MeshBasicMaterial({transparent:true,visible:false}));plaque.position.set(x,y,-5.02);room.add(plaque);
       new T.TextureLoader().load(new URL(file,document.baseURI).href,tx=>{if(this._dead){tx.dispose();return;}tx.colorSpace=T.SRGBColorSpace;tx.anisotropy=this.renderer.capabilities.getMaxAnisotropy();plaque.material.map=tx;plaque.material.visible=true;plaque.material.needsUpdate=true;this.dirty=true;},undefined,e=>console.warn('placa indisponível: '+file,e));
     }
-    room.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.matrixAutoUpdate=false;o.updateMatrix();}});
+    room.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.matrixAutoUpdate=false;o.updateMatrix();}});if(this.opt.bare)s.remove(room);
     s.add(new T.HemisphereLight(0xd4e9ff,0x0a1828,0.55));
     const key=new T.DirectionalLight(0xffffff,2.1);key.position.set(1.6,3.6,2.4);key.castShadow=true;this.keyLight=key;
     key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-1.3,right:1.3,top:2.1,bottom:-0.2,near:0.5,far:9});key.shadow.bias=-0.0004;key.shadow.normalBias=0.02;
@@ -278,6 +279,8 @@ class Atlas3DV2 extends HTMLElement{
     else if(c.type==='frame'){this.frameSys(c.sys);}
     else if(c.type==='part'){this.showParts(c);}
     else if(c.type==='clear'){this.setMulti([]);}
+    // câmera definida de fora (página inicial): só os campos enviados mudam; o loop suaviza até o alvo
+    else if(c.type==='cam'){const d=this.cd;for(const k of ['r','th','ph'])if(typeof c[k]==='number')d[k]=c[k];if(c.t)d.t.set(c.t[0],c.t[1],c.t[2]);}
     this.anim=true;this.dirty=true;
   }
   activeLim(){return this.state.micro?{r:[0.55,3.6],ph:[0.2,2.9],t:[[-1,1],[-0.7,0.7],[-0.6,0.6]]}:this.lim;}

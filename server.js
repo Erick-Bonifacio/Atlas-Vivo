@@ -8,7 +8,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const { Pool } = require('pg');
 const QUIZZES = require('./quizzes.js');
-const { createCore, QUIZ_BONUS } = require('./core.js');
+const { createCore, QUIZ_BONUS, instName, SIM_N, SIM_MAX, SIM_SECONDS } = require('./core.js');
 const { loadBank } = require('./bank.js');
 
 const PORT = +process.env.PORT || 8765;
@@ -42,7 +42,7 @@ if (process.env.ATLAS_PREVIEW_BANK === '1') {
   console.log(`Banco de PRÉ-VISUALIZAÇÃO: ${PREVIEW.bank.questions.length} questões reais sem direitos liberados (só em desenvolvimento local).`);
 }
 const BANK = PREVIEW ? PREVIEW.bank : loadBank({ dir: BANK_DIR, publicDir: PUB, reserved: new Set(QUIZZES.flatMap(z => z.questions.map(q => q.id))) });
-const { QBYID, LESSON_IDS, stats, viewQ, viewBankQ, viewQuizzes, cleanProgress, grade } = createCore({ quizzes: QUIZZES, bank: BANK, partName: PART_NAME });
+const { QBYID, LESSON_IDS, stats, viewQ, viewBankQ, viewQuizzes, cleanProgress, grade, pickSim, reportSim } = createCore({ quizzes: QUIZZES, bank: BANK, partName: PART_NAME });
 const DEMO = BANK.questions.some(q => q.inst === 'fixture');
 
 // ── Banco ──
@@ -52,7 +52,7 @@ if (process.env.PGSSL === 'disable' && !LOOPBACK.test(process.env.PGHOST)) throw
 const ssl = process.env.PGSSL === 'disable' ? false : { ca: fs.readFileSync(path.join(__dirname, 'supabase-ca.crt'), 'utf8') };
 const pool = new Pool({ ssl, max: process.env.VERCEL ? 2 : 5 });
 pool.on('error', e => console.error('banco:', e.message));
-const sql = text => text.replace(/\b(users|sessions|answers|turmas|turma_membros)\b/g, SCHEMA + '.$1'); // nome da tabela -> esquema.tabela
+const sql = text => text.replace(/\b(users|sessions|answers|turmas|turma_membros|simulados)\b/g, SCHEMA + '.$1'); // nome da tabela -> esquema.tabela
 const run = (text, params) => pool.query(sql(text), params);
 const all = (text, params) => run(text, params).then(r => r.rows);
 const one = (text, params) => all(text, params).then(r => r[0] || null);
@@ -100,6 +100,20 @@ async function initDb() {
       status TEXT NOT NULL DEFAULT 'pendente' CHECK (status IN ('pendente', 'aprovado')),
       created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
       PRIMARY KEY (turma_id, user_id)
+    );
+    -- Mini simulado: n (1 ou 2) limita a dois por conta no próprio banco, mesmo com pedidos simultâneos.
+    CREATE TABLE IF NOT EXISTS ${SCHEMA}.simulados (
+      user_id INTEGER NOT NULL REFERENCES ${SCHEMA}.users(id) ON DELETE CASCADE,
+      n SMALLINT NOT NULL CHECK (n BETWEEN 1 AND ${SIM_MAX}),
+      qids JSONB NOT NULL,
+      sels JSONB NOT NULL,
+      started BIGINT NOT NULL,
+      finished BIGINT,
+      score INTEGER,
+      total INTEGER,
+      duration_s INTEGER,
+      report JSONB,
+      PRIMARY KEY (user_id, n)
     );
   `);
 }
@@ -189,6 +203,39 @@ async function pontosDe(ids) {
 }
 const posicoes = (rows, meId) => rows.sort((a, b) => b.points - a.points || a.id - b.id).map((x, i) => ({ pos: i + 1, name: x.name, points: x.points, level: x.level, me: x.id === meId }));
 
+// ── Mini simulado ──
+const SIM_GRACE_MS = 15000;   // atraso de rede tolerado depois do fim do tempo
+const simExpired = r => Date.now() > Number(r.started) + SIM_SECONDS * 1000 + SIM_GRACE_MS;
+// Simulado em andamento como o navegador o vê: questões sem gabarito, marcações salvas e o tempo restante.
+const viewSim = r => ({ n: r.n, sels: r.sels, seconds: SIM_SECONDS,
+  left: Math.max(0, Math.round((Number(r.started) + SIM_SECONDS * 1000 - Date.now()) / 1000)),
+  questions: r.qids.map(id => viewBankQ(QBYID.get(id).q)) });
+const viewSimDone = r => ({ n: r.n, score: r.score, total: r.total, duration: r.duration_s, finishedAt: Number(r.finished), report: r.report });
+// Corrige e fecha a tentativa. O WHERE finished IS NULL impede corrigir duas vezes.
+async function finishSim(r) {
+  const rep = reportSim(r.qids, r.sels);
+  const now = Date.now(), dur = Math.min(SIM_SECONDS, Math.round((now - Number(r.started)) / 1000));
+  const done = await one('UPDATE simulados SET finished = $1, score = $2, total = $3, duration_s = $4, report = $5, sels = $6 WHERE user_id = $7 AND n = $8 AND finished IS NULL RETURNING *',
+    [now, rep.score, rep.total, dur, JSON.stringify(rep), JSON.stringify(r.sels), r.user_id, r.n]);
+  return done || one('SELECT * FROM simulados WHERE user_id = $1 AND n = $2', [r.user_id, r.n]);
+}
+const simsOf = uid => all('SELECT * FROM simulados WHERE user_id = $1 ORDER BY n', [uid]);
+// Tentativa aberta; se o tempo acabou, entrega com o que estava marcado.
+async function openSim(uid) {
+  const r = (await simsOf(uid)).find(x => x.finished === null);
+  if (r && simExpired(r)) { await finishSim(r); return null; }
+  return r || null;
+}
+// Marcações enviadas: uma por questão, null ou índice de alternativa existente.
+function vSels(r, sels) {
+  if (!Array.isArray(sels) || sels.length !== r.qids.length) throw new Bad('Respostas do simulado inválidas.');
+  return sels.map((v, i) => {
+    if (v === null) return null;
+    if (!Number.isInteger(v) || v < 0 || v >= QBYID.get(r.qids[i]).q.opts.length) throw new Bad('Alternativa inválida no simulado.');
+    return v;
+  });
+}
+
 // ── Rotas da API ──
 const routes = {
   async 'POST /api/register'(req, res, b) {
@@ -275,8 +322,41 @@ const routes = {
     if (u && st === 'answered') f.ids = new Set(mine.keys());
     if (u && st === 'wrong') f.ids = new Set([...mine].filter(([id, r]) => !r.correct && BANK.byId.get(id).kind !== 'open').map(([id]) => id));
     const r = BANK.query(f);
-    return [200, { total: r.total, page: r.page, pages: r.pages, limit: r.limit, facets: BANK.facets(f), available: BANK.questions.length,
+    const facets = BANK.facets(f);
+    facets.inst = facets.inst.map(x => ({ ...x, name: instName(BANK.questions.find(q => q.inst === x.value)) }));
+    return [200, { total: r.total, page: r.page, pages: r.pages, limit: r.limit, facets, available: BANK.questions.length,
       questions: r.items.map(q => viewBankQ(q, mine.get(q.id))) }];
+  },
+  // ── Mini simulado ── (não grava em answers: não pontua nem marca a questão como respondida)
+  async 'GET /api/simulados'(req, res, b, u) {
+    const open = await openSim(u.id);
+    const done = (await simsOf(u.id)).filter(x => x.finished !== null);
+    return [200, { max: SIM_MAX, questions: SIM_N, seconds: SIM_SECONDS, available: BANK.questions.some(q => q.kind === 'mc'),
+      used: done.length + (open ? 1 : 0), active: open ? viewSim(open) : null, history: done.map(viewSimDone) }];
+  },
+  async 'POST /api/simulados'(req, res, b, u) {
+    if (await openSim(u.id)) throw new Bad('Você já tem um simulado em andamento.', 409);
+    const used = (await simsOf(u.id)).length;
+    if (used >= SIM_MAX) throw new Bad(`Você já fez os ${SIM_MAX} simulados disponíveis.`, 403);
+    const qids = pickSim();
+    if (!qids.length) throw new Bad('Ainda não há questões de vestibular para montar um simulado.', 404);
+    const r = await one('INSERT INTO simulados (user_id, n, qids, sels, started) VALUES ($1, $2, $3, $4, $5) ON CONFLICT DO NOTHING RETURNING *',
+      [u.id, used + 1, JSON.stringify(qids), JSON.stringify(qids.map(() => null)), Date.now()]);
+    if (!r) throw new Bad('Outro simulado acabou de começar nesta conta. Recarregue a página.', 409);
+    return [201, { active: viewSim(r) }];
+  },
+  // Guarda as marcações durante a prova (para retomar depois de recarregar a página).
+  async 'PUT /api/simulados/atual'(req, res, b, u) {
+    const r = await openSim(u.id);
+    if (!r) throw new Bad('O tempo do simulado acabou ou ele já foi entregue.', 409);
+    await run('UPDATE simulados SET sels = $1 WHERE user_id = $2 AND n = $3 AND finished IS NULL', [JSON.stringify(vSels(r, b.sels)), u.id, r.n]);
+    return [200, { ok: true }];
+  },
+  async 'POST /api/simulados/atual/entregar'(req, res, b, u) {
+    const r = (await simsOf(u.id)).find(x => x.finished === null);
+    if (!r) throw new Bad('Não há simulado em andamento.', 409);
+    if (b.sels !== undefined && !simExpired(r)) r.sels = vSels(r, b.sels);   // depois do tempo, valem as últimas marcações salvas
+    return [200, { result: viewSimDone(await finishSim(r)) }];
   },
   // Sistemas e temas da aba Provas, com a contagem real de questões publicadas.
   async 'GET /api/bank/catalog'() { return [200, { systems: BANK.catalog(), available: BANK.questions.length }]; },
@@ -387,7 +467,7 @@ async function api(req, res, pathname, url) {
 }
 
 // ── Arquivos estáticos: só o que está em public/ (uso local; no Vercel a CDN serve esses arquivos) ──
-const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json', '.woff2': 'font/woff2', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.wasm': 'application/octet-stream' };
+const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json', '.woff2': 'font/woff2', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.wasm': 'application/octet-stream', '.mp3': 'audio/mpeg' };
 function serveStatic(req, res, pathname) {
   let rel;
   try { rel = decodeURIComponent(pathname).replace(/^\/+/, '') || 'index.html'; } catch (e) { rel = '\0'; }
@@ -401,7 +481,7 @@ function serveStatic(req, res, pathname) {
   res.writeHead(200, {
     'Content-Type': MIME[path.extname(file)] || 'application/octet-stream',
     'Content-Length': fs.statSync(file).size,
-    'Cache-Control': /^(fonts|atlas2|img)\//.test(rel) ? 'public, max-age=86400' : 'no-cache',
+    'Cache-Control': /^(fonts|atlas2|img|sfx)\//.test(rel) ? 'public, max-age=86400' : 'no-cache',
   });
   if (req.method === 'HEAD') return res.end();
   fs.createReadStream(file).pipe(res);

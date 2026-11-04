@@ -229,6 +229,50 @@ async function main() {
   assert.equal(r.body.turma, null, 'sem turma, só o ranking geral');
   assert.deepEqual([r.body.geral.me.pos, r.body.geral.total], [r.body.me.pos, r.body.total]);
 
+  // mini simulado: até 2 por conta, sem gabarito durante a prova, não grava em answers nem dá pontos
+  assert.equal((await anon('GET', '/api/simulados')).status, 401);
+  const sil = client();
+  assert.equal((await sil('POST', '/api/register', { name: 'Sil', email: 'sil@x.com', password: 'senha-da-sil' })).status, 201);
+  r = await sil('GET', '/api/simulados');
+  assert.deepEqual([r.body.max, r.body.used, r.body.active, r.body.history.length], [2, 0, null, 0]);
+  r = await sil('POST', '/api/simulados', {});
+  assert.equal(r.status, 201);
+  const sim = r.body.active, gab = new Map(JSON.parse(fs.readFileSync(path.join(FIXTURE_BANK, 'fixture-2099-regular.json'), 'utf8')).questions.map(q => [q.id, q]));
+  assert.equal(sim.questions.length, [...gab.values()].filter(q => q.kind === 'mc').length, 'só múltipla escolha, até 10');
+  assert.ok(sim.questions.every(q => q.kind === 'mc' && !q.key), 'sem gabarito no simulado');
+  assert.ok(!/"(ans|expl|why)"/.test(JSON.stringify(r.body)), 'gabarito não vaza');
+  assert.equal(new Set(sim.questions.slice(0, 3).map(q => q.system)).size, 3, 'rodízio: as primeiras questões são de sistemas diferentes');
+  assert.ok(sim.left > 0 && sim.left <= sim.seconds);
+  assert.equal((await sil('POST', '/api/simulados', {})).status, 409, 'um de cada vez');
+  assert.equal((await sil('PUT', '/api/simulados/atual', { sels: [0] })).status, 400);
+  assert.equal((await sil('PUT', '/api/simulados/atual', { sels: sim.questions.map(() => 9) })).status, 400);
+  const certo = sim.questions.map(q => gab.get(q.id).ans);
+  const marcado = certo.map((a, i) => (i === 0 ? (a + 1) % gab.get(sim.questions[0].id).opts.length : i === 1 ? null : a));
+  assert.equal((await sil('PUT', '/api/simulados/atual', { sels: marcado })).status, 200);
+  assert.deepEqual((await sil('GET', '/api/simulados')).body.active.sels, marcado, 'marcações salvas para retomar');
+  r = await sil('POST', '/api/simulados/atual/entregar', {});
+  assert.equal(r.status, 200);
+  const rel = r.body.result;
+  assert.deepEqual([rel.score, rel.total, rel.report.items[0].correct, rel.report.items[1].answered], [certo.length - 2, certo.length, false, false]);
+  assert.ok(rel.report.recs.length >= 1 && rel.report.recs.every(x => x.system && x.n >= 1), 'recomenda o que estudar');
+  assert.ok(!/"ans"/.test(JSON.stringify(r.body)), 'relatório sem gabarito');
+  assert.equal((await sil('POST', '/api/simulados/atual/entregar', {})).status, 409, 'entregue uma vez só');
+  r = await sil('GET', '/api/me');
+  assert.deepEqual([r.body.stats.points, r.body.stats.answered], [0, 0], 'simulado não pontua nem marca como respondida');
+  assert.equal((await sil('GET', '/api/bank?status=answered')).body.total, 0);
+  r = await sil('POST', '/api/simulados', {});
+  r = await sil('POST', '/api/simulados/atual/entregar', { sels: r.body.active.questions.map(q => gab.get(q.id).ans) });
+  assert.deepEqual([r.body.result.score, r.body.result.report.recs.length], [r.body.result.total, 0], 'tudo certo: sem recomendação de revisão');
+  assert.equal((await sil('POST', '/api/simulados', {})).status, 403, 'no máximo 2');
+  r = await sil('GET', '/api/simulados');
+  assert.deepEqual([r.body.used, r.body.history.map(h => h.n)], [2, [1, 2]]);
+  r = await sil('POST', '/api/answer', { qid: sim.questions[0].id, sel: certo[0] });
+  assert.equal(r.status, 200, 'a questão do simulado continua valendo no banco');
+  assert.ok(r.body.awarded > 0);
+  // busca por texto não quebra com questão discursiva (sem alternativas)
+  assert.equal((await anon('GET', '/api/bank?q=zzzz-nada')).body.total, 0);
+  assert.ok((await anon('GET', '/api/bank')).body.facets.inst.every(x => x.name), 'faceta de vestibular traz o nome');
+
   // turmas: professor cria, aluno entra pelo código, professor aprova; ranking da turma só com aprovados
   const prof = client(), prof2 = client(), alu1 = client(), alu2 = client();
   r = await prof('POST', '/api/register', { name: 'Profa Lia', email: 'lia@x.com', password: 'senha-da-lia', professor: true });

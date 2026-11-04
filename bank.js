@@ -128,7 +128,7 @@ function matches(q, f, skip) {
   if (f.ids && !f.ids.has(q.id)) return false;
   if (f.excludeIds && f.excludeIds.has(q.id)) return false;
   if (f.text) {
-    const hay = norm(q.stem.map(b => b.text || '').join(' ') + ' ' + q.topic + ' ' + q.opts.map(o => o.text || '').join(' '));
+    const hay = norm(q.stem.map(b => b.text || '').join(' ') + ' ' + q.topic + ' ' + (q.opts || []).map(o => o.text || '').join(' '));
     if (!norm(f.text).split(/\s+/).filter(Boolean).every(w => hay.includes(w))) return false;
   }
   return true;
