@@ -351,24 +351,6 @@ html{scroll-padding-top:64px}
 .tb tr.us th{font:800 19px/1.2 var(--disp)}
 .src-t{margin:14px 0 0;font-size:14px;color:#E4EDFF;max-width:90ch}
 
-/* base teórica: benefício em primeiro plano, autor em segundo */
-.base{padding:clamp(110px,14vw,190px) 0 clamp(90px,11vw,160px)}
-.base h2{font-size:clamp(2.8rem,6.6vw,6.6rem);max-width:13ch}
-.base .lead{color:#A9B8CF}
-.base .flow{grid-template-columns:repeat(5,minmax(0,1fr))}
-.base .flow button{border-top-color:var(--line-d);color:#8C9AB0}
-.base .flow button::before{background:var(--lime)}
-.base .flow button[aria-selected="true"],.base .flow button:hover{color:var(--white)}
-.flow.plain b{font-size:clamp(19px,1.8vw,25px);line-height:1.08}
-.flow.plain b::after{content:""}
-.tp{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(36px,6vw,96px);min-height:340px;padding-top:18px}
-.tp[hidden]{display:none}
-.tp h3{font:600 14px/1.4 'Public Sans',sans-serif;color:var(--lime);margin:0 0 14px}
-.tp p{margin:0 0 12px;color:#B8C5D9;max-width:52ch}
-.tp .say{font:800 clamp(2.2rem,4.2vw,4rem)/1 var(--disp);letter-spacing:-.03em;color:var(--white);margin-bottom:22px;max-width:17ch;text-wrap:balance}
-.tp ul{list-style:none;margin:0;padding:0}
-.tp li{padding:12px 0;border-top:1px solid var(--line-d);font-weight:500;color:var(--white)}
-.tp li:last-child{border-bottom:1px solid var(--line-d)}
 
 /* exploração: mesmo pino da landing, com mais passos */
 .explore-intro .lead{max-width:40ch}
@@ -457,8 +439,7 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--line-d);padding:2px 5px;b
 @media (max-width:1100px){.pipe{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:24px}.pipe::before,.pipe::after{display:none}}
 @media (max-width:900px){
   .evi,.perks,.bank-top,.numbers,.live-in{grid-template-columns:minmax(0,1fr)}
-  .tp{grid-template-columns:minmax(0,1fr);min-height:0}
-  .base .flow,.learn .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .learn .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
   .trail-side,.live-side{position:static}
   .pts{grid-template-columns:minmax(0,1fr)}
   .refs ol{columns:1}
@@ -469,7 +450,7 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--line-d);padding:2px 5px;b
   .route a,.route div{grid-template-columns:32px minmax(0,1fr)}
 }
 </style>
-<noscript><style>.rv{opacity:1;transform:none}.hero [data-in]{opacity:1;transform:none}.hero h1 .ln>span{transform:none}.tp[hidden]{display:grid!important}</style></noscript>
+<noscript><style>.rv{opacity:1;transform:none}.hero [data-in]{opacity:1;transform:none}.hero h1 .ln>span{transform:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#problema">Pular para o conteúdo</a>
@@ -480,7 +461,6 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--line-d);padding:2px 5px;b
     <nav aria-label="Seções da apresentação">
       <ul>
         <li><a href="#problema">Problema</a></li>
-        <li><a href="#base">Base</a></li>
         <li><a href="#banco">Banco</a></li>
         <li><a href="#correlatos">Plataforma</a></li>
         <li><a href="#ao-vivo">Ao vivo</a></li>
@@ -581,68 +561,6 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--line-d);padding:2px 5px;b
   </div>
 </section>
 
-<!-- BASE TEÓRICA: o que cada frente de pesquisa vira para quem estuda -->
-<section class="base dark" id="base" data-stop aria-labelledby="h-base">
-  <div class="wrap">
-    <div class="learn-top">
-      <h2 class="poster rv" id="h-base">A teoria por trás da tela.</h2>
-      <p class="lead rv" style="--d:.15s">Cada recurso nasceu do que a pesquisa em educação aponta. O que isso vira para quem estuda:</p>
-    </div>
-    <ol class="flow plain rv" role="tablist" aria-label="O que a pesquisa traz para o estudante" data-tabs>
-      <li role="presentation"><button role="tab" id="b0" aria-controls="p0" aria-selected="true"><b>Entende o sistema</b></button></li>
-      <li role="presentation"><button role="tab" id="b1" aria-controls="p1" aria-selected="false" tabindex="-1"><b>Estuda sem sobrecarga</b></button></li>
-      <li role="presentation"><button role="tab" id="b2" aria-controls="p2" aria-selected="false" tabindex="-1"><b>Enxerga em 3D</b></button></li>
-      <li role="presentation"><button role="tab" id="b3" aria-controls="p3" aria-selected="false" tabindex="-1"><b>Lembra na prova</b></button></li>
-      <li role="presentation"><button role="tab" id="b4" aria-controls="p4" aria-selected="false" tabindex="-1"><b>Quer voltar</b></button></li>
-    </ol>
-    <div class="tp" id="p0" role="tabpanel" aria-labelledby="b0">
-      <div>
-        <h3>Pensamento sistêmico</h3>
-        <p class="say">Para de decorar peça e vê o corpo funcionando.</p>
-        <p>Entender um sistema vai além de identificar as partes: é relacionar componentes, mecanismos e fenômenos. O estudo aqui é organizado por essas relações.</p>
-        <span class="src">Verhoeff et al. (2018); Assaraf, Dodick e Tripto (2013)</span>
-      </div>
-      <div><h3>No Atlas Vivo</h3><ul><li>Trilha pelo caminho das substâncias</li><li>Etapa final de integração</li><li>Ampliações da rede capilar e do alvéolo</li></ul></div>
-    </div>
-    <div class="tp" id="p1" role="tabpanel" aria-labelledby="b1" hidden>
-      <div>
-        <h3>Multimídia e carga cognitiva</h3>
-        <p class="say">Menos esforço para achar, mais cabeça para entender.</p>
-        <p>Fisiologia já exige acompanhar muita coisa ao mesmo tempo. Por isso a interface tira do caminho o que não ajuda e deixa imagem e texto juntos.</p>
-        <span class="src">Mayer (2020); Sweller, van Merriënboer e Paas (2019)</span>
-      </div>
-      <div><h3>No Atlas Vivo</h3><ul><li>Painel 3D ao lado do texto</li><li>Cor por sistema e termos que destacam a estrutura</li><li>Capítulos, seções e etapas</li><li>Estruturas antes do funcionamento</li><li>Isolamento, opacidade e vistas</li></ul></div>
-    </div>
-    <div class="tp" id="p2" role="tabpanel" aria-labelledby="b2" hidden>
-      <div>
-        <h3>Visualização 3D</h3>
-        <p class="say">O que o livro desenha, aqui dá para girar.</p>
-        <p>Modelos 3D favorecem o conhecimento espacial e factual e deixam o estudo mais satisfatório. Forma, posição e função param de depender da imaginação.</p>
-        <span class="src">Yammine e Violato (2015)</span>
-      </div>
-      <div><h3>No Atlas Vivo</h3><ul><li>Modelo ligado ao texto nos dois sentidos</li><li>Questões de localização, respondidas no modelo</li></ul></div>
-    </div>
-    <div class="tp" id="p3" role="tabpanel" aria-labelledby="b3" hidden>
-      <div>
-        <h3>Prática de recuperação</h3>
-        <p class="say">Quem se testa, lembra.</p>
-        <p>Testar a própria memória melhora a retenção, e o efeito cresce com feedback e com perguntas no formato da prova. Por isso o Atlas Vivo pergunta ao longo do estudo e comenta cada alternativa.</p>
-        <span class="src">Roediger e Karpicke (2006); Agarwal, Nunes e Blunt (2021)</span>
-      </div>
-      <div><h3>No Atlas Vivo</h3><ul><li>Perguntas de retomada e flashcards nas aulas</li><li>Quizzes com comentário por alternativa</li><li>Questões de vestibular com gabarito</li></ul></div>
-    </div>
-    <div class="tp" id="p4" role="tabpanel" aria-labelledby="b4" hidden>
-      <div>
-        <h3>Gamificação</h3>
-        <p class="say">Pontos, medalhas e a turma junto.</p>
-        <p>Estudos associam gamificação a ganhos de aprendizado e motivação, e misturar competição com colaboração funciona melhor para o comportamento. Daí os pontos e o ranking com a própria turma.</p>
-        <span class="src">Sailer e Homner (2020); Zeng et al. (2024)</span>
-      </div>
-      <div><h3>No Atlas Vivo</h3><ul><li>Pontos, níveis e medalhas</li><li>Ranking da turma e geral</li></ul></div>
-    </div>
-  </div>
-</section>
-
 <!-- 11. BANCO DE QUESTÕES -->
 <section class="bank" id="banco" data-stop aria-labelledby="h-banco">
   <div class="wrap">
@@ -708,13 +626,12 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--line-d);padding:2px 5px;b
 <section class="others dark" id="correlatos" data-stop aria-labelledby="h-others">
   <div class="wrap">
     <div class="others-top">
-      <h2 class="poster rv" id="h-others"><span>De graça.</span><span>Em português.</span><span>No celular.</span></h2>
+      <h2 class="poster rv" id="h-others"><span>De graça.</span><span>Em português.</span></h2>
       <p class="lead rv" style="--d:.15s">Nós também estudamos o corpo em textos e figuras estáticas. O Atlas Vivo abre o modelo 3D para qualquer estudante do Ensino Médio, sem pagar nada.</p>
     </div>
     <ul class="perks">
       <li class="rv"><b>Gratuito alcança mais gente.</b>Sem assinatura e sem licença para a escola comprar. A turma inteira entra, não só quem pode pagar.</li>
       <li class="rv" style="--d:.08s"><b>Em português, do botão à aula.</b>O idioma deixa de ser barreira: o estudante explora sozinho, sem o professor precisar traduzir a interface.</li>
-      <li class="rv" style="--d:.16s"><b>No celular que ele já tem.</b>Abre no navegador, sem instalar nada. O celular é o principal acesso à internet entre crianças e adolescentes, e nas classes D e E 32% só entram por ele.</li>
       <li class="rv"><b>Feito para o Ensino Médio.</b>Aulas, trilha e questões de ENEM e vestibular para quem está na escola, não para quem já está na faculdade de saúde.</li>
       <li class="rv" style="--d:.08s"><b>Fisiologia no centro.</b>O estudo segue como os sistemas funcionam juntos, do corpo inteiro até a rede capilar e o alvéolo.</li>
       <li class="rv" style="--d:.16s"><b>Tudo ligado.</b>Clicou no coração, cai na aula. Leu a aula, vê no modelo. Depois responde quiz e vestibular, sem trocar de ferramenta.</li>
@@ -725,14 +642,14 @@ kbd{font:500 12px/1 var(--mono);border:1px solid var(--line-d);padding:2px 5px;b
         <tbody>
           <tr class="us"><th scope="row">Atlas Vivo</th><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td></tr>
           <tr><th scope="row">Visible Body Suite</th><td class="n">Não</td><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td><td class="n">Não</td></tr>
-          <tr><th scope="row">Complete Anatomy</th><td class="n">Não</td><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td><td class="n">Não</td></tr>
+          <tr><th scope="row">Complete Anatomy</th><td class="n">Não</td><td class="y">Sim</td><td class="y">Sim</td><td class="n">Não</td><td class="n">Não</td></tr>
           <tr><th scope="row">BioDigital Human</th><td class="p">Em parte</td><td class="p">Em parte</td><td class="y">Sim</td><td class="p">Em parte</td><td class="n">Não</td></tr>
           <tr><th scope="row">Explorando os Sistemas Vitais</th><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td><td class="p">Em parte</td><td class="n">Não</td></tr>
           <tr><th scope="row">Do Coração às Células</th><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="src-t">Fontes consultadas em outubro de 2026. Silva et al. (2024); Costa et al. (2026); Vanderlei et al. (2020); Cetic.br (2025). BioDigital: grátis até dez visualizações por mês, com modelos em português. No Atlas Vivo, o cadastro serve para responder e salvar.</p>
+    <p class="src-t">Fontes consultadas em outubro e novembro de 2026. Silva et al. (2024); Costa et al. (2026); Vanderlei et al. (2020). Complete Anatomy: português desde outubro de 2026. BioDigital: grátis até dez visualizações por mês, com modelos em português. No Atlas Vivo, o cadastro serve para responder e salvar.</p>
   </div>
 </section>
 
@@ -1068,10 +985,8 @@ const syncStep=()=>{
 addEventListener('scroll',syncStep,{passive:true});addEventListener('resize',syncStep);
 syncStep();
 
-// ── abas: base teórica e telas do sistema ──
+// ── abas: telas do sistema ──
 const wire=(tabs,pick)=>tabs.forEach((t,i)=>{t.addEventListener('click',()=>pick(i));t.addEventListener('keydown',e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(k){e.preventDefault();e.stopPropagation();pick((i+k+tabs.length)%tabs.length,true);}});});
-const baseTabs=[...document.querySelectorAll('[data-tabs] [role=tab]')],panels=[...document.querySelectorAll('.tp')];
-wire(baseTabs,(i,focus)=>{baseTabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1;});panels.forEach((p,j)=>{p.hidden=j!==i;});if(focus)baseTabs[i].focus();});
 
 const CAP=[
   ['Atlas 3D','Comece pelo corpo, não pelo texto.','Clique em qualquer estrutura para ver o nome, o sistema e o trecho da aula. Isole, oculte e troque de vista.'],
