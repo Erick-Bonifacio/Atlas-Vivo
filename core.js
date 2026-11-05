@@ -13,6 +13,12 @@ const MAX_LESSON_SECTIONS = 20;   // seções por aula aceitas no progresso salv
 const OPEN_SELF = ['errei', 'parcial', 'acertei'];   // autoavaliação de questão discursiva (não vale ponto)
 const OFFICIAL_PER_QUIZ = 10;   // até tantas questões reais de vestibular no fim de cada quiz de aula (só existe o que foi publicado para o sistema)
 const INST_NAMES = { enem: 'ENEM', fuvest: 'FUVEST', unicamp: 'UNICAMP', unesp: 'UNESP' };
+const instName = q => q.inst_name || INST_NAMES[q.inst] || q.inst.toUpperCase();
+// Mini simulado: questões de múltipla escolha sorteadas entre os sistemas, com tempo. Não grava em answers
+// (não pontua nem marca a questão como respondida); a tentativa fica na tabela simulados.
+const SIM_N = 10;            // questões por simulado
+const SIM_MAX = 2;           // simulados por conta
+const SIM_SECONDS = 20 * 60; // 2 minutos por questão
 
 // quizzes: lista de quizzes da trilha. bank: banco oficial (bank.js) ou null. partName: Map id -> nome da estrutura 3D.
 function createCore({ quizzes, bank = null, partName = new Map() }) {
@@ -75,7 +81,7 @@ function createCore({ quizzes, bank = null, partName = new Map() }) {
   function viewBankQ(q, a) {
     const fict = q.inst === 'fixture';
     const o = {
-      id: q.id, kind: q.kind, label: fict ? 'Questão fictícia' : (q.inst_name || INST_NAMES[q.inst] || q.inst.toUpperCase()) + ' - ' + q.year,
+      id: q.id, kind: q.kind, label: fict ? 'Questão fictícia' : instName(q) + ' - ' + q.year,
       system: q.system, topic: q.topic,
       stem: q.stem, opts: (q.opts || []).map(x => (x.fig ? { fig: x.fig, alt: x.alt } : { text: x.text })),
       bank: true,   // a questão mostra só o vestibular e o ano; links e fontes ficam na seção de créditos
@@ -144,7 +150,40 @@ function createCore({ quizzes, bank = null, partName = new Map() }) {
     return { sel: body.sel, pick: null, correct, points: correct ? ptsOf(q) : 0 };
   }
 
-  return { QBYID, LESSON_IDS, stats, viewQ, viewBankQ, viewQuizzes, cleanProgress, grade, ptsOf, isBank };
+  // Sorteia o simulado: embaralha os sistemas que têm questão de múltipla escolha e tira uma questão aleatória de
+  // cada um, em rodízio, até SIM_N. Assim o simulado mistura o máximo de sistemas possível. Devolve os ids.
+  function pickSim(rnd = Math.random) {
+    const by = new Map();
+    for (const q of bank ? bank.questions : []) if (q.kind === 'mc') (by.get(q.system) || by.set(q.system, []).get(q.system)).push(q.id);
+    const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    const pools = shuffle([...by.values()].map(a => shuffle(a.slice())));
+    const out = [];
+    while (out.length < SIM_N && pools.some(p => p.length)) for (const p of pools) if (p.length && out.length < SIM_N) out.push(p.pop());
+    return out;
+  }
+
+  // Corrige o simulado. sels[i] = alternativa marcada na questão i (null = em branco).
+  // recs: temas a estudar (um por sistema e tema errado, mais errado primeiro). next: com tudo certo, sistemas
+  // que ficaram fora deste simulado, para continuar se desafiando. O gabarito não vai no relatório: a questão
+  // continua valendo pontos se a pessoa a responder depois em Questões.
+  function reportSim(qids, sels) {
+    const items = qids.map((id, i) => [QBYID.get(id), sels[i]]).filter(([h]) => h).map(([{ q }, s]) => {   // questão retirada do banco sai da conta
+      const sel = Number.isInteger(s) ? s : null;
+      return { label: instName(q) + ' - ' + q.year, system: q.system, topic: q.topic, answered: sel !== null, correct: sel === q.ans };
+    });
+    const score = items.filter(x => x.correct).length;
+    const recs = new Map();
+    for (const x of items) if (!x.correct) {
+      const k = x.system + '|' + x.topic;
+      if (!recs.has(k)) recs.set(k, { system: x.system, topic: x.topic, lesson: LESSON_IDS.includes(x.system), n: 0 });
+      recs.get(k).n++;
+    }
+    const inSim = new Set(items.map(x => x.system));
+    const next = score === items.length ? [...new Set((bank ? bank.questions : []).filter(q => q.kind === 'mc' && !inSim.has(q.system)).map(q => q.system))] : [];
+    return { score, total: items.length, items, recs: [...recs.values()].sort((a, b) => b.n - a.n), next };
+  }
+
+  return { QBYID, LESSON_IDS, stats, viewQ, viewBankQ, viewQuizzes, cleanProgress, grade, ptsOf, isBank, pickSim, reportSim };
 }
 
-module.exports = { createCore, PTS, QUIZ_BONUS, LESSON_PTS, LEVEL_STEP, TITLES, MAX_LESSON_SECTIONS, OPEN_SELF, OFFICIAL_PER_QUIZ, INST_NAMES };
+module.exports = { createCore, PTS, QUIZ_BONUS, LESSON_PTS, LEVEL_STEP, TITLES, MAX_LESSON_SECTIONS, OPEN_SELF, OFFICIAL_PER_QUIZ, INST_NAMES, instName, SIM_N, SIM_MAX, SIM_SECONDS };

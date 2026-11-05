@@ -1,4 +1,4 @@
-// Contrato da interface (index.html): a folha de questão mostra só o que o aluno precisa e o fluxo original
+// Contrato da interface (atlas.html): a folha de questão mostra só o que o aluno precisa e o fluxo original
 // (sistema → aula → quiz → progresso) continua inteiro. Lê o template como texto: não abre navegador.
 'use strict';
 const test = require('node:test');
@@ -6,7 +6,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const html = fs.readFileSync(path.join(__dirname, '..', 'public', 'index.html'), 'utf8');
+const html = fs.readFileSync(path.join(__dirname, '..', 'public', 'atlas.html'), 'utf8');
 const sheet = (() => { const a = html.indexOf('<article class="qs"'); return html.slice(a, html.indexOf('</article>', a)); })();
 const bindings = s => [...s.matchAll(/\{\{\s*([^}]+?)\s*\}\}/g)].map(m => m[1]);
 
@@ -42,9 +42,12 @@ test('a trilha original continua: nav, quizzes, 3D e gamificação intactos', ()
   for (const trecho of ['Trilha de estudo', 'Quizzes', 'Questões</button>', 'atlas-3d-v2', 'Concluir aula e ir para a síntese', 'Nível {{ acct.level }}', 'Medalhas', 'Ranking', 'Quiz completo: +20']) assert.ok(html.includes(trecho), trecho);
 });
 
-test('Questões segue sistema → tema → questões, sem barra de filtros', () => {
-  for (const trecho of ['PV.l1', 'PV.l2', 'PV.l3', 'PV.systems', 'PV.topics']) assert.ok(html.includes(trecho), trecho);
+test('Questões: sistema → tema → questões, mais busca com filtros e mini simulado', () => {
+  for (const trecho of ['PV.l1', 'PV.l2', 'PV.l3', 'PV.systems', 'PV.topics', 'role="search"', 'PF.submit', 'PF.onInst', 'PF.onYear', 'PF.onStatus']) assert.ok(html.includes(trecho), trecho);
   assert.ok(!/B\.groups|Filtros do banco/.test(html));
+  // simulado: tempo, entrega e relatório; durante a prova a folha não tem confirmar (nada vai para /api/answer)
+  for (const trecho of ['SM.timer', 'role="timer"', 'SM.submit', 'SM.r.recs', 'Continue se desafiando', 'O que estudar agora', "api('PUT','/api/simulados/atual'", 'canConfirm:!!q&&!done&&!smOn']) assert.ok(html.includes(trecho), trecho);
+  assert.match(html, /pick:\(\)=>\{if\(smOn\)\{this\.simPick\(qi,j\);return\}/, 'no simulado a alternativa só marca');
 });
 
 test('estado vazio honesto: nunca inventa contagem', () => {

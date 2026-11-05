@@ -11,7 +11,7 @@ npm install
 npm start
 ```
 
-Abra http://localhost:8765. Para outra porta: `PORT=3000 npm start`.
+Abra http://localhost:8765: a página inicial (`public/index.html`) apresenta o projeto e leva ao app, que fica em `/atlas.html` (`#trilha`, `#quizzes`, `#banco`, `#cadastro` e `#sobre` abrem direto essas telas). Para outra porta: `PORT=3000 npm start`.
 
 ### Desenvolvimento local (Windows, Node 22 e PostgreSQL local)
 
@@ -113,6 +113,8 @@ O teste de ponta a ponta cria e apaga o esquema `atlasvivo_test` e **recusa-se a
 
 | Arquivo | Papel |
 | --- | --- |
+| `public/index.html` | Página inicial: apresenta o projeto com o modelo 3D real (`atlas3d-v2.js` no modo `bare`, sem a sala) e telas capturadas do app (`public/img/landing/`) |
+| `public/atlas.html` | O app (atlas, aulas, trilha, quizzes, questões e conta) |
 | `server.js` | API (`/api/*`) e, no uso local, servidor dos arquivos de `public/` |
 | `core.js` | Regras puras: pontuação, níveis, medalhas, saneamento do progresso, correção das respostas e o que cada questão mostra antes e depois de responder |
 | `bank.js` | Carrega `questions/official/` e recusa qualquer item que não tenha passado pelos três portões (nunca lê `staging/`); consulta paginada com filtros e facetas |

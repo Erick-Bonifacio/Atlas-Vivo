@@ -120,3 +120,32 @@ test('viewQ da trilha continua sem gabarito antes de responder', () => {
   assert.equal(v.ans, undefined);
   assert.equal(core.viewQ(core.QBYID.get('q1').q, row('q1', 2, 1, 10)).key.ans, 2);
 });
+
+test('simulado: sorteio em rodízio entre sistemas, só múltipla escolha, sem repetir', () => {
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const ids = core.pickSim(rnd);
+  const qs = ids.map(id => core.QBYID.get(id).q);
+  assert.equal(ids.length, bank.questions.filter(q => q.kind === 'mc').length, 'fixture tem menos de 10: usa todas');
+  assert.equal(new Set(ids).size, ids.length);
+  assert.ok(qs.every(q => q.kind === 'mc'));
+  const nSys = new Set(qs.map(q => q.system)).size;
+  assert.equal(new Set(qs.slice(0, nSys).map(q => q.system)).size, nSys, 'uma de cada sistema antes de repetir sistema');
+});
+
+test('simulado: relatório agrupa erros e brancos por tema; tudo certo sugere sistemas de fora', () => {
+  const ids = bank.questions.filter(q => q.kind === 'mc').map(q => q.id);
+  const ans = ids.map(id => core.QBYID.get(id).q.ans);
+  const all = core.reportSim(ids, ans);
+  assert.deepEqual([all.score, all.total, all.recs.length], [ids.length, ids.length, 0]);
+  const one = core.reportSim(ids.slice(0, 1), ans.slice(0, 1));
+  const q0 = core.QBYID.get(ids[0]).q;
+  assert.ok(one.next.length > 0 && !one.next.includes(q0.system), 'sugere só sistemas fora do simulado');
+  const r = core.reportSim(ids, ans.map((a, i) => (i === 0 ? null : i === 1 ? a + 1 : a)));
+  assert.equal(r.score, ids.length - 2);
+  assert.deepEqual([r.items[0].answered, r.items[0].correct, r.items[1].answered], [false, false, true]);
+  assert.equal(r.recs.reduce((n, x) => n + x.n, 0), 2);
+  assert.deepEqual(r.next, [], 'com erro, recomenda estudo em vez de desafio');
+  assert.ok(!JSON.stringify(r).includes('"ans"'), 'sem gabarito no relatório');
+  assert.equal(core.reportSim(['nao-existe', ids[0]], [0, ans[0]]).total, 1, 'questão retirada do banco não quebra o relatório');
+});
