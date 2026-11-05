@@ -7,6 +7,10 @@
     {
       "source": "/api/:path*",
       "destination": "/api?__p=:path*"
+    },
+    {
+      "source": "/presentation",
+      "destination": "/presentation.html"
     }
   ],
   "functions": {

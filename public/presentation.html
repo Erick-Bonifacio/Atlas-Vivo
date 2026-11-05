@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas Vivo: apresentação</title>
+<meta name="description" content="Apresentação do Atlas Vivo: problema, fundamentos, plataforma, banco de questões, demonstração ao vivo e próximos passos.">
+<meta name="theme-color" content="#06152B">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="preload" href="/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/f13.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.186.0/+esm" crossorigin>
+<style>
+/* Fontes do próprio app (public/fonts): Bricolage Grotesque, Public Sans e IBM Plex Mono, subconjunto latino */
+@font-face{font-family:'Bricolage Grotesque';font-weight:700 800;font-display:swap;src:url("/fonts/bricolage-grotesque.woff2") format('woff2')}
+@font-face{font-family:'Public Sans';font-weight:400 700;font-display:swap;src:url("/fonts/f13.woff2") format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-display:swap;src:url("/fonts/f05.woff2") format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-display:swap;src:url("/fonts/f10.woff2") format('woff2')}
+
+:root{
+  --mid:#06152B;--blue:#075FEA;--elec:#18A0FF;--lime:#A8F000;--gold:#D6A84F;--white:#F7FAFF;--ink:#071A35;
+  --mute:#4A5B75;--soft:#8C9AB0;--line:rgba(7,26,53,.12);--line-d:rgba(247,250,255,.14);
+  --disp:'Bricolage Grotesque','Public Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  --pad:clamp(20px,5vw,72px);--max:1360px;--ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font:400 17px/1.6 'Public Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--elec);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:99;background:var(--ink);color:#fff;padding:10px 14px;text-decoration:none;font-weight:600}
+.skip:focus{top:12px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.kick{font:600 14px/1.4 'Public Sans',sans-serif;letter-spacing:0}
+.poster{font-family:var(--disp);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.9;margin:0;text-wrap:balance}
+.h2{font-family:var(--disp);font-weight:800;letter-spacing:-.03em;line-height:.98;margin:0;font-size:clamp(2.6rem,6vw,5.4rem)}
+.lead{font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:var(--mute);margin:0;max-width:34ch}
+
+/* botões: um primário, o resto é texto */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 26px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:16px;border-radius:4px;transition:background .2s,transform .2s var(--ease)}
+.btn:hover{background:#0550C7}
+.btn .ar{transition:transform .25s var(--ease)}.btn:hover .ar{transform:translateX(4px)}
+.tlink{font-weight:600;font-size:16px;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding:4px 0;transition:background-size .3s var(--ease)}
+.tlink:hover{background-size:0 1px;background-position:100% 100%}
+
+/* ── navegação ── */
+.nav{position:fixed;inset:0 0 auto;z-index:40;transition:background .3s,box-shadow .3s}
+.nav.dk{color:var(--white)}.nav.dk ul a{color:#A9B8CF}.nav.dk ul a:hover{color:#fff}.nav.dk .go{border-color:var(--white)}.nav.dk .go:hover{background:var(--white);color:var(--ink)}
+.nav.on.dk{background:rgba(6,21,43,.82);box-shadow:0 1px 0 var(--line-d)}
+.nav.on{background:rgba(247,250,255,.86);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:32px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 18px/1 var(--disp);letter-spacing:-.01em}
+.logo img{width:28px;height:28px}
+.nav nav{margin-left:auto}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav ul a{font-size:15px;font-weight:500;color:var(--mute);text-decoration:none;transition:color .2s}
+.nav ul a:hover{color:var(--ink)}
+.nav .go{font-size:15px;font-weight:600;text-decoration:none;padding:9px 16px;border:1px solid var(--ink);border-radius:4px;transition:background .2s,color .2s}
+.nav .go:hover{background:var(--ink);color:#fff}
+
+/* ── hero ── */
+.hero{position:relative;min-height:max(680px,min(100svh,960px));display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);max-width:var(--max);margin:0 auto;padding:96px var(--pad) 40px}
+.hero-txt{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:24px;padding-bottom:24px}
+.hero h1{font-size:clamp(3rem,6.4vw,6.6rem)}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .ln>span{display:block}
+.strike{position:relative;white-space:nowrap}
+.strike::after{content:"";position:absolute;left:-.04em;right:-.02em;top:47%;height:.075em;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease) 1.1s}
+.ready .strike::after{transform:scaleX(1)}
+.sub{font:600 clamp(19px,1.7vw,23px)/1.35 'Public Sans',sans-serif;margin:0;max-width:24ch}
+.hero .lead{max-width:38ch}
+.ctas{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;margin-top:6px}
+.facts{display:flex;gap:28px;margin:8px 0 0;padding:18px 0 0;border-top:1px solid var(--line);color:var(--mute)}
+.facts b{display:block;font:800 26px/1 var(--disp);letter-spacing:-.02em;color:var(--ink);margin-bottom:6px}
+.facts{font-weight:500}
+
+.stage{position:relative;min-height:560px}
+.stage .glow{position:absolute;left:50%;top:50%;width:min(78%,640px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,#DCEBFF,rgba(220,235,255,0) 72%)}
+.stage .ruler{position:absolute;right:4%;top:9%;bottom:7%;width:44px;border-left:1px solid var(--line);color:var(--soft);display:flex;flex-direction:column;justify-content:space-between;padding-left:8px;font:400 11px/1 var(--mono)}
+.stage .ruler span{position:relative}.stage .ruler span::before{content:"";position:absolute;left:-8px;top:50%;width:5px;height:1px;background:var(--line)}
+.v3d{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 1.2s var(--ease)}
+.v3d.lit{opacity:1}
+.v3d.fallback{opacity:1;background:var(--fb) center/contain no-repeat}
+.loading{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);color:var(--soft);transition:opacity .4s}
+.lit~.loading,.fallback~.loading{opacity:0}
+
+/* rótulos científicos ao redor do corpo */
+.tags{position:absolute;inset:0;z-index:3}
+.tag{position:absolute;top:var(--y);display:flex;align-items:center;transform:translateY(-50%);background:none;border:0;padding:8px 0;cursor:pointer;color:var(--ink);font:inherit}
+.tag.r{left:var(--x)}
+.tag.l{right:calc(100% - var(--x));flex-direction:row-reverse}
+.tag .dt{width:9px;height:9px;flex:none;border-radius:50%;background:var(--white);border:2px solid var(--blue);transition:background .2s,box-shadow .3s}
+.tag.r .dt{margin-left:-4.5px}.tag.l .dt{margin-right:-4.5px}
+.tag .ln{width:var(--len);height:1px;background:rgba(7,26,53,.35);transform:scaleX(0);transition:transform .8s var(--ease) var(--d),background .2s}
+.tag.r .ln{transform-origin:left}.tag.l .ln{transform-origin:right}
+.tag .tx{display:flex;flex-direction:column;gap:3px;padding:0 10px;opacity:0;transition:opacity .5s var(--d)}
+.tag.l .tx{text-align:right}
+.tag .tx small{font:400 11px/1 var(--mono);color:var(--soft)}
+.ready .tag .ln{transform:scaleX(1)}.ready .tag .tx{opacity:1}
+.tag:hover .dt,.tag:focus-visible .dt,.tag[aria-pressed="true"] .dt{background:var(--lime);border-color:var(--ink);box-shadow:0 0 0 6px rgba(168,240,0,.25)}
+.tag:hover .ln,.tag[aria-pressed="true"] .ln{background:var(--ink)}
+
+/* entrada do hero */
+.hero [data-in]{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.hero h1 .ln>span{transform:translateY(105%);transition:transform 1s var(--ease);transition-delay:var(--d,0s)}
+.ready .hero [data-in]{opacity:1;transform:none}
+.ready .hero h1 .ln>span{transform:none}
+
+/* revelação ao rolar */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+/* ── 2. conceito ── */
+.concept{padding:clamp(96px,14vw,200px) 0 clamp(80px,10vw,150px)}
+.concept-head{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:40px;align-items:end}
+.concept h2{font-size:clamp(2.8rem,6.6vw,6.6rem)}
+.concept .lead{max-width:32ch;padding-bottom:10px}
+.rel{margin-top:clamp(56px,8vw,110px);position:relative}
+.rel svg{width:100%;height:auto;overflow:visible}
+.rel .edge{fill:none;stroke:var(--ink);stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s var(--ease);transition-delay:var(--d,0s)}
+.rel.in .edge{stroke-dashoffset:0}
+.rel .el{font:400 15px 'Public Sans',sans-serif;fill:var(--mute);opacity:0;transition:opacity .8s;transition-delay:calc(var(--d,0s) + .8s)}
+.rel.in .el{opacity:1}
+.rel .nd text{font:800 38px var(--disp);letter-spacing:-.02em;fill:var(--ink)}
+.rel .nd .k{font:600 15px 'Public Sans',sans-serif;fill:var(--soft)}
+.rel-list{display:none;list-style:none;margin:48px 0 0;padding:0}
+.rel-list li{display:grid;grid-template-columns:1fr;gap:4px;padding:18px 0;border-top:1px solid var(--line)}
+.rel-list b{font:800 22px/1.15 var(--disp);letter-spacing:-.01em}
+.rel-list b i{font-style:normal;color:var(--blue);padding:0 .25em}
+.rel-list span{font-size:15px;color:var(--mute)}
+
+/* ── 3. exploração 3D (escura) ── */
+.dark{background:var(--mid);color:var(--white)}
+.explore{position:relative}
+.explore-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.explore-intro{grid-column:1;grid-row:1;padding:clamp(110px,14vw,180px) 0 10vh}
+.explore-intro .lead{color:#A9B8CF;margin-top:24px}
+.explore h2{font-size:clamp(3rem,7vw,6.8rem)}
+.steps{grid-column:1;grid-row:2;list-style:none;margin:0;padding:0 0 30vh}
+.step{min-height:70vh;display:flex;flex-direction:column;justify-content:center;gap:14px;max-width:420px;opacity:.28;transition:opacity .5s}
+.step.on{opacity:1}
+.step .kick{color:#7F93B2;display:flex;align-items:center;gap:10px}
+.step .kick::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c,#7F93B2)}
+.step h3{font:800 clamp(2rem,3.4vw,3rem)/1 var(--disp);letter-spacing:-.025em;margin:0}
+.step p{margin:0;color:#B8C5D9;max-width:36ch}
+.step .tlink{color:var(--white);align-self:flex-start;margin-top:10px}
+.pin{position:sticky;top:0;align-self:start;height:100svh;grid-column:2;grid-row:1 / span 2}
+.pin .v3d{inset:64px 0 0}
+.pin .glow{position:absolute;left:50%;top:54%;width:min(80%,700px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(24,160,255,.16),rgba(24,160,255,0) 70%)}
+.pin .hud{position:absolute;left:0;bottom:32px;display:flex;gap:18px;align-items:baseline;color:#7F93B2}
+.pin .hud b{font:800 22px/1 var(--disp);color:var(--white);letter-spacing:-.01em}
+.pin .loading{color:#7F93B2}
+.pin .ruler{position:absolute;right:0;top:18%;bottom:12%;border-left:1px solid var(--line-d)}
+
+/* ── 4. aprender ── */
+.learn{padding:clamp(110px,14vw,190px) 0 clamp(90px,11vw,160px)}
+.learn h2{font-size:clamp(2.8rem,6.4vw,6rem);max-width:12ch}
+.learn-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:end}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(56px,7vw,90px) 0 28px;padding:0;list-style:none}
+.flow button{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:18px 18px 4px 0;background:none;border:0;border-top:2px solid var(--line);text-align:left;cursor:pointer;color:var(--soft);font:inherit;position:relative;transition:color .25s}
+.flow button::before{content:"";position:absolute;left:0;right:0;top:-2px;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.flow button[aria-selected="true"]{color:var(--ink)}
+.flow button[aria-selected="true"]::before{transform:scaleX(1)}
+.flow button:hover{color:var(--ink)}
+.flow b{font:800 clamp(22px,2.4vw,32px)/1 var(--disp);letter-spacing:-.02em}
+.flow b::after{content:" →";color:var(--soft);font-weight:700}
+.flow li:last-child b::after{content:""}
+.shots{position:relative;display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:clamp(20px,3vw,44px);align-items:end}
+.frame{position:relative;margin:0;background:#fff;box-shadow:0 1px 0 var(--line),0 30px 80px -30px rgba(7,26,53,.35);border-radius:6px;overflow:hidden;aspect-ratio:16/10}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .6s var(--ease)}
+.frame img.on{opacity:1}
+.cap{padding-bottom:12px}
+.cap p{margin:0}
+.cap .kick{color:var(--blue);margin-bottom:14px}
+.cap h3{font:800 clamp(1.6rem,2.4vw,2.2rem)/1.05 var(--disp);letter-spacing:-.02em;margin:0 0 14px}
+.cap p.t{color:var(--mute)}
+
+/* ── 5. gamificação ── */
+.game{background:linear-gradient(180deg,#06152B 0%,#0A2550 100%);padding:clamp(110px,13vw,180px) 0;overflow:hidden}
+.game-in{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center}
+.game .poster{font-size:clamp(3.6rem,9vw,8.8rem)}
+.game .poster span{display:block}
+.game .poster span:last-child{color:var(--elec)}
+.plate{border-top:1px solid var(--line-d);padding-top:28px}
+.xp{display:flex;align-items:baseline;gap:14px}
+.xp b{font:800 clamp(5rem,10vw,9rem)/.85 var(--disp);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.xp span{font:700 clamp(20px,2vw,28px)/1 var(--disp);color:var(--gold);letter-spacing:.02em}
+.lvl{display:flex;justify-content:space-between;gap:16px;margin:26px 0 10px;color:#A9B8CF}
+.lvl strong{color:var(--white);font-weight:600}
+.bar{height:3px;background:var(--line-d)}
+.bar i{display:block;height:100%;width:0;background:var(--lime);transition:width 1.6s var(--ease) .4s}
+.plate.in .bar i{width:var(--w)}
+.medals{list-style:none;margin:40px 0 0;padding:0}
+.medals li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center;padding:16px 0;border-top:1px solid var(--line-d)}
+.medal{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;color:var(--gold)}
+.medal svg{width:18px;height:18px}
+.medals b{font-weight:600;display:block}
+.medals small{color:#8FA2C0;font-size:14px}
+.medals .kick{color:var(--gold);font-size:11px}
+.rules{margin:26px 0 0;color:#8FA2C0;font-size:14px}
+
+/* ── 6. trilha ── */
+.trail{padding:clamp(110px,14vw,190px) 0 clamp(80px,9vw,120px)}
+.trail-in{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,7vw,120px);align-items:start}
+.trail h2{font-size:clamp(2.8rem,6vw,5.6rem);max-width:10ch}
+.trail .lead{margin-top:28px}
+.trail .tlink{display:inline-block;margin-top:32px}
+.path{list-style:none;margin:0;padding:0;position:relative}
+.path .ttl{font:800 30px/1.1 var(--disp);letter-spacing:-.02em;margin:0 0 30px}
+.path .ttl small{display:block;color:var(--blue);margin-bottom:10px}
+.path ol{list-style:none;margin:0;padding:0;position:relative}
+.path ol::before{content:"";position:absolute;left:15px;top:16px;bottom:16px;width:1px;background:var(--line)}
+.path ol::after{content:"";position:absolute;left:15px;top:16px;width:1px;height:0;background:var(--blue);transition:height 1.8s var(--ease) .3s}
+.path.in ol::after{height:calc(var(--fill) - 16px)}
+.path li{position:relative;display:flex;align-items:center;gap:22px;padding:15px 0}
+.path .pt{position:relative;z-index:1;width:31px;height:31px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--white);border:1.5px solid #B9C5D6;color:var(--soft)}
+.path .pt svg{width:15px;height:15px}
+.path .done .pt{background:var(--blue);border-color:var(--blue);color:#fff}
+.path .now .pt{border-color:var(--ink);background:var(--lime);color:var(--ink)}
+.path li span{font-size:19px;font-weight:600}
+.path .todo span{color:var(--soft);font-weight:500}
+.path .now span::after{content:"você está aqui";margin-left:14px;font:600 13px 'Public Sans',sans-serif;color:var(--blue)}
+
+/* ── 7. questão ── */
+.quiz{padding:0 0 clamp(110px,14vw,190px)}
+.quiz-in{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(40px,6vw,100px);align-items:start;border-top:1px solid var(--line);padding-top:clamp(80px,10vw,140px)}
+.quiz h2{font-size:clamp(2.6rem,5vw,4.6rem)}
+.quiz .lead{margin-top:24px}
+.sheet{background:#fff;border-radius:6px;box-shadow:0 1px 0 var(--line),0 30px 80px -40px rgba(7,26,53,.3);padding:clamp(24px,4vw,52px);position:relative}
+.sheet-h{display:flex;justify-content:space-between;gap:12px;color:var(--soft);margin-bottom:22px}
+.sheet .stem{font-size:clamp(19px,1.7vw,22px);line-height:1.45;font-weight:600;margin:0 0 26px;max-width:40ch}
+.alts{border:0;margin:0;padding:0}
+.alt{display:grid;grid-template-columns:34px 1fr;gap:16px;align-items:start;padding:12px 14px;margin:0 -14px;border-radius:4px;cursor:pointer;transition:background .15s}
+.alt:hover{background:#F0F5FD}
+.alt input{position:absolute;opacity:0;width:1px;height:1px}
+.alt .r{width:32px;height:32px;border-radius:50%;border:1.5px solid #B9C5D6;display:grid;place-items:center;font:500 13px var(--mono);color:var(--mute);transition:all .2s}
+.alt input:focus-visible+.r{outline:2px solid var(--elec);outline-offset:3px}
+.alt .tx{padding-top:4px}
+.alt .why{display:none;font-size:14.5px;color:var(--mute);margin-top:4px}
+.lock .alt{cursor:default}.lock .alt:hover{background:transparent}
+.lock .why{display:block}
+.alt.ok{background:#EEF8DA!important}.alt.ok .r{background:var(--ink);border-color:var(--ink);color:var(--lime)}
+.alt.bad{background:#FCEDEC!important}.alt.bad .r{background:#B3372F;border-color:#B3372F;color:#fff}
+.fb{display:none;margin-top:26px;padding-top:24px;border-top:1px solid var(--line)}
+.lock .fb{display:block;animation:fbin .6s var(--ease)}
+@keyframes fbin{from{opacity:0;transform:translateY(8px)}}
+.fb-h{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.fb-h strong{font:800 24px/1 var(--disp);letter-spacing:-.01em}
+.gain{font:700 14px/1 var(--mono);color:var(--ink);background:linear-gradient(180deg,#F1D79C,var(--gold));padding:7px 10px;border-radius:3px;animation:gain 1s var(--ease)}
+@keyframes gain{0%{opacity:0;transform:translateY(10px)}60%{opacity:1;transform:translateY(-3px)}100%{transform:none}}
+.fb p{margin:12px 0 0;color:var(--mute);max-width:56ch}
+.fb .row{display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.again{background:none;border:0;padding:4px 0;cursor:pointer;color:var(--blue);font:600 15px 'Public Sans',sans-serif}
+
+/* ── final ── */
+.final{padding:clamp(130px,16vw,220px) 0 0;position:relative;overflow:hidden}
+.final .poster{font-size:clamp(3rem,8.6vw,9rem);max-width:13ch}
+.final .poster em{font-style:normal;color:var(--elec)}
+.final-cta{display:flex;flex-wrap:wrap;gap:20px 36px;align-items:center;margin-top:clamp(40px,5vw,64px)}
+.final-cta p{margin:0;color:#A9B8CF}
+.foot{margin-top:clamp(110px,14vw,180px);border-top:1px solid var(--line-d);padding:28px 0 36px;display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;color:#7F93B2;font-size:14px}
+.foot a{color:#B8C5D9;text-decoration:none}.foot a:hover{color:#fff}
+.foot nav{display:flex;gap:24px;flex-wrap:wrap}
+.foot .logo{color:var(--white);font-size:16px}
+
+/* ── responsivo: reestrutura, não só encolhe ── */
+@media (max-width:1100px){
+  .nav ul{display:none}
+  .nav .go{margin-left:auto}
+}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:104px;min-height:0;gap:8px}
+  .hero-txt{padding-bottom:0}
+  .stage{min-height:0;height:min(78svh,620px);margin:0 calc(var(--pad) * -1)}
+  .stage .ruler{display:none}
+  .tag{--len:28px!important}
+  .tag .tx small{display:none}
+  .concept-head,.learn-top,.trail-in,.quiz-in,.game-in{grid-template-columns:1fr}
+  .rel svg{display:none}.rel-list{display:block}
+  .explore-in{grid-template-columns:1fr}
+  .explore-intro{grid-column:1;grid-row:1;padding:clamp(96px,20vw,130px) 0 24px}
+  .pin{grid-column:1;grid-row:2;height:56svh;top:64px;z-index:0}
+  .pin .v3d{inset:0}
+  .pin .hud{display:none}
+  .steps{grid-row:3;position:relative;z-index:1;padding-bottom:12svh}
+  /* o modelo fica preso no topo; o texto de cada passo sobe por baixo dele, com fundo só atrás das palavras */
+  .step{min-height:0;max-width:none;justify-content:flex-end;padding:46svh 0 10svh;opacity:1;background:linear-gradient(180deg,rgba(6,21,43,0),var(--mid) 56px) bottom/100% calc(100% - 42svh) no-repeat}
+  .step:first-child{padding-top:8svh;background-size:100% 100%}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:12px}
+  .flow b::after{content:""}
+  .shots{grid-template-columns:1fr}
+  .medals li{grid-template-columns:44px 1fr}
+  .medals .kick{display:none}
+}
+@media (max-width:520px){
+  .hero h1{font-size:clamp(2.6rem,12.5vw,3.6rem)}
+  .facts{gap:20px}
+  .facts b{font-size:22px}
+  .ctas .btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;transition-delay:0s!important;animation:none!important}
+}
+
+/* ── apresentação: o que a landing não tinha ── */
+html{scroll-padding-top:64px}
+.pg{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--lime);transform:scaleX(var(--p,0));transform-origin:left;pointer-events:none}
+.facts{flex-wrap:wrap;gap:16px 26px}
+.who{margin:0;font-size:15px;color:var(--mute)}
+.who b{color:var(--ink);font-weight:600}
+
+/* problema: números no tamanho do pôster, sem caixas */
+.problem{padding:clamp(96px,13vw,180px) 0 clamp(40px,5vw,70px)}
+.problem h2{font-size:clamp(2.8rem,6.6vw,6.6rem);max-width:15ch}
+.evi{list-style:none;margin:clamp(56px,7vw,96px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,64px)}
+.evi li{border-top:2px solid var(--ink);padding-top:20px;min-width:0}
+.evi b{display:block;font:800 clamp(4rem,8.4vw,8rem)/.92 var(--disp);letter-spacing:-.045em}
+.evi b small{font:700 clamp(1.2rem,2vw,1.8rem)/1 var(--disp);letter-spacing:-.01em;color:var(--mute);margin-left:.2em}
+.evi p{margin:16px 0 0;color:var(--mute);max-width:32ch}
+/* --soft da landing dá 2,7:1 no fundo claro; aqui vira texto de leitura, então precisa de 4,5:1 */
+:root{--soft:#627189}
+.dark{--soft:#8C9AB0}
+.src{display:block;margin-top:10px;font-size:14px;color:var(--soft)}
+.dark .src{color:#7F93B2}
+.also{margin:clamp(40px,5vw,64px) 0 0;padding-top:24px;border-top:1px solid var(--line);font:600 clamp(19px,1.9vw,25px)/1.35 'Public Sans',sans-serif;max-width:46ch}
+.also .src{font-weight:400}
+.concept{padding-top:clamp(70px,9vw,120px)}
+
+/* por que o Atlas Vivo: o único momento azul da página */
+.others.dark{background:var(--blue);--line-d:rgba(247,250,255,.28);padding:clamp(110px,13vw,180px) 0}
+.others .poster{font-size:clamp(2.6rem,8.2vw,8.4rem)}
+.others .poster span{display:block}
+.others .lead{color:#E4EDFF;max-width:56ch;margin-top:clamp(24px,3vw,36px)}
+.perks{list-style:none;margin:clamp(64px,8vw,110px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(36px,4vw,56px) clamp(28px,4vw,64px)}
+.perks li{border-top:2px solid var(--white);padding-top:16px;color:#E4EDFF;min-width:0}
+.perks b{display:block;font:800 clamp(1.5rem,2.3vw,2.1rem)/1.05 var(--disp);letter-spacing:-.02em;color:var(--white);margin-bottom:12px}
+.tb{overflow-x:auto;margin-top:clamp(64px,8vw,110px)}
+.tb:focus-visible{outline-offset:6px}
+.tb table{width:100%;min-width:760px;border-collapse:collapse;font-size:16px;line-height:1.3}
+.tb th,.tb td{text-align:left;vertical-align:middle;padding:15px 14px;border-top:1px solid var(--line-d);color:#E4EDFF;font-weight:400}
+.tb thead th{border-top:0;font-size:14px;font-weight:600;color:var(--white);vertical-align:bottom}
+.tb tbody th{color:var(--white);font-weight:600}
+.tb td::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:9px;border:1.5px solid currentColor;vertical-align:-1px}
+.tb td.y::before{background:currentColor}
+.tb td.p::before{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.tb td.n::before{opacity:.65}
+.tb tr.us th,.tb tr.us td{color:var(--mid);background:var(--lime);border-top:0;font-weight:600}
+.tb tr.us th{font:800 19px/1.2 var(--disp)}
+.src-t{margin:14px 0 0;font-size:14px;color:#E4EDFF;max-width:90ch}
+
+/* base teórica: benefício em primeiro plano, autor em segundo */
+.base{padding:clamp(110px,14vw,190px) 0 clamp(90px,11vw,160px)}
+.base h2{font-size:clamp(2.8rem,6.6vw,6.6rem);max-width:13ch}
+.base .lead{color:#A9B8CF}
+.base .flow{grid-template-columns:repeat(5,minmax(0,1fr))}
+.base .flow button{border-top-color:var(--line-d);color:#8C9AB0}
+.base .flow button::before{background:var(--lime)}
+.base .flow button[aria-selected="true"],.base .flow button:hover{color:var(--white)}
+.flow.plain b{font-size:clamp(19px,1.8vw,25px);line-height:1.08}
+.flow.plain b::after{content:""}
+.tp{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(36px,6vw,96px);min-height:340px;padding-top:18px}
+.tp[hidden]{display:none}
+.tp h3{font:600 14px/1.4 'Public Sans',sans-serif;color:var(--lime);margin:0 0 14px}
+.tp p{margin:0 0 12px;color:#B8C5D9;max-width:52ch}
+.tp .say{font:800 clamp(2.2rem,4.2vw,4rem)/1 var(--disp);letter-spacing:-.03em;color:var(--white);margin-bottom:22px;max-width:17ch;text-wrap:balance}
+.tp ul{list-style:none;margin:0;padding:0}
+.tp li{padding:12px 0;border-top:1px solid var(--line-d);font-weight:500;color:var(--white)}
+.tp li:last-child{border-bottom:1px solid var(--line-d)}
+
+/* exploração: mesmo pino da landing, com mais passos */
+.explore-intro .lead{max-width:40ch}
+/* a ampliação tem fundo próprio: as bordas somem no fundo da seção */
+.pin.micro .v3d{-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(180deg,transparent,#000 10%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(180deg,transparent,#000 10%,#000 86%,transparent);mask-composite:intersect}
+
+/* aprender: cinco telas */
+.learn .flow{grid-template-columns:repeat(5,minmax(0,1fr))}
+.frame img.fit{object-fit:contain;object-position:center;background:#EEF3FA}
+
+/* trilha com as 11 etapas */
+.trail-side{position:sticky;top:96px}
+.path .t{margin-left:auto;font:400 13px/1 var(--mono);color:var(--soft);white-space:nowrap}
+.path li{padding:11px 0;gap:18px}
+.path li span.n{font-size:18px}
+.path .pt{font:500 13px/1 var(--mono);color:#fff;background:var(--blue);border-color:var(--blue)}
+.path .last .pt{background:var(--lime);border-color:var(--ink);color:var(--ink)}
+.path.full.in ol::after{height:calc(100% - 32px)}
+
+/* gamificação */
+.game .lead{color:#A9B8CF;max-width:40ch;margin-top:32px}
+.game .lead b{color:var(--white);font-weight:600}
+.pts{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+.pts li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line-d);font-size:15px;color:#B8C5D9}
+.pts b{color:var(--white);font-weight:600;white-space:nowrap}
+
+/* banco */
+.bank{padding:clamp(110px,14vw,190px) 0 clamp(90px,11vw,150px)}
+.bank h2{font-size:clamp(2.8rem,6.6vw,6.6rem);max-width:12ch}
+.bank-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:end}
+.pipe{list-style:none;margin:clamp(56px,7vw,90px) 0 0;padding:0;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));position:relative}
+.pipe::before{content:"";position:absolute;left:0;right:0;top:15px;height:1px;background:var(--line)}
+.pipe::after{content:"";position:absolute;left:0;right:0;top:15px;height:1px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform 1.8s var(--ease) .3s}
+.pipe.in::after{transform:scaleX(1)}
+.pipe li{position:relative;padding-right:10px;font-size:15px;font-weight:600;line-height:1.25;min-width:0}
+.pipe i{position:relative;z-index:1;display:grid;place-items:center;width:31px;height:31px;border-radius:50%;background:var(--blue);color:#fff;font:500 13px/1 var(--mono);margin-bottom:12px}
+.pipe small{display:block;margin-top:6px;font-size:13px;font-weight:600;color:#8A6A1F}
+.numbers{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);margin-top:clamp(64px,8vw,110px);align-items:start}
+.numbers h3{font:800 clamp(1.5rem,2.2vw,2rem)/1.05 var(--disp);letter-spacing:-.02em;margin:0 0 20px}
+.bars{list-style:none;margin:0;padding:0}
+.bars li{display:grid;grid-template-columns:minmax(0,172px) minmax(0,1fr) 30px;gap:12px;align-items:center;padding:7px 0;font-size:15px;font-weight:500}
+.bars span{display:flex;align-items:center;gap:9px;min-width:0}
+.bars span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c,var(--soft));flex:none}
+.bars i{display:block;height:6px;background:var(--blue);border-radius:0 3px 3px 0;width:0;transition:width 1.4s var(--ease) .2s}
+.bars.in i{width:calc(var(--v)/16*100%)}
+.bars b{font:500 14px/1 var(--mono);text-align:right}
+.funnel{list-style:none;margin:0;padding:0}
+.funnel li{padding:12px 0;border-top:1px solid var(--line)}
+.funnel b{font:800 clamp(2.2rem,3.6vw,3.4rem)/1 var(--disp);letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-right:12px}
+.funnel span{color:var(--mute)}
+.funnel i{display:block;height:6px;margin-top:10px;background:var(--blue);border-radius:0 3px 3px 0;width:0;transition:width 1.4s var(--ease) .2s}
+.funnel.in i{width:calc(var(--v)/1035*100%);min-width:6px}
+.split{display:flex;gap:2px;height:26px;margin-top:6px}
+.split i{display:block;flex:var(--v);background:var(--c)}
+.split-k{list-style:none;display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 0;padding:0;font-size:15px}
+.split-k li{display:flex;align-items:center;gap:8px}
+.split-k li::before{content:"";width:10px;height:10px;background:var(--c)}
+.split-k b{font-weight:600}
+.diffi{margin-top:32px}
+
+/* ao vivo */
+.live{background:linear-gradient(180deg,#06152B 0%,#0A2550 100%);padding:clamp(110px,14vw,190px) 0}
+.live-in{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:start}
+.live .poster{font-size:clamp(3.6rem,9.4vw,9.4rem)}
+.live .lead{color:#A9B8CF;margin:28px 0 36px;max-width:36ch}
+.live-side{position:sticky;top:96px}
+.route{list-style:none;margin:0;padding:0;counter-reset:r}
+.route li{counter-increment:r}
+.route a,.route div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:6px 12px;align-items:baseline;padding:17px 0;border-top:1px solid var(--line-d);text-decoration:none;color:var(--white)}
+.route li:last-child a,.route li:last-child div{border-bottom:1px solid var(--line-d)}
+.route a:hover b{color:var(--lime)}
+.route a::before,.route div::before{content:counter(r);font:500 14px/1.4 var(--mono);color:var(--lime)}
+.route b{font:800 clamp(1.3rem,2vw,1.8rem)/1.08 var(--disp);letter-spacing:-.02em;transition:color .2s}
+.route small{grid-column:2;font-size:15px;color:#A9B8CF}
+
+/* fim */
+.names{margin:0;color:#A9B8CF}
+.names b{color:var(--white);font-weight:600}
+.refs{margin-top:clamp(64px,8vw,100px);border-top:1px solid var(--line-d);padding-top:18px}
+.refs summary{cursor:pointer;font-weight:600;color:var(--white);padding:6px 0}
+.refs ol{list-style:none;margin:18px 0 0;padding:0;columns:2;column-gap:48px;font-size:14px;line-height:1.5;color:#A9B8CF}
+.refs li{break-inside:avoid;margin-bottom:10px;overflow-wrap:anywhere}
+.final .foot{margin-top:clamp(48px,6vw,80px)}
+kbd{font:500 12px/1 var(--mono);border:1px solid var(--line-d);padding:2px 5px;border-radius:3px;color:#B8C5D9}
+
+@media (max-width:1100px){.pipe{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:24px}.pipe::before,.pipe::after{display:none}}
+@media (max-width:900px){
+  .evi,.perks,.bank-top,.numbers,.live-in{grid-template-columns:minmax(0,1fr)}
+  .tp{grid-template-columns:minmax(0,1fr);min-height:0}
+  .base .flow,.learn .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trail-side,.live-side{position:static}
+  .pts{grid-template-columns:minmax(0,1fr)}
+  .refs ol{columns:1}
+}
+@media (max-width:520px){
+  .bars li{grid-template-columns:minmax(0,132px) minmax(0,1fr) 26px}
+  .path li span.n{font-size:16px}
+  .route a,.route div{grid-template-columns:32px minmax(0,1fr)}
+}
+</style>
+<noscript><style>.rv{opacity:1;transform:none}.hero [data-in]{opacity:1;transform:none}.hero h1 .ln>span{transform:none}.tp[hidden]{display:grid!important}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#problema">Pular para o conteúdo</a>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Atlas Vivo, início da apresentação"><img src="/img/logo.png" alt="" width="28" height="28">Atlas Vivo</a>
+    <nav aria-label="Seções da apresentação">
+      <ul>
+        <li><a href="#problema">Problema</a></li>
+        <li><a href="#base">Base</a></li>
+        <li><a href="#banco">Banco</a></li>
+        <li><a href="#correlatos">Plataforma</a></li>
+        <li><a href="#ao-vivo">Ao vivo</a></li>
+      </ul>
+    </nav>
+    <a class="go" href="/atlas.html" target="_blank" rel="noopener">Abrir o Atlas</a>
+  </div>
+  <div class="pg" id="pg" aria-hidden="true"></div>
+</header>
+
+<main id="conteudo">
+
+<!-- 1. ABERTURA -->
+<section class="hero" id="inicio" data-stop aria-labelledby="h-hero">
+  <div class="hero-txt">
+    <p class="kick" data-in style="--d:.05s;color:var(--blue);margin:0">Apresentação do projeto, Computação Aplicada à Educação</p>
+    <h1 class="poster" id="h-hero">
+      <span class="ln"><span style="--d:.1s">Anatomia</span></span>
+      <span class="ln"><span style="--d:.18s">não é para</span></span>
+      <span class="ln"><span style="--d:.26s"><span class="strike">decorar.</span></span></span>
+    </h1>
+    <p class="lead" data-in style="--d:.55s">O Atlas Vivo é um sistema web gratuito, em português, de apoio ao estudo de anatomia e fisiologia humanas no Ensino Médio.</p>
+    <p class="who" data-in style="--d:.6s"><b>Erick de Alvarenga Bonifácio</b> e <b>Augusto Juiz Ribeiro</b>, Universidade Federal de Itajubá</p>
+    <div class="ctas" data-in style="--d:.65s">
+      <a class="btn" href="#problema">Começar a apresentação <span class="ar" aria-hidden="true">→</span></a>
+      <a class="tlink" href="#ao-vivo">Ir para a demonstração</a>
+    </div>
+    <dl class="facts kick" data-in style="--d:.8s">
+      <div><dt class="sr">Estruturas no modelo</dt><dd style="margin:0"><b>931</b>estruturas</dd></div>
+      <div><dt class="sr">Sistemas</dt><dd style="margin:0"><b>11</b>sistemas</dd></div>
+      <div><dt class="sr">Aulas</dt><dd style="margin:0"><b>13</b>aulas</dd></div>
+      <div><dt class="sr">Questões autorais</dt><dd style="margin:0"><b>52</b>autorais</dd></div>
+      <div><dt class="sr">Questões de vestibular</dt><dd style="margin:0"><b>127</b>de vestibular</dd></div>
+    </dl>
+  </div>
+
+  <div class="stage" id="hero-stage" data-cam="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="ruler kick" aria-hidden="true"><span>1,80</span><span>1,35</span><span>0,90</span><span>0,45</span><span>0,00</span></div>
+    <div class="v3d" aria-hidden="true"></div>
+    <p class="loading kick" aria-hidden="true">Carregando modelo 3D</p>
+    <div class="tags" role="group" aria-label="Destacar um sistema no modelo">
+      <button class="tag r" type="button" data-sys="nervoso" aria-pressed="false" style="--x:53%;--y:15%;--len:120px;--d:1.2s"><i class="dt"></i><i class="ln"></i><span class="tx kick">Sistema nervoso<small data-count="nervoso">encéfalo e nervos</small></span></button>
+      <button class="tag l" type="button" data-sys="respiratorio" aria-pressed="false" style="--x:47%;--y:30%;--len:140px;--d:1.35s"><i class="dt"></i><i class="ln"></i><span class="tx kick">Respiratório<small data-count="respiratorio">vias aéreas e pulmões</small></span></button>
+      <button class="tag r" type="button" data-sys="cardiovascular" aria-pressed="false" style="--x:51%;--y:33%;--len:150px;--d:1.5s"><i class="dt"></i><i class="ln"></i><span class="tx kick">Cardiovascular<small data-count="cardiovascular">coração e vasos</small></span></button>
+      <button class="tag l" type="button" data-sys="digestorio" aria-pressed="false" style="--x:49%;--y:44%;--len:110px;--d:1.65s"><i class="dt"></i><i class="ln"></i><span class="tx kick">Digestório<small data-count="digestorio">tubo e glândulas</small></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PROBLEMA -->
+<section class="problem" id="problema" data-stop aria-labelledby="h-problema">
+  <div class="wrap">
+    <h2 class="poster rv" id="h-problema">O estudante decora as peças e perde o sistema.</h2>
+    <ul class="evi">
+      <li class="rv"><b>120</b><p>estudantes do 10º ano, em oito escolas. A maioria ficou no nível mais elementar de pensamento sistêmico: identificava componentes isolados.</p><span class="src">Assaraf, Dodick e Tripto (2013)</span></li>
+      <li class="rv" style="--d:.1s"><b>403<small>contra 485</small></b><p>pontos em ciências no PISA 2022: a média do Brasil contra a da OCDE.</p><span class="src">OECD (2023)</span></li>
+      <li class="rv" style="--d:.2s"><b>55%</b><p>dos estudantes brasileiros ficaram abaixo do nível 2 de proficiência em ciências.</p><span class="src">OECD (2023)</span></li>
+    </ul>
+    <p class="also rv">No Brasil, o ensino de fisiologia humana no Ensino Médio tem enfatizado as estruturas em detrimento dos mecanismos, o que fragmenta a aprendizagem e favorece a memorização.<span class="src">Guimarães, Moreira e Amantes (2024)</span></p>
+  </div>
+</section>
+
+<!-- 3. OBJETIVO -->
+<section class="concept" id="objetivo" data-stop aria-labelledby="h-conceito">
+  <div class="wrap">
+    <div class="concept-head">
+      <h2 class="poster rv" id="h-conceito">Seu corpo não é uma coleção de peças.</h2>
+      <p class="lead rv" style="--d:.15s"><strong style="color:var(--ink)">Nosso objetivo:</strong> apoiar estudantes do Ensino Médio no estudo dos sistemas do corpo humano, sozinhos ou com o professor em sala de aula.</p>
+    </div>
+
+    <figure class="rel rv" style="margin-left:0;margin-right:0" aria-labelledby="rel-cap">
+      <figcaption id="rel-cap" class="sr">Relações entre os sistemas respiratório, cardiovascular, nervoso e digestório.</figcaption>
+      <svg viewBox="0 0 1200 560" aria-hidden="true">
+        <path class="edge" pathLength="1" style="--d:.1s" d="M168 420 H 584"/>
+        <path class="edge" pathLength="1" style="--d:.25s" d="M616 420 H 1032"/>
+        <path class="edge" pathLength="1" style="--d:.5s" d="M600 116 V 404"/>
+        <path class="edge" pathLength="1" style="--d:.7s" d="M590 108 C 380 130, 170 220, 152 404"/>
+        <path class="edge" pathLength="1" style="--d:.9s" d="M610 108 C 820 130, 1030 220, 1048 404"/>
+        <text class="el" style="--d:.1s" x="376" y="404" text-anchor="middle">O₂ entra no sangue nos alvéolos</text>
+        <text class="el" style="--d:.25s" x="824" y="404" text-anchor="middle">nutrientes absorvidos no intestino</text>
+        <text class="el" style="--d:.5s" x="616" y="250">o encéfalo depende de O₂ e glicose</text>
+        <text class="el" style="--d:.7s" x="270" y="200" text-anchor="end">o bulbo controla a ventilação</text>
+        <text class="el" style="--d:.9s" x="930" y="200">nervos controlam a digestão</text>
+        <g class="nd"><circle cx="600" cy="100" r="8" fill="#E3B864"/><text x="600" y="66" text-anchor="middle">Nervoso</text></g>
+        <g class="nd"><circle cx="152" cy="420" r="8" fill="#E5A8B4"/><text x="152" y="482" text-anchor="middle">Respiratório</text></g>
+        <g class="nd"><circle cx="600" cy="420" r="10" fill="#C7404D"/><text x="600" y="482" text-anchor="middle">Cardiovascular</text><text class="k" x="600" y="512" text-anchor="middle">centro do transporte</text></g>
+        <g class="nd"><circle cx="1048" cy="420" r="8" fill="#D99A80"/><text x="1048" y="482" text-anchor="middle">Digestório</text></g>
+      </svg>
+      <ul class="rel-list">
+        <li><b>Respiratório<i>→</i>Cardiovascular</b><span>O₂ entra no sangue nos alvéolos.</span></li>
+        <li><b>Digestório<i>→</i>Cardiovascular</b><span>Nutrientes absorvidos no intestino seguem pelo sangue.</span></li>
+        <li><b>Nervoso<i>→</i>Respiratório</b><span>O bulbo controla o ritmo da ventilação.</span></li>
+        <li><b>Cardiovascular<i>→</i>Nervoso</b><span>O encéfalo depende de O₂ e glicose trazidos pelo sangue.</span></li>
+        <li><b>Nervoso<i>→</i>Digestório</b><span>Nervos controlam os movimentos e as secreções da digestão.</span></li>
+      </ul>
+    </figure>
+  </div>
+</section>
+
+<!-- BASE TEÓRICA: o que cada frente de pesquisa vira para quem estuda -->
+<section class="base dark" id="base" data-stop aria-labelledby="h-base">
+  <div class="wrap">
+    <div class="learn-top">
+      <h2 class="poster rv" id="h-base">A teoria por trás da tela.</h2>
+      <p class="lead rv" style="--d:.15s">Cada recurso nasceu do que a pesquisa em educação aponta. O que isso vira para quem estuda:</p>
+    </div>
+    <ol class="flow plain rv" role="tablist" aria-label="O que a pesquisa traz para o estudante" data-tabs>
+      <li role="presentation"><button role="tab" id="b0" aria-controls="p0" aria-selected="true"><b>Entende o sistema</b></button></li>
+      <li role="presentation"><button role="tab" id="b1" aria-controls="p1" aria-selected="false" tabindex="-1"><b>Estuda sem sobrecarga</b></button></li>
+      <li role="presentation"><button role="tab" id="b2" aria-controls="p2" aria-selected="false" tabindex="-1"><b>Enxerga em 3D</b></button></li>
+      <li role="presentation"><button role="tab" id="b3" aria-controls="p3" aria-selected="false" tabindex="-1"><b>Lembra na prova</b></button></li>
+      <li role="presentation"><button role="tab" id="b4" aria-controls="p4" aria-selected="false" tabindex="-1"><b>Quer voltar</b></button></li>
+    </ol>
+    <div class="tp" id="p0" role="tabpanel" aria-labelledby="b0">
+      <div>
+        <h3>Pensamento sistêmico</h3>
+        <p class="say">Para de decorar peça e vê o corpo funcionando.</p>
+        <p>Entender um sistema vai além de identificar as partes: é relacionar componentes, mecanismos e fenômenos. O estudo aqui é organizado por essas relações.</p>
+        <span class="src">Verhoeff et al. (2018); Assaraf, Dodick e Tripto (2013)</span>
+      </div>
+      <div><h3>No Atlas Vivo</h3><ul><li>Trilha pelo caminho das substâncias</li><li>Etapa final de integração</li><li>Ampliações da rede capilar e do alvéolo</li></ul></div>
+    </div>
+    <div class="tp" id="p1" role="tabpanel" aria-labelledby="b1" hidden>
+      <div>
+        <h3>Multimídia e carga cognitiva</h3>
+        <p class="say">Menos esforço para achar, mais cabeça para entender.</p>
+        <p>Fisiologia já exige acompanhar muita coisa ao mesmo tempo. Por isso a interface tira do caminho o que não ajuda e deixa imagem e texto juntos.</p>
+        <span class="src">Mayer (2020); Sweller, van Merriënboer e Paas (2019)</span>
+      </div>
+      <div><h3>No Atlas Vivo</h3><ul><li>Painel 3D ao lado do texto</li><li>Cor por sistema e termos que destacam a estrutura</li><li>Capítulos, seções e etapas</li><li>Estruturas antes do funcionamento</li><li>Isolamento, opacidade e vistas</li></ul></div>
+    </div>
+    <div class="tp" id="p2" role="tabpanel" aria-labelledby="b2" hidden>
+      <div>
+        <h3>Visualização 3D</h3>
+        <p class="say">O que o livro desenha, aqui dá para girar.</p>
+        <p>Modelos 3D favorecem o conhecimento espacial e factual e deixam o estudo mais satisfatório. Forma, posição e função param de depender da imaginação.</p>
+        <span class="src">Yammine e Violato (2015)</span>
+      </div>
+      <div><h3>No Atlas Vivo</h3><ul><li>Modelo ligado ao texto nos dois sentidos</li><li>Questões de localização, respondidas no modelo</li></ul></div>
+    </div>
+    <div class="tp" id="p3" role="tabpanel" aria-labelledby="b3" hidden>
+      <div>
+        <h3>Prática de recuperação</h3>
+        <p class="say">Quem se testa, lembra.</p>
+        <p>Testar a própria memória melhora a retenção, e o efeito cresce com feedback e com perguntas no formato da prova. Por isso o Atlas Vivo pergunta ao longo do estudo e comenta cada alternativa.</p>
+        <span class="src">Roediger e Karpicke (2006); Agarwal, Nunes e Blunt (2021)</span>
+      </div>
+      <div><h3>No Atlas Vivo</h3><ul><li>Perguntas de retomada e flashcards nas aulas</li><li>Quizzes com comentário por alternativa</li><li>Questões de vestibular com gabarito</li></ul></div>
+    </div>
+    <div class="tp" id="p4" role="tabpanel" aria-labelledby="b4" hidden>
+      <div>
+        <h3>Gamificação</h3>
+        <p class="say">Pontos, medalhas e a turma junto.</p>
+        <p>Estudos associam gamificação a ganhos de aprendizado e motivação, e misturar competição com colaboração funciona melhor para o comportamento. Daí os pontos e o ranking com a própria turma.</p>
+        <span class="src">Sailer e Homner (2020); Zeng et al. (2024)</span>
+      </div>
+      <div><h3>No Atlas Vivo</h3><ul><li>Pontos, níveis e medalhas</li><li>Ranking da turma e geral</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. BANCO DE QUESTÕES -->
+<section class="bank" id="banco" data-stop aria-labelledby="h-banco">
+  <div class="wrap">
+    <div class="bank-top">
+      <h2 class="poster rv" id="h-banco">De 1.555 itens a 127 questões.</h2>
+      <p class="lead rv" style="--d:.15s">Um pipeline próprio em Python lê provas do ENEM e de vestibulares e leva cada questão até o banco: 23 instituições, provas de 1995 a 2026 e 15 questões com figura.</p>
+    </div>
+    <ol class="pipe rv" aria-label="Etapas do pipeline">
+      <li><i aria-hidden="true">1</i>Descoberta e download</li>
+      <li><i aria-hidden="true">2</i>Extração</li>
+      <li><i aria-hidden="true">3</i>Gabarito</li>
+      <li><i aria-hidden="true">4</i>Classificação<small>com apoio de IA</small></li>
+      <li><i aria-hidden="true">5</i>Dificuldade</li>
+      <li><i aria-hidden="true">6</i>Deduplicação</li>
+      <li><i aria-hidden="true">7</i>Validação</li>
+      <li><i aria-hidden="true">8</i>Curadoria<small>com apoio de IA</small></li>
+      <li><i aria-hidden="true">9</i>Publicação</li>
+    </ol>
+    <div class="numbers">
+      <div>
+        <h3 class="rv">127 questões por sistema</h3>
+        <ul class="bars rv">
+          <li><span style="--c:#C7404D">Cardiovascular</span><i style="--v:16"></i><b>16</b></li>
+          <li><span style="--c:#C994AD">Reprodutor</span><i style="--v:15"></i><b>15</b></li>
+          <li><span style="--c:#77BA96">Linfático e imunidade</span><i style="--v:13"></i><b>13</b></li>
+          <li><span style="--c:#E3B864">Nervoso</span><i style="--v:12"></i><b>12</b></li>
+          <li><span style="--c:#D99A80">Digestório</span><i style="--v:11"></i><b>11</b></li>
+          <li><span style="--c:#5A82C0">Muscular</span><i style="--v:11"></i><b>11</b></li>
+          <li><span style="--c:#CB8A72">Urinário</span><i style="--v:11"></i><b>11</b></li>
+          <li><span style="--c:#A487D8">Endócrino</span><i style="--v:10"></i><b>10</b></li>
+          <li><span style="--c:#E5A8B4">Respiratório</span><i style="--v:9"></i><b>9</b></li>
+          <li><span>Sentidos</span><i style="--v:9"></i><b>9</b></li>
+          <li><span style="--c:#C5CCD6">Esquelético</span><i style="--v:6"></i><b>6</b></li>
+          <li><span style="--c:#9CC8F2">Tegumentar</span><i style="--v:4"></i><b>4</b></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="rv">O caminho no ENEM</h3>
+        <ol class="funnel rv">
+          <li><b>1.035</b><span>itens extraídos</span><i style="--v:1035"></i></li>
+          <li><b>729</b><span>na validação automática (70,4%)</span><i style="--v:729"></i></li>
+          <li><b>111</b><span>de biologia humana</span><i style="--v:111"></i></li>
+          <li><b>61</b><span>publicados</span><i style="--v:61"></i></li>
+        </ol>
+        <div class="diffi rv">
+          <h3>Dificuldade dos 61</h3>
+          <div class="split" role="img" aria-label="33 básicas, 16 intermediárias e 12 avançadas">
+            <i style="--v:33;--c:#BFD5FB"></i><i style="--v:16;--c:#5B93F2"></i><i style="--v:12;--c:#0A3F9E"></i>
+          </div>
+          <ul class="split-k">
+            <li style="--c:#BFD5FB"><b>33</b> básicas</li>
+            <li style="--c:#5B93F2"><b>16</b> intermediárias</li>
+            <li style="--c:#0A3F9E"><b>12</b> avançadas</li>
+          </ul>
+          <span class="src">Classificação relativa, pelo modelo de três parâmetros da TRI e pelos microdados do ENEM. As demais bancas ficam sem dificuldade definida.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE O ATLAS VIVO: abre a parte da plataforma -->
+<section class="others dark" id="correlatos" data-stop aria-labelledby="h-others">
+  <div class="wrap">
+    <div class="others-top">
+      <h2 class="poster rv" id="h-others"><span>De graça.</span><span>Em português.</span><span>No celular.</span></h2>
+      <p class="lead rv" style="--d:.15s">Nós também estudamos o corpo em textos e figuras estáticas. O Atlas Vivo abre o modelo 3D para qualquer estudante do Ensino Médio, sem pagar nada.</p>
+    </div>
+    <ul class="perks">
+      <li class="rv"><b>Gratuito alcança mais gente.</b>Sem assinatura e sem licença para a escola comprar. A turma inteira entra, não só quem pode pagar.</li>
+      <li class="rv" style="--d:.08s"><b>Em português, do botão à aula.</b>O idioma deixa de ser barreira: o estudante explora sozinho, sem o professor precisar traduzir a interface.</li>
+      <li class="rv" style="--d:.16s"><b>No celular que ele já tem.</b>Abre no navegador, sem instalar nada. O celular é o principal acesso à internet entre crianças e adolescentes, e nas classes D e E 32% só entram por ele.</li>
+      <li class="rv"><b>Feito para o Ensino Médio.</b>Aulas, trilha e questões de ENEM e vestibular para quem está na escola, não para quem já está na faculdade de saúde.</li>
+      <li class="rv" style="--d:.08s"><b>Fisiologia no centro.</b>O estudo segue como os sistemas funcionam juntos, do corpo inteiro até a rede capilar e o alvéolo.</li>
+      <li class="rv" style="--d:.16s"><b>Tudo ligado.</b>Clicou no coração, cai na aula. Leu a aula, vê no modelo. Depois responde quiz e vestibular, sem trocar de ferramenta.</li>
+    </ul>
+    <div class="tb rv" tabindex="0" role="region" aria-label="Comparação entre ferramentas">
+      <table>
+        <thead><tr><th scope="col">Ferramenta</th><th scope="col">Grátis e on-line</th><th scope="col">Em português</th><th scope="col">3D interativo</th><th scope="col">Para o Ensino Médio</th><th scope="col">Questões de vestibular</th></tr></thead>
+        <tbody>
+          <tr class="us"><th scope="row">Atlas Vivo</th><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td></tr>
+          <tr><th scope="row">Visible Body Suite</th><td class="n">Não</td><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td><td class="n">Não</td></tr>
+          <tr><th scope="row">Complete Anatomy</th><td class="n">Não</td><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td><td class="n">Não</td></tr>
+          <tr><th scope="row">BioDigital Human</th><td class="p">Em parte</td><td class="p">Em parte</td><td class="y">Sim</td><td class="p">Em parte</td><td class="n">Não</td></tr>
+          <tr><th scope="row">Explorando os Sistemas Vitais</th><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td><td class="p">Em parte</td><td class="n">Não</td></tr>
+          <tr><th scope="row">Do Coração às Células</th><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td><td class="y">Sim</td><td class="n">Não</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src-t">Fontes consultadas em outubro de 2026. Silva et al. (2024); Costa et al. (2026); Vanderlei et al. (2020); Cetic.br (2025). BioDigital: grátis até dez visualizações por mês, com modelos em português. No Atlas Vivo, o cadastro serve para responder e salvar.</p>
+  </div>
+</section>
+
+<!-- 6. PLATAFORMA: EXPLORAÇÃO 3D -->
+<section class="explore dark" id="explorar" aria-labelledby="h-explorar">
+  <div class="explore-in">
+    <div class="pin" id="explore-stage" data-cam="explore">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="v3d" aria-hidden="true"></div>
+      <p class="loading kick" aria-hidden="true" style="position:absolute;left:50%;bottom:45%;transform:translateX(-50%);margin:0">Carregando modelo 3D</p>
+      <p class="hud kick" aria-live="polite"><b id="hud-name">Corpo inteiro</b><span id="hud-n">931 estruturas</span></p>
+    </div>
+    <div class="explore-intro" data-stop id="explorar-inicio">
+      <h2 class="poster rv" id="h-explorar">Explore de verdade.</h2>
+      <p class="lead rv" style="--d:.15s">Gire, isole e entre no corpo. Cada clique leva à aula que explica o que você está vendo.</p>
+    </div>
+    <ol class="steps">
+      <li class="step" data-step="0" data-stop data-center style="--c:#9CC8F2">
+        <span class="kick">Visão geral</span>
+        <h3>Do corpo inteiro…</h3>
+        <p>931 estruturas da base BodyParts3D em 11 sistemas, entre elas 245 ossos e 463 músculos, em três níveis de detalhe.</p>
+      </li>
+      <li class="step" data-step="1" data-stop data-center style="--c:#C7404D">
+        <span class="kick">Cardiovascular</span>
+        <h3>…a um sistema só.</h3>
+        <p>Cada sistema tem sua cor. Dá para exibir, ocultar e isolar, trocar entre quatro vistas e ajustar a opacidade.</p>
+      </li>
+      <li class="step" data-step="2" data-stop data-center style="--c:#C7404D">
+        <span class="kick">Coração</span>
+        <h3>Clique e entenda.</h3>
+        <p>Cada estrutura clicada mostra o nome, o sistema e o trecho da aula que trata dela.</p>
+      </li>
+      <li class="step" data-step="3" data-stop data-center style="--c:#D4545F">
+        <span class="kick">Rede capilar</span>
+        <h3>Desça até onde o sangue troca.</h3>
+        <p>Uma ampliação animada mostra a rede capilar no interior de um músculo. É esquemática e fora de escala, e vermelho e azul são convenções.</p>
+      </li>
+      <li class="step" data-step="4" data-stop data-center style="--c:#E5A8B4">
+        <span class="kick">Alvéolo pulmonar</span>
+        <h3>E até onde o ar encontra o sangue.</h3>
+        <p>A segunda ampliação liga os órgãos visíveis no modelo ao nível em que as trocas acontecem.</p>
+      </li>
+      <li class="step" data-step="5" data-stop data-center style="--c:#D99A80">
+        <span class="kick">Digestório</span>
+        <h3>O modelo conversa com a aula.</h3>
+        <p>No texto, 45 termos como “rins” e “fígado” destacam a estrutura no modelo. No atlas, o caminho é o inverso, da estrutura para a aula.</p>
+        <a class="tlink" href="/atlas.html" target="_blank" rel="noopener">Abrir o atlas completo</a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. APRENDER -->
+<section class="learn" id="aprender" data-stop aria-labelledby="h-aprender">
+  <div class="wrap">
+    <div class="learn-top">
+      <h2 class="h2 rv" id="h-aprender">Do primeiro contato à prova.</h2>
+      <p class="lead rv" style="--d:.15s">O sistema tem cinco partes: atlas 3D, trilha de estudo, quizzes, questões de vestibular e conta, com turmas e ranking.</p>
+    </div>
+    <ol class="flow rv" role="tablist" aria-label="Etapas do estudo" data-shots>
+      <li role="presentation"><button role="tab" id="t0" aria-controls="shot" aria-selected="true"><span class="kick">01</span><b>Explorar</b></button></li>
+      <li role="presentation"><button role="tab" id="t1" aria-controls="shot" aria-selected="false" tabindex="-1"><span class="kick">02</span><b>Estudar</b></button></li>
+      <li role="presentation"><button role="tab" id="t2" aria-controls="shot" aria-selected="false" tabindex="-1"><span class="kick">03</span><b>Revisar</b></button></li>
+      <li role="presentation"><button role="tab" id="t3" aria-controls="shot" aria-selected="false" tabindex="-1"><span class="kick">04</span><b>Avançar</b></button></li>
+      <li role="presentation"><button role="tab" id="t4" aria-controls="shot" aria-selected="false" tabindex="-1"><span class="kick">05</span><b>Praticar</b></button></li>
+    </ol>
+    <div class="shots rv" id="shot" role="tabpanel" aria-labelledby="t0">
+      <figure class="frame">
+        <img class="on" src="/img/landing/explorar.jpg" alt="Tela Explorar do Atlas Vivo: corpo humano em 3D com a lista de sistemas ao lado" width="1280" height="800" loading="lazy" decoding="async">
+        <img src="/img/landing/estudar.jpg" alt="Aula do sistema cardiovascular com o texto à esquerda e o modelo 3D do coração e dos vasos à direita" width="1280" height="800" loading="lazy" decoding="async">
+        <img src="/img/landing/praticar.jpg" alt="Síntese da aula do sistema respiratório com a seção O que não confundir" width="1280" height="800" loading="lazy" decoding="async">
+        <img src="/img/landing/trilha.jpg" alt="Trilha de estudo com as etapas em ordem: organização do corpo, digestório, respiratório, cardiovascular" width="1280" height="800" loading="lazy" decoding="async">
+        <img class="fit" src="/img/apresentacao/questoes.jpg" alt="Área de questões de vestibulares organizada em cartões por sistema do corpo" width="1600" height="527" loading="lazy" decoding="async">
+      </figure>
+      <div class="cap" aria-live="polite">
+        <p class="kick" id="cap-k">Atlas 3D</p>
+        <h3 id="cap-h">Comece pelo corpo, não pelo texto.</h3>
+        <p class="t" id="cap-t">Clique em qualquer estrutura para ver o nome, o sistema e o trecho da aula. Isole, oculte e troque de vista.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. TRILHA -->
+<section class="trail" id="trilha" data-stop aria-labelledby="h-trilha" style="padding-top:clamp(40px,5vw,70px)">
+  <div class="wrap trail-in">
+    <div class="trail-side">
+      <h2 class="h2 rv" id="h-trilha">Seu estudo tem um caminho.</h2>
+      <p class="lead rv" style="--d:.1s">“Como o corpo se mantém vivo” segue as substâncias: o alimento é absorvido, o oxigênio entra pelos pulmões, o sangue leva ambos às células e os rins ajustam o meio interno. Depois vêm regulação, movimento e proteção.</p>
+      <p class="lead rv" style="--d:.15s;margin-top:16px">Aula lida e quiz feito concluem a etapa, e “Continuar estudando” retoma de onde você parou.</p>
+    </div>
+    <div class="path full rv" style="--d:.15s">
+      <p class="ttl"><small class="kick">11 etapas, 13 aulas</small>Como o corpo se mantém vivo</p>
+      <ol>
+        <li><i class="pt" aria-hidden="true">1</i><span class="n">Organização do corpo e homeostase</span><span class="t">~55 min</span></li>
+        <li><i class="pt" aria-hidden="true">2</i><span class="n">Digestório</span><span class="t">~70 min</span></li>
+        <li><i class="pt" aria-hidden="true">3</i><span class="n">Respiratório</span><span class="t">~60 min</span></li>
+        <li><i class="pt" aria-hidden="true">4</i><span class="n">Cardiovascular</span><span class="t">~90 min</span></li>
+        <li><i class="pt" aria-hidden="true">5</i><span class="n">Urinário</span><span class="t">~55 min</span></li>
+        <li><i class="pt" aria-hidden="true">6</i><span class="n">Nervoso</span><span class="t">~75 min</span></li>
+        <li><i class="pt" aria-hidden="true">7</i><span class="n">Endócrino</span><span class="t">~55 min</span></li>
+        <li><i class="pt" aria-hidden="true">8</i><span class="n">Esquelético e muscular</span><span class="t">~50 min</span></li>
+        <li><i class="pt" aria-hidden="true">9</i><span class="n">Tegumentar, linfático e imunidade</span><span class="t">~65 min</span></li>
+        <li><i class="pt" aria-hidden="true">10</i><span class="n">Reprodutor</span><span class="t">~70 min</span></li>
+        <li class="last"><i class="pt" aria-hidden="true">11</i><span class="n">Integração: exercício físico, alimentação e desidratação</span><span class="t">~55 min</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 9. QUESTÃO -->
+<section class="quiz" id="questao" data-stop aria-labelledby="h-questao">
+  <div class="wrap quiz-in">
+    <div>
+      <h2 class="h2 rv" id="h-questao">Não só mostra. Pergunta.</h2>
+      <p class="lead rv" style="--d:.1s">13 quizzes e 52 questões autorais: 35 básicas e 17 intermediárias, 41 de múltipla escolha e 11 de clique no modelo. Cada alternativa tem comentário. Esta é do quiz do sistema respiratório.</p>
+    </div>
+    <form class="sheet rv" style="--d:.15s" id="sheet" aria-labelledby="q-stem">
+      <div class="sheet-h kick"><span>Respiratório, trocas gasosas</span><span>Intermediária</span></div>
+      <p class="stem" id="q-stem">O oxigênio passa do ar alveolar para o sangue por:</p>
+      <fieldset class="alts">
+        <legend class="sr">Escolha uma alternativa</legend>
+        <label class="alt"><input type="radio" name="a" value="0"><span class="r">A</span><span class="tx">transporte ativo, com gasto de ATP.<span class="why">Não há gasto de energia nem proteínas bombeando O₂.</span></span></label>
+        <label class="alt"><input type="radio" name="a" value="1"><span class="r">B</span><span class="tx">osmose, acompanhando a água.<span class="why">Osmose é o movimento de água através de membrana.</span></span></label>
+        <label class="alt"><input type="radio" name="a" value="2"><span class="r">C</span><span class="tx">fagocitose pelas hemácias.<span class="why">Hemácias transportam O₂ ligado à hemoglobina; não fagocitam.</span></span></label>
+        <label class="alt"><input type="radio" name="a" value="3"><span class="r">D</span><span class="tx">difusão, do local de maior para o de menor concentração.<span class="why">Correta. A diferença de concentração move o gás.</span></span></label>
+      </fieldset>
+      <div class="fb" role="status" aria-live="polite">
+        <div class="fb-h"><strong id="fb-t">Resposta correta</strong><span class="gain" id="fb-xp">+15 pontos</span></div>
+        <p>O O₂ está mais concentrado no ar alveolar do que no sangue que chega aos pulmões.</p>
+        <div class="row"><a class="tlink" href="/atlas.html#quizzes" target="_blank" rel="noopener">Abrir os quizzes</a><button class="again" type="button" id="again">Responder de novo</button></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- 10. TURMAS E GAMIFICAÇÃO -->
+<section class="game dark" id="evoluir" data-stop aria-labelledby="h-evoluir">
+  <div class="wrap game-in">
+    <div>
+      <h2 class="poster rv" id="h-evoluir"><span>Estude.</span><span>Acerte.</span><span>Evolua.</span></h2>
+      <p class="lead rv" style="--d:.1s"><b>Turmas:</b> o professor cria a turma, compartilha um código de seis caracteres, aprova ou recusa pedidos e remove participantes. O ranking tem “Minha turma” e “Geral”, com as dez maiores pontuações e a sua posição.</p>
+    </div>
+    <div class="plate rv" style="--d:.15s">
+      <p class="kick" style="margin:0 0 18px;color:#7F93B2">Perfil de exemplo</p>
+      <div class="xp"><b data-count-to="185">0</b><span>pontos</span></div>
+      <div class="lvl kick"><span><strong>Nível 2</strong>, Curioso</span><span>115 pontos para o nível 3</span></div>
+      <div class="bar" role="img" aria-label="23% do caminho até o nível 3"><i style="--w:23%"></i></div>
+      <ul class="pts" aria-label="Regras de pontuação">
+        <li>Questão, conforme a dificuldade<b>10, 15 ou 20</b></li>
+        <li>Vestibular sem dificuldade definida<b>15</b></li>
+        <li>Quiz completo<b>20</b></li>
+        <li>Aula concluída<b>30</b></li>
+      </ul>
+      <p class="rules">Vale a primeira resposta, e errar não tira pontos. A cada 150 pontos, um nível: são oito, de “Calouro” a “Mestre do Atlas”, com seis medalhas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. AO VIVO -->
+<section class="live dark" id="ao-vivo" data-stop aria-labelledby="h-live">
+  <div class="wrap live-in">
+    <div class="live-side">
+      <h2 class="poster rv" id="h-live">Agora, ao vivo.</h2>
+      <p class="lead rv" style="--d:.1s">Um fio só conduz a demonstração: o sistema cardiovascular, do corpo inteiro até a questão de prova.</p>
+      <a class="btn rv" style="--d:.15s" href="/atlas.html" target="_blank" rel="noopener">Abrir o Atlas <span class="ar" aria-hidden="true">→</span></a>
+    </div>
+    <ol class="route rv" style="--d:.1s" aria-label="Roteiro da demonstração">
+      <li><a href="/atlas.html" target="_blank" rel="noopener"><b>Explorar</b><small>Destacar o cardiovascular, trocar a vista e as camadas</small></a></li>
+      <li><div><b>Ampliação</b><small>“Abrir ampliação didática: rede capilar” e “Voltar ao corpo”</small></div></li>
+      <li><div><b>Do modelo à aula</b><small>“Ler na aula” e “Estudar este sistema”</small></div></li>
+      <li><div><b>Da aula ao modelo</b><small>Seção “Coração”, clicar no termo “ventrículos”</small></div></li>
+      <li><a href="/atlas.html#trilha" target="_blank" rel="noopener"><b>Trilha de estudo</b><small>As 11 etapas e o caminho das substâncias</small></a></li>
+      <li><a href="/atlas.html#quizzes" target="_blank" rel="noopener"><b>Quizzes</b><small>Questões autorais e comentário por alternativa</small></a></li>
+      <li><a href="/atlas.html#banco" target="_blank" rel="noopener"><b>Questões de vestibulares</b><small>Cardiovascular, “Artérias, veias e capilares”, questão 1</small></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final dark" id="fim" data-stop aria-labelledby="h-final">
+  <div class="wrap">
+    <h2 class="poster rv" id="h-final">Pronto para enxergar o corpo <em>de outro jeito?</em></h2>
+    <div class="final-cta rv" style="--d:.15s">
+      <a class="btn" href="/atlas.html" target="_blank" rel="noopener">Explorar o Atlas <span class="ar" aria-hidden="true">→</span></a>
+      <p class="names">Obrigado. <b>Erick de Alvarenga Bonifácio</b> e <b>Augusto Juiz Ribeiro</b>, UNIFEI.</p>
+    </div>
+    <details class="refs">
+      <summary>Referências citadas nesta página</summary>
+      <ol>
+        <li>AGARWAL, P. K.; NUNES, L. D.; BLUNT, J. R. Retrieval practice consistently benefits student learning. Educational Psychology Review, v. 33, n. 4, p. 1409-1453, 2021.</li>
+        <li>AGUIAR, W. P.; BORGES-NOJOSA, D. M.; VASCONCELOS, F. H. L. Aplicativos móveis utilizados no ensino de Biologia. Vitruvian Cogitationes, v. 3, n. 1, p. 94-113, 2022.</li>
+        <li>ANDRADE, D. F.; TAVARES, H. R.; VALLE, R. C. Teoria da Resposta ao Item: conceitos e aplicações. São Paulo: ABE, 2000.</li>
+        <li>ASSARAF, O. B. Z.; DODICK, J.; TRIPTO, J. High school students’ understanding of the human body system. Research in Science Education, v. 43, n. 1, p. 33-56, 2013.</li>
+        <li>BÖLEK, K. A.; DE JONG, G.; HENSSEN, D. The effectiveness of the use of augmented reality in anatomy education. Scientific Reports, v. 11, 2021.</li>
+        <li>BRASIL. Inep. Microdados do Enem. 2026.</li>
+        <li>CAMPELO, R. H. et al. Um panorama sobre o uso de jogos didáticos de Biologia. Revista Educação Pública, v. 23, n. 16, 2023.</li>
+        <li>CETIC.BR. TIC Kids Online Brasil 2024: resumo executivo. São Paulo: CGI.br, 2025.</li>
+        <li>COSTA, R. S. et al. Do Coração às Células: jogo didático sobre Sistema Circulatório. Periódicos Brasil. Pesquisa Científica, v. 5, n. 7, p. 213-241, 2026.</li>
+        <li>FONSECA, F. K. M.; SILVA, B. S. Uma revisão de aplicativos de smartphone para estudo de biologia no Ensino Médio. Revista Ponto de Vista, v. 13, n. 3, p. 1-20, 2024.</li>
+        <li>GILBERT, M. M. et al. A cohort study assessing the impact of Anki as a spaced repetition tool. Medical Science Educator, v. 33, n. 4, p. 955-962, 2023.</li>
+        <li>GUIMARÃES, A. P. M.; MOREIRA, L. C.; AMANTES, A. Abordagem relacional no ensino de fisiologia humana no ensino médio. Alexandria, v. 17, p. 1-27, 2024.</li>
+        <li>LATIMIER, A.; PEYRE, H.; RAMUS, F. A meta-analytic review of the benefit of spacing out retrieval practice episodes on retention. Educational Psychology Review, v. 33, n. 3, p. 959-987, 2021.</li>
+        <li>MAYER, R. E. Multimedia learning. 3. ed. Cambridge University Press, 2020.</li>
+        <li>MITSUHASHI, N. et al. BodyParts3D: 3D structure database for anatomical concepts. Nucleic Acids Research, v. 37, supl. 1, p. D782-D785, 2009.</li>
+        <li>OECD. PISA 2022 Results (Volume I). Paris: OECD Publishing, 2023.</li>
+        <li>ROEDIGER, H. L.; KARPICKE, J. D. Test-enhanced learning. Psychological Science, v. 17, n. 3, p. 249-255, 2006.</li>
+        <li>SAILER, M.; HOMNER, L. The gamification of learning: a meta-analysis. Educational Psychology Review, v. 32, n. 1, p. 77-112, 2020.</li>
+        <li>SILVA, E. M. et al. Explorando os sistemas vitais: um jogo de tabuleiro para diversão e aprendizagem. RECIMA21, v. 5, n. 7, 2024.</li>
+        <li>SWELLER, J.; VAN MERRIËNBOER, J. J. G.; PAAS, F. Cognitive architecture and instructional design: 20 years later. Educational Psychology Review, v. 31, n. 2, p. 261-292, 2019.</li>
+        <li>TODA, A. M. et al. Preocupações dos professores brasileiros com o uso da gamificação na educação. Revista Brasileira de Informática na Educação, v. 32, p. 510-532, 2024.</li>
+        <li>VANDERLEI, A. B. et al. O uso de um aplicativo 3D para ensino de fisiologia humana. In: CTRL+E, 5., 2020. Anais [...]. Porto Alegre: SBC, 2020. p. 579-587.</li>
+        <li>VERHOEFF, R. P. et al. The theoretical nature of systems thinking. Frontiers in Education, v. 3, art. 40, 2018.</li>
+        <li>YAMMINE, K.; VIOLATO, C. A meta-analysis of the educational effectiveness of three-dimensional visualization technologies in teaching anatomy. Anatomical Sciences Education, v. 8, n. 6, p. 525-538, 2015.</li>
+        <li>YANG, C. et al. Testing (quizzing) boosts classroom learning. Psychological Bulletin, v. 147, n. 4, p. 399-435, 2021.</li>
+        <li>ZENG, J. et al. Exploring the impact of gamification on students’ academic performance. British Journal of Educational Technology, v. 55, n. 6, p. 2478-2502, 2024.</li>
+        <li>ZHAO, J. et al. The effectiveness of virtual reality-based technology on anatomy teaching. BMC Medical Education, v. 20, art. 127, 2020.</li>
+      </ol>
+    </details>
+    <footer class="foot">
+      <a class="logo" href="/"><img src="/img/logo.png" alt="" width="24" height="24" style="width:24px;height:24px">Atlas Vivo</a>
+      <nav aria-label="Rodapé"><a href="/atlas.html" target="_blank" rel="noopener">Atlas</a><a href="/atlas.html#trilha" target="_blank" rel="noopener">Trilha</a><a href="/atlas.html#quizzes" target="_blank" rel="noopener">Quizzes</a><a href="/atlas.html#banco" target="_blank" rel="noopener">Questões</a></nav>
+      <p style="margin:0;flex-basis:100%">Projeto de Computação Aplicada à Educação. Anatomia 3D: BodyParts3D © DBCLS, CC BY 4.0. As setas <kbd>←</kbd> e <kbd>→</kbd> avançam pela apresentação.</p>
+    </footer>
+  </div>
+</section>
+
+</main>
+
+<script>
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const root=document.documentElement;
+requestAnimationFrame(()=>requestAnimationFrame(()=>root.classList.add('ready')));
+
+// navegação ganha fundo depois do topo; barra de progresso da apresentação
+const nav=document.getElementById('nav'),pg=document.getElementById('pg');
+const darks=[...document.querySelectorAll('.dark')];
+const onScroll=()=>{nav.classList.toggle('on',scrollY>24);nav.classList.toggle('dk',darks.some(d=>{const r=d.getBoundingClientRect();return r.top<=66&&r.bottom>=66;}));
+  const max=root.scrollHeight-innerHeight;pg.style.setProperty('--p',max>0?Math.min(1,scrollY/max):0);};
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+
+// revelação ao rolar (uma vez)
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target);const c=e.target.querySelector('[data-count-to]');if(c)countUp(c);}}),{rootMargin:'0px 0px -12% 0px'});
+document.querySelectorAll('.rv').forEach(el=>rio.observe(el));
+
+function countUp(el){
+  const to=+el.dataset.countTo;if(RM){el.textContent=to;return;}
+  const t0=performance.now(),D=1400;
+  const f=t=>{const k=Math.min(1,(t-t0)/D);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f);};
+  requestAnimationFrame(f);
+}
+
+// ── modelo 3D real do app, em modo "bare": no máximo uma cena montada por vez ──
+let libP=null;
+const lib=()=>libP||(libP=new Promise((ok,no)=>{const s=document.createElement('script');s.src='/atlas3d-v2.js';s.onload=ok;s.onerror=no;document.head.appendChild(s);}));
+let webgl=null;
+const hasGL=()=>{if(webgl===null){try{const c=document.createElement('canvas');webgl=!!(c.getContext('webgl2')||c.getContext('webgl'));}catch(e){webgl=false}}return webgl;};
+const CAMS={hero:{th:.38,ph:1.43,r:3.2,t:[0,.95,0]},explore:{th:.38,ph:1.43,r:3.3,t:[0,.95,0]}};
+const stages=[...document.querySelectorAll('[data-cam]')].map(st=>({st,box:st.querySelector('.v3d'),el:null,ready:false,base:CAMS[st.dataset.cam],state:null,cam:null}));
+const fallback=S=>{S.box.classList.add('fallback');S.box.style.setProperty('--fb','url(/img/r-corpo.jpg)');};
+let counts=null;
+function mount(S){
+  if(S.el)return;
+  if(!hasGL()){fallback(S);return;}
+  lib().then(()=>{
+    if(S.el||!S.want)return;
+    const el=document.createElement('atlas-3d-v2');
+    el.setAttribute('opts',JSON.stringify({bare:true,shadow:'off',workers:1}));
+    S.el=el;S.ready=false;S.box.appendChild(el);
+  }).catch(()=>fallback(S));
+}
+function unmount(S){if(!S.el)return;S.el.remove();S.el=null;S.ready=false;S.box.classList.remove('lit');}
+addEventListener('av3d:ready',e=>{
+  counts=e.detail&&e.detail.counts||counts;fillCounts();
+  for(const S of stages)if(S.el&&!S.ready){S.ready=true;S.box.classList.add('lit');S.el.cmd({type:'cam',...S.base});if(S.state)S.el.cmd({type:'state',s:S.state});if(S.cam)S.el.cmd({type:'cam',...S.cam});}
+});
+addEventListener('av3d:error',()=>{for(const S of stages)if(S.el&&!S.ready){unmount(S);fallback(S);}});
+const sio=new IntersectionObserver(es=>es.forEach(e=>{const S=stages.find(s=>s.st===e.target);S.want=e.isIntersecting;e.isIntersecting?mount(S):unmount(S);}),{rootMargin:'200px 0px'});
+addEventListener('load',()=>setTimeout(()=>stages.forEach(S=>sio.observe(S.st)),RM?0:250));
+
+const send=(S,c)=>{if(S.el&&S.ready)S.el.cmd(c);};
+const setState=(S,s)=>{S.state=Object.assign({focus:null,isolate:false,dim:.15,skin:true,muscle:.4,micro:false},s);send(S,{type:'state',s:S.state});};
+const setCam=(S,c)=>{S.cam=Object.assign({},S.base,c);send(S,{type:'cam',...S.cam});};
+
+// rótulos do hero destacam o sistema no modelo
+const hero=stages[0];
+const tags=[...document.querySelectorAll('.tag')];
+const fillCounts=()=>{if(!counts)return;document.querySelectorAll('small[data-count]').forEach(s=>{const n=counts[s.dataset.count];if(n)s.textContent=n+' estruturas';});};
+tags.forEach(b=>{
+  const on=()=>{tags.forEach(t=>t.setAttribute('aria-pressed',t===b?'true':'false'));setState(hero,{focus:b.dataset.sys,dim:.1,muscle:.15});};
+  const off=()=>{b.setAttribute('aria-pressed','false');setState(hero,{});};
+  b.addEventListener('mouseenter',on);b.addEventListener('focus',on);
+  b.addEventListener('mouseleave',off);b.addEventListener('blur',off);
+  b.addEventListener('click',()=>b.getAttribute('aria-pressed')==='true'?off():on());
+});
+if(!RM&&matchMedia('(pointer:fine)').matches){
+  let raf=0,mx=0,my=0;
+  document.querySelector('.hero').addEventListener('pointermove',e=>{
+    mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;
+    if(!raf)raf=requestAnimationFrame(()=>{raf=0;setCam(hero,{th:hero.base.th+mx*.35,ph:hero.base.ph+my*.06});});
+  });
+}
+
+// ── exploração: cada passo do texto muda o foco, a câmera ou a ampliação ──
+const ex=stages[1];
+const ISO=sys=>({focus:sys,isolate:true,skin:false,muscle:0});
+const STEPS=[
+  {name:'Corpo inteiro',n:'931 estruturas',s:{},c:{}},
+  {name:'Sistema cardiovascular',sys:'cardiovascular',s:ISO('cardiovascular'),c:{th:.3,ph:1.45,r:2.1,t:[0,1.0,0]}},
+  {name:'Coração',sys:'cardiovascular',s:ISO('cardiovascular'),c:{th:.45,ph:1.45,r:.95,t:[0,1.33,.02]}},
+  {name:'Rede capilar',n:'Ampliação didática, fora de escala',s:{micro:'capilar'},c:{}},
+  {name:'Alvéolo pulmonar',n:'Ampliação didática, fora de escala',s:{micro:'alveolo'},c:{}},
+  {name:'Sistema digestório',sys:'digestorio',s:ISO('digestorio'),c:{th:.3,ph:1.4,r:1.45,t:[0,1.2,.02]}}
+];
+const hudN=document.getElementById('hud-name'),hudC=document.getElementById('hud-n');
+const stepEls=[...document.querySelectorAll('.step')];
+let cur=-1;
+const go=i=>{if(i===cur)return;cur=i;const st=STEPS[i];
+  stepEls.forEach((el,j)=>el.classList.toggle('on',j===i));
+  ex.st.classList.toggle('micro',!!st.s.micro);
+  hudN.textContent=st.name;
+  hudC.textContent=st.n||(st.sys&&counts&&counts[st.sys]?counts[st.sys]+' estruturas':'');
+  setState(ex,st.s);setCam(ex,st.c);
+};
+// o passo ativo é sempre o que está no centro da tela, calculado da posição atual:
+// assim ir e voltar com o scroll não deixa imagem e texto desencontrados
+const syncStep=()=>{
+  const y=innerHeight/2;let i=0;
+  stepEls.forEach((el,j)=>{if(el.getBoundingClientRect().top<=y)i=j;});
+  go(i);
+};
+addEventListener('scroll',syncStep,{passive:true});addEventListener('resize',syncStep);
+syncStep();
+
+// ── abas: base teórica e telas do sistema ──
+const wire=(tabs,pick)=>tabs.forEach((t,i)=>{t.addEventListener('click',()=>pick(i));t.addEventListener('keydown',e=>{const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(k){e.preventDefault();e.stopPropagation();pick((i+k+tabs.length)%tabs.length,true);}});});
+const baseTabs=[...document.querySelectorAll('[data-tabs] [role=tab]')],panels=[...document.querySelectorAll('.tp')];
+wire(baseTabs,(i,focus)=>{baseTabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1;});panels.forEach((p,j)=>{p.hidden=j!==i;});if(focus)baseTabs[i].focus();});
+
+const CAP=[
+  ['Atlas 3D','Comece pelo corpo, não pelo texto.','Clique em qualquer estrutura para ver o nome, o sistema e o trecho da aula. Isole, oculte e troque de vista.'],
+  ['Aulas','Leia com o modelo ao lado.','13 aulas com painel 3D junto ao texto. Nas aprofundadas, 98 seções e cerca de 25 mil palavras. São 32 imagens e 45 termos ligados ao modelo.'],
+  ['Síntese e flashcards','Feche cada aula revisando.','Mecanismos passo a passo, perguntas de retomada, quadros de erro comum, síntese, “o que não confundir” e flashcards.'],
+  ['Trilha de estudo','Avance etapa por etapa.','Aula lida e quiz feito concluem a etapa. Cada etapa tem duração estimada e uma frase que a liga à anterior.'],
+  ['Questões de vestibular','Do sistema à questão.','127 questões em 12 agrupamentos: escolha o sistema, depois o tema e a questão. Cada cartão mostra vestibular e ano, e até dez aparecem ao fim do quiz.']
+];
+const tabs=[...document.querySelectorAll('[data-shots] [role=tab]')],imgs=[...document.querySelectorAll('.frame img')],panel=document.getElementById('shot');
+wire(tabs,(i,focus)=>{tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1;});imgs.forEach((im,j)=>{im.classList.toggle('on',j===i);if(j===i)im.loading='eager';});
+  panel.setAttribute('aria-labelledby','t'+i);
+  [document.getElementById('cap-k').textContent,document.getElementById('cap-h').textContent,document.getElementById('cap-t').textContent]=CAP[i];
+  if(focus)tabs[i].focus();});
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){imgs.forEach(im=>im.loading='eager');o.disconnect();}},{rootMargin:'400px'}).observe(panel);
+
+// ── questão interativa (res3 do quiz do respiratório) ──
+const sheet=document.getElementById('sheet'),ANS=3;
+sheet.addEventListener('change',e=>{
+  if(sheet.classList.contains('lock'))return;
+  const v=+e.target.value;const alts=[...sheet.querySelectorAll('.alt')];
+  alts[ANS].classList.add('ok');if(v!==ANS)alts[v].classList.add('bad');
+  sheet.querySelectorAll('input').forEach(i=>i.disabled=true);
+  document.getElementById('fb-t').textContent=v===ANS?'Resposta correta':'Não foi dessa vez';
+  document.getElementById('fb-xp').hidden=v!==ANS;
+  sheet.classList.add('lock');
+});
+sheet.addEventListener('submit',e=>e.preventDefault());
+document.getElementById('again').addEventListener('click',()=>{
+  sheet.classList.remove('lock');sheet.querySelectorAll('.alt').forEach(a=>a.classList.remove('ok','bad'));
+  sheet.querySelectorAll('input').forEach(i=>{i.disabled=false;i.checked=false;});sheet.querySelector('input').focus();
+});
+
+// ── setas ← e →: próxima parada; no pino, cada passo é uma parada ──
+const stops=[...document.querySelectorAll('[data-stop]')];
+let target=-1,keyAt=0;
+const here=()=>{let idx=0;const y=innerHeight*.5;stops.forEach((s,i)=>{if(s.getBoundingClientRect().top<=y)idx=i;});return idx;};
+addEventListener('keydown',e=>{
+  if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+  if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+  if(e.target.closest&&e.target.closest('input,textarea,select,.tb,[role=tab]'))return;
+  const from=performance.now()-keyAt<1200&&target>=0?target:here();
+  const i=from+(e.key==='ArrowRight'?1:-1);
+  if(i<0||i>=stops.length)return;
+  e.preventDefault();target=i;keyAt=performance.now();
+  if(i===0)scrollTo({top:0});else stops[i].scrollIntoView({block:stops[i].hasAttribute('data-center')?'center':'start'});
+});
+})();
+</script>
+</body>
+</html>

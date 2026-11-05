@@ -391,6 +391,7 @@ const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
 function serveStatic(req, res, pathname) {
   let rel;
   try { rel = decodeURIComponent(pathname).replace(/^\/+/, '') || 'index.html'; } catch (e) { rel = '\0'; }
+  if (rel === 'presentation') rel = 'presentation.html';   // igual ao rewrite do vercel.json
   const pf = PREVIEW && /^img\/q\//.test(rel) ? PREVIEW.mediaFile(rel) : null;   // figuras do banco de pré-visualização (staging/media)
   const file = pf || path.join(PUB, rel);
   const ok = !rel.includes('\0') && (pf || file.startsWith(PUB + path.sep)) && (req.method === 'GET' || req.method === 'HEAD') && fs.existsSync(file) && fs.statSync(file).isFile();
